@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Tack &amp; Talk Regatta 2027 planning export" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Tack &amp; Talk Regatta 2027</name>
+    <desc>ORIENTACNE PLANOVACIE SURADNICE. NIE SU URCENE NA NAVIGACIU. Pred plavbou overit v oficialnych namornych mapach.</desc>
+    <time>2026-08-08T00:00:00Z</time>
+  </metadata>
+  <wpt lat="43.943" lon="15.301">
+    <name>D-Marin Dalmacija, Sukošan</name>
+    <desc>2027-09-25 · štart</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.939" lon="15.16">
+    <name>Sali (Dugi otok)</name>
+    <desc>2027-09-26 · PROLOG</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.887" lon="15.165">
+    <name>Telašćica — uvala Mir</name>
+    <desc>2027-09-27 · medzizastávka</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.833" lon="15.283">
+    <name>ACI Žut</name>
+    <desc>2027-09-27 · E1</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.762" lon="15.345">
+    <name>ACI Piškera</name>
+    <desc>2027-09-28 · E2</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.818" lon="15.923">
+    <name>Skradin</name>
+    <desc>2027-09-29 · E3</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.83" lon="15.6">
+    <name>Betina (Murter)</name>
+    <desc>2027-09-30 · E4</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <wpt lat="43.943" lon="15.301">
+    <name>Sukošan</name>
+    <desc>2027-10-01 · E5</desc>
+    <sym>Anchor</sym>
+  </wpt>
+  <rte>
+    <name>TT27 — hlavna trasa</name>
+    <desc>125 nm · 25.9.-2.10.2027 · orientacne</desc>
+    <rtept lat="43.943" lon="15.301"><name>D-Marin Dalmacija, Sukošan</name></rtept>
+    <rtept lat="43.939" lon="15.16"><name>Sali (Dugi otok)</name></rtept>
+    <rtept lat="43.887" lon="15.165"><name>Telašćica — uvala Mir</name></rtept>
+    <rtept lat="43.833" lon="15.283"><name>ACI Žut</name></rtept>
+    <rtept lat="43.762" lon="15.345"><name>ACI Piškera</name></rtept>
+    <rtept lat="43.818" lon="15.923"><name>Skradin</name></rtept>
+    <rtept lat="43.83" lon="15.6"><name>Betina (Murter)</name></rtept>
+    <rtept lat="43.943" lon="15.301"><name>Sukošan</name></rtept>
+  </rte>
+</gpx>

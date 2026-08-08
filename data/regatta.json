@@ -1,0 +1,430 @@
+{
+  "$schema_version": "1.0",
+  "document_version": "2.0",
+  "generated": "2026-08-08",
+  "language": "sk",
+  "status": "planning",
+
+  "event": {
+    "name": "Tack & Talk Regatta 2027",
+    "short_name": "TT27",
+    "claim_sk": "Prevetraj svoj biznis",
+    "type": "business_regatta",
+    "description_sk": "Firemné plavebné podujatie so súťažným prvkom. Sedem dní, počas ktorých tímy spolu riešia reálne problémy. Bodovanie je rozdelené na polovicu medzi plavbu a obsahový program.",
+    "start_date": "2027-09-25",
+    "end_date": "2027-10-02",
+    "duration_nights": 7,
+    "checkin": "2027-09-25T17:00:00+02:00",
+    "checkout": "2027-10-02T09:00:00+02:00",
+    "country": "HR",
+    "region": "Dalmácia (Zadar / Šibenik)",
+    "base_marina": {
+      "name": "D-Marin Dalmacija",
+      "town": "Sukošan",
+      "lat": 43.9430,
+      "lon": 15.3010,
+      "coordinates_accuracy": "approximate"
+    }
+  },
+
+  "organization": {
+    "organizer": {
+      "name": "Tangreto s.r.o.",
+      "role": "organizátor a predaj",
+      "country": "SK"
+    },
+    "fleet_commander": {
+      "name": "Michal Hrivnák",
+      "role": "veliteľ flotily a hlavný rozhodca",
+      "authority": "Rozhodnutie o zrušení etapy, zmene trasy alebo zastavení flotily je konečné.",
+      "contract_status": "TODO — písomná zmluva a súhlas s použitím mena zatiaľ nepodpísané",
+      "bio": "TODO — doplniť v jeho vlastnej formulácii"
+    }
+  },
+
+  "fleet": {
+    "boats_total": 20,
+    "boats_contracted_firm": 12,
+    "boats_option": 8,
+    "option_release_deadline": "2027-02-28",
+    "crew_per_boat": 6,
+    "participants_total": 120,
+    "boat_class_target": "45–47 ft, 4 kajuty, jednotná flotila",
+    "uniform_fleet_required": true,
+    "uniform_fleet_reason": "Zmiešaná flotila vyžaduje handicap (ORC Club alebo koeficient podľa LOA) a spory o prepočty.",
+    "squadrons": {
+      "count": 5,
+      "boats_each": 4,
+      "lead_boat_has_pro_skipper": true
+    },
+    "skippers": {
+      "confirmed_professional": 5,
+      "realistic_need_estimate": "12–15",
+      "note": "Každá loď bez profi skippera potrebuje vlastného veliteľa s preukazom VMP + VHF. Firemné skupiny túto kvótu spravidla nenaplnia."
+    }
+  },
+
+  "route": {
+    "total_nm_approx": 125,
+    "daily_sailing_hours": "3–5",
+    "coordinates_disclaimer": "Súradnice sú orientačné, určené na plánovanie. NIE SÚ určené na navigáciu. Pred plavbou overiť v oficiálnych námorných mapách a lodných sprievodcoch.",
+    "legs": [
+      {
+        "day": 1,
+        "date": "2027-09-25",
+        "weekday": "sobota",
+        "type": "checkin",
+        "from": "Sukošan",
+        "to": "Sukošan",
+        "distance_nm": 0,
+        "scored": false,
+        "programme": ["16:00 preberanie lodí", "18:30 kapitánsky brífing", "20:00 otvárací večer, žrebovanie eskadier"]
+      },
+      {
+        "day": 2,
+        "date": "2027-09-26",
+        "weekday": "nedeľa",
+        "type": "prologue",
+        "from": "Sukošan",
+        "to": "Sali (Dugi otok)",
+        "to_lat": 43.9390,
+        "to_lon": 15.1600,
+        "distance_nm": 20,
+        "scored": false,
+        "leg_code": "PROLOG",
+        "programme": ["10:30 prológ", "17:00 blok Prvý dojem", "20:00 večera v Sali"]
+      },
+      {
+        "day": 3,
+        "date": "2027-09-27",
+        "weekday": "pondelok",
+        "type": "race",
+        "from": "Sali",
+        "via": ["Telašćica — uvala Mir"],
+        "via_lat": 43.8870,
+        "via_lon": 15.1650,
+        "to": "ACI Žut",
+        "to_lat": 43.8330,
+        "to_lon": 15.2830,
+        "distance_nm": 18,
+        "scored": true,
+        "leg_code": "E1",
+        "points_multiplier": 1,
+        "start_time": "14:00",
+        "programme": ["dopoludnia Telašćica, slané jazero Mir", "18:00 blok Vietor v chrbte — pitche", "grilovačka"]
+      },
+      {
+        "day": 4,
+        "date": "2027-09-28",
+        "weekday": "utorok",
+        "type": "race",
+        "from": "ACI Žut",
+        "to": "ACI Piškera",
+        "to_lat": 43.7620,
+        "to_lon": 15.3450,
+        "distance_nm": 12,
+        "scored": true,
+        "leg_code": "E2",
+        "points_multiplier": 1,
+        "start_time": "11:00",
+        "character": "krátka, technická, veľa obratov",
+        "programme": ["15:00 Výzva eskadier — 90 min, reálny biznis problém", "20:00 hodnotenie"],
+        "buffer_day": true
+      },
+      {
+        "day": 5,
+        "date": "2027-09-29",
+        "weekday": "streda",
+        "type": "race",
+        "from": "ACI Piškera",
+        "to": "Skradin",
+        "to_lat": 43.8180,
+        "to_lon": 15.9230,
+        "distance_nm": 28,
+        "scored": true,
+        "leg_code": "E3",
+        "points_multiplier": 1,
+        "start_time": "09:30",
+        "character": "najdlhšia etapa týždňa, sladká voda v cieli",
+        "programme": ["19:00 hlavný obsahový blok — externý rečník"]
+      },
+      {
+        "day": 6,
+        "date": "2027-09-30",
+        "weekday": "štvrtok",
+        "type": "race",
+        "from": "Skradin",
+        "to": "Betina (Murter)",
+        "to_lat": 43.8300,
+        "to_lon": 15.6000,
+        "distance_nm": 22,
+        "scored": true,
+        "leg_code": "E4",
+        "points_multiplier": 1,
+        "start_time": "15:00",
+        "programme": ["ráno výlet NP Krka — vodopády", "večer Voľné palubovky — riadený networking"],
+        "buffer_day": true
+      },
+      {
+        "day": 7,
+        "date": "2027-10-01",
+        "weekday": "piatok",
+        "type": "race",
+        "from": "Betina",
+        "to": "Sukošan",
+        "to_lat": 43.9430,
+        "to_lon": 15.3010,
+        "distance_nm": 25,
+        "scored": true,
+        "leg_code": "E5",
+        "points_multiplier": 2,
+        "start_time": "10:00",
+        "character": "finálová etapa, dvojnásobné body",
+        "programme": ["17:00 návrat, umývanie lodí", "20:00 gala večer, vyhlásenie výsledkov"]
+      },
+      {
+        "day": 8,
+        "date": "2027-10-02",
+        "weekday": "sobota",
+        "type": "checkout",
+        "from": "Sukošan",
+        "to": "Sukošan",
+        "distance_nm": 0,
+        "scored": false,
+        "programme": ["09:00 odovzdanie lodí"]
+      }
+    ],
+    "bad_weather_alternative": {
+      "trigger": "bura alebo predpoveď nad 25 uzlov",
+      "description": "Vnútorná línia cez Pašmanský kanál — kratšie skoky, krytá voda.",
+      "waypoints": ["Biograd na Moru", "Murter", "Vodice"],
+      "programme_impact": "žiadny — obsahový program zostáva"
+    },
+    "national_parks": ["NP Kornati", "NP Krka", "Park prírody Telašćica"]
+  },
+
+  "scoring": {
+    "system": "low_point",
+    "unit": "squadron",
+    "formula": "total = 0.5 * sailing_points + 0.5 * shore_points_inverted",
+    "winner": "najnižší súčet",
+    "sailing": {
+      "points_rule": "umiestnenie 1–20 = 1–20 bodov",
+      "dnf_points": 21,
+      "dsq_points": 21,
+      "squadron_score": "súčet bodov 4 lodí, prepočítaný na priemer",
+      "discard": {
+        "enabled": true,
+        "count": 1,
+        "applies_to": ["E1", "E2", "E3", "E4"],
+        "excluded": ["E5"],
+        "rationale": "Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
+      },
+      "engine_use": {
+        "penalty": "diskvalifikácia z danej etapy, nie z regaty",
+        "reporting": "čestné hlásenie na VHF 72",
+        "exemptions": ["bezpečnostná situácia", "pomoc inej lodi", "vstup a výstup z prístavu", "pokyn organizátora"]
+      },
+      "safety_retirement": {
+        "penalty": "žiadna",
+        "award": "priemer dovtedajších etáp",
+        "principle": "Za opatrnosť sa netrestá."
+      }
+    },
+    "shore": {
+      "max_points": 100,
+      "inversion": "100 získaných bodov = 1 miesto",
+      "blocks": [
+        { "name": "Prvý dojem", "day": "nedeľa", "max": 10 },
+        { "name": "Vietor v chrbte — pitche", "day": "pondelok", "max": 20 },
+        { "name": "Výzva eskadier", "day": "utorok", "max": 30 },
+        { "name": "Hlavný blok", "day": "streda", "max": 15 },
+        { "name": "Voľné palubovky", "day": "štvrtok", "max": 15 },
+        { "name": "Prístavná disciplína a duch podujatia", "day": "priebežne", "max": 10 }
+      ]
+    },
+    "tiebreak": ["výsledok E5", "vyšší počet lepších umiestnení v plavebnej vetve", "body z Výzvy eskadier"],
+    "publication": "každý večer do 21:00",
+    "protest_deadline": "09:00 nasledujúceho dňa, ústne u hlavného rozhodcu"
+  },
+
+  "start_procedure": {
+    "line": "medzi organizačnou loďou (oranžová vlajka) a bójou",
+    "signals": [
+      { "offset_min": -5, "type": "prípravný" },
+      { "offset_min": -1, "type": "varovný" },
+      { "offset_min": 0, "type": "štart" }
+    ],
+    "premature_start_penalty": "+5 bodov ak sa loď nevráti",
+    "late_start_rule": "štart neskôr než 15 min po signále = zapísaný čas 15:00"
+  },
+
+  "safety_rules": [
+    { "id": "5.1", "rule": "Zákaz nočnej plavby", "hard": true },
+    { "id": "5.2", "rule": "Vietor nad 25 uzlov — etapu ruší veliteľ flotily, presun v konvoji na motor", "hard": true },
+    { "id": "5.3", "rule": "Záchranné vesty povinné v noci, nad 20 uzlov, pri MOB, pre neplavcov a deti", "hard": true },
+    { "id": "5.4", "rule": "Nulová tolerancia alkoholu u kapitána a kormidelníka počas plavby", "hard": true },
+    { "id": "5.5", "rule": "MOB — volanie na VHF 16 aj 72, najbližšie lode prerušujú etapu bez penalizácie", "hard": true },
+    { "id": "5.6", "rule": "Poškodenie hlásiť okamžite — zatajená škoda znamená stratu poistného krytia", "hard": true },
+    { "id": "5.7", "rule": "Za opatrnosť sa netrestá — bezpečnostné vzdanie = priemer dovtedajších etáp", "hard": false }
+  ],
+
+  "communication_channels": {
+    "fleet_vhf": 72,
+    "emergency_vhf": 16,
+    "morning_rollcall": "08:30 na VHF 72, v poradí štartovacích čísel",
+    "whatsapp": "len organizačné informácie, nikdy nie bezpečnostná komunikácia"
+  },
+
+  "emergency_contacts": [
+    { "name": "MRCC Chorvátsko", "phone": "195", "vhf": 16, "verify_before_print": true },
+    { "name": "Tiesňová linka", "phone": "112", "verify_before_print": true }
+  ],
+
+  "budget": {
+    "currency": "EUR",
+    "disclaimer": "Modelové odhady na základe bežných sadzieb pre koniec septembra v Dalmácii. Pred záväzkom overiť konkrétnou ponukou. Charterové ceny sa medziročne hýbu o 10–15 %.",
+    "per_boat_7_nights": {
+      "charter_45_47ft": [2800, 3500],
+      "transit_log_cleaning_linen": [300, 400],
+      "fuel": [150, 250],
+      "marina_fees_5_nights": [500, 650],
+      "subtotal": [3750, 4800],
+      "professional_skipper": [1400, 1800]
+    },
+    "per_person": {
+      "boat_share": [625, 800],
+      "skipper_share": [235, 300],
+      "national_park_entries": [55, 75],
+      "shared_dinners": [180, 240],
+      "event_fee": [120, 160],
+      "own_food_drinks": [150, 200],
+      "total_excl_transport": [1130, 1480],
+      "transport_sk_to_sukosan": [80, 160]
+    },
+    "total_event_120_pax": [145000, 190000],
+    "deposits": {
+      "charter_deposit_pct": [30, 40],
+      "charter_deposit_eur": [25000, 34000],
+      "due": "2026-12",
+      "security_deposit_per_boat": [2000, 3000],
+      "recommendation": "poistenie spoluúčasti ~250 €/loď namiesto blokovania 20 firemných kariet"
+    }
+  },
+
+  "pricing": {
+    "currency": "EUR",
+    "locked": true,
+    "packages": [
+      { "code": "BOAT_BAREBOAT", "name": "Celá loď — bareboat", "price": 10400, "pax": 6, "price_per_person": 1733 },
+      { "code": "BOAT_SKIPPER", "name": "Celá loď — so skipperom", "price": 12200, "pax": 6 },
+      { "code": "BOAT_LEAD", "name": "Vedúca loď eskadry", "price": 13500, "pax": 6 },
+      { "code": "SEAT", "name": "Jednotlivé miesto", "price": 1890, "pax": 1 },
+      { "code": "PARTNER", "name": "Partner podujatia", "price": 18000, "includes": ["loď", "logo na všetkých materiáloch", "20-min blok v stredu večer"] }
+    ],
+    "discounts": [
+      { "code": "FOUNDING", "name": "Zakladajúca eskadra", "pct": 10, "valid_until": "2026-11-30" },
+      { "code": "EARLYBIRD", "name": "Early bird", "pct": 5, "valid_until": "2027-02-28" },
+      { "code": "SECOND_BOAT", "name": "Druhá loď tej istej firmy", "pct": 5 }
+    ],
+    "no_discount_after": "2027-02-28",
+    "no_discount_rule": "Po tomto dátume sa cena nezníži za žiadnych okolností, ani na úkor nenaplnenej flotily. Ak treba dopredať, mení sa obsah balíčka, nie cena."
+  },
+
+  "sales": {
+    "primary_unit": "loď, nie jednotlivé miesto",
+    "rationale": "20 obchodov namiesto 120. Firemný rozpočet, jeden rozhodovateľ, posádka príde hotová.",
+    "funnel": [
+      { "stage": "firmy v cielenom zozname", "count": 150 },
+      { "stage": "oslovené osobne", "count": 150, "conversion_pct": 100 },
+      { "stage": "prvý rozhovor", "count": 45, "conversion_pct": 30 },
+      { "stage": "poslaná ponuka", "count": 30, "conversion_pct": 65 },
+      { "stage": "predaná loď", "count": 20, "conversion_pct": 65 }
+    ],
+    "target_company_criteria": [
+      "15–200 zamestnancov",
+      "rozpočet na firemnú akciu",
+      "aspoň jeden človek vo vedení so vzťahom k moru, športu alebo cestovaniu",
+      "vlastný marketing = lepší kandidát na partnerstvo"
+    ],
+    "channels": [
+      { "name": "osobné oslovenie", "share_pct": 80, "note": "LinkedIn správa alebo telefonát od organizátora, nie od agentúry" },
+      { "name": "LinkedIn organicky", "share_pct": 15, "note": "1 príspevok týždenne, príbeh prípravy, nie propagácia" },
+      { "name": "referencie zakladajúcich firiem", "share_pct": 5 },
+      { "name": "Michal Hrivnák ako tvár", "share_pct": null, "note": "prierezovo, rieši prvú námietku: je to bezpečné?" }
+    ],
+    "live_event": {
+      "when": "2027-02",
+      "where": "Bratislava",
+      "format": "večer pre 40 pozvaných riaditeľov",
+      "expected_yield_boats": [4, 6]
+    }
+  },
+
+  "milestones": [
+    { "date": "2026-09-30", "task": "Zoznam 150 cieľových firiem", "owner": "Tangreto", "critical": false },
+    { "date": "2026-10-15", "task": "Oslovenie 6 firiem na Zakladajúcu eskadru", "owner": "Tangreto", "critical": false },
+    { "date": "2026-10-31", "task": "Dopyt na 3 charterové spoločnosti v Sukošane, model 12+8", "owner": "Tangreto", "critical": true },
+    { "date": "2026-10-31", "task": "Logo, identita, web, predajná prezentácia", "owner": "Tangreto", "critical": false },
+    { "date": "2026-11-30", "task": "Spustenie webu a LinkedIn — bez predajnej výzvy", "owner": "Tangreto", "critical": false },
+    { "date": "2026-11-30", "task": "KONTROLA: 8 zaplatených lodí — áno alebo nie", "owner": "Tangreto", "critical": true,
+      "decision_rule": "Ak nie, nepodpisovať na 20 lodí. Podpísať na 12 a robiť menšiu akciu." },
+    { "date": "2026-11-30", "task": "Zber preukazov VMP + VHF od zakladajúcich posádok", "owner": "Tangreto", "critical": true },
+    { "date": "2026-12-31", "task": "Podpis charterovej zmluvy 12+8, úhrada zálohy", "owner": "Tangreto", "critical": true },
+    { "date": "2026-12-31", "task": "Otvorenie verejného prihlasovania — až po podpise", "owner": "Tangreto", "critical": true },
+    { "date": "2027-01-31", "task": "Rezervácia skipperov podľa zistenej medzery", "owner": "Tangreto", "critical": true },
+    { "date": "2027-02-28", "task": "Blokácia marín Sali, Žut, Piškera, Skradin, Betina", "owner": "Tangreto", "critical": true },
+    { "date": "2027-02-28", "task": "Event v Bratislave, koniec early birdu", "owner": "Tangreto", "critical": false },
+    { "date": "2027-02-28", "task": "Uplatnenie alebo pustenie opcie na 8 lodí", "owner": "Tangreto", "critical": true,
+      "decision_rule": "Pod 14 predaných lodí = opciu neuplatniť, ísť s 12 loďami a 3 eskadrami, cenu nemeniť." },
+    { "date": "2027-04-30", "task": "Doplnenie na 20 lodí, uzávierka partnerstiev", "owner": "Tangreto", "critical": false },
+    { "date": "2027-06-30", "task": "Doplatok charteru, rečník, merch, catering", "owner": "Tangreto", "critical": true },
+    { "date": "2027-07-31", "task": "Finálny zoznam posádok, rozdelenie do eskadier", "owner": "Tangreto", "critical": false },
+    { "date": "2027-09-15", "task": "Online brífing, packing list, tlač inštrukcií", "owner": "Tangreto", "critical": false }
+  ],
+
+  "decisions_confirmed": [
+    { "id": 1, "topic": "Model zmluvy", "value": "12 lodí pevne + 8 opcia do 2027-02-28", "confirmed": true },
+    { "id": 2, "topic": "Cena za loď", "value": "10400 EUR bareboat, 6 osôb", "confirmed": true },
+    { "id": 3, "topic": "Komunikácia", "value": "Web a LinkedIn od 11/2026, predajná výzva až po podpise zmluvy", "confirmed": true },
+    { "id": 4, "topic": "Kto predáva", "value": "Tangreto s.r.o.", "confirmed": true },
+    { "id": 5, "topic": "Cenová politika", "value": "Po 2027-02-28 žiadne zľavy", "confirmed": true },
+    { "id": 6, "topic": "Strop vlastných peňazí", "value": "50000 EUR", "confirmed": true }
+  ],
+
+  "open_items": [
+    { "id": "A", "topic": "Právna forma predaja", "severity": "high",
+      "description": "Balíček ubytovanie + služby + program za jednu cenu môže spadať pod slovenský zákon o zájazdoch — licencia CK a poistenie pre prípad úpadku. Posúdiť advokátom pred podpisom charterovej zmluvy.",
+      "deadline": "2026-11-30" },
+    { "id": "B", "topic": "Zmluva s Michalom Hrivnákom", "severity": "high",
+      "description": "Písomný súhlas s použitím mena a fotografie pred prvým verejným použitím. Zmluva o účasti vrátane riešenia zastupiteľnosti.",
+      "deadline": "2026-10-31" },
+    { "id": "C", "topic": "Menovitá zodpovednosť za predaj vo vnútri Tangreto", "severity": "medium",
+      "description": "150 kontaktov a 45 rozhovorov potrebuje konkrétneho človeka a fixný čas v týždennom rozvrhu.",
+      "deadline": "2026-09-30" },
+    { "id": "D", "topic": "Životopis Michala Hrivnáka", "severity": "low",
+      "description": "Pre web a predajné materiály, v jeho vlastnej formulácii.",
+      "deadline": "2026-10-31" },
+    { "id": "E", "topic": "Skipper gap", "severity": "high",
+      "description": "5 potvrdených profi skipperov vs. realistická potreba 12–15. Zistí sa až po zbere preukazov v 11/2026.",
+      "deadline": "2027-01-31" }
+  ],
+
+  "branded_assets": {
+    "packages": ["plachtárske inštrukcie (PDF, 6 strán)", "komunikačný a predajný plán (PDF, 7 strán)"],
+    "design_system": {
+      "fonts": { "primary": "Poppins", "weights": [300, 400, 500, 700] },
+      "colors": {
+        "navy": "#0B2545",
+        "deep": "#13395E",
+        "brass": "#C08A2E",
+        "sand": "#F6F2E9",
+        "red": "#9E2A2B",
+        "green": "#1F6B4A",
+        "grey": "#5A6472",
+        "line": "#D8DEE6"
+      },
+      "logo_rule": "Ampersand v logotype je mosadzný (#C08A2E), zvyšok bielý na navy podklade."
+    }
+  }
+}
