@@ -1,13 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
 
-export const metadata: Metadata = {
-  title: "Tack & Talk Regatta 2027 | Prevetraj svoj biznis",
-  description:
-    "Pripravovaná firemná plachtárska regata s biznis programom v chorvátskej Dalmácii, 25. 9. - 2. 10. 2027.",
-};
+export const dynamic = "force-static";
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("sk-SK", {
@@ -337,7 +331,6 @@ export default function Home() {
           <p>Organizátor: Tangreto s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
         </div>
-        <Link href="/admin" className="admin-link">Admin</Link>
       </footer>
     </main>
   );

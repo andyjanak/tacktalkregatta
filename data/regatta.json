@@ -37,8 +37,9 @@
       "name": "Michal Hrivnák",
       "role": "veliteľ flotily a hlavný rozhodca",
       "authority": "Rozhodnutie o zrušení etapy, zmene trasy alebo zastavení flotily je konečné.",
-      "contract_status": "TODO — písomná zmluva a súhlas s použitím mena zatiaľ nepodpísané",
-      "bio": "TODO — doplniť v jeho vlastnej formulácii"
+      "contract_status": "Písomná zmluva a súhlas s použitím mena a fotografie podpísané — potvrdené organizátorom 2026-08-09",
+      "bio": "Zakladateľ Tangreto sa plachteniu venuje od detstva, na otvorenom mori od roku 2003 a regatám od roku 2013. Podľa oficiálneho profilu má za sebou viac než 30 000 námorných míľ.",
+      "bio_source": "https://www.tangreto.com/about-us/"
     }
   },
 
@@ -396,15 +397,9 @@
     { "id": "A", "topic": "Právna forma predaja", "severity": "high",
       "description": "Balíček ubytovanie + služby + program za jednu cenu môže spadať pod slovenský zákon o zájazdoch — licencia CK a poistenie pre prípad úpadku. Posúdiť advokátom pred podpisom charterovej zmluvy.",
       "deadline": "2026-11-30" },
-    { "id": "B", "topic": "Zmluva s Michalom Hrivnákom", "severity": "high",
-      "description": "Písomný súhlas s použitím mena a fotografie pred prvým verejným použitím. Zmluva o účasti vrátane riešenia zastupiteľnosti.",
-      "deadline": "2026-10-31" },
     { "id": "C", "topic": "Menovitá zodpovednosť za predaj vo vnútri Tangreto", "severity": "medium",
       "description": "150 kontaktov a 45 rozhovorov potrebuje konkrétneho človeka a fixný čas v týždennom rozvrhu.",
       "deadline": "2026-09-30" },
-    { "id": "D", "topic": "Životopis Michala Hrivnáka", "severity": "low",
-      "description": "Pre web a predajné materiály, v jeho vlastnej formulácii.",
-      "deadline": "2026-10-31" },
     { "id": "E", "topic": "Skipper gap", "severity": "high",
       "description": "5 potvrdených profi skipperov vs. realistická potreba 12–15. Zistí sa až po zbere preukazov v 11/2026.",
       "deadline": "2027-01-31" }

@@ -44,10 +44,9 @@ Každý výstup obsahujúci súradnice musí niesť poznámku, že pred plavbou 
 ani formuláciu typu „ozvite sa, dohodneme sa na cene". Dopredáva sa obsahom balíčka, nie cenou.
 
 ### Meno Michala Hrivnáka
-`open_items[B]` je otvorený — zmluva a súhlas s použitím mena zatiaľ **nie sú podpísané**.
-Kým sa to nezmení, negeneruj verejné materiály, ktoré jeho meno používajú ako predajný argument.
-Nikdy mu nevymýšľaj životopis, referencie ani zásluhy — `organization.fleet_commander.bio` je TODO
-a doplní ho on sám.
+Písomná zmluva a súhlas s použitím mena a fotografie sú podpísané; organizátor to potvrdil 9. 8. 2026.
+Vo verejných materiáloch používaj iba fakty uvedené v `organization.fleet_commander.bio` a v jeho
+oficiálnom profile na Tangreto. Nevymýšľaj mu životopis, referencie ani zásluhy.
 
 ### Predaj pred podpisom zmluvy
 Do podpisu charterovej zmluvy (12/2026) sa komunikuje **koncept a príprava**, nie garantovaná kapacita.

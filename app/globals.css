@@ -219,7 +219,6 @@ main { overflow: hidden; }
 footer { padding: 55px clamp(24px, 7vw, 112px); display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 40px; color: white; background: var(--navy); border-top: 1px solid rgba(255,255,255,.12); }
 footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
 .footer-meta p { margin: 5px 0; }
-.admin-link { color: #8194a8; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; border-bottom: 1px solid #526a82; }
 
 /* Admin */
 .admin-shell { min-height: 100vh; overflow: visible; color: var(--ink); background: #f3f1ec; }

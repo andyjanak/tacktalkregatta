@@ -23,6 +23,9 @@ function formatDate(value: string) {
 export default async function AdminPage() {
   const user = await requireChatGPTUser("/admin");
   const nextMilestones = regatta.milestones.slice(0, 8);
+  const criticalOpenItems = regatta.open_items.filter(
+    (item) => item.severity === "high",
+  ).length;
 
   return (
     <main className="admin-shell">
@@ -49,7 +52,7 @@ export default async function AdminPage() {
           <article><p>Model flotily</p><strong>12 + 8</strong><span>lodí pevne + opcia</span></article>
           <article><p>Cieľová kapacita</p><strong>{regatta.fleet.participants_total}</strong><span>účastníkov</span></article>
           <article><p>Test dopytu</p><strong>8</strong><span>lodí do 30. 11. 2026</span></article>
-          <article><p>Otvorené témy</p><strong>{regatta.open_items.length}</strong><span>z toho 3 kritické</span></article>
+          <article><p>Otvorené témy</p><strong>{regatta.open_items.length}</strong><span>z toho {criticalOpenItems} kritické</span></article>
         </section>
 
         <div className="admin-grid">

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
+import {
+  indexingEnabled,
+  siteDescription,
+  siteTitle,
+  siteUrl,
+} from "./site-config";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -10,43 +15,52 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "localhost:3000";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.startsWith("localhost") ? "http" : "https");
-  const imageUrl = new URL("/og.png", `${protocol}://${host}`);
-
-  return {
-    title: {
-      default: "Tack & Talk Regatta 2027",
-      template: "%s | Tack & Talk Regatta 2027",
+export const metadata: Metadata = {
+  metadataBase: siteUrl,
+  title: {
+    default: siteTitle,
+    template: "%s | Tack & Talk Regatta 2027",
+  },
+  description: siteDescription,
+  alternates: { canonical: "/" },
+  robots: {
+    index: indexingEnabled,
+    follow: indexingEnabled,
+    googleBot: {
+      index: indexingEnabled,
+      follow: indexingEnabled,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
-    description:
-      "Firemná plachtárska regata s biznis programom v chorvátskej Dalmácii.",
-    icons: {
-      icon: "/favicon.png",
-      shortcut: "/favicon.png",
-    },
-    openGraph: {
-      type: "website",
-      locale: "sk_SK",
-      title: "Tack & Talk Regatta 2027",
-      description: "Prevetraj svoj biznis. 25. 9. - 2. 10. 2027, Dalmácia.",
-      images: [{ url: imageUrl, width: 1731, height: 909, alt: "Tack & Talk Regatta 2027" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Tack & Talk Regatta 2027",
-      description: "Prevetraj svoj biznis. 25. 9. - 2. 10. 2027, Dalmácia.",
-      images: [imageUrl],
-    },
-  };
-}
+  },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "sk_SK",
+    url: "/",
+    siteName: "Tack & Talk Regatta 2027",
+    title: siteTitle,
+    description: siteDescription,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tack & Talk Regatta 2027 — Prevetraj svoj biznis",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og.jpg"],
+  },
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
