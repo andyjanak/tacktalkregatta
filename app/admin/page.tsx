@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import regatta from "@/data/regatta.json";
-import { chatGPTSignOutPath, requireChatGPTUser } from "../chatgpt-auth";
+import type { InquiryWithActivities } from "@/db/inquiries";
+import {
+  chatGPTSignOutPath,
+  isAdminUser,
+  requireChatGPTUser,
+} from "../chatgpt-auth";
+import AdminDashboard from "./AdminDashboard";
 
 export const dynamic = "force-dynamic";
 
@@ -22,10 +28,39 @@ function formatDate(value: string) {
 
 export default async function AdminPage() {
   const user = await requireChatGPTUser("/admin");
-  const nextMilestones = regatta.milestones.slice(0, 8);
-  const criticalOpenItems = regatta.open_items.filter(
-    (item) => item.severity === "high",
-  ).length;
+
+  if (!isAdminUser(user)) {
+    return (
+      <main className="admin-shell admin-denied">
+        <section>
+          <p className="panel-kicker">Tack &amp; Talk Admin</p>
+          <h1>Nemáte prístup.</h1>
+          <p>
+            Prihlásený účet nie je na zozname správcov. Požiadajte Andreja
+            o pridanie e-mailovej adresy {user.email}.
+          </p>
+          <a href={chatGPTSignOutPath("/admin")}>Prihlásiť sa iným účtom</a>
+        </section>
+      </main>
+    );
+  }
+
+  let storageReady = true;
+  let inquiryRows: InquiryWithActivities[] = [];
+  try {
+    const { listInquiries } = await import("@/db/inquiries");
+    inquiryRows = await listInquiries();
+  } catch (error) {
+    storageReady = false;
+    if (
+      !(error instanceof Error)
+      || (error as Error & { code?: string }).code !== "ERR_UNSUPPORTED_ESM_URL_SCHEME"
+    ) {
+      console.error("Inquiry storage is unavailable", error);
+    }
+  }
+
+  const nextMilestones = regatta.milestones.slice(0, 6);
 
   return (
     <main className="admin-shell">
@@ -33,32 +68,28 @@ export default async function AdminPage() {
         <Link href="/" className="admin-brand">
           TACK <span>&amp;</span> TALK <b>2027</b>
         </Link>
-        <div className="admin-user">
+        <nav className="admin-user" aria-label="Používateľské menu">
           <span>{user.displayName}</span>
+          <Link href="/">Web</Link>
           <a href={chatGPTSignOutPath("/")}>Odhlásiť</a>
-        </div>
+        </nav>
       </header>
 
       <div className="admin-content">
         <div className="admin-title-row">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Interný prehľad</p>
-            <h1>Príprava TT27</h1>
+            <p className="eyebrow eyebrow-dark"><span /> Dopyty a požiadavky</p>
+            <h1>Obchodný prehľad</h1>
           </div>
-          <div className="admin-state"><span /> Fáza: príprava</div>
+          <div className="admin-state"><span /> Interný panel</div>
         </div>
 
-        <section className="admin-stats" aria-label="Základné ukazovatele">
-          <article><p>Model flotily</p><strong>12 + 8</strong><span>lodí pevne + opcia</span></article>
-          <article><p>Cieľová kapacita</p><strong>{regatta.fleet.participants_total}</strong><span>účastníkov</span></article>
-          <article><p>Test dopytu</p><strong>8</strong><span>lodí do 30. 11. 2026</span></article>
-          <article><p>Otvorené témy</p><strong>{regatta.open_items.length}</strong><span>z toho {criticalOpenItems} kritické</span></article>
-        </section>
+        <AdminDashboard initialInquiries={inquiryRows} storageReady={storageReady} />
 
-        <div className="admin-grid">
+        <div className="admin-secondary-grid">
           <section className="admin-panel">
             <div className="panel-heading">
-              <div><p className="panel-kicker">Launch gates</p><h2>Čo musí byť uzavreté</h2></div>
+              <div><p className="panel-kicker">Launch gates</p><h2>Otvorené témy</h2></div>
               <span>{regatta.open_items.length} otvorených</span>
             </div>
             <div className="issue-list">
@@ -72,40 +103,25 @@ export default async function AdminPage() {
             </div>
           </section>
 
-          <aside className="admin-panel admin-registration">
-            <div className="lock-mark">×</div>
-            <p className="panel-kicker">Registrácia</p>
-            <h2>Zatiaľ uzamknutá</h2>
-            <p>
-              Formulár, zmluvné súhlasy a databázu registrácií spustíme až po
-              právnom posúdení balíčka a podpise charterovej zmluvy.
-            </p>
-            <dl>
-              <div><dt>Právna forma</dt><dd>otvorená</dd></div>
-              <div><dt>Charter 12 + 8</dt><dd>do 12/2026</dd></div>
-              <div><dt>Plánované otvorenie</dt><dd>po podpise</dd></div>
-            </dl>
-          </aside>
+          <section className="admin-panel milestones-panel">
+            <div className="panel-heading">
+              <div><p className="panel-kicker">Najbližšie míľniky</p><h2>Príprava projektu</h2></div>
+            </div>
+            <div className="milestone-list compact">
+              {nextMilestones.map((item, index) => (
+                <article key={`${item.date}-${item.task}`}>
+                  <span className={`milestone-marker ${item.critical ? "critical" : ""}`}>{index + 1}</span>
+                  <time dateTime={item.date}>{formatDate(item.date)}</time>
+                  <p>{item.task}</p>
+                  <span className="owner">{item.owner}</span>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
 
-        <section className="admin-panel milestones-panel">
-          <div className="panel-heading">
-            <div><p className="panel-kicker">Najbližšie míľniky</p><h2>Príprava do podpisu</h2></div>
-          </div>
-          <div className="milestone-list">
-            {nextMilestones.map((item, index) => (
-              <article key={`${item.date}-${item.task}`}>
-                <span className={`milestone-marker ${item.critical ? "critical" : ""}`}>{index + 1}</span>
-                <time dateTime={item.date}>{formatDate(item.date)}</time>
-                <p>{item.task}</p>
-                <span className="owner">{item.owner}</span>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <p className="admin-source-note">
-          Zdroj pravdy: regatta.json · verzia {regatta.document_version} · údaje
+          Projektové údaje: regatta.json · verzia {regatta.document_version} ·
           aktualizované {formatDate(regatta.generated)}
         </p>
       </div>

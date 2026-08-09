@@ -1,5 +1,6 @@
 import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
+import InterestForm from "./InterestForm";
 
 export const dynamic = "force-static";
 
@@ -467,20 +468,15 @@ export default function Home() {
       <section className="section section-final" id="stav">
         <p className="eyebrow"><span /> Ďalší krok</p>
         <h2>Ešte nezaväzuje.<br />Len vás nechá pri tom.</h2>
-        <p>
+        <p className="final-intro">
           Prihlasovanie zatiaľ nie je otvorené — flotilu a termíny dolaďujeme
-          a nechceme sľubovať miesta, kým ich nemáme potvrdené. Napíšte nám a
-          ozveme sa, keď bude pripravený ďalší krok.
+          a nechceme sľubovať miesta, kým ich nemáme potvrdené. Nechajte nám
+          kontakt a ozveme sa, keď bude pripravený ďalší krok.
         </p>
-        <a
-          className="button button-brass final-cta"
-          href="mailto:info@tangreto.com?subject=Tack%20%26%20Talk%20Regatta%202027%20%E2%80%94%20chcem%20vedie%C5%A5%20viac"
-        >
-          Chcem vedieť viac <span aria-hidden="true">→</span>
-        </a>
+        <InterestForm />
         <p className="final-note">
-          Nezáväzné. Neposielame hromadné newslettery — iba informácie o tomto
-          podujatí.
+          Nezáväzné. Nejde o registráciu ani rezerváciu miesta. Neposielame
+          hromadné newslettery — iba informácie o tomto podujatí.
         </p>
         <div className="readiness">
           <div><span className="done" /> Koncept a trasa <strong>pripravené</strong></div>

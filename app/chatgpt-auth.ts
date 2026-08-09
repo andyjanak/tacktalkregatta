@@ -17,6 +17,10 @@ const PERCENT_ENCODED_UTF8 = "percent-encoded-utf-8";
 const SIGN_IN_PATH = "/signin-with-chatgpt";
 const SIGN_OUT_PATH = "/signout-with-chatgpt";
 const CALLBACK_PATH = "/callback";
+const DEFAULT_ADMIN_USER_IDS = new Set([
+  "3a1e2c0b-8f17-448f-b064-95ce2bd86294",
+]);
+const DEFAULT_ADMIN_EMAILS = new Set(["hrivnak.michal@gmail.com"]);
 
 export async function getChatGPTUser(): Promise<ChatGPTUser | null> {
   const requestHeaders = await headers();
@@ -46,6 +50,19 @@ export async function requireChatGPTUser(
   if (user) return user;
 
   redirect(chatGPTSignInPath(returnTo));
+}
+
+export async function getAdminUser(): Promise<ChatGPTUser | null> {
+  const user = await getChatGPTUser();
+  if (!user) return null;
+
+  return isAdminUser(user) ? user : null;
+}
+
+export function isAdminUser(user: ChatGPTUser): boolean {
+  const normalizedEmail = user.email.trim().toLowerCase();
+  return DEFAULT_ADMIN_USER_IDS.has(user.userId)
+    || DEFAULT_ADMIN_EMAILS.has(normalizedEmail);
 }
 
 export function chatGPTSignInPath(returnTo: string): string {

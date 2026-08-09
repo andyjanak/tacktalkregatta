@@ -39,6 +39,8 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /Časté otázky/i);
   assert.match(html, /info@tangreto\.com/i);
   assert.match(html, /Chcem vedieť viac/i);
+  assert.match(html, /Meno a priezvisko/i);
+  assert.match(html, /Nejde o registráciu ani rezerváciu miesta/i);
   assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
   assert.match(html, /aria-label="Mobilná navigácia"/i);
   assert.match(html, /href="#program"/i);
@@ -56,15 +58,26 @@ test("admin requires authenticated identity", async () => {
   );
 });
 
-test("authenticated admin renders the launch gates", async () => {
+test("allowed admin renders the inquiry workspace", async () => {
   const response = await render("/admin", {
     "oai-authenticated-user-id": "test-user",
-    "oai-authenticated-user-email": "admin@example.com",
+    "oai-authenticated-user-email": "hrivnak.michal@gmail.com",
   });
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Príprava TT27/i);
-  assert.match(html, /Registrácia/i);
-  assert.match(html, /Zatiaľ uzamknutá/i);
+  assert.match(html, /Obchodný prehľad/i);
+  assert.match(html, /Dopyty a požiadavky/i);
+  assert.match(html, /Export CSV/i);
   assert.match(html, /Právna forma predaja/i);
+});
+
+test("authenticated non-admin is denied", async () => {
+  const response = await render("/admin", {
+    "oai-authenticated-user-id": "other-user",
+    "oai-authenticated-user-email": "other@example.com",
+  });
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Nemáte prístup/i);
+  assert.doesNotMatch(html, /Export CSV/i);
 });
