@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 const links = [
   ["Koncept", "#koncept"],
+  ["Pre koho", "#pre-koho"],
   ["Trasa", "#trasa"],
   ["Program", "#program"],
-  ["Záštita", "#zastita"],
-  ["Balíky", "#baliky"],
-  ["Stav prípravy", "#stav"],
+  ["Časté otázky", "#faq"],
+  ["Kontakt", "#kontakt"],
 ] as const;
 
 export default function MobileNav() {

@@ -31,13 +31,19 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /<html[^>]*lang="sk"/i);
   assert.match(html, /Tack &amp; Talk Regatta 2027/i);
   assert.match(html, /Prevetraj svoj biznis/i);
-  assert.match(html, /Registráciu ešte nie/i);
+  assert.match(html, /Ešte nezaväzuje/i);
   assert.match(html, /Bezpečnosť má prednosť pred súťažou/i);
   assert.match(html, /Pod záštitou Michala Hrivnáka/i);
+  assert.match(html, /Pre tímy, ktoré spolu rozhodujú/i);
+  assert.match(html, /Dve platby/i);
+  assert.match(html, /Časté otázky/i);
+  assert.match(html, /info@tangreto\.com/i);
+  assert.match(html, /Chcem vedieť viac/i);
   assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
   assert.match(html, /aria-label="Mobilná navigácia"/i);
   assert.match(html, /href="#program"/i);
   assert.match(html, /property="og:image"/i);
+  assert.doesNotMatch(html, /10\s*400\s*€/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/i);
 });
 

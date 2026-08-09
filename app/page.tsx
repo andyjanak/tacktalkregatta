@@ -3,13 +3,6 @@ import MobileNav from "./MobileNav";
 
 export const dynamic = "force-static";
 
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("sk-SK", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(value);
-
 const dateFormatter = new Intl.DateTimeFormat("sk-SK", {
   day: "numeric",
   month: "short",
@@ -17,18 +10,6 @@ const dateFormatter = new Intl.DateTimeFormat("sk-SK", {
 
 const routeLegs = regatta.route.legs.filter(
   (leg) => leg.type !== "checkin" && leg.type !== "checkout",
-);
-
-const packageNotes: Record<string, string> = {
-  BOAT_BAREBOAT: "6-členná firemná posádka s vlastným kvalifikovaným kapitánom.",
-  BOAT_SKIPPER: "Celá firemná loď s profesionálnym skipperom.",
-  BOAT_LEAD: "Vedúca loď jednej zo spoločných eskadier.",
-  SEAT: "Jednotlivé miesto, ak sa po potvrdení flotily otvorí.",
-  PARTNER: "Loď, viditeľnosť v materiáloch a vlastný programový blok.",
-};
-
-const publicPackages = regatta.pricing.packages.filter(
-  (item) => item.code !== "PARTNER",
 );
 
 function Brand() {
@@ -51,13 +32,13 @@ export default function Home() {
         </a>
         <nav className="desktop-nav" aria-label="Hlavná navigácia">
           <a href="#koncept">Koncept</a>
+          <a href="#pre-koho">Pre koho</a>
           <a href="#trasa">Trasa</a>
           <a href="#program">Program</a>
-          <a href="#zastita">Záštita</a>
-          <a href="#baliky">Balíky</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <a className="nav-cta" href="#stav">
-          Stav prípravy
+        <a className="nav-cta" href="#kontakt">
+          Kontakt
         </a>
         <MobileNav />
       </header>
@@ -150,6 +131,59 @@ export default function Home() {
             <div className="ratio"><span style={{ width: "50%" }} /></div>
             <p className="ratio-label"><strong>50 %</strong> obsahová vetva</p>
           </article>
+        </div>
+      </section>
+
+      <section className="section section-audience" id="pre-koho">
+        <div className="section-heading">
+          <p className="eyebrow eyebrow-dark"><span /> Pre koho je to</p>
+          <h2>Pre tímy, ktoré spolu rozhodujú.</h2>
+          <p>
+            Tack &amp; Talk nie je firemný výlet. Je to sedem dní, počas
+            ktorých šesťčlenný tím žije, plaví sa a rieši spolu na priestore
+            veľkom ako obývačka. Nikto neodbehne na call. Nikto sa nevytratí
+            po druhom chode.
+          </p>
+        </div>
+
+        <div className="audience-grid">
+          <article>
+            <span>01</span>
+            <h3>Vedenie firiem a manažérske tímy</h3>
+            <p>
+              Pre ľudí, ktorí spolu robia rozhodnutia, ale málokedy majú sedem
+              dní na to, aby ich premysleli do konca.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Obchodné a projektové tímy</h3>
+            <p>
+              Tam, kde na výsledku záleží zohratosť a kde sa oplatí zistiť,
+              ako sa tím správa pod tlakom mimo kancelárie.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Firmy, ktoré hostia klientov a partnerov</h3>
+            <p>
+              Loď so šiestimi miestami je priestor na rozhovory a spoločnú
+              skúsenosť, ktorá pokračuje aj po návrate.
+            </p>
+          </article>
+        </div>
+
+        <div className="audience-summary">
+          <p>
+            Typická účastnícka firma má <strong>15 až 200 zamestnancov</strong>
+            {" "}a berie si jednu loď ako jeden tím. Väčšie firmy môžu vytvoriť
+            dve posádky.
+          </p>
+          <div className="no-need-grid" aria-label="Čo na účasť nepotrebujete">
+            <article><strong>Skúsenosti s plachtením</strong><span>Časť lodí pôjde s profesionálnym skipperom, ktorý velí a učí.</span></article>
+            <article><strong>Športovú formu</strong><span>Plavba zaberie časť dňa; zvyšok patrí programu a kotvisku.</span></article>
+            <article><strong>Vlastnú loď ani vybavenie</strong><span>Plavidlo a potrebné vybavenie sa zabezpečujú samostatne.</span></article>
+          </div>
         </div>
       </section>
 
@@ -278,41 +312,175 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-packages" id="baliky">
+      <section className="section section-fees" id="ucast">
         <div className="section-heading split-heading">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Plánované balíky</p>
-            <h2>Jedna firma.<br />Jedna loď. Jeden tím.</h2>
+            <p className="eyebrow eyebrow-dark"><span /> Pripravovaný model účasti</p>
+            <h2>Dve platby,<br />jasne oddelené.</h2>
           </div>
           <p>
-            Primárnou jednotkou je celá loď pre šesťčlennú firemnú posádku.
-            Ceny sú stanovené, predaj však zatiaľ nie je otvorený.
+            Účasť na regate a plavidlo sú dve samostatné veci. Platíte ich
+            zvlášť a rozhodujete o nich zvlášť. Konkrétne ceny zverejníme až
+            po zmluvnom a právnom potvrdení modelu.
           </p>
         </div>
-        <div className="package-grid">
-          {publicPackages.map((item, index) => (
-            <article className={`package-card ${index === 1 ? "featured" : ""}`} key={item.code}>
-              <p className="package-index">0{index + 1}</p>
-              <h3>{item.name}</h3>
-              <p className="package-note">{packageNotes[item.code]}</p>
-              <p className="package-price">{formatCurrency(item.price)}</p>
-              <p className="package-meta">{item.pax === 1 ? "za osobu" : `za loď · ${item.pax} osôb`}</p>
-            </article>
-          ))}
+
+        <div className="fee-grid">
+          <article className="fee-card fee-card-dark">
+            <p className="fee-label">Účastnícky poplatok</p>
+            <h3>Platí sa organizátorovi.</h3>
+            <ul>
+              <li>kompletná organizácia a produkcia podujatia</li>
+              <li>päť meraných etáp, štartovacie procedúry, rozhodcovstvo a bodovanie</li>
+              <li>moderované bloky, tímové výzvy, rečník a riadený networking</li>
+              <li>štartovacie čísla, vlajka eskadry a materiály pre posádku</li>
+              <li>plachtárske inštrukcie a predodletový brífing</li>
+              <li>spoločné večery zaradené do programu a fotodokumentácia</li>
+            </ul>
+          </article>
+          <article className="fee-card">
+            <p className="fee-label">Plavidlo</p>
+            <h3>Zabezpečuje si posádka samostatne.</h3>
+            <p>
+              Loď nie je súčasťou účastníckeho poplatku. Zverejníme technickú
+              špecifikáciu prípustného plavidla a odporúčané možnosti prenájmu
+              v Sukošane. Zmluvu na plavidlo uzatvára firma priamo s charterovou
+              spoločnosťou.
+            </p>
+            <ul>
+              <li>doprava do Sukošanu a späť</li>
+              <li>poistenie osôb a plavidla a vratná kaucia</li>
+              <li>kvalifikovaný kapitán alebo profesionálny skipper</li>
+              <li>palivo, prístavné poplatky a potraviny na palube</li>
+              <li>strava mimo spoločných večerov v programe</li>
+            </ul>
+          </article>
         </div>
-        <div className="price-note">
-          <strong>Cenová politika:</strong> po 28. 2. 2027 sa cena neznižuje.
-          Prípadné dopredanie mení obsah balíčka, nie jeho cenu.
+        <div className="fee-note">
+          <strong>Prečo takto:</strong> firma má kontrolu nad tým, aké plavidlo
+          si vyberie a s kým na ňom pôjde. Finálne znenie tejto časti zverejníme
+          po právnom posúdení štruktúry predaja.
+        </div>
+      </section>
+
+      <section className="section section-faq" id="faq">
+        <div className="section-heading split-heading">
+          <div>
+            <p className="eyebrow eyebrow-dark"><span /> Časté otázky</p>
+            <h2>Čo chcete vedieť pred vyplávaním.</h2>
+          </div>
+          <p>
+            Odpovede platia pre pripravovaný formát podujatia. Technické a
+            zmluvné podmienky doplníme pred otvorením účasti.
+          </p>
+        </div>
+        <div className="faq-list">
+          <details>
+            <summary>V posádke nikto nikdy neplachtil. Môžeme ísť?</summary>
+            <p>
+              Áno. K plavidlu si môžete objednať profesionálneho skippera,
+              ktorý celý týždeň velí, učí a zodpovedá za bezpečnú plavbu.
+              Počet skipperov je obmedzený, preto sa zabezpečujú s predstihom.
+            </p>
+          </details>
+          <details>
+            <summary>Kto môže viesť loď?</summary>
+            <p>
+              Každá loď musí mať osobu s platným preukazom na vedenie plavidla
+              uznávaným v Chorvátsku a oprávnením na obsluhu lodnej rádiostanice
+              VHF. Konkrétne doklady overí charterová spoločnosť pred odovzdaním
+              plavidla.
+            </p>
+          </details>
+          <details>
+            <summary>Ako to funguje so skipperom?</summary>
+            <p>
+              Skipper je profesionálny kapitán, ktorý sa stará o plavbu,
+              manévre a bezpečnosť. Spí na palube a je súčasťou šesťčlennej
+              posádky. Objednáva sa spolu s plavidlom.
+            </p>
+          </details>
+          <details>
+            <summary>Ako sa dostaneme do Sukošanu?</summary>
+            <p>
+              Autom je cesta z Bratislavy približne osem hodín, z Košíc
+              približne jedenásť. Najbližšie letiská sú Zadar a Split. Dopravu
+              si zabezpečuje každá firma samostatne; pri väčšom záujme pomôžeme
+              koordinovať spoločnú dopravu.
+            </p>
+          </details>
+          <details>
+            <summary>Je to bezpečné?</summary>
+            <p>
+              Bezpečnosť má prednosť pred súťažou. Neplaví sa v noci, pri
+              predpovedi nad 25 uzlov veliteľ flotily ruší etapu a flotila sa
+              presúva v konvoji. Každá loď sa hlási na spoločnom VHF kanáli.
+              Kapitán, ktorý z bezpečnostných dôvodov nevypláva, nestráca body;
+              dostane priemer dovtedajších výsledkov.
+            </p>
+          </details>
+          <details>
+            <summary>Aké je počasie koncom septembra?</summary>
+            <p>
+              Typicky možno čakať teplotu mora okolo 22 °C a dennú teplotu
+              vzduchu približne 22 až 26 °C, s chladnejšími večermi. Skutočné
+              podmienky sa môžu meniť a plán plavby sa im vždy prispôsobuje.
+            </p>
+          </details>
+          <details>
+            <summary>Ako sa vlastne súťaží?</summary>
+            <p>
+              Flotila je rozdelená na eskadry po štyroch lodiach. Polovicu
+              výsledku tvorí plavba a polovicu obsahový program, takže o poradí
+              nerozhodujú iba skúsenosti pri kormidle.
+            </p>
+          </details>
+          <details>
+            <summary>Môžeme prísť ako dve firmy na jednej lodi?</summary>
+            <p>
+              Áno. Loď má šesť miest a je na posádke, ako ich obsadí, pokiaľ
+              všetci účastníci spĺňajú podmienky podujatia.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section className="section section-contact" id="kontakt">
+        <div className="contact-copy">
+          <p className="eyebrow"><span /> Kontakt</p>
+          <h2>Máte otázku? Ozvite sa priamo.</h2>
+          <p>
+            Radi zodpovieme otázky od technickej špecifikácie plavidiel až po
+            to, ako program sedí na váš tím. Ozývame sa spravidla do jedného
+            pracovného dňa.
+          </p>
+        </div>
+        <div className="contact-card">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
+          <p><strong>Tangreto s.r.o.</strong><span>organizátor podujatia</span></p>
+          <a href="mailto:info@tangreto.com">info@tangreto.com</a>
+          <a href="tel:+421910909516">+421 910 909 516</a>
         </div>
       </section>
 
       <section className="section section-final" id="stav">
-        <p className="eyebrow"><span /> Aktuálny stav · august 2026</p>
-        <h2>Pripravujeme flotilu.<br />Registráciu ešte nie.</h2>
+        <p className="eyebrow"><span /> Ďalší krok</p>
+        <h2>Ešte nezaväzuje.<br />Len vás nechá pri tom.</h2>
         <p>
-          Verejné prihlasovanie otvoríme až po podpise charterovej zmluvy a
-          právnom posúdení predajného modelu. Dovtedy predstavujeme koncept,
-          overujeme dopyt a pripravujeme bezpečné podmienky podujatia.
+          Prihlasovanie zatiaľ nie je otvorené — flotilu a termíny dolaďujeme
+          a nechceme sľubovať miesta, kým ich nemáme potvrdené. Napíšte nám a
+          ozveme sa, keď bude pripravený ďalší krok.
+        </p>
+        <a
+          className="button button-brass final-cta"
+          href="mailto:info@tangreto.com?subject=Tack%20%26%20Talk%20Regatta%202027%20%E2%80%94%20chcem%20vedie%C5%A5%20viac"
+        >
+          Chcem vedieť viac <span aria-hidden="true">→</span>
+        </a>
+        <p className="final-note">
+          Nezáväzné. Neposielame hromadné newslettery — iba informácie o tomto
+          podujatí.
         </p>
         <div className="readiness">
           <div><span className="done" /> Koncept a trasa <strong>pripravené</strong></div>
@@ -330,6 +498,7 @@ export default function Home() {
           <p>25. 9. - 2. 10. 2027 · Dalmácia</p>
           <p>Organizátor: Tangreto s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
+          <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>
         </div>
       </footer>
     </main>
