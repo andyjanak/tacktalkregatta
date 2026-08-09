@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
@@ -245,21 +244,23 @@ export default function Home() {
 
       <section className="section section-patronage" id="zastita">
         <div className="patronage-photo">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/michal-hrivnak.jpg"
             alt="Michal Hrivnák pri kormidle"
-            fill
-            sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 980px) 45vw, 40vw"
+            width="1080"
+            height="1080"
           />
           <span>Pod záštitou</span>
         </div>
         <div className="patronage-copy">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             className="tangreto-logo"
             src="/tangreto-logo.png"
             alt="Tangreto"
-            width={380}
-            height={191}
+            width="380"
+            height="191"
           />
           <p className="eyebrow eyebrow-dark"><span /> Skúsenosť pri kormidle</p>
           <h2>Michal Hrivnák</h2>
