@@ -33,6 +33,10 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /Prevetraj svoj biznis/i);
   assert.match(html, /Registráciu ešte nie/i);
   assert.match(html, /Bezpečnosť má prednosť pred súťažou/i);
+  assert.match(html, /Pod záštitou Michala Hrivnáka/i);
+  assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
+  assert.match(html, /aria-label="Mobilná navigácia"/i);
+  assert.match(html, /href="#program"/i);
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/i);
 });

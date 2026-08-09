@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import regatta from "@/data/regatta.json";
+import MobileNav from "./MobileNav";
 
 export const metadata: Metadata = {
   title: "Tack & Talk Regatta 2027 | Prevetraj svoj biznis",
@@ -58,14 +60,26 @@ export default function Home() {
           <a href="#koncept">Koncept</a>
           <a href="#trasa">Trasa</a>
           <a href="#program">Program</a>
+          <a href="#zastita">Záštita</a>
           <a href="#baliky">Balíky</a>
         </nav>
         <a className="nav-cta" href="#stav">
           Stav prípravy
         </a>
+        <MobileNav />
       </header>
 
       <section className="hero" id="hore">
+        <div className="hero-media" aria-hidden="true">
+          <iframe
+            title="Jachting na mori"
+            src="https://player.vimeo.com/video/229143837?h=63d733599c&background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            tabIndex={-1}
+          />
+        </div>
+        <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
           <p className="eyebrow"><span /> Business regatta · Dalmácia 2027</p>
           <h1>
@@ -77,6 +91,9 @@ export default function Home() {
             Sedem dní na mori. Dvadsať firemných posádok. Jedna regata,
             v ktorej rozhoduje plavba aj to, čo dokážete vytvoriť spolu.
           </p>
+          <a className="patronage-pill" href="#zastita">
+            Pod záštitou Michala Hrivnáka <span aria-hidden="true">↓</span>
+          </a>
           <div className="hero-actions">
             <a className="button button-brass" href="#koncept">
               Pozrieť koncept <span aria-hidden="true">↘</span>
@@ -88,11 +105,6 @@ export default function Home() {
         </div>
 
         <div className="hero-visual" aria-label="Základné údaje o regate">
-          <div className="hero-ring ring-one" />
-          <div className="hero-ring ring-two" />
-          <div className="hero-ring ring-three" />
-          <div className="course-line course-line-one" />
-          <div className="course-line course-line-two" />
           <div className="hero-card">
             <p className="card-kicker">Sukošan · Chorvátsko</p>
             <p className="card-date">25. 9. - 2. 10.</p>
@@ -231,6 +243,46 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section-patronage" id="zastita">
+        <div className="patronage-photo">
+          <Image
+            src="/michal-hrivnak.jpg"
+            alt="Michal Hrivnák pri kormidle"
+            fill
+            sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 980px) 45vw, 40vw"
+          />
+          <span>Pod záštitou</span>
+        </div>
+        <div className="patronage-copy">
+          <Image
+            className="tangreto-logo"
+            src="/tangreto-logo.png"
+            alt="Tangreto"
+            width={380}
+            height={191}
+          />
+          <p className="eyebrow eyebrow-dark"><span /> Skúsenosť pri kormidle</p>
+          <h2>Michal Hrivnák</h2>
+          <p>
+            Zakladateľ Tangreto sa k plachteniu dostal ako šesťročný na
+            slovenských jazerách a na otvorenom mori sa plaví od roku 2003.
+            Regatám sa venuje od roku 2013 a Tangreto založil v roku 2014.
+          </p>
+          <p>
+            Podľa oficiálneho profilu má za sebou viac než 30 000 námorných
+            míľ. Tack &amp; Talk Regatta 2027 sa pripravuje pod jeho záštitou.
+          </p>
+          <a
+            className="profile-link"
+            href="https://www.tangreto.com/about-us/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Oficiálny profil na Tangreto <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
       <section className="section section-packages" id="baliky">
         <div className="section-heading split-heading">
           <div>
@@ -282,6 +334,7 @@ export default function Home() {
         <div className="footer-meta">
           <p>25. 9. - 2. 10. 2027 · Dalmácia</p>
           <p>Organizátor: Tangreto s.r.o.</p>
+          <p>Pod záštitou Michala Hrivnáka</p>
         </div>
         <Link href="/admin" className="admin-link">Admin</Link>
       </footer>
