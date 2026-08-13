@@ -101,6 +101,22 @@ test("standalone race plan contains the complete interactive specification", asy
   assert.match(plan, /data-key="day4"/i);
   assert.match(plan, /const days =/i);
   assert.match(plan, /setInterval\(updateCountdown/i);
+  assert.match(plan, /class="section-nav"/i);
+  assert.match(plan, /id="page-progress"/i);
+  assert.match(plan, /href="#trasa"/i);
   assert.doesNotMatch(plan, /localStorage|sessionStorage/i);
   assert.doesNotMatch(plan, /<script[^>]+src=/i);
+
+  const ids = [...plan.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(ids.length, new Set(ids).size, "standalone page IDs must be unique");
+});
+
+test("clean race plan URL is routed to the standalone page", async () => {
+  const worker = await readFile(
+    new URL("../worker/index.ts", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(worker, /url\.pathname === "\/plan-pretekov"/);
+  assert.match(worker, /new URL\("\/plan-pretekov\.html", request\.url\)/);
 });

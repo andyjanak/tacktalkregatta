@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Interaktívny plán TACK & TALK REGATTA 2027: 20 lodí, 7 rozjázd a približne 70 námorných míľ.">
   <meta name="theme-color" content="#0F2233">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Plán pretekov | TACK &amp; TALK REGATTA 2027">
+  <meta property="og:description" content="20 lodí, 7 rozjázd a približne 70 námorných míľ. Interaktívny plán biznis regaty v Rogoznici.">
   <title>Plán pretekov | TACK &amp; TALK REGATTA 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +33,7 @@
     html { scroll-behavior: smooth; background: var(--navy); }
     body {
       margin: 0;
+      overflow-x: hidden;
       color: var(--sail);
       background: var(--navy);
       font-family: var(--body);
@@ -42,6 +46,8 @@
     a { color: inherit; }
     img, svg { display: block; max-width: 100%; }
     [hidden] { display: none !important; }
+    .skip-link { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 10px 14px; color: var(--navy); background: var(--sail); transform: translateY(-150%); transition: transform 160ms ease; }
+    .skip-link:focus { transform: translateY(0); }
     .wrap { width: min(calc(100% - 40px), var(--content)); margin-inline: auto; }
     .eyebrow {
       margin: 0 0 14px;
@@ -60,7 +66,7 @@
     h1 { margin: 0; font-size: clamp(4.2rem, 19vw, 9.5rem); line-height: 0.78; letter-spacing: -0.035em; }
     h2 { margin: 0; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; letter-spacing: -0.025em; }
     h3 { margin: 0; font-size: 1.6rem; line-height: 1; letter-spacing: 0.01em; }
-    .section { padding: 90px 0; }
+    .section { padding: 90px 0; scroll-margin-top: 96px; }
     .section-head { max-width: 760px; margin-bottom: 44px; }
     .section-head > p:last-child { max-width: 660px; margin: 22px 0 0; color: var(--sail-dim); }
     .section-light { color: var(--navy); background: var(--sail); }
@@ -68,16 +74,26 @@
     .section-light .section-head > p:last-child { color: #4c5b66; }
 
     .site-header {
-      position: absolute;
-      z-index: 10;
+      position: fixed;
+      z-index: 20;
       inset: 0 0 auto;
-      padding: 20px 0;
+      padding: 16px 0;
+      background: rgba(9, 23, 34, 0.9);
       border-bottom: 1px solid var(--line-dark);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .header-inner { min-height: 40px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(20px, 4vw, 54px); }
     .brand { font: 600 1rem/1 var(--display); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
     .brand span { color: var(--orange); }
+    .section-nav { min-width: 0; display: flex; align-items: center; justify-content: center; gap: clamp(14px, 2.5vw, 32px); }
+    .section-nav a { position: relative; padding: 11px 0; color: var(--sail-dim); font: 600 0.72rem/1 var(--display); letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+    .section-nav a::after { content: ""; position: absolute; right: 0; bottom: 3px; left: 0; height: 2px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 160ms ease; }
+    .section-nav a:hover, .section-nav a:focus-visible, .section-nav a[aria-current="location"] { color: var(--sail); outline: 0; }
+    .section-nav a:hover::after, .section-nav a:focus-visible::after, .section-nav a[aria-current="location"]::after { transform: scaleX(1); }
     .header-meta { color: var(--green); font: 600 0.78rem/1 var(--display); letter-spacing: 0.13em; text-transform: uppercase; }
+    .page-progress { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; overflow: hidden; }
+    .page-progress span { width: 100%; height: 100%; display: block; background: var(--orange); transform: scaleX(0); transform-origin: left; will-change: transform; }
 
     .hero {
       position: relative;
@@ -111,6 +127,10 @@
     .hero h1 span { display: block; color: var(--orange); }
     .hero-lead { max-width: 620px; margin: 34px 0 0; color: var(--sail-dim); font-size: clamp(1rem, 2vw, 1.25rem); }
     .hero-lead strong { color: var(--sail); font-weight: 500; }
+    .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-action { min-height: 46px; padding: 0 17px; display: inline-flex; align-items: center; gap: 22px; font: 600 0.76rem/1 var(--display); letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; border: 1px solid var(--green); }
+    .hero-action:first-child { color: var(--navy); background: var(--orange); border-color: var(--orange); }
+    .hero-action:hover, .hero-action:focus-visible { outline: 2px solid var(--sail); outline-offset: 3px; }
     .countdown { padding: 28px; border: 1px solid var(--green); background: rgba(9, 23, 34, 0.42); }
     .countdown-label { margin: 0 0 16px; color: var(--green); font: 600 0.78rem/1 var(--display); letter-spacing: 0.15em; text-transform: uppercase; }
     .countdown-value { margin: 0; color: var(--sail); font-size: clamp(4.5rem, 11vw, 7.5rem); line-height: 0.75; }
@@ -126,6 +146,7 @@
 
     .route-layout { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 28px; align-items: stretch; }
     .route-map { position: relative; min-height: 560px; padding: 16px; background: var(--navy-deep); border: 1px solid var(--line-dark); overflow: hidden; }
+    .map-instruction { position: absolute; z-index: 2; top: 18px; left: 18px; margin: 0; padding: 8px 10px; color: var(--sail); background: rgba(15, 34, 51, 0.9); border: 1px solid var(--green); font: 600 0.65rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; pointer-events: none; }
     .route-map svg { width: 100%; height: 100%; min-height: 520px; }
     .coast { fill: rgba(119, 149, 142, 0.11); stroke: rgba(119, 149, 142, 0.38); stroke-width: 1.5; }
     .island { fill: rgba(119, 149, 142, 0.08); stroke: rgba(119, 149, 142, 0.32); }
@@ -159,7 +180,7 @@
     .day-switcher {
       position: sticky;
       z-index: 5;
-      top: 0;
+      top: 73px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       background: var(--sail);
@@ -173,6 +194,8 @@
     .day-tab[aria-selected="true"] span { color: var(--green); }
 
     .day-panel { padding-top: 48px; }
+    .day-panel.is-changing { animation: dayReveal 260ms ease-out both; }
+    @keyframes dayReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .day-overview { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 38px; align-items: start; }
     .day-index { color: var(--orange); font: 600 clamp(5rem, 18vw, 11rem)/0.72 var(--display); }
     .day-copy h3 { font-size: clamp(2.6rem, 7vw, 4.8rem); }
@@ -182,7 +205,8 @@
     .day-facts span { padding: 8px 11px; color: var(--navy); border: 1px solid var(--line-light); font: 600 0.72rem/1 var(--display); letter-spacing: 0.09em; text-transform: uppercase; }
 
     .race-grid { margin-top: 46px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .race-card { position: relative; min-height: 340px; padding: 26px; display: flex; flex-direction: column; color: var(--sail); background: var(--navy); overflow: hidden; }
+    .race-card { position: relative; min-height: 340px; padding: 26px; display: flex; flex-direction: column; color: var(--sail); background: var(--navy); overflow: hidden; transition: transform 180ms ease, background 180ms ease; }
+    .race-card:hover { background: var(--navy-soft); transform: translateY(-4px); }
     .race-card::after { content: ""; position: absolute; right: -58px; bottom: -58px; width: 150px; height: 150px; border: 1px solid rgba(119, 149, 142, 0.35); border-radius: 50%; }
     .race-card.transfer { color: var(--navy); background: transparent; border: 1px solid var(--line-light); }
     .race-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -230,6 +254,7 @@
     .boat-table thead th { color: var(--sail); background: var(--navy); }
     .boat-table thead th:not(:first-child) { font-size: 1.55rem; }
     .boat-table tbody th { color: var(--green-dark); }
+    .boat-table tbody th:first-child { position: sticky; z-index: 1; left: 0; background: var(--sail); }
     .boat-table td { color: #30424f; font-size: 0.86rem; }
     .boat-table tr:last-child th, .boat-table tr:last-child td { border-bottom: 0; }
     .boat-assurances { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line-light); }
@@ -252,8 +277,16 @@
     .footer-brand span { color: var(--orange); }
     .footer p { margin: 10px 0 0; font-size: 0.72rem; }
     .footer-meta { text-align: right; }
+    .back-to-top { display: inline-block; margin-top: 14px; padding-bottom: 3px; color: var(--sail); border-bottom: 1px solid var(--orange); font: 600 0.7rem/1 var(--display); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
 
     @media (max-width: 900px) {
+      .section { scroll-margin-top: 132px; }
+      .header-inner { grid-template-columns: auto 1fr; gap: 12px 20px; }
+      .header-meta { text-align: right; }
+      .section-nav { grid-column: 1 / -1; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+      .section-nav::-webkit-scrollbar { display: none; }
+      .site-header { padding-bottom: 8px; }
+      .day-switcher { top: 104px; }
       .hero { min-height: 720px; }
       .hero-grid, .route-layout, .scoring-grid { grid-template-columns: 1fr; }
       .countdown { max-width: 350px; }
@@ -271,9 +304,11 @@
     @media (max-width: 620px) {
       .wrap { width: min(calc(100% - 28px), var(--content)); }
       .section { padding: 70px 0; }
-      .site-header { padding: 16px 0; }
+      .site-header { padding-top: 12px; }
       .header-meta { max-width: 130px; text-align: right; line-height: 1.25; }
-      .hero { min-height: 710px; padding-top: 120px; }
+      .section-nav { margin-inline: -14px; width: calc(100% + 28px); padding: 0 14px 2px; gap: 22px; }
+      .section-nav a { min-height: 36px; display: inline-flex; align-items: center; }
+      .hero { min-height: 760px; padding-top: 165px; }
       .hero-grid { gap: 42px; }
       .hero h1 { font-size: clamp(4.15rem, 20vw, 6.2rem); }
       .hero-lead { margin-top: 26px; }
@@ -285,7 +320,7 @@
       .stop .label { font-size: 13px; }
       .stop .sub { font-size: 9px; }
       .route-summary { padding: 26px 22px; }
-      .day-switcher { margin-inline: -14px; width: calc(100% + 28px); top: 0; }
+      .day-switcher { margin-inline: -14px; width: calc(100% + 28px); top: 99px; }
       .day-tab { min-height: 64px; padding: 8px 4px; font-size: 0.86rem; }
       .day-tab span { font-size: 0.56rem; }
       .day-overview { grid-template-columns: 80px 1fr; gap: 15px; }
@@ -309,16 +344,25 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: 0.01ms !important; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#trasa">Preskočiť na obsah</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#hore" aria-label="Tack and Talk Regatta 2027, hore">TACK <span>&amp;</span> TALK 2027</a>
+      <nav class="section-nav" aria-label="Navigácia plánu pretekov">
+        <a href="#trasa">Trasa</a>
+        <a href="#program">Program</a>
+        <a href="#bodovanie">Bodovanie</a>
+        <a href="#lode">Lode</a>
+        <a href="#ceny">Ceny</a>
+      </nav>
       <div class="header-meta">Plán pretekov · Rogoznica</div>
     </div>
+    <div class="page-progress" aria-hidden="true"><span id="page-progress"></span></div>
   </header>
 
   <main id="hore">
@@ -328,6 +372,10 @@
           <p class="eyebrow">Biznis regata · 25. – 30. 9. 2027</p>
           <h1 id="hero-title">Prevetraj <span>svoj biznis.</span></h1>
           <p class="hero-lead"><strong>20 lodí. 7 rozjázd. 70 námorných míľ.</strong> Štyri dni na vode medzi Rogoznicou, Tribunjom, Vodicami a Zlarinom.</p>
+          <div class="hero-actions">
+            <a class="hero-action" href="#trasa">Pozrieť trasu <span aria-hidden="true">↓</span></a>
+            <a class="hero-action" href="#program">Denný program <span aria-hidden="true">→</span></a>
+          </div>
         </div>
         <div class="countdown" aria-live="polite">
           <p class="countdown-label">Do štartu</p>
@@ -346,7 +394,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="route-title">
+    <section class="section" id="trasa" aria-labelledby="route-title">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Trasa</p>
@@ -357,6 +405,7 @@
         <div class="route-layout">
           <div>
             <div class="route-map" aria-label="Schematická interaktívna mapa trasy">
+              <p class="map-instruction">Vyber bod 1 – 5</p>
               <svg viewBox="0 0 760 500" role="img" aria-labelledby="map-title map-desc">
                 <title id="map-title">Trasa TACK &amp; TALK REGATTA 2027</title>
                 <desc id="map-desc">Schematická trasa z Rogoznice cez Tribunj, Vodice a Zlarin späť do Rogoznice. Päť interaktívnych bodov otvorí denný plán.</desc>
@@ -438,7 +487,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="scoring-title">
+    <section class="section" id="bodovanie" aria-labelledby="scoring-title">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Bodovanie</p>
@@ -464,7 +513,7 @@
       </div>
     </section>
 
-    <section class="section section-light" aria-labelledby="boats-title">
+    <section class="section section-light" id="lode" aria-labelledby="boats-title">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Lode</p>
@@ -497,7 +546,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="awards-title">
+    <section class="section" id="ceny" aria-labelledby="awards-title">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Vyhodnotenie</p>
@@ -516,7 +565,7 @@
   <footer class="footer">
     <div class="wrap footer-grid">
       <div><div class="footer-brand">TACK <span>&amp;</span> TALK REGATTA 2027</div><p>Prevetraj svoj biznis.</p></div>
-      <div class="footer-meta"><p>25. – 30. 9. 2027 · Marina Frapa, Rogoznica</p><p>Organizátor: AJ Services, s.r.o. + Tangreto, s.r.o.</p></div>
+      <div class="footer-meta"><p>25. – 30. 9. 2027 · Marina Frapa, Rogoznica</p><p>Organizátor: AJ Services, s.r.o. + Tangreto, s.r.o.</p><a class="back-to-top" href="#hore">Späť hore ↑</a></div>
     </div>
   </footer>
 
@@ -587,6 +636,8 @@
       const dayTabs = Array.from(document.querySelectorAll(".day-tab"));
       const mapStops = Array.from(document.querySelectorAll(".stop"));
       const segments = Array.from(document.querySelectorAll(".route-segment"));
+      const navLinks = Array.from(document.querySelectorAll(".section-nav a"));
+      const progressBar = document.getElementById("page-progress");
 
       function raceCard(race) {
         return `
@@ -635,6 +686,8 @@
             </div>
           </div>
           <div class="race-grid">${day.races.length ? day.races.map(raceCard).join("") : emptyRaceCard(day)}</div>`;
+        dayDetail.classList.remove("is-changing");
+        requestAnimationFrame(() => dayDetail.classList.add("is-changing"));
 
         if (scrollToDetail && window.matchMedia("(max-width: 900px)").matches) {
           document.getElementById("program").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -692,6 +745,29 @@
       const countdownDetail = document.getElementById("countdown-detail");
       const start = new Date("2027-09-25T00:00:00+02:00");
 
+      const sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach((link) => {
+          const active = link.getAttribute("href") === `#${visible.target.id}`;
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      }, { rootMargin: "-28% 0px -58%", threshold: [0, 0.2, 0.5] });
+
+      ["trasa", "program", "bodovanie", "lode", "ceny"].forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) sectionObserver.observe(section);
+      });
+
+      function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+        progressBar.style.transform = `scaleX(${progress})`;
+      }
+
       function updateCountdown() {
         const difference = start.getTime() - Date.now();
         if (difference <= 0) {
@@ -709,6 +785,8 @@
       renderDay("day1");
       renderScores();
       updateCountdown();
+      updateProgress();
+      window.addEventListener("scroll", updateProgress, { passive: true });
       window.setInterval(updateCountdown, 60000);
     })();
   </script>
