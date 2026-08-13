@@ -1,6 +1,7 @@
 import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
 import InterestForm from "./InterestForm";
+import RacePlan from "./RacePlan";
 
 export const dynamic = "force-static";
 
@@ -25,7 +26,7 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="Hlavná navigácia">
           <a href="#koncept">Koncept</a>
           <a href="#pre-koho">Pre koho</a>
-          <a href="/plan-pretekov">Trasa a program</a>
+          <a href="#trasa">Trasa a program</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a className="nav-cta" href="#kontakt">
@@ -63,7 +64,7 @@ export default function Home() {
             <a className="button button-brass" href="#koncept">
               Pozrieť koncept <span aria-hidden="true">↘</span>
             </a>
-            <a className="text-link" href="/plan-pretekov">
+            <a className="text-link" href="#trasa">
               Trasa a program <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -177,31 +178,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-route race-plan-teaser" id="plan-pretekov">
-        <div className="section-heading heading-on-dark">
-          <p className="eyebrow"><span /> 5 nocí · 4 dni na vode · približne 70 námorných míľ</p>
-          <h2>Jedna trasa.<br />Jeden platný program.</h2>
-          <p>
-            Rogoznica, Tribunj, Vodice, Zlarin a návrat do Mariny Frapa.
-            Detail rozjázd, večerného obsahu, lodí a bodovania je na samostatnej
-            interaktívnej stránke.
-          </p>
-        </div>
-        <div className="plan-facts" aria-label="Základné údaje plánu pretekov">
-          <div><strong>20</strong><span>lodí</span></div>
-          <div><strong>7</strong><span>rozjázd</span></div>
-          <div><strong>4</strong><span>dni na vode</span></div>
-          <div><strong>~70</strong><span>námorných míľ</span></div>
-        </div>
-        <a className="button button-brass plan-link" href="/plan-pretekov">
-          Otvoriť interaktívny plán <span aria-hidden="true">→</span>
-        </a>
-        <p className="route-disclaimer">
-          Schematická trasa je určená na predstavenie programu. Nie je
-          navigačným podkladom; pred plavbou sa overuje v oficiálnych námorných
-          mapách a lodných sprievodcoch.
-        </p>
-      </section>
+      <RacePlan />
 
       <section className="section section-safety">
         <div className="safety-title">

@@ -166,22 +166,80 @@ main { overflow: hidden; }
 .section-route { color: white; background: var(--navy); }
 .heading-on-dark h2 { color: white; }
 .heading-on-dark > p:last-child { color: #b6c4d3; }
-.route-line { position: relative; margin-top: 88px; display: grid; grid-template-columns: repeat(6, 1fr); }
-.route-line::before { content: ""; position: absolute; top: 23px; left: 3%; right: 3%; height: 1px; background: rgba(255,255,255,.2); }
-.route-stop { position: relative; padding-right: 22px; }
-.route-marker { width: 46px; height: 46px; position: relative; z-index: 1; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--brass); background: var(--navy); }
-.route-marker span { font-size: 10px; color: var(--brass); }
-.route-day { margin: 24px 0 8px; color: var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
-.route-stop h3 { margin: 0 0 6px; font-size: 19px; font-weight: 500; letter-spacing: -.03em; }
-.route-stop > p:last-child { margin: 0; color: #91a3b7; font-size: 11px; text-transform: uppercase; }
 .route-disclaimer { max-width: 860px; margin: 70px 0 0; padding-top: 24px; color: #8fa1b5; border-top: 1px solid rgba(255,255,255,.14); font-size: 11px; line-height: 1.7; }
-.race-plan-teaser { min-height: 720px; }
-.plan-facts { margin-top: 72px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.2); border-left: 1px solid rgba(255,255,255,.14); }
-.plan-facts > div { min-height: 150px; padding: 28px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
-.plan-facts strong, .plan-facts span { display: block; }
-.plan-facts strong { color: white; font-size: 40px; line-height: 1; font-weight: 500; letter-spacing: -.05em; }
-.plan-facts span { margin-top: 12px; color: #91a3b7; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
-.plan-link { margin-top: 38px; }
+.integrated-route { padding-bottom: 105px; }
+.integrated-route-layout { margin-top: 76px; display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(300px, .58fr); gap: 34px; align-items: stretch; }
+.integrated-map { position: relative; min-height: 560px; overflow: hidden; background: #071c34; border: 1px solid rgba(255,255,255,.14); }
+.integrated-map::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 52px 52px; }
+.integrated-map svg { position: relative; z-index: 1; width: 100%; min-height: 560px; display: block; }
+.map-instruction { position: absolute; z-index: 2; top: 22px; left: 24px; margin: 0; color: #91a3b7; font-size: 9px; text-transform: uppercase; letter-spacing: .15em; }
+.plan-coast { fill: #0e3154; }
+.plan-island { fill: #163e61; stroke: rgba(255,255,255,.08); stroke-width: 1; }
+.plan-map-north { fill: #c08a2e; font-size: 12px; font-weight: 500; text-anchor: middle; }
+.plan-route-segment { fill: none; stroke: rgba(192,138,46,.36); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 7 8; transition: stroke .25s ease, stroke-width .25s ease; }
+.plan-route-segment.is-active { stroke: #e2b666; stroke-width: 5; stroke-dasharray: none; }
+.plan-stop { cursor: pointer; outline: none; }
+.plan-stop .focus-ring { fill: transparent; stroke: transparent; stroke-width: 2; }
+.plan-stop:focus .focus-ring { stroke: white; }
+.plan-stop .halo { fill: #071c34; stroke: #c08a2e; stroke-width: 1.5; transition: fill .2s ease, transform .2s ease; }
+.plan-stop .dot { fill: #c08a2e; }
+.plan-stop .number { fill: white; font-size: 9px; font-weight: 500; text-anchor: middle; dominant-baseline: middle; }
+.plan-stop .label { fill: white; font-size: 12px; font-weight: 500; letter-spacing: .06em; }
+.plan-stop .sub { fill: #91a3b7; font-size: 9px; }
+.plan-stop:hover .halo, .plan-stop.is-active .halo { fill: #c08a2e; transform: scale(1.12); }
+.plan-stop.is-active .dot { fill: #071c34; }
+.integrated-route .route-disclaimer { margin-top: 22px; }
+.integrated-route-summary { min-height: 560px; padding: 36px; display: flex; flex-direction: column; justify-content: space-between; background: #0f3155; border: 1px solid rgba(255,255,255,.14); }
+.integrated-route-summary .eyebrow { margin-bottom: 14px; color: var(--brass); }
+.integrated-route-summary h3 { margin: 0; font-size: clamp(32px, 3vw, 48px); line-height: 1; letter-spacing: -.045em; font-weight: 500; }
+.integrated-route-summary > div > p:not(.eyebrow) { margin: 22px 0 32px; color: #b6c4d3; font-size: 13px; line-height: 1.7; font-weight: 300; }
+.integrated-route-summary ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.14); }
+.integrated-route-summary li { padding: 13px 0; display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 11px; }
+.integrated-route-summary li strong { font-weight: 500; }
+.integrated-route-summary li span { color: #91a3b7; text-align: right; }
+.route-safety-note { margin-top: 34px; padding: 20px; color: var(--navy); background: #ead8b6; }
+.route-safety-note strong, .route-safety-note span { display: block; }
+.route-safety-note strong { margin-bottom: 8px; font-size: 12px; font-weight: 500; }
+.route-safety-note span { font-size: 10px; line-height: 1.55; }
+
+.integrated-program { color: var(--ink); background: white; }
+.plan-day-tabs { position: sticky; z-index: 5; top: 91px; margin-top: 72px; display: grid; grid-template-columns: repeat(5, 1fr); background: white; border-top: 1px solid var(--navy); border-left: 1px solid var(--line); box-shadow: 0 12px 25px rgba(11,37,69,.06); }
+.plan-day-tab { min-height: 88px; padding: 18px 20px; color: var(--navy); background: white; border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); cursor: pointer; text-align: left; transition: background .2s ease; }
+.plan-day-tab:hover { background: #fbf8f2; }
+.plan-day-tab[aria-selected="true"] { background: #ead8b6; }
+.plan-day-tab:focus-visible { position: relative; z-index: 1; outline: 2px solid var(--navy); outline-offset: -3px; }
+.plan-day-tab strong, .plan-day-tab span { display: block; }
+.plan-day-tab strong { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+.plan-day-tab span { margin-top: 8px; color: var(--grey); font-size: 9px; }
+.plan-day-panel { padding-top: 58px; }
+.plan-day-header { display: grid; grid-template-columns: 90px 1fr auto; align-items: end; gap: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--navy); }
+.plan-day-index { color: var(--brass); font-size: 13px; font-weight: 500; }
+.plan-day-header p { margin: 0 0 8px; color: var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .11em; }
+.plan-day-header h3 { margin: 0; color: var(--navy); font-size: clamp(34px, 4vw, 58px); line-height: 1; letter-spacing: -.05em; font-weight: 500; }
+.plan-day-header > strong { color: var(--navy); font-size: 26px; font-weight: 400; letter-spacing: -.04em; }
+.plan-day-copy { max-width: 800px; margin: 30px 0 0 120px; color: var(--grey); font-size: 15px; line-height: 1.75; font-weight: 300; }
+.plan-fact-row { margin: 28px 0 0 120px; display: flex; flex-wrap: wrap; gap: 8px; }
+.plan-fact-row span { padding: 8px 12px; color: var(--navy); background: var(--sand); border: 1px solid #e3ddcf; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.plan-race-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.plan-race-card { min-height: 390px; padding: 30px; display: flex; flex-direction: column; color: white; background: var(--navy); }
+.plan-race-card.is-carousel { box-shadow: inset 0 4px 0 var(--brass); background: #13395e; }
+.plan-race-card > div:first-child { display: flex; align-items: center; justify-content: space-between; }
+.plan-race-number { color: var(--brass); font-size: 14px; font-weight: 500; }
+.plan-race-type { padding: 6px 8px; color: #d7e0e8; border: 1px solid rgba(255,255,255,.2); font-size: 8px; text-transform: uppercase; letter-spacing: .1em; }
+.plan-race-card h4 { margin: 56px 0 12px; font-size: 24px; line-height: 1.15; letter-spacing: -.035em; font-weight: 500; }
+.plan-race-card > p { margin: 0; color: var(--brass); font-size: 18px; }
+.plan-race-card dl { margin: auto 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.plan-race-card dl div { padding-top: 15px; border-top: 1px solid rgba(255,255,255,.14); }
+.plan-race-card dt { color: #91a3b7; font-size: 8px; text-transform: uppercase; letter-spacing: .08em; }
+.plan-race-card dd { margin: 7px 0 0; font-size: 11px; line-height: 1.4; }
+.plan-no-race { margin-top: 48px; padding: 40px; display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 30px; color: white; background: var(--navy); }
+.plan-no-race > strong { color: var(--brass); font-size: 56px; font-weight: 300; }
+.plan-no-race h4 { margin: 0 0 8px; font-size: 24px; font-weight: 500; }
+.plan-no-race p { max-width: 720px; margin: 0; color: #b6c4d3; font-size: 12px; line-height: 1.7; }
+.plan-content-card { margin-top: 1px; padding: 32px 40px; display: grid; grid-template-columns: 180px 1fr; gap: 30px; background: var(--sand); border-left: 4px solid var(--brass); }
+.plan-content-card > span { color: var(--brass); font-size: 9px; text-transform: uppercase; letter-spacing: .11em; }
+.plan-content-card h4 { margin: 0 0 9px; color: var(--navy); font-size: 23px; font-weight: 500; letter-spacing: -.03em; }
+.plan-content-card p { margin: 0; color: var(--grey); font-size: 12px; line-height: 1.7; }
 
 .section-program { background: white; }
 .split-heading { max-width: none; display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 8vw; }
@@ -399,8 +457,10 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .hero { grid-template-columns: 1fr; padding-top: 160px; }
   .hero-copy { position: relative; z-index: 3; }
   .hero-visual { min-height: 450px; }
-  .route-line { grid-template-columns: repeat(3, 1fr); gap: 45px 0; }
-  .route-line::before { display: none; }
+  .integrated-route-layout { grid-template-columns: 1fr; }
+  .integrated-route-summary { min-height: auto; }
+  .integrated-route-summary ol { display: grid; grid-template-columns: 1fr 1fr; }
+  .integrated-route-summary li { padding-right: 18px; }
   .audience-summary { grid-template-columns: 1fr; }
   .section-safety { grid-template-columns: 1fr; }
   .admin-grid { grid-template-columns: 1fr; }
@@ -416,6 +476,7 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .site-header { min-height: 74px; grid-template-columns: 1fr auto; }
   .desktop-nav, .nav-cta { display: none; }
   .mobile-nav { display: block; }
+  .plan-day-tabs { top: 73px; }
   .section-patronage { grid-template-columns: 1fr 1fr; gap: 45px; }
   .patronage-photo { min-height: 560px; }
 }
@@ -428,7 +489,6 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .hero-visual { min-height: auto; place-items: start; }
   .hero-card { width: min(100%, 360px); min-height: auto; padding: 24px; }
-  .plan-facts { grid-template-columns: 1fr 1fr; }
   .card-kicker { margin-bottom: 20px; }
   .card-year { margin-bottom: 20px; font-size: 58px; }
   .hero-note { display: none; }
@@ -437,7 +497,28 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .section-heading h2, .safety-title h2, .section-final h2 { font-size: clamp(42px, 13vw, 62px); }
   .concept-grid, .split-heading, .section-safety { grid-template-columns: 1fr; }
   .concept-card { min-height: 420px; padding: 30px; }
-  .route-line { grid-template-columns: 1fr 1fr; }
+  .integrated-route { padding-bottom: 75px; }
+  .integrated-route-layout { margin-top: 52px; }
+  .integrated-map { min-height: 390px; }
+  .integrated-map svg { width: 145%; min-height: 390px; transform: translateX(-22%); }
+  .map-instruction { top: 16px; left: 16px; }
+  .plan-stop .label { font-size: 13px; }
+  .plan-stop .sub { font-size: 10px; }
+  .integrated-route-summary { padding: 26px; }
+  .integrated-route-summary ol { grid-template-columns: 1fr; }
+  .route-disclaimer { margin-top: 18px; }
+  .plan-day-tabs { margin-top: 52px; grid-template-columns: repeat(5, minmax(126px, 1fr)); overflow-x: auto; position: static; box-shadow: none; }
+  .plan-day-tab { min-height: 80px; padding: 15px; }
+  .plan-day-panel { padding-top: 42px; }
+  .plan-day-header { grid-template-columns: 42px 1fr; gap: 16px; }
+  .plan-day-header > strong { grid-column: 2; font-size: 20px; }
+  .plan-day-copy, .plan-fact-row { margin-left: 58px; }
+  .plan-race-grid { grid-template-columns: 1fr; }
+  .plan-race-card { min-height: 330px; }
+  .plan-race-card h4 { margin-top: 42px; }
+  .plan-no-race { padding: 28px; grid-template-columns: 45px 1fr; gap: 18px; }
+  .plan-no-race > strong { font-size: 40px; }
+  .plan-content-card { padding: 26px; grid-template-columns: 1fr; gap: 14px; }
   .schedule-row { padding: 24px 0; grid-template-columns: 55px 1fr auto; gap: 18px; }
   .schedule-program { grid-column: 2 / 4; }
   .schedule-badge { grid-column: 3; grid-row: 1; }

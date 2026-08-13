@@ -29,9 +29,8 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.pathname === "/plan-pretekov") {
-      const assetUrl = new URL("/plan-pretekov.html", request.url);
-      return env.ASSETS.fetch(new Request(assetUrl, request));
+    if (url.pathname === "/plan-pretekov" || url.pathname === "/plan-pretekov.html") {
+      return Response.redirect(new URL("/#trasa", request.url), 308);
     }
 
     if (url.pathname === "/_vinext/image") {

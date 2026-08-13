@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(path = "/", headers = {}) {
@@ -44,12 +43,19 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /Nejde o registráciu ani rezerváciu miesta/i);
   assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
   assert.match(html, /aria-label="Mobilná navigácia"/i);
-  assert.match(html, /href="\/plan-pretekov"/i);
-  assert.match(html, /Jedna trasa.*Jeden platný program/is);
+  assert.match(html, /href="#trasa"/i);
+  assert.match(html, /Päť bodov.*Štyri dni/is);
+  assert.match(html, /Rozjazdy a program/i);
+  assert.match(html, /Schematická interaktívna mapa trasy/i);
+  assert.match(html, /Vyber deň programu/i);
+  assert.match(html, /Karusel Mulo/i);
+  assert.match(html, /R7/i);
   assert.match(html, /Rogoznica/i);
-  assert.doesNotMatch(html, /href="#trasa"|href="#program"/i);
+  assert.match(html, /Tribunj.*Vodice.*Zlarin/is);
+  assert.doesNotMatch(html, /href="\/plan-pretekov"/i);
+  assert.doesNotMatch(html, /Jedna trasa.*Jeden platný program/is);
   assert.doesNotMatch(html, /Sukošan|125\s*nm|2\.\s*10\.\s*2027/i);
-  assert.match(html, /Otvoriť interaktívny plán/i);
+  assert.match(html, /Nie je navigačným podkladom/i);
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /10\s*400\s*€/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/i);
@@ -88,51 +94,10 @@ test("authenticated non-admin is denied", async () => {
   assert.doesNotMatch(html, /Export CSV/i);
 });
 
-test("standalone race plan contains the complete interactive specification", async () => {
-  const plan = await readFile(
-    new URL("../public/plan-pretekov.html", import.meta.url),
-    "utf8",
-  );
-
-  assert.match(plan, /Marina Frapa/i);
-  assert.match(plan, /Rogoznica.*Tribunj.*Vodice.*Zlarin/is);
-  assert.match(plan, /Dufour 460/i);
-  assert.match(plan, /Dufour 470 GL/i);
-  assert.match(plan, /R7/i);
-  assert.match(plan, /NEŠKRTÁ SA/i);
-  assert.match(plan, /Bezpečnostné odstúpenie/i);
-  assert.match(plan, /Nie je navigačným podkladom/i);
-  assert.match(plan, /data-key="arrival"/i);
-  assert.match(plan, /data-key="day4"/i);
-  assert.match(plan, /const days =/i);
-  assert.match(plan, /setInterval\(updateCountdown/i);
-  assert.match(plan, /class="section-nav"/i);
-  assert.match(plan, /id="page-progress"/i);
-  assert.match(plan, /href="#trasa"/i);
-  assert.match(plan, /family=Poppins/i);
-  assert.match(plan, /--orange:\s*#c08a2e/i);
-  assert.match(plan, /class="nav-toggle"/i);
-  assert.match(plan, /Na lodi tím\. Na súši sieť\./i);
-  assert.match(plan, /Nedostatok.*kvalifikovaných ľudí/is);
-  assert.match(plan, /Lídri vo svojom odbore/i);
-  assert.match(plan, /Veliteľ flotily a hlavný rozhodca/i);
-  assert.match(plan, /Aktuálny kontakt je nezáväzný/i);
-  assert.match(plan, /Cena Jadrana/i);
-  assert.doesNotMatch(plan, />\s*Prihlásiť sa\s*</i);
-  assert.doesNotMatch(plan, /ORC Double-Handed|>\s*ARC\s*<|55 tímov/i);
-  assert.doesNotMatch(plan, /localStorage|sessionStorage/i);
-  assert.doesNotMatch(plan, /<script[^>]+src=/i);
-
-  const ids = [...plan.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
-  assert.equal(ids.length, new Set(ids).size, "standalone page IDs must be unique");
-});
-
-test("clean race plan URL is routed to the standalone page", async () => {
-  const worker = await readFile(
-    new URL("../worker/index.ts", import.meta.url),
-    "utf8",
-  );
-
-  assert.match(worker, /url\.pathname === "\/plan-pretekov"/);
-  assert.match(worker, /new URL\("\/plan-pretekov\.html", request\.url\)/);
+test("old race plan URLs redirect to the integrated route", async () => {
+  for (const path of ["/plan-pretekov", "/plan-pretekov.html"]) {
+    const response = await render(path);
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), "http://localhost/#trasa");
+  }
 });
