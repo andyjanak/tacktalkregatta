@@ -36,6 +36,7 @@ export default function Home() {
           <a href="#pre-koho">Pre koho</a>
           <a href="#trasa">Trasa</a>
           <a href="#program">Program</a>
+          <a href="/plan-pretekov">Plán pretekov</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a className="nav-cta" href="#kontakt">
@@ -75,6 +76,9 @@ export default function Home() {
             </a>
             <a className="text-link" href="#trasa">
               Trasa a program <span aria-hidden="true">→</span>
+            </a>
+            <a className="text-link" href="/plan-pretekov">
+              Interaktívny plán pretekov <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>

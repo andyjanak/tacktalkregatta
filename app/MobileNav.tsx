@@ -7,6 +7,7 @@ const links = [
   ["Pre koho", "#pre-koho"],
   ["Trasa", "#trasa"],
   ["Program", "#program"],
+  ["Plán pretekov", "/plan-pretekov"],
   ["Časté otázky", "#faq"],
   ["Kontakt", "#kontakt"],
 ] as const;
