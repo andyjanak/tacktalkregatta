@@ -106,6 +106,9 @@ test("standalone race plan contains the complete interactive specification", asy
   assert.match(plan, /class="section-nav"/i);
   assert.match(plan, /id="page-progress"/i);
   assert.match(plan, /href="#trasa"/i);
+  assert.match(plan, /family=Poppins/i);
+  assert.match(plan, /--orange:\s*#c08a2e/i);
+  assert.match(plan, /class="nav-toggle"/i);
   assert.doesNotMatch(plan, /localStorage|sessionStorage/i);
   assert.doesNotMatch(plan, /<script[^>]+src=/i);
 

@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Interaktívny plán TACK & TALK REGATTA 2027: 20 lodí, 7 rozjázd a približne 70 námorných míľ.">
-  <meta name="theme-color" content="#0F2233">
+  <meta name="theme-color" content="#0B2545">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Plán pretekov | TACK &amp; TALK REGATTA 2027">
   <meta property="og:description" content="20 lodí, 7 rozjázd a približne 70 námorných míľ. Interaktívny plán biznis regaty v Rogoznici.">
   <title>Plán pretekov | TACK &amp; TALK REGATTA 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0f2233;
@@ -342,6 +342,153 @@
       .footer-meta { text-align: left; }
     }
 
+    /* Shared TACK & TALK visual language */
+    :root {
+      --navy: #0b2545;
+      --navy-deep: #071c34;
+      --navy-soft: #13395e;
+      --sail: #f6f2e9;
+      --sail-dim: #b6c4d3;
+      --orange: #c08a2e;
+      --green: #91a3b7;
+      --green-dark: #5a6472;
+      --line-dark: rgba(255, 255, 255, 0.14);
+      --line-light: #d8dee6;
+      --content: 1280px;
+      --display: "Poppins", Arial, sans-serif;
+      --body: "Poppins", Arial, sans-serif;
+    }
+    body { font-weight: 300; }
+    .wrap { width: min(calc(100% - clamp(48px, 14vw, 224px)), var(--content)); }
+    .eyebrow { color: #d6dfe8; font-size: 0.69rem; font-weight: 500; }
+    .eyebrow::before { height: 1px; background: var(--orange); }
+    h1, h2, h3, .metric strong, .race-number, .countdown-value { font-weight: 500; text-transform: none; }
+    h1 { font-size: clamp(4.25rem, 8vw, 7.9rem); line-height: 0.88; letter-spacing: -0.065em; }
+    h2 { font-size: clamp(2.9rem, 5.5vw, 5.15rem); line-height: 1.03; letter-spacing: -0.055em; }
+    h3 { letter-spacing: -0.035em; }
+    .section { padding: 120px 0; }
+    .section-head { max-width: 900px; margin-bottom: 72px; }
+    .section-head > p:last-child { margin-top: 30px; font-size: 1.05rem; line-height: 1.75; font-weight: 300; }
+
+    .site-header { min-height: 74px; padding: 0; background: rgba(7, 28, 52, 0.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .header-inner { min-height: 74px; grid-template-columns: 1fr auto 1fr; }
+    .brand { justify-self: start; display: inline-flex; align-items: baseline; gap: 5px; font-size: 1.125rem; font-weight: 700; letter-spacing: -0.04em; }
+    .brand .brand-amp { color: var(--orange); font-weight: 500; }
+    .brand .brand-year { margin-left: 4px; color: rgba(255,255,255,.54); font-weight: 300; }
+    .section-nav { gap: 36px; }
+    .section-nav a { padding: 29px 0 27px; color: white; font-family: var(--body); font-size: 0.72rem; font-weight: 500; }
+    .section-nav a::after { bottom: 19px; height: 1px; }
+    .header-meta { justify-self: end; color: white; font-family: var(--body); font-size: 0.72rem; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--orange); padding-bottom: 4px; }
+    .nav-toggle { display: none; }
+    .page-progress { height: 1px; }
+
+    .hero { min-height: 850px; padding: 175px 0 100px; align-items: center; background: var(--navy) url("/hero-yachting-poster.jpg") center / cover no-repeat; }
+    .hero::before { inset: 0; height: auto; border: 0; border-radius: 0; background: linear-gradient(90deg, rgba(5,24,44,.94) 0%, rgba(5,24,44,.79) 48%, rgba(5,24,44,.5) 100%); transform: none; }
+    .hero::after { width: 260px; height: 1px; right: auto; bottom: 118px; left: 0; border: 0; border-radius: 0; background: rgba(255,255,255,.15); }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) 340px; gap: 8vw; align-items: center; }
+    .hero h1 span { color: var(--orange); font-weight: 300; }
+    .hero-lead { color: #c4d0dd; font-size: clamp(1.05rem, 1.45vw, 1.35rem); line-height: 1.65; font-weight: 300; }
+    .hero-lead strong { color: white; font-weight: 500; }
+    .hero-actions { margin-top: 46px; gap: 34px; }
+    .hero-action { min-height: auto; padding: 12px 0 7px; gap: 28px; font-family: var(--body); font-size: 0.72rem; font-weight: 500; border: 0; border-bottom: 1px solid rgba(255,255,255,.45); }
+    .hero-action:first-child { padding: 17px 22px; color: #102239; background: var(--orange); border: 0; }
+    .countdown { min-height: 408px; padding: 38px; display: flex; flex-direction: column; justify-content: center; border-color: rgba(255,255,255,.18); background: rgba(7,30,55,.84); backdrop-filter: blur(18px); box-shadow: 0 30px 100px rgba(0,0,0,.2); }
+    .countdown-label { margin-bottom: 45px; color: #b6c4d3; font-family: var(--body); font-size: 0.65rem; font-weight: 400; }
+    .countdown-value { color: var(--orange); font-size: clamp(4.5rem, 7vw, 6.2rem); font-weight: 300; letter-spacing: -0.05em; }
+    .countdown-unit { color: #9eb0c3; }
+
+    .metric-bar { background: var(--navy-deep); }
+    .metric { min-height: 120px; }
+    .metric strong { font-size: 2.25rem; font-weight: 500; letter-spacing: -0.05em; }
+    .metric span { color: #9eb0c3; }
+
+    #trasa { background: var(--navy); }
+    .route-map { background: var(--navy-deep); }
+    .route-segment { stroke: #91a3b7; stroke-width: 2; }
+    .route-segment.is-active { stroke: var(--orange); stroke-width: 4; }
+    .stop .halo { fill: var(--navy); stroke: var(--orange); }
+    .stop .dot { fill: var(--orange); }
+    .stop:hover .halo, .stop:focus .halo, .stop.is-active .halo { fill: var(--orange); stroke: var(--orange); }
+    .stop:hover .dot, .stop:focus .dot, .stop.is-active .dot { fill: var(--navy); }
+    .route-summary { border-color: rgba(255,255,255,.16); }
+    .route-stops li::before { color: var(--navy); background: var(--orange); border-radius: 0; }
+    .route-stops li:not(:last-child)::after { background: rgba(255,255,255,.2); }
+    .safety-box { border-left-color: var(--orange); background: rgba(255,255,255,.05); }
+
+    #program.section-light { background: white; }
+    .section-light .eyebrow { color: var(--green-dark); }
+    .day-switcher { top: 74px; border-color: var(--line-light); background: white; }
+    .day-tab { font-family: var(--body); font-weight: 500; }
+    .day-tab:hover, .day-tab:focus-visible { background: #fbf7ef; outline-color: var(--orange); }
+    .day-tab[aria-selected="true"] { color: var(--navy); background: #ead8b6; }
+    .day-tab[aria-selected="true"] span { color: var(--green-dark); }
+    .day-index, .race-number { color: var(--orange); font-weight: 300; letter-spacing: -0.06em; }
+    .day-copy h3 { font-weight: 500; }
+    .day-route { color: var(--orange); font-family: var(--body); font-size: 0.78rem; font-weight: 500; }
+    .day-program, .no-race p { color: var(--green-dark); font-weight: 300; line-height: 1.75; }
+    .day-facts span { font-family: var(--body); font-weight: 500; }
+    .race-card { background: var(--navy); }
+    .race-card:hover { background: var(--navy-soft); }
+    .race-card h4 { font-family: var(--body); font-weight: 500; letter-spacing: -0.035em; text-transform: none; }
+    .race-distance { color: var(--orange); font-family: var(--body); font-weight: 500; }
+    .race-type { color: #e2b666; border-color: rgba(226,182,102,.45); }
+    .race-points dt { color: #91a3b7; }
+
+    #bodovanie { background: var(--navy-deep); }
+    .score-chip { background: var(--navy); }
+    .score-rule strong { color: var(--orange); font-family: var(--body); font-weight: 300; }
+    .score-rule h3 { font-weight: 500; }
+
+    #lode.section-light { background: var(--sail); }
+    .boat-table-wrap, .boat-assurances { background: white; }
+    .boat-table th { font-family: var(--body); font-weight: 500; }
+    .boat-table tbody th:first-child { background: white; }
+    .assurance span { color: var(--orange); font-family: var(--body); font-weight: 300; }
+
+    #ceny { background: var(--navy); }
+    .award-index { color: var(--orange); font-family: var(--body); font-weight: 300; }
+    .footer { padding: 55px 0; background: var(--navy); }
+    .footer-brand { font-family: var(--body); font-weight: 700; letter-spacing: -0.04em; }
+    .footer-brand span { color: var(--orange); }
+    .back-to-top { font-family: var(--body); font-weight: 500; border-color: var(--orange); }
+
+    @media (max-width: 980px) {
+      .wrap { width: min(calc(100% - 48px), var(--content)); }
+      .header-inner { grid-template-columns: 1fr auto; }
+      .header-meta { display: none; }
+      .nav-toggle { min-width: 76px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: flex-end; gap: 12px; color: white; background: transparent; border: 0; cursor: pointer; text-transform: uppercase; letter-spacing: .11em; font-size: 0.65rem; }
+      .nav-toggle i, .nav-toggle i::before, .nav-toggle i::after { width: 20px; height: 1px; display: block; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+      .nav-toggle i { position: relative; }
+      .nav-toggle i::before, .nav-toggle i::after { content: ""; position: absolute; left: 0; }
+      .nav-toggle i::before { top: -6px; }
+      .nav-toggle i::after { top: 6px; }
+      .menu-open .nav-toggle i { background: transparent; }
+      .menu-open .nav-toggle i::before { top: 0; transform: rotate(45deg); }
+      .menu-open .nav-toggle i::after { top: 0; transform: rotate(-45deg); }
+      .section-nav { position: fixed; top: 74px; right: 0; left: 0; padding: 18px 24px 28px; display: none; color: white; background: rgba(7,28,52,.98); border-bottom: 1px solid rgba(255,255,255,.15); box-shadow: 0 22px 45px rgba(0,0,0,.22); }
+      .section-nav { width: auto; margin: 0; overflow: visible; grid-column: auto; justify-content: stretch; }
+      .menu-open .section-nav { display: grid; }
+      .section-nav a { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .section-nav a::after { display: none; }
+      .section-nav a:last-child { color: #e2b666; border-bottom: 0; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .countdown { min-height: 320px; }
+      .day-switcher { top: 74px; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(calc(100% - 48px), var(--content)); }
+      .section { padding: 85px 0; }
+      .hero { min-height: 820px; padding-top: 130px; padding-bottom: 70px; }
+      .hero-grid { gap: 32px; }
+      .hero h1 { font-size: clamp(3.65rem, 17vw, 5.5rem); }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .countdown { min-height: auto; padding: 24px; }
+      .countdown-label { margin-bottom: 20px; }
+      .day-switcher { margin-inline: 0; width: 100%; top: 74px; }
+      .day-tab { font-size: 0.75rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -352,15 +499,16 @@
   <a class="skip-link" href="#trasa">Preskočiť na obsah</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#hore" aria-label="Tack and Talk Regatta 2027, hore">TACK <span>&amp;</span> TALK 2027</a>
-      <nav class="section-nav" aria-label="Navigácia plánu pretekov">
+      <a class="brand" href="/" aria-label="Tack and Talk Regatta 2027, hlavná stránka"><span>TACK</span><span class="brand-amp">&amp;</span><span>TALK</span><span class="brand-year">2027</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="plan-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+      <nav class="section-nav" id="plan-menu" aria-label="Navigácia plánu pretekov">
         <a href="#trasa">Trasa</a>
         <a href="#program">Program</a>
         <a href="#bodovanie">Bodovanie</a>
         <a href="#lode">Lode</a>
         <a href="#ceny">Ceny</a>
       </nav>
-      <div class="header-meta">Plán pretekov · Rogoznica</div>
+      <a class="header-meta" href="/">Hlavná stránka</a>
     </div>
     <div class="page-progress" aria-hidden="true"><span id="page-progress"></span></div>
   </header>
@@ -418,7 +566,7 @@
                 <path class="island" d="M277 305c20-16 52-9 54 13 1 20-28 37-48 25-17-10-19-27-6-38Z"/>
 
                 <text class="map-north" x="700" y="42">N</text>
-                <path d="M705 76V51m0 0-7 11m7-11 7 11" fill="none" stroke="#77958E" stroke-width="2"/>
+                <path d="M705 76V51m0 0-7 11m7-11 7 11" fill="none" stroke="#C08A2E" stroke-width="2"/>
 
                 <path class="route-segment" data-segment="day1" d="M575 382C514 337 401 286 236 175"/>
                 <path class="route-segment" data-segment="day2" d="M236 175C257 148 283 125 318 112"/>
@@ -638,6 +786,22 @@
       const segments = Array.from(document.querySelectorAll(".route-segment"));
       const navLinks = Array.from(document.querySelectorAll(".section-nav a"));
       const progressBar = document.getElementById("page-progress");
+      const siteHeader = document.querySelector(".site-header");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      function closeMenu() {
+        siteHeader.classList.remove("menu-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+
+      navToggle.addEventListener("click", () => {
+        const open = siteHeader.classList.toggle("menu-open");
+        navToggle.setAttribute("aria-expanded", String(open));
+      });
+      navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+      });
 
       function raceCard(race) {
         return `
