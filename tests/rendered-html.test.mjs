@@ -44,9 +44,12 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /Nejde o registráciu ani rezerváciu miesta/i);
   assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
   assert.match(html, /aria-label="Mobilná navigácia"/i);
-  assert.match(html, /href="#program"/i);
   assert.match(html, /href="\/plan-pretekov"/i);
-  assert.match(html, /Interaktívny plán pretekov/i);
+  assert.match(html, /Jedna trasa.*Jeden platný program/is);
+  assert.match(html, /Rogoznica/i);
+  assert.doesNotMatch(html, /href="#trasa"|href="#program"/i);
+  assert.doesNotMatch(html, /Sukošan|125\s*nm|2\.\s*10\.\s*2027/i);
+  assert.match(html, /Otvoriť interaktívny plán/i);
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /10\s*400\s*€/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/i);

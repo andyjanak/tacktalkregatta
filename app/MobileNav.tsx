@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 const links = [
   ["Koncept", "#koncept"],
   ["Pre koho", "#pre-koho"],
-  ["Trasa", "#trasa"],
-  ["Program", "#program"],
-  ["Plán pretekov", "/plan-pretekov"],
+  ["Trasa a program", "/plan-pretekov"],
   ["Časté otázky", "#faq"],
   ["Kontakt", "#kontakt"],
 ] as const;

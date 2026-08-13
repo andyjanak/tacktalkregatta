@@ -175,6 +175,13 @@ main { overflow: hidden; }
 .route-stop h3 { margin: 0 0 6px; font-size: 19px; font-weight: 500; letter-spacing: -.03em; }
 .route-stop > p:last-child { margin: 0; color: #91a3b7; font-size: 11px; text-transform: uppercase; }
 .route-disclaimer { max-width: 860px; margin: 70px 0 0; padding-top: 24px; color: #8fa1b5; border-top: 1px solid rgba(255,255,255,.14); font-size: 11px; line-height: 1.7; }
+.race-plan-teaser { min-height: 720px; }
+.plan-facts { margin-top: 72px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.2); border-left: 1px solid rgba(255,255,255,.14); }
+.plan-facts > div { min-height: 150px; padding: 28px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+.plan-facts strong, .plan-facts span { display: block; }
+.plan-facts strong { color: white; font-size: 40px; line-height: 1; font-weight: 500; letter-spacing: -.05em; }
+.plan-facts span { margin-top: 12px; color: #91a3b7; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+.plan-link { margin-top: 38px; }
 
 .section-program { background: white; }
 .split-heading { max-width: none; display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 8vw; }
@@ -421,6 +428,7 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .hero-visual { min-height: auto; place-items: start; }
   .hero-card { width: min(100%, 360px); min-height: auto; padding: 24px; }
+  .plan-facts { grid-template-columns: 1fr 1fr; }
   .card-kicker { margin-bottom: 20px; }
   .card-year { margin-bottom: 20px; font-size: 58px; }
   .hero-note { display: none; }

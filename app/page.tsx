@@ -4,15 +4,6 @@ import InterestForm from "./InterestForm";
 
 export const dynamic = "force-static";
 
-const dateFormatter = new Intl.DateTimeFormat("sk-SK", {
-  day: "numeric",
-  month: "short",
-});
-
-const routeLegs = regatta.route.legs.filter(
-  (leg) => leg.type !== "checkin" && leg.type !== "checkout",
-);
-
 function Brand() {
   return (
     <span className="brand" aria-label="Tack and Talk Regatta 2027">
@@ -34,9 +25,7 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="Hlavná navigácia">
           <a href="#koncept">Koncept</a>
           <a href="#pre-koho">Pre koho</a>
-          <a href="#trasa">Trasa</a>
-          <a href="#program">Program</a>
-          <a href="/plan-pretekov">Plán pretekov</a>
+          <a href="/plan-pretekov">Trasa a program</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a className="nav-cta" href="#kontakt">
@@ -64,8 +53,8 @@ export default function Home() {
             svoj <em>biznis.</em>
           </h1>
           <p className="hero-lead">
-            Sedem dní na mori. Dvadsať firemných posádok. Jedna regata,
-            v ktorej rozhoduje plavba aj to, čo dokážete vytvoriť spolu.
+            Päť nocí. Štyri dni na vode. Dvadsať firemných posádok a obsah,
+            ktorý pokračuje aj po návrate do maríny.
           </p>
           <a className="patronage-pill" href="#zastita">
             Pod záštitou Michala Hrivnáka <span aria-hidden="true">↓</span>
@@ -74,25 +63,22 @@ export default function Home() {
             <a className="button button-brass" href="#koncept">
               Pozrieť koncept <span aria-hidden="true">↘</span>
             </a>
-            <a className="text-link" href="#trasa">
-              Trasa a program <span aria-hidden="true">→</span>
-            </a>
             <a className="text-link" href="/plan-pretekov">
-              Interaktívny plán pretekov <span aria-hidden="true">→</span>
+              Trasa a program <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
 
         <div className="hero-visual" aria-label="Základné údaje o regate">
           <div className="hero-card">
-            <p className="card-kicker">Sukošan · Chorvátsko</p>
-            <p className="card-date">25. 9. - 2. 10.</p>
+            <p className="card-kicker">Rogoznica · Chorvátsko</p>
+            <p className="card-date">25. - 30. 9.</p>
             <p className="card-year">2027</p>
             <div className="card-rule" />
             <div className="card-stats">
               <span><strong>20</strong> lodí</span>
               <span><strong>120</strong> ľudí</span>
-              <span><strong>125</strong> nm</span>
+              <span><strong>70</strong> nm</span>
             </div>
           </div>
           <p className="hero-note">Pripravujeme koncept a flotilu</p>
@@ -119,22 +105,22 @@ export default function Home() {
             <p className="concept-label">Na vode</p>
             <h3>Jednotná flotila, férová hra.</h3>
             <p>
-              Päť bodovaných etáp, eskadry po štyroch lodiach a jedna škrtaná
-              etapa. Opatrné rozhodnutie nikdy nie je penalizované.
+              Sedem rozjázd, dve kategórie lodí a jedna spoločná štartová
+              čiara. Opatrné rozhodnutie nikdy nie je penalizované.
             </p>
-            <div className="ratio"><span style={{ width: "50%" }} /></div>
-            <p className="ratio-label"><strong>50 %</strong> plachtárska vetva</p>
+            <div className="ratio"><span style={{ width: "70%" }} /></div>
+            <p className="ratio-label"><strong>7</strong> rozjázd</p>
           </article>
           <article className="concept-card concept-card-light">
             <span className="concept-number">02</span>
             <p className="concept-label">Na brehu</p>
             <h3>Reálne problémy, nie vizitky.</h3>
             <p>
-              Pitche, výzva eskadier a riadený networking. Boduje sa schopnosť
-              počúvať, pomenovať problém a spoločne navrhnúť riešenie.
+              Večerné diskusie, workshop a riadený networking. Program stojí
+              na problémoch, ktoré firmy reálne riešia.
             </p>
-            <div className="ratio"><span style={{ width: "50%" }} /></div>
-            <p className="ratio-label"><strong>50 %</strong> obsahová vetva</p>
+            <div className="ratio"><span style={{ width: "40%" }} /></div>
+            <p className="ratio-label"><strong>4</strong> obsahové bloky</p>
           </article>
         </div>
       </section>
@@ -144,8 +130,8 @@ export default function Home() {
           <p className="eyebrow eyebrow-dark"><span /> Pre koho je to</p>
           <h2>Pre tímy, ktoré spolu rozhodujú.</h2>
           <p>
-            Tack &amp; Talk nie je firemný výlet. Je to sedem dní, počas
-            ktorých šesťčlenný tím žije, plaví sa a rieši spolu na priestore
+            Tack &amp; Talk nie je firemný výlet. Je to päť nocí, počas
+            ktorých firemný tím žije, plaví sa a rieši spolu na priestore
             veľkom ako obývačka. Nikto neodbehne na call. Nikto sa nevytratí
             po druhom chode.
           </p>
@@ -156,8 +142,8 @@ export default function Home() {
             <span>01</span>
             <h3>Vedenie firiem a manažérske tímy</h3>
             <p>
-              Pre ľudí, ktorí spolu robia rozhodnutia, ale málokedy majú sedem
-              dní na to, aby ich premysleli do konca.
+              Pre ľudí, ktorí spolu robia rozhodnutia, ale málokedy majú štyri
+              dni na to, aby ich premysleli do konca.
             </p>
           </article>
           <article>
@@ -172,7 +158,7 @@ export default function Home() {
             <span>03</span>
             <h3>Firmy, ktoré hostia klientov a partnerov</h3>
             <p>
-              Loď so šiestimi miestami je priestor na rozhovory a spoločnú
+              Jedna loď je priestor na rozhovory a spoločnú
               skúsenosť, ktorá pokračuje aj po návrate.
             </p>
           </article>
@@ -180,80 +166,41 @@ export default function Home() {
 
         <div className="audience-summary">
           <p>
-            Typická účastnícka firma má <strong>15 až 200 zamestnancov</strong>
-            {" "}a berie si jednu loď ako jeden tím. Väčšie firmy môžu vytvoriť
-            dve posádky.
+            Jedna firma tvorí <strong>jednu posádku na jednej lodi</strong>.
+            {" "}Odporúčaný tím má štyroch až desiatich ľudí podľa zvolenej lode.
           </p>
           <div className="no-need-grid" aria-label="Čo na účasť nepotrebujete">
-            <article><strong>Skúsenosti s plachtením</strong><span>Časť lodí pôjde s profesionálnym skipperom, ktorý velí a učí.</span></article>
+            <article><strong>Skúsenosti s plachtením</strong><span>Firma môže využiť vlastného skippera alebo si vyžiadať odporúčanie.</span></article>
             <article><strong>Športovú formu</strong><span>Plavba zaberie časť dňa; zvyšok patrí programu a kotvisku.</span></article>
-            <article><strong>Vlastnú loď ani vybavenie</strong><span>Plavidlo a potrebné vybavenie sa zabezpečujú samostatne.</span></article>
+            <article><strong>Vlastniť plavidlo</strong><span>Loď si firma zabezpečuje vo vlastnej réžii podľa potvrdenej špecifikácie.</span></article>
           </div>
         </div>
       </section>
 
-      <section className="section section-route" id="trasa">
+      <section className="section section-route race-plan-teaser" id="plan-pretekov">
         <div className="section-heading heading-on-dark">
-          <p className="eyebrow"><span /> 7 nocí · približne 125 námorných míľ</p>
-          <h2>Dalmácia.<br />Každý deň iný kurz.</h2>
+          <p className="eyebrow"><span /> 5 nocí · 4 dni na vode · približne 70 námorných míľ</p>
+          <h2>Jedna trasa.<br />Jeden platný program.</h2>
           <p>
-            Zo Sukošanu cez Dugi otok, Kornati a Skradin späť do domovskej
-            maríny. Trasa sa vždy prispôsobuje počasiu a bezpečnému rozhodnutiu.
+            Rogoznica, Tribunj, Vodice, Zlarin a návrat do Mariny Frapa.
+            Detail rozjázd, večerného obsahu, lodí a bodovania je na samostatnej
+            interaktívnej stránke.
           </p>
         </div>
-
-        <div className="route-line" role="list" aria-label="Plánovaná trasa">
-          {routeLegs.map((leg, index) => (
-            <article className="route-stop" role="listitem" key={`${leg.day}-${leg.to}`}>
-              <div className="route-marker"><span>{index + 1}</span></div>
-              <p className="route-day">
-                {dateFormatter.format(new Date(`${leg.date}T12:00:00+02:00`))}
-              </p>
-              <h3>{leg.to}</h3>
-              <p>{leg.distance_nm} nm · {leg.scored ? leg.leg_code : "prológ"}</p>
-            </article>
-          ))}
+        <div className="plan-facts" aria-label="Základné údaje plánu pretekov">
+          <div><strong>20</strong><span>lodí</span></div>
+          <div><strong>7</strong><span>rozjázd</span></div>
+          <div><strong>4</strong><span>dni na vode</span></div>
+          <div><strong>~70</strong><span>námorných míľ</span></div>
         </div>
+        <a className="button button-brass plan-link" href="/plan-pretekov">
+          Otvoriť interaktívny plán <span aria-hidden="true">→</span>
+        </a>
         <p className="route-disclaimer">
-          Trasa a vzdialenosti sú orientačné a určené na plánovanie. Nie sú
-          navigačným podkladom; pred plavbou sa overujú v oficiálnych námorných
+          Schematická trasa je určená na predstavenie programu. Nie je
+          navigačným podkladom; pred plavbou sa overuje v oficiálnych námorných
           mapách a lodných sprievodcoch.
         </p>
-      </section>
-
-      <section className="section section-program" id="program">
-        <div className="section-heading split-heading">
-          <div>
-            <p className="eyebrow eyebrow-dark"><span /> Program</p>
-            <h2>Rytmus, ktorý drží flotilu spolu.</h2>
-          </div>
-          <p>
-            Každý deň má svoju plavebnú aj obsahovú úlohu. Večer sa uzatvoria
-            výsledky a ráno začína eskadra znova od spoločnej čiary.
-          </p>
-        </div>
-
-        <div className="schedule">
-          {regatta.route.legs.slice(1, 7).map((leg) => (
-            <article className="schedule-row" key={leg.day}>
-              <div className="schedule-date">
-                <span>0{leg.day - 1}</span>
-                <p>{leg.weekday}</p>
-              </div>
-              <div className="schedule-route">
-                <p>{leg.from} <span aria-hidden="true">→</span> {leg.to}</p>
-                <small>{leg.distance_nm} námorných míľ</small>
-              </div>
-              <div className="schedule-program">
-                <p>{leg.programme[0]}</p>
-                <small>{leg.programme.slice(1).join(" · ")}</small>
-              </div>
-              <div className={`schedule-badge ${leg.scored ? "is-scored" : ""}`}>
-                {leg.scored ? leg.leg_code : "Prológ"}
-              </div>
-            </article>
-          ))}
-        </div>
       </section>
 
       <section className="section section-safety">
@@ -336,9 +283,9 @@ export default function Home() {
             <h3>Platí sa organizátorovi.</h3>
             <ul>
               <li>kompletná organizácia a produkcia podujatia</li>
-              <li>päť meraných etáp, štartovacie procedúry, rozhodcovstvo a bodovanie</li>
+              <li>sedem rozjázd, štartovacie procedúry, rozhodcovstvo a bodovanie</li>
               <li>moderované bloky, tímové výzvy, rečník a riadený networking</li>
-              <li>štartovacie čísla, vlajka eskadry a materiály pre posádku</li>
+              <li>štartovacie čísla a materiály pre posádku</li>
               <li>plachtárske inštrukcie a predodletový brífing</li>
               <li>spoločné večery zaradené do programu a fotodokumentácia</li>
             </ul>
@@ -349,11 +296,11 @@ export default function Home() {
             <p>
               Loď nie je súčasťou účastníckeho poplatku. Zverejníme technickú
               špecifikáciu prípustného plavidla a odporúčané možnosti prenájmu
-              v Sukošane. Zmluvu na plavidlo uzatvára firma priamo s charterovou
+              v Rogoznici. Zmluvu na plavidlo uzatvára firma priamo s charterovou
               spoločnosťou.
             </p>
             <ul>
-              <li>doprava do Sukošanu a späť</li>
+              <li>doprava do Rogoznice a späť</li>
               <li>poistenie osôb a plavidla a vratná kaucia</li>
               <li>kvalifikovaný kapitán alebo profesionálny skipper</li>
               <li>palivo, prístavné poplatky a potraviny na palube</li>
@@ -401,16 +348,16 @@ export default function Home() {
             <summary>Ako to funguje so skipperom?</summary>
             <p>
               Skipper je profesionálny kapitán, ktorý sa stará o plavbu,
-              manévre a bezpečnosť. Spí na palube a je súčasťou šesťčlennej
-              posádky. Objednáva sa spolu s plavidlom.
+              manévre a bezpečnosť. Spí na palube a je súčasťou posádky.
+              Zmluvu uzatvára firma priamo so skipperom; organizátor nie je
+              zmluvnou stranou.
             </p>
           </details>
           <details>
-            <summary>Ako sa dostaneme do Sukošanu?</summary>
+            <summary>Ako sa dostaneme do Rogoznice?</summary>
             <p>
-              Autom je cesta z Bratislavy približne osem hodín, z Košíc
-              približne jedenásť. Najbližšie letiská sú Zadar a Split. Dopravu
-              si zabezpečuje každá firma samostatne; pri väčšom záujme pomôžeme
+              Najbližšie letisko je Split. Dopravu si zabezpečuje každá firma
+              samostatne; pri väčšom záujme pomôžeme
               koordinovať spoločnú dopravu.
             </p>
           </details>
@@ -435,16 +382,16 @@ export default function Home() {
           <details>
             <summary>Ako sa vlastne súťaží?</summary>
             <p>
-              Flotila je rozdelená na eskadry po štyroch lodiach. Polovicu
-              výsledku tvorí plavba a polovicu obsahový program, takže o poradí
-              nerozhodujú iba skúsenosti pri kormidle.
+              Sedem rozjázd používa nízkobodový systém. Dufour 460 a Dufour
+              470 GL štartujú na jednej čiare; celkové poradie vzniká z
+              prepočítaného času.
             </p>
           </details>
           <details>
             <summary>Môžeme prísť ako dve firmy na jednej lodi?</summary>
             <p>
-              Áno. Loď má šesť miest a je na posádke, ako ich obsadí, pokiaľ
-              všetci účastníci spĺňajú podmienky podujatia.
+              Formát je postavený ako jedna firma, jedna loď a jedna posádka.
+              Individuálne výnimky budú možné iba po potvrdení organizátorom.
             </p>
           </details>
         </div>
@@ -473,7 +420,7 @@ export default function Home() {
         <p className="eyebrow"><span /> Ďalší krok</p>
         <h2>Ešte nezaväzuje.<br />Len vás nechá pri tom.</h2>
         <p className="final-intro">
-          Prihlasovanie zatiaľ nie je otvorené — flotilu a termíny dolaďujeme
+          Prihlasovanie zatiaľ nie je otvorené — flotilu a podmienky dolaďujeme
           a nechceme sľubovať miesta, kým ich nemáme potvrdené. Nechajte nám
           kontakt a ozveme sa, keď bude pripravený ďalší krok.
         </p>
@@ -495,7 +442,7 @@ export default function Home() {
           <p>Prevetraj svoj biznis.</p>
         </div>
         <div className="footer-meta">
-          <p>25. 9. - 2. 10. 2027 · Dalmácia</p>
+          <p>25. - 30. 9. 2027 · Rogoznica, Chorvátsko</p>
           <p>Organizátor: Tangreto s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
           <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>

@@ -11,4 +11,4 @@ export const siteTitle =
   "Firemná regata v Chorvátsku 2027 | Tack & Talk";
 
 export const siteDescription =
-  "Sedem dní plachtenia a biznis programu v Dalmácii pre 20 firemných posádok. Tack & Talk Regatta, 25. 9. – 2. 10. 2027.";
+  "Päť nocí a štyri dni na vode pre 20 firemných posádok. Tack & Talk Regatta, Rogoznica, 25. – 30. 9. 2027.";
