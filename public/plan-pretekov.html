@@ -447,6 +447,57 @@
 
     #ceny { background: var(--navy); }
     .award-index { color: var(--orange); font-family: var(--body); font-weight: 300; }
+    .hero-subtitle { margin: 24px 0 0; color: #f1d7a8; font-size: clamp(1.1rem, 1.7vw, 1.45rem); font-weight: 400; letter-spacing: -0.025em; }
+    .concept-section { color: var(--navy); background: var(--sail); }
+    .concept-section .eyebrow, .content-section .eyebrow, .commander-section .eyebrow { color: var(--green-dark); }
+    .concept-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .concept-card { min-height: 430px; padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line-light); }
+    .concept-card:first-child { color: white; background: var(--navy); border-color: var(--navy); }
+    .concept-card-index { color: var(--orange); font-size: 0.72rem; font-weight: 500; }
+    .concept-card h3 { max-width: 560px; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.1; font-weight: 500; }
+    .concept-card p { max-width: 580px; margin: 20px 0 0; color: var(--green-dark); line-height: 1.75; }
+    .concept-card:first-child p { color: #b6c4d3; }
+    .concept-answer { margin-top: 28px !important; padding-top: 22px; border-top: 1px solid currentColor; font-size: 0.84rem; }
+    .planned-tag { width: fit-content; margin: 0 0 22px; padding: 8px 10px; color: var(--navy); background: #ead8b6; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .day-content { margin-top: 28px; padding: 22px 24px; color: var(--navy); background: #fbf7ef; border-left: 2px solid var(--orange); }
+    .day-content small { display: block; margin-bottom: 7px; color: var(--orange); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .day-content strong { font-weight: 500; }
+    .day-content p { margin: 6px 0 0; color: var(--green-dark); font-size: 0.79rem; line-height: 1.65; }
+    .briefing-note { margin: 15px 0 0; color: var(--green-dark); font-size: 0.72rem; }
+
+    .content-section { color: var(--navy); background: var(--sail); }
+    .content-arc { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--navy); border-left: 1px solid var(--line-light); }
+    .content-step { min-height: 290px; padding: 30px; display: flex; flex-direction: column; border-right: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+    .content-step span { color: var(--orange); font-size: 0.7rem; font-weight: 500; }
+    .content-step h3 { margin-top: auto; font-size: 1.45rem; line-height: 1.18; }
+    .content-step p { margin: 14px 0 0; color: var(--green-dark); font-size: 0.75rem; line-height: 1.7; }
+    .speaker-card { margin-top: 44px; padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 7vw; color: white; background: var(--navy); }
+    .speaker-card h3 { font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.08; }
+    .speaker-card p { margin: 0; color: #b6c4d3; line-height: 1.8; }
+    .speaker-quote { margin-top: 24px !important; color: #f1d7a8 !important; font-size: 1.05rem; }
+
+    .commander-section { color: var(--navy); background: #f4f8fb; }
+    .commander-grid { display: grid; grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(48px, 8vw, 120px); }
+    .commander-photo { min-height: 620px; position: relative; overflow: hidden; background: #cbd9e5; }
+    .commander-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .commander-copy h2 { color: var(--navy); }
+    .commander-role { margin: 18px 0 30px; color: var(--orange); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .commander-copy > p:not(.eyebrow):not(.commander-role) { color: var(--green-dark); line-height: 1.8; }
+    .commander-stats { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-light); border-left: 1px solid var(--line-light); }
+    .commander-stat { padding: 22px; border-right: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+    .commander-stat strong { display: block; color: var(--navy); font-size: 1.55rem; font-weight: 500; }
+    .commander-stat span { display: block; margin-top: 6px; color: var(--green-dark); font-size: 0.65rem; text-transform: uppercase; }
+
+    .how-section { background: var(--navy-deep); }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); }
+    .how-card { min-height: 280px; padding: 30px; display: flex; flex-direction: column; border-right: 1px solid var(--line-dark); }
+    .how-card:last-child { border-right: 0; }
+    .how-card span { color: var(--orange); font-size: 0.72rem; }
+    .how-card h3 { margin-top: auto; font-size: 1.55rem; }
+    .how-card p { margin: 13px 0 0; color: var(--sail-dim); font-size: 0.78rem; line-height: 1.7; }
+    .legal-note { margin: 26px 0 0; padding: 20px 24px; color: #b6c4d3; border: 1px solid var(--line-dark); font-size: 0.75rem; line-height: 1.7; }
+    #ceny .awards { grid-template-columns: repeat(5, 1fr); }
     .footer { padding: 55px 0; background: var(--navy); }
     .footer-brand { font-family: var(--body); font-weight: 700; letter-spacing: -0.04em; }
     .footer-brand span { color: var(--orange); }
@@ -474,6 +525,15 @@
       .hero-grid { grid-template-columns: 1fr; }
       .countdown { min-height: 320px; }
       .day-switcher { top: 74px; }
+      .concept-grid, .speaker-card, .commander-grid { grid-template-columns: 1fr; }
+      .content-arc, #ceny .awards { grid-template-columns: 1fr 1fr; }
+      #ceny .award:nth-child(even) { border-right: 0; }
+      #ceny .award { border-bottom: 1px solid var(--line-dark); }
+      #ceny .award:last-child { border-bottom: 0; }
+      .commander-photo { min-height: 540px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-card { min-height: 220px; border-right: 0; border-bottom: 1px solid var(--line-dark); }
+      .how-card:last-child { border-bottom: 0; }
     }
 
     @media (max-width: 620px) {
@@ -487,6 +547,12 @@
       .countdown-label { margin-bottom: 20px; }
       .day-switcher { margin-inline: 0; width: 100%; top: 74px; }
       .day-tab { font-size: 0.75rem; }
+      .content-arc, #ceny .awards { grid-template-columns: 1fr; }
+      #ceny .award { border-right: 0; }
+      .concept-card { min-height: 360px; }
+      .content-step { min-height: 230px; }
+      .commander-photo { min-height: 430px; }
+      .commander-stats { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -502,11 +568,12 @@
       <a class="brand" href="/" aria-label="Tack and Talk Regatta 2027, hlavná stránka"><span>TACK</span><span class="brand-amp">&amp;</span><span>TALK</span><span class="brand-year">2027</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="plan-menu"><span>Menu</span><i aria-hidden="true"></i></button>
       <nav class="section-nav" id="plan-menu" aria-label="Navigácia plánu pretekov">
+        <a href="#koncept">Koncept</a>
         <a href="#trasa">Trasa</a>
         <a href="#program">Program</a>
-        <a href="#bodovanie">Bodovanie</a>
+        <a href="#obsah">Obsah</a>
         <a href="#lode">Lode</a>
-        <a href="#ceny">Ceny</a>
+        <a href="/#kontakt">Kontakt</a>
       </nav>
       <a class="header-meta" href="/">Hlavná stránka</a>
     </div>
@@ -519,10 +586,11 @@
         <div>
           <p class="eyebrow">Biznis regata · 25. – 30. 9. 2027</p>
           <h1 id="hero-title">Prevetraj <span>svoj biznis.</span></h1>
+          <p class="hero-subtitle">Na lodi tím. Na súši sieť.</p>
           <p class="hero-lead"><strong>20 lodí. 7 rozjázd. 70 námorných míľ.</strong> Štyri dni na vode medzi Rogoznicou, Tribunjom, Vodicami a Zlarinom.</p>
           <div class="hero-actions">
             <a class="hero-action" href="#trasa">Pozrieť trasu <span aria-hidden="true">↓</span></a>
-            <a class="hero-action" href="#program">Denný program <span aria-hidden="true">→</span></a>
+            <a class="hero-action" href="/#kontakt">Chcem vedieť viac <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="countdown" aria-live="polite">
@@ -539,6 +607,26 @@
         <div class="metric"><strong>120</strong><span>účastníkov</span></div>
         <div class="metric"><strong>7</strong><span>rozjázd</span></div>
         <div class="metric"><strong>~70</strong><span>námorných míľ</span></div>
+      </div>
+    </section>
+
+    <section class="section concept-section" id="koncept" aria-labelledby="concept-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Koncept</p>
+          <h2 id="concept-title">Nie teambuilding.<br>Spoločná práca.</h2>
+          <p>Biznis regata s obsahovým programom. Štyri dni ukážu, ako tím rozhoduje pod tlakom. Večerný formát prepája ľudí naprieč flotilou.</p>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <span class="concept-card-index">01 · NA LODI</span>
+            <div><h3>Jeden tím. Obmedzený priestor. Jasný cieľ.</h3><p>Posádka spolu plánuje, komunikuje a reaguje na meniace sa podmienky. Výsledok nevzniká na prezentácii, ale pri spoločnej práci.</p></div>
+          </article>
+          <article class="concept-card">
+            <span class="concept-card-index">02 · NA SÚŠI</span>
+            <div><h3>Dvadsať firiem. Každý večer iné rozhovory.</h3><p>Obsahový program a riadené stolovanie vytvárajú priestor na konkrétne problémy, skúsenosti a kontakty mimo vlastného tímu.</p><p class="concept-answer">Z bežného teambuildingu si odvezieš vlastný tím. Odtiaľto aj sieť ďalších firiem.</p></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -635,6 +723,27 @@
       </div>
     </section>
 
+    <section class="section content-section" id="obsah" aria-labelledby="content-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="planned-tag">Pripravujeme obsah ročníka 2027</p>
+          <p class="eyebrow">Nosná téma</p>
+          <h2 id="content-title">Nedostatok<br>kvalifikovaných ľudí.</h2>
+          <p>Obsahový oblúk ide od náboru cez udržanie a rozvoj ľudí až po automatizáciu práce, ktorú už nie je komu obsadiť.</p>
+        </div>
+        <div class="content-arc">
+          <article class="content-step"><span>01</span><h3>Nemôžeš ich nájsť</h3><p>Otvorená diagnóza: kde firmy ľudí hľadajú a čo im v nábore nefunguje.</p></article>
+          <article class="content-step"><span>02</span><h3>Udrž si tých, čo máš</h3><p>Prečo dobrí ľudia odchádzajú a čo môže firma zmeniť bez ďalšieho náboru.</p></article>
+          <article class="content-step"><span>03</span><h3>Vychovaj si vlastných</h3><p>Juniorné pozície, zaúčanie a odovzdávanie know-how bez spomalenia firmy.</p></article>
+          <article class="content-step"><span>04</span><h3>Zvyšok urob bez nich</h3><p>Workshop o automatizácii a AI. Každý tím pracuje s jednou konkrétnou neobsaditeľnou pozíciou.</p></article>
+        </div>
+        <article class="speaker-card">
+          <div><p class="eyebrow">Lídri vo svojom odbore</p><h3>Rečník nie je iba na pódiu.</h3></div>
+          <div><p>Pripravujeme formát, v ktorom hostia plávajú s flotilou a presúvajú sa medzi posádkami. Mená zverejníme až po ich potvrdení.</p><p class="speaker-quote">Jeden deň pracuje s tvojím tímom človek, ktorého by si inak stretol iba na konzultácii.</p></div>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="bodovanie" aria-labelledby="scoring-title">
       <div class="wrap">
         <div class="section-head">
@@ -656,6 +765,24 @@
             <article class="score-rule"><strong>1×</strong><h3>Jeden škrt</h3><p>Pri piatich a viacerých rozjazdách sa odpočíta jeden najhorší výsledok.</p></article>
             <article class="score-rule"><strong>R7</strong><h3>Finále ostáva</h3><p>Výsledok finálovej rozjazdy sa započítava vždy. Nemožno ho škrtnúť.</p></article>
             <article class="score-rule"><strong>Ø</strong><h3>Bezpečnostné odstúpenie</h3><p>Zapisuje sa priemer dovtedajších výsledkov, bez penalizácie.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section commander-section" id="velitel" aria-labelledby="commander-title">
+      <div class="wrap commander-grid">
+        <div class="commander-photo"><img src="/michal-hrivnak.jpg" alt="Michal Hrivnák, veliteľ flotily"></div>
+        <div class="commander-copy">
+          <p class="eyebrow">Kto vedie flotilu</p>
+          <h2 id="commander-title">Michal<br>Hrivnák.</h2>
+          <p class="commander-role">Veliteľ flotily a hlavný rozhodca</p>
+          <p>Zakladateľ Tangreto sa plachteniu venuje od detstva, na otvorenom mori od roku 2003 a regatám od roku 2013. Podľa oficiálneho profilu má za sebou viac než 30 000 námorných míľ.</p>
+          <p>Na podujatí kontroluje každú loď osobne, asistuje pri check-ine a jeho rozhodnutie o zrušení etapy, zmene trasy alebo zastavení flotily je konečné.</p>
+          <div class="commander-stats">
+            <div class="commander-stat"><strong>30 000+</strong><span>námorných míľ</span></div>
+            <div class="commander-stat"><strong>2003</strong><span>na otvorenom mori</span></div>
+            <div class="commander-stat"><strong>2013</strong><span>regatové plachtenie</span></div>
           </div>
         </div>
       </div>
@@ -694,6 +821,22 @@
       </div>
     </section>
 
+    <section class="section how-section" id="ako" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Ako to funguje</p>
+          <h2 id="how-title">Najprv tím.<br>Potom flotila.</h2>
+          <p>Koncept je postavený pre firemné tímy, ktoré spolu prídu na loď a počas týždňa pracujú aj s ľuďmi z ďalších firiem.</p>
+        </div>
+        <div class="how-grid">
+          <article class="how-card"><span>01</span><h3>Firma zostaví tím</h3><p>Jedna firma prichádza s vlastnou posádkou. Presný model lodí, skipperov a dopravy zverejníme v potvrdených podmienkach.</p></article>
+          <article class="how-card"><span>02</span><h3>Plavba aj obsah</h3><p>Každý deň spája ranný brífing, rozjazdy alebo presun a večerný obsahový blok.</p></article>
+          <article class="how-card"><span>03</span><h3>Predaj až po potvrdení</h3><p>Teraz zbierame nezáväzný záujem. Verejnú registráciu otvoríme po zmluvnom a právnom potvrdení.</p></article>
+        </div>
+        <p class="legal-note">Finálny rozsah účastníckeho poplatku, zabezpečenia lodí, skipperov a dopravy zverejníme až v potvrdených obchodných podmienkach. Aktuálny kontakt je nezáväzný a nejde o rezerváciu miesta.</p>
+      </div>
+    </section>
+
     <section class="section" id="ceny" aria-labelledby="awards-title">
       <div class="wrap">
         <div class="section-head">
@@ -704,7 +847,8 @@
           <article class="award"><span class="award-index">01</span><h3>Celkový víťaz</h3><p>Putovná trofej TACK &amp; TALK podľa prepočítaného času.</p></article>
           <article class="award"><span class="award-index">02</span><h3>Kategória 460</h3><p>Prvé tri miesta podľa reálneho času v kategórii.</p></article>
           <article class="award"><span class="award-index">03</span><h3>Kategória 470</h3><p>Prvé tri miesta podľa reálneho času v kategórii.</p></article>
-          <article class="award"><span class="award-index">04</span><h3>Špeciálna cena</h3><p>Organizátor si vyhradzuje právo udeliť osobitné ocenenie.</p></article>
+          <article class="award"><span class="award-index">04</span><h3>Cena Jadrana</h3><p>Ocenenie za karusel pri Prišnjaku.</p></article>
+          <article class="award"><span class="award-index">05</span><h3>Špeciálna cena</h3><p>Organizátor si vyhradzuje právo udeliť osobitné ocenenie.</p></article>
         </div>
       </div>
     </section>
@@ -728,6 +872,8 @@
           route: "Marina Frapa · príchod flotily",
           distance: "0 nm",
           program: "Check-in lodí, kapitánsky brífing a otvárací večer. Michal Hrivnák asistuje pri prevzatí a technickej kontrole lodí.",
+          contentTitle: "Kde beriete ľudí",
+          contentCopy: "Otvorená diagnóza a rozdelenie práce v tíme, keď je ľudí menej, než potrebuješ.",
           facts: ["Noc 1", "Check-in", "Kapitánsky brífing"],
           races: [],
           arrival: true
@@ -738,6 +884,8 @@
           route: "Mulo · Primošten · Tribunj",
           distance: "~23 nm",
           program: "Tri rozjazdy. Technický karusel pri Mule, navigačná rozjazda k Primoštenu a dojazd do Tribunja.",
+          contentTitle: "Udržať tých, čo máte",
+          contentCopy: "Večerný blok o dôvodoch odchodov a práci s existujúcim tímom.",
           facts: ["3 rozjazdy", "~23 nm", "Cieľ Tribunj"],
           races: [
             { number: "R1", title: "Karusel Mulo", type: "Karusel", distance: "4,7 nm", start: "Mulo", finish: "Mulo" },
@@ -751,6 +899,8 @@
           route: "Murter · Prišnjak · Vodice",
           distance: "~30 nm",
           program: "Najdlhší deň programu. Navigačná rozjazda okolo západnej strany Murtera, karusel pri Prišnjaku a záverečný úsek do Vodíc.",
+          contentTitle: "Vychovať namiesto nájsť",
+          contentCopy: "Prípadové štúdie o junioroch, zaúčaní a odovzdávaní know-how.",
           facts: ["3 rozjazdy", "~30 nm", "Cieľ Vodice"],
           races: [
             { number: "R4", title: "Murter okolo západu", type: "Navigačná", distance: "14 nm", start: "Tribunj", finish: "Západ Murtera" },
@@ -764,6 +914,8 @@
           route: "Presun bez merania času",
           distance: "~5 nm",
           program: "Regata na deň ustúpi obsahu. Presun na Zlarin bez merania času, obsahový blok a večer celej flotily na jednej rive.",
+          contentTitle: "Robiť viac s menej ľuďmi",
+          contentCopy: "Trojhodinový workshop o automatizácii a AI, postavený na konkrétnych pozíciách účastníkov.",
           facts: ["Bez merania času", "~5 nm", "Obsahový blok"],
           races: []
         },
@@ -773,6 +925,8 @@
           route: "R7 · finálová rozjazda",
           distance: "~12 nm",
           program: "Finálová rozjazda s cieľom v domácej maríne. Po návrate nasleduje galavečer a vyhlásenie výsledkov.",
+          contentTitle: "Galavečer a výsledky",
+          contentCopy: "Záver plavebnej aj obsahovej časti a vyhlásenie výsledkov.",
           facts: ["R7 finále", "~12 nm", "Galavečer"],
           races: [
             { number: "R7", title: "Finále do Rogoznice", type: "Navigačná", distance: "~12 nm", start: "Zlarin", finish: "Marina Frapa" }
@@ -847,6 +1001,8 @@
               <p class="day-route">${day.route}</p>
               <p class="day-program">${day.program}</p>
               <div class="day-facts">${day.facts.map((fact) => `<span>${fact}</span>`).join("")}</div>
+              <div class="day-content"><small>Pripravovaný obsahový blok</small><strong>${day.contentTitle}</strong><p>${day.contentCopy}</p></div>
+              ${day.arrival ? "" : '<p class="briefing-note">Ráno pred štartom: brífing na móle a krátke pomenovanie tém, ktoré chcú účastníci počas dňa vyriešiť.</p>'}
             </div>
           </div>
           <div class="race-grid">${day.races.length ? day.races.map(raceCard).join("") : emptyRaceCard(day)}</div>`;
@@ -921,7 +1077,7 @@
         });
       }, { rootMargin: "-28% 0px -58%", threshold: [0, 0.2, 0.5] });
 
-      ["trasa", "program", "bodovanie", "lode", "ceny"].forEach((id) => {
+      ["koncept", "trasa", "program", "obsah", "bodovanie", "velitel", "lode", "ako", "ceny"].forEach((id) => {
         const section = document.getElementById(id);
         if (section) sectionObserver.observe(section);
       });

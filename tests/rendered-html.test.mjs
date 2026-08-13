@@ -109,6 +109,14 @@ test("standalone race plan contains the complete interactive specification", asy
   assert.match(plan, /family=Poppins/i);
   assert.match(plan, /--orange:\s*#c08a2e/i);
   assert.match(plan, /class="nav-toggle"/i);
+  assert.match(plan, /Na lodi tím\. Na súši sieť\./i);
+  assert.match(plan, /Nedostatok.*kvalifikovaných ľudí/is);
+  assert.match(plan, /Lídri vo svojom odbore/i);
+  assert.match(plan, /Veliteľ flotily a hlavný rozhodca/i);
+  assert.match(plan, /Aktuálny kontakt je nezáväzný/i);
+  assert.match(plan, /Cena Jadrana/i);
+  assert.doesNotMatch(plan, />\s*Prihlásiť sa\s*</i);
+  assert.doesNotMatch(plan, /ORC Double-Handed|>\s*ARC\s*<|55 tímov/i);
   assert.doesNotMatch(plan, /localStorage|sessionStorage/i);
   assert.doesNotMatch(plan, /<script[^>]+src=/i);
 
