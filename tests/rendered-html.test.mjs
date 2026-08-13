@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(path = "/", headers = {}) {
@@ -80,4 +81,26 @@ test("authenticated non-admin is denied", async () => {
   const html = await response.text();
   assert.match(html, /Nemáte prístup/i);
   assert.doesNotMatch(html, /Export CSV/i);
+});
+
+test("standalone race plan contains the complete interactive specification", async () => {
+  const plan = await readFile(
+    new URL("../public/plan-pretekov.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(plan, /Marina Frapa/i);
+  assert.match(plan, /Rogoznica.*Tribunj.*Vodice.*Zlarin/is);
+  assert.match(plan, /Dufour 460/i);
+  assert.match(plan, /Dufour 470 GL/i);
+  assert.match(plan, /R7/i);
+  assert.match(plan, /NEŠKRTÁ SA/i);
+  assert.match(plan, /Bezpečnostné odstúpenie/i);
+  assert.match(plan, /Nie je navigačným podkladom/i);
+  assert.match(plan, /data-key="arrival"/i);
+  assert.match(plan, /data-key="day4"/i);
+  assert.match(plan, /const days =/i);
+  assert.match(plan, /setInterval\(updateCountdown/i);
+  assert.doesNotMatch(plan, /localStorage|sessionStorage/i);
+  assert.doesNotMatch(plan, /<script[^>]+src=/i);
 });
