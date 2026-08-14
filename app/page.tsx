@@ -256,13 +256,19 @@ export default function Home() {
         <div className="fee-grid">
           <article className="fee-card fee-card-dark">
             <p className="fee-label">Dufour 460</p>
-            <p className="fee-price">8 700 € <small>bez DPH</small></p>
+            <div className="fee-price" aria-label="Cena Dufour 460: 8 700 eur bez DPH">
+              <strong>8 700 €</strong>
+              <span>bez DPH</span>
+            </div>
             <h3>Kompletná loď pre firemnú posádku.</h3>
             <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
           <article className="fee-card">
             <p className="fee-label">Dufour 470</p>
-            <p className="fee-price">9 500 € <small>bez DPH</small></p>
+            <div className="fee-price" aria-label="Cena Dufour 470: 9 500 eur bez DPH">
+              <strong>9 500 €</strong>
+              <span>bez DPH</span>
+            </div>
             <h3>Viac priestoru. Rovnaký program.</h3>
             <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
@@ -281,13 +287,31 @@ export default function Home() {
           <p>Uvedené ceny 8 700 € a 9 500 € sú bez DPH.</p>
         </div>
         <article className="bali-card">
-          <div>
-            <p className="eyebrow"><span /> BALI 5.2 · celý čas s flotilou</p>
-            <h3>Daj si kávu so súpermi na katamaráne BALI 5.2.</h3>
-          </div>
-          <div>
+          <figure className="bali-photo">
+            {/* Static promo asset is intentionally served directly by the site. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/bali-52-promo.jpg"
+              alt="Katamarán BALI 5.2 počas plavby na mori"
+              width="2000"
+              height="1123"
+              loading="lazy"
+            />
+            <figcaption>Promo foto · BALI Catamarans</figcaption>
+          </figure>
+          <div className="bali-copy">
+            <p className="eyebrow"><span /> V cene · celý čas s flotilou</p>
+            <h3>Daj si kávu so súpermi na BALI 5.2 Lumiere.</h3>
             <p>Spoločný katamarán je zahrnutý v cene každej lode. Počas celého podujatia vytvára priestor na stretnutia medzi posádkami, rannú kávu aj rozhovory po návrate do prístavu.</p>
-            <a href="https://www.boataround.com/sk/lod/bali-52-lumiere" target="_blank" rel="noreferrer">Pozrieť BALI 5.2 Lumiere <span aria-hidden="true">↗</span></a>
+            <dl className="bali-specs" aria-label="Údaje o katamaráne BALI 5.2 Lumiere">
+              <div><dt>Rok</dt><dd>2026</dd></div>
+              <div><dt>Dĺžka</dt><dd>15,9 m</dd></div>
+              <div><dt>Šírka</dt><dd>8,15 m</dd></div>
+              <div><dt>Kapacita</dt><dd>12 osôb</dd></div>
+              <div><dt>Kajuty / WC</dt><dd>7 / 7</dd></div>
+              <div><dt>Motory</dt><dd>2 × 80 HP</dd></div>
+            </dl>
+            <p className="bali-features">Flybridge · klimatizácia · generátor · odsoľovač vody · kávovar</p>
           </div>
         </article>
       </section>

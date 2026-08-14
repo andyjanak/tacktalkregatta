@@ -54,7 +54,9 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /8\s*700\s*€.*bez DPH/is);
   assert.match(html, /9\s*500\s*€.*bez DPH/is);
   assert.match(html, /BALI 5\.2.*celý čas s flotilou/is);
-  assert.match(html, /boataround\.com\/sk\/lod\/bali-52-lumiere/i);
+  assert.match(html, /src="\/bali-52-promo\.jpg"/i);
+  assert.match(html, /15,9\s*m.*8,15\s*m.*12\s*osôb.*2\s*×\s*80\s*HP/is);
+  assert.doesNotMatch(html, /boataround\.com/i);
   assert.doesNotMatch(html, /href="\/plan-pretekov"/i);
   assert.doesNotMatch(html, /Jedna trasa.*Jeden platný program/is);
   assert.doesNotMatch(html, /Sukošan|Vodice|125\s*nm|2\.\s*10\.\s*2027|Prevetraj svoj biznis/i);

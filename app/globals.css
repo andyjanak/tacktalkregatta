@@ -284,9 +284,11 @@ main { overflow: hidden; }
 .fee-card h3 { max-width: 520px; margin: 0 0 28px; color: var(--navy); font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; letter-spacing: -.045em; font-weight: 500; }
 .fee-card-dark h3 { color: white; }
 .fee-card > p:not(.fee-label) { color: var(--grey); font-size: 13px; line-height: 1.8; }
-.fee-card > p.fee-price { margin: 0; color: var(--navy); font-size: clamp(54px, 6vw, 84px); line-height: 1; letter-spacing: -.06em; font-weight: 500; }
+.fee-price { margin: 0 0 52px; display: flex; flex-direction: column; align-items: flex-start; color: var(--navy); }
+.fee-price strong { display: block; color: inherit; font-size: clamp(48px, 5.4vw, 76px); line-height: 1; letter-spacing: -.055em; font-weight: 500; white-space: nowrap; }
 .fee-card-dark .fee-price { color: white; }
-.fee-card .fee-price small { margin: 12px 0 52px; display: block; color: var(--brass); font-size: 11px; line-height: 1; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; }
+.fee-price span { margin-top: 13px; padding: 7px 10px; display: inline-block; color: var(--navy); background: var(--brass); font-size: 11px; line-height: 1; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+.fee-card:not(.fee-card-dark) .fee-price span { color: white; background: var(--navy); }
 .fee-card ul { margin: 35px 0 0; padding: 0; list-style: none; }
 .fee-card li { position: relative; padding: 14px 0 14px 24px; color: var(--grey); border-top: 1px solid var(--line); font-size: 12px; line-height: 1.55; }
 .fee-card li::before { content: "+"; position: absolute; left: 0; color: var(--brass); }
@@ -300,12 +302,22 @@ main { overflow: hidden; }
 .package-includes li:nth-child(odd) { border-right: 1px solid var(--line); }
 .package-includes li::before { content: "+"; position: absolute; left: 2px; color: var(--brass); }
 .package-includes > p:last-child { margin: 24px 0 0; color: var(--navy); font-size: 12px; font-weight: 500; }
-.bali-card { margin-top: 34px; padding: clamp(36px, 5vw, 70px); display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; color: white; background: var(--deep); }
+.bali-card { margin-top: 34px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); color: white; background: var(--deep); overflow: hidden; }
+.bali-photo { position: relative; min-height: 630px; margin: 0; background: #091d31; overflow: hidden; }
+.bali-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(6,25,44,.72)); pointer-events: none; }
+.bali-photo img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.bali-photo figcaption { position: absolute; left: 24px; bottom: 22px; z-index: 1; color: white; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+.bali-copy { padding: clamp(38px, 5vw, 72px); align-self: center; }
 .bali-card .eyebrow { color: #d6dfe8; }
-.bali-card h3 { max-width: 620px; margin: 0; font-size: clamp(36px, 4vw, 60px); line-height: 1.05; letter-spacing: -.05em; font-weight: 500; }
-.bali-card > div:last-child { align-self: end; }
-.bali-card > div:last-child p { margin: 0 0 28px; color: #c3cfda; font-size: 14px; line-height: 1.8; font-weight: 300; }
-.bali-card a { padding: 12px 0 7px; display: inline-flex; gap: 14px; color: #f1d7a8; border-bottom: 1px solid var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .09em; }
+.bali-card h3 { max-width: 620px; margin: 0 0 26px; font-size: clamp(36px, 4vw, 60px); line-height: 1.05; letter-spacing: -.05em; font-weight: 500; }
+.bali-copy > p:not(.eyebrow):not(.bali-features) { margin: 0 0 30px; color: #c3cfda; font-size: 14px; line-height: 1.8; font-weight: 300; }
+.bali-specs { margin: 0; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.16); }
+.bali-specs div { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+.bali-specs div:nth-child(odd) { padding-right: 20px; }
+.bali-specs div:nth-child(even) { padding-left: 20px; border-left: 1px solid rgba(255,255,255,.16); }
+.bali-specs dt { margin: 0 0 7px; color: #9fb1c1; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+.bali-specs dd { margin: 0; color: white; font-size: 16px; font-weight: 500; }
+.bali-features { margin: 24px 0 0; color: #f1d7a8; font-size: 10px; line-height: 1.7; text-transform: uppercase; letter-spacing: .08em; }
 
 .section-faq { background: white; }
 .faq-list { margin-top: 72px; border-top: 1px solid var(--navy); }
@@ -551,7 +563,7 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .fee-card { min-height: auto; }
   .package-includes ul, .bali-card { grid-template-columns: 1fr; }
   .package-includes li:nth-child(odd) { border-right: 0; }
-  .bali-card { gap: 36px; }
+  .bali-photo { min-height: clamp(300px, 70vw, 460px); }
   .plan-race-status { padding: 28px; grid-template-columns: 55px 1fr; gap: 18px; }
   .plan-race-status > strong { font-size: 46px; }
   .section-patronage { grid-template-columns: 1fr; gap: 42px; }
