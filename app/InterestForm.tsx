@@ -98,8 +98,8 @@ export default function InterestForm() {
       <label className="form-consent">
         <input name="consent" type="checkbox" value="yes" required />
         <span>
-          Súhlasím, aby ma Tangreto s.r.o. kontaktovalo v súvislosti s prípravou
-          Tack &amp; Talk Regatta 2027.
+          Súhlasím, aby ma spoločnosť Tangreto s.r.o. kontaktovala v súvislosti
+          s prípravou podujatia Tack &amp; Talk Regatta 2027.
         </span>
       </label>
 

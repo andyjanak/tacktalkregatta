@@ -3,14 +3,6 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 
 type DayKey = "arrival" | "day1" | "day2" | "day3" | "day4";
-type Race = {
-  number: string;
-  title: string;
-  type: "Karusel" | "Navigačná";
-  distance: string;
-  start: string;
-  finish: string;
-};
 
 const days: Record<DayKey, {
   index: string;
@@ -18,12 +10,10 @@ const days: Record<DayKey, {
   destination: string;
   title: string;
   route: string;
-  distance: string;
-  program: string;
-  contentTitle: string;
-  contentCopy: string;
+  programme: string;
   facts: string[];
-  races: Race[];
+  eveningTitle: string;
+  eveningCopy: string;
 }> = {
   arrival: {
     index: "N1",
@@ -31,84 +21,64 @@ const days: Record<DayKey, {
     destination: "Rogoznica",
     title: "Rogoznica",
     route: "Marina Frapa · príchod flotily",
-    distance: "0 nm",
-    program: "Check-in lodí, kapitánsky brífing a otvárací večer. Michal Hrivnák asistuje pri prevzatí a technickej kontrole lodí.",
-    contentTitle: "Kde beriete ľudí",
-    contentCopy: "Otvorená diagnóza a rozdelenie práce v tíme, keď je ľudí menej, než potrebuješ.",
-    facts: ["Noc 1", "Check-in", "Kapitánsky brífing"],
-    races: [],
+    programme: "Prevzatie a kontrola lodí s pomocou organizátora, kapitánsky brífing a otvorenie podujatia.",
+    facts: ["Prevzatie lodí", "Kontrola organizátorom", "Večera 1/5"],
+    eveningTitle: "Otvárací večer",
+    eveningCopy: "Prvá spoločná večera a stretnutie posádok pred začiatkom súťažnej časti.",
   },
   day1: {
     index: "01",
     tab: "Deň 1",
-    destination: "Tribunj · ~23 nm",
+    destination: "Tribunj",
     title: "Rogoznica → Tribunj",
-    route: "Mulo · Primošten · Tribunj",
-    distance: "~23 nm",
-    program: "Tri rozjazdy. Technický karusel pri Mule, navigačná rozjazda k Primoštenu a dojazd do Tribunja.",
-    contentTitle: "Udržať tých, čo máte",
-    contentCopy: "Večerný blok o dôvodoch odchodov a práci s existujúcim tímom.",
-    facts: ["3 rozjazdy", "~23 nm", "Cieľ Tribunj"],
-    races: [
-      { number: "R1", title: "Karusel Mulo", type: "Karusel", distance: "4,7 nm", start: "Mulo", finish: "Mulo" },
-      { number: "R2", title: "Mulo → Primošten", type: "Navigačná", distance: "7 nm", start: "Mulo", finish: "Primošten" },
-      { number: "R3", title: "Primošten → Tribunj", type: "Navigačná", distance: "11 nm", start: "Primošten", finish: "Tribunj" },
-    ],
+    route: "Prvý súťažný deň",
+    programme: "Raňajky, ranný brífing a prvá časť regaty s cieľom v Tribunji. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+    facts: ["Súťažný deň 1/4", "Raňajky 1/4", "Večera 2/5"],
+    eveningTitle: "Tribunj",
+    eveningCopy: "Spoločná večera a priestor na rozhovory medzi posádkami po prvom súťažnom dni.",
   },
   day2: {
     index: "02",
     tab: "Deň 2",
-    destination: "Vodice · ~30 nm",
-    title: "Tribunj → Vodice",
-    route: "Murter · Prišnjak · Vodice",
-    distance: "~30 nm",
-    program: "Najdlhší deň programu. Navigačná rozjazda okolo západnej strany Murtera, karusel pri Prišnjaku a záverečný úsek do Vodíc.",
-    contentTitle: "Vychovať namiesto nájsť",
-    contentCopy: "Prípadové štúdie o junioroch, zaúčaní a odovzdávaní know-how.",
-    facts: ["3 rozjazdy", "~30 nm", "Cieľ Vodice"],
-    races: [
-      { number: "R4", title: "Murter okolo západu", type: "Navigačná", distance: "14 nm", start: "Tribunj", finish: "Západ Murtera" },
-      { number: "R5", title: "Karusel Prišnjak", type: "Karusel", distance: "6 nm", start: "Prišnjak", finish: "Prišnjak" },
-      { number: "R6", title: "Prišnjak → Vodice", type: "Navigačná", distance: "10 nm", start: "Prišnjak", finish: "Vodice" },
-    ],
+    destination: "Jezera",
+    title: "Tribunj → Jezera",
+    route: "Druhý súťažný deň",
+    programme: "Raňajky, ranný brífing a súťažný program na trase do Jezier. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+    facts: ["Súťažný deň 2/4", "Raňajky 2/4", "Večera 3/5"],
+    eveningTitle: "Jezera",
+    eveningCopy: "Spoločná večera a stretnutia naprieč flotilou vrátane programu na BALI 5.2.",
   },
   day3: {
     index: "03",
     tab: "Deň 3",
-    destination: "Zlarin · ~5 nm",
-    title: "Vodice → Zlarin",
-    route: "Presun bez merania času",
-    distance: "~5 nm",
-    program: "Regata na deň ustúpi obsahu. Presun na Zlarin bez merania času, obsahový blok a večer celej flotily na jednej rive.",
-    contentTitle: "Robiť viac s menej ľuďmi",
-    contentCopy: "Trojhodinový workshop o automatizácii a AI, postavený na konkrétnych pozíciách účastníkov.",
-    facts: ["Bez merania času", "~5 nm", "Obsahový blok"],
-    races: [],
+    destination: "Zlarin",
+    title: "Jezera → Zlarin",
+    route: "Tretí súťažný deň",
+    programme: "Raňajky, ranný brífing a súťažný program s cieľom na Zlarine. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+    facts: ["Súťažný deň 3/4", "Raňajky 3/4", "Večera 4/5"],
+    eveningTitle: "Zlarin",
+    eveningCopy: "Celá flotila sa stretne pri spoločnej večeri a programe po treťom súťažnom dni.",
   },
   day4: {
     index: "04",
     tab: "Deň 4",
-    destination: "Rogoznica · ~12 nm",
+    destination: "Rogoznica",
     title: "Zlarin → Rogoznica",
-    route: "R7 · finálová rozjazda",
-    distance: "~12 nm",
-    program: "Finálová rozjazda s cieľom v domácej maríne. Po návrate nasleduje galavečer a vyhlásenie výsledkov.",
-    contentTitle: "Galavečer a výsledky",
-    contentCopy: "Záver plavebnej aj obsahovej časti a vyhlásenie výsledkov.",
-    facts: ["R7 finále", "~12 nm", "Galavečer"],
-    races: [
-      { number: "R7", title: "Finále do Rogoznice", type: "Navigačná", distance: "~12 nm", start: "Zlarin", finish: "Marina Frapa" },
-    ],
+    route: "Finálový súťažný deň",
+    programme: "Raňajky, ranný brífing a finálová časť regaty s návratom do Mariny Frapa v Rogoznici.",
+    facts: ["Súťažný deň 4/4", "Raňajky 4/4", "Večera 5/5"],
+    eveningTitle: "Finále v Rogoznici",
+    eveningCopy: "Záverečná spoločná večera a vyhlásenie výsledkov regaty.",
   },
 };
 
 const dayKeys = Object.keys(days) as DayKey[];
 
 const stops: Array<{ key: DayKey; transform: string; label: string; sub: string; text: { x: number; y: number; anchor?: "start" | "end" }; subY: number }> = [
-  { key: "arrival", transform: "translate(575 382)", label: "ROGOZNICA", sub: "Noc 1 · štart", text: { x: -16, y: -34, anchor: "end" }, subY: -18 },
-  { key: "day1", transform: "translate(236 175)", label: "TRIBUNJ", sub: "Deň 1 · ~23 nm", text: { x: -32, y: -6, anchor: "end" }, subY: 10 },
-  { key: "day2", transform: "translate(318 112)", label: "VODICE", sub: "Deň 2 · ~30 nm", text: { x: 31, y: -8 }, subY: 8 },
-  { key: "day3", transform: "translate(426 224)", label: "ZLARIN", sub: "Deň 3 · ~5 nm", text: { x: 30, y: -7 }, subY: 9 },
+  { key: "arrival", transform: "translate(575 382)", label: "ROGOZNICA", sub: "Noc 1 · príchod", text: { x: -16, y: -34, anchor: "end" }, subY: -18 },
+  { key: "day1", transform: "translate(236 175)", label: "TRIBUNJ", sub: "Deň 1", text: { x: -32, y: -6, anchor: "end" }, subY: 10 },
+  { key: "day2", transform: "translate(318 112)", label: "JEZERA", sub: "Deň 2", text: { x: 31, y: -8 }, subY: 8 },
+  { key: "day3", transform: "translate(426 224)", label: "ZLARIN", sub: "Deň 3", text: { x: 30, y: -7 }, subY: 9 },
   { key: "day4", transform: "translate(590 395)", label: "ROGOZNICA", sub: "Deň 4 · finále", text: { x: -18, y: 42, anchor: "end" }, subY: 58 },
 ];
 
@@ -139,9 +109,9 @@ export default function RacePlan() {
     <>
       <section className="section section-route integrated-route" id="trasa" aria-labelledby="route-title">
         <div className="section-heading heading-on-dark">
-          <p className="eyebrow"><span /> Trasa · 5 nocí · 4 dni na vode · približne 70 námorných míľ</p>
+          <p className="eyebrow"><span /> Trasa · 5 nocí · 4 súťažné dni · 9 rozjázd</p>
           <h2 id="route-title">Päť bodov.<br />Štyri dni.</h2>
-          <p>Vyber bod na mape. Denný plán, rozjazdy a večerný obsah sa zobrazia priamo pod trasou.</p>
+          <p>Rogoznica, Tribunj, Jezera, Zlarin a návrat do Mariny Frapa. Vyber bod na mape a zobrazí sa denný program.</p>
         </div>
 
         <div className="integrated-route-layout">
@@ -150,7 +120,7 @@ export default function RacePlan() {
               <p className="map-instruction">Vyber bod 1 – 5</p>
               <svg viewBox="0 0 760 500" role="img" aria-labelledby="map-title map-desc">
                 <title id="map-title">Trasa TACK &amp; TALK REGATTA 2027</title>
-                <desc id="map-desc">Schematická trasa z Rogoznice cez Tribunj, Vodice a Zlarin späť do Rogoznice. Päť interaktívnych bodov otvorí denný plán.</desc>
+                <desc id="map-desc">Schematická trasa z Rogoznice cez Tribunj, Jezera a Zlarin späť do Rogoznice. Päť interaktívnych bodov otvorí denný plán.</desc>
                 <path className="plan-coast" d="M0 0H205C218 41 203 77 175 110C142 149 151 194 185 224C214 249 222 289 194 322C162 358 121 373 118 421C116 452 135 480 155 500H0Z" />
                 <path className="plan-coast" d="M760 0H665C641 41 643 88 673 121C700 151 694 184 661 216C626 251 626 287 666 315C704 342 715 383 694 421C681 445 654 472 647 500H760Z" />
                 <path className="plan-island" d="M250 70c22-18 59-15 65 8 7 27-17 53-47 48-27-4-38-37-18-56Z" />
@@ -170,7 +140,7 @@ export default function RacePlan() {
                     transform={stop.transform}
                     tabIndex={0}
                     role="button"
-                    aria-label={`${days[stop.key].tab}, ${days[stop.key].title}, ${days[stop.key].distance}`}
+                    aria-label={`${days[stop.key].tab}, ${days[stop.key].title}`}
                     aria-pressed={activeKey === stop.key}
                     onClick={() => selectDay(stop.key, true)}
                     onKeyDown={(event) => {
@@ -197,12 +167,12 @@ export default function RacePlan() {
             <div>
               <p className="eyebrow">Základňa</p>
               <h3>Marina Frapa</h3>
-              <p>Rogoznica, Chorvátsko. Dvadsať lodí, približne 120 účastníkov a päť eskadier.</p>
+              <p>Rogoznica, Chorvátsko. Dvadsať lodí a približne 120 účastníkov.</p>
               <ol>
-                <li><strong>Rogoznica</strong><span>check-in</span></li>
-                <li><strong>Tribunj</strong><span>prvé tri rozjazdy</span></li>
-                <li><strong>Vodice</strong><span>ďalšie tri rozjazdy</span></li>
-                <li><strong>Zlarin</strong><span>obsahový deň</span></li>
+                <li><strong>Rogoznica</strong><span>prevzatie lodí</span></li>
+                <li><strong>Tribunj</strong><span>súťažný deň 1</span></li>
+                <li><strong>Jezera</strong><span>súťažný deň 2</span></li>
+                <li><strong>Zlarin</strong><span>súťažný deň 3</span></li>
                 <li><strong>Rogoznica</strong><span>finále a vyhlásenie</span></li>
               </ol>
             </div>
@@ -214,8 +184,8 @@ export default function RacePlan() {
       <section className="section integrated-program" id="program" aria-labelledby="program-title">
         <div className="section-heading">
           <p className="eyebrow eyebrow-dark"><span /> Denný plán</p>
-          <h2 id="program-title">Rozjazdy a program.</h2>
-          <p>Prepínaj dni bez načítania novej stránky. Mapa a denný detail zostávajú súčasťou jedného platného programu.</p>
+          <h2 id="program-title">Štyri dni. Deväť rozjázd.</h2>
+          <p>Presný denný rozpis R1–R9 zverejnia plachtárske inštrukcie. Na tomto mieste uvádzame iba potvrdenú trasu a rámec programu.</p>
         </div>
 
         <div className="plan-day-tabs" role="tablist" aria-label="Vyber deň programu">
@@ -242,28 +212,20 @@ export default function RacePlan() {
           <header className="plan-day-header">
             <span className="plan-day-index">{activeDay.index}</span>
             <div><p>{activeDay.route}</p><h3>{activeDay.title}</h3></div>
-            <strong>{activeDay.distance}</strong>
+            <strong>{activeKey === "arrival" ? "Príchod" : "Regata"}</strong>
           </header>
-          <p className="plan-day-copy">{activeDay.program}</p>
+          <p className="plan-day-copy">{activeDay.programme}</p>
           <div className="plan-fact-row" aria-label="Fakty dňa">{activeDay.facts.map((fact) => <span key={fact}>{fact}</span>)}</div>
 
-          {activeDay.races.length > 0 ? (
-            <div className="plan-race-grid">
-              {activeDay.races.map((race) => (
-                <article className={`plan-race-card ${race.type === "Karusel" ? "is-carousel" : ""}`} key={race.number}>
-                  <div><span className="plan-race-number">{race.number}</span><span className="plan-race-type">{race.type}</span></div>
-                  <h4>{race.title}</h4>
-                  <p>{race.distance}</p>
-                  <dl><div><dt>Štart</dt><dd>{race.start}</dd></div><div><dt>Predpokladaný cieľ</dt><dd>{race.finish}</dd></div></dl>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <article className="plan-no-race"><strong>—</strong><div><h4>Bez merania času</h4><p>{activeKey === "arrival" ? "Pretekársky program sa začína nasledujúce ráno. Večer patrí prevzatiu lodí, bezpečnostným pokynom a organizácii flotily." : "Deň bez bodovanej rozjazdy. Výsledok sa nemení; priestor patrí obsahu a spoločnému programu flotily."}</p></div></article>
+          {activeKey !== "arrival" && (
+            <article className="plan-race-status">
+              <strong>9</strong>
+              <div><span>rozjázd počas štyroch súťažných dní</span><p>Počet rozjázd v jednotlivých dňoch a ich trate potvrdia plachtárske inštrukcie. Bezpečnostné rozhodnutie veliteľa flotily má vždy prednosť.</p></div>
+            </article>
           )}
 
           <article className="plan-content-card">
-            <span>Obsah na brehu</span><div><h4>{activeDay.contentTitle}</h4><p>{activeDay.contentCopy}</p></div>
+            <span>Program na brehu</span><div><h4>{activeDay.eveningTitle}</h4><p>{activeDay.eveningCopy}</p></div>
           </article>
         </div>
       </section>

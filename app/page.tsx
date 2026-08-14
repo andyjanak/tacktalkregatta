@@ -47,11 +47,11 @@ export default function Home() {
         </div>
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Business regatta · Dalmácia 2027</p>
+          <p className="eyebrow"><span /> Biznis regata · Dalmácia 2027</p>
           <h1>
-            Prevetraj
+            Svieži vietor
             <br />
-            svoj <em>biznis.</em>
+            v <em>plachtách.</em>
           </h1>
           <p className="hero-lead">
             Päť nocí. Štyri dni na vode. Dvadsať firemných posádok a obsah,
@@ -73,13 +73,13 @@ export default function Home() {
         <div className="hero-visual" aria-label="Základné údaje o regate">
           <div className="hero-card">
             <p className="card-kicker">Rogoznica · Chorvátsko</p>
-            <p className="card-date">25. - 30. 9.</p>
+            <p className="card-date">25. – 30. 9.</p>
             <p className="card-year">2027</p>
             <div className="card-rule" />
             <div className="card-stats">
               <span><strong>20</strong> lodí</span>
               <span><strong>120</strong> ľudí</span>
-              <span><strong>70</strong> nm</span>
+              <span><strong>9</strong> rozjázd</span>
             </div>
           </div>
           <p className="hero-note">Pripravujeme koncept a flotilu</p>
@@ -106,11 +106,11 @@ export default function Home() {
             <p className="concept-label">Na vode</p>
             <h3>Jednotná flotila, férová hra.</h3>
             <p>
-              Sedem rozjázd, dve kategórie lodí a jedna spoločná štartová
+              Deväť rozjázd, dve kategórie lodí a jedna spoločná štartová
               čiara. Opatrné rozhodnutie nikdy nie je penalizované.
             </p>
-            <div className="ratio"><span style={{ width: "70%" }} /></div>
-            <p className="ratio-label"><strong>7</strong> rozjázd</p>
+            <div className="ratio"><span style={{ width: "90%" }} /></div>
+            <p className="ratio-label"><strong>9</strong> rozjázd</p>
           </article>
           <article className="concept-card concept-card-light">
             <span className="concept-number">02</span>
@@ -132,7 +132,7 @@ export default function Home() {
           <h2>Pre tímy, ktoré spolu rozhodujú.</h2>
           <p>
             Tack &amp; Talk nie je firemný výlet. Je to päť nocí, počas
-            ktorých firemný tím žije, plaví sa a rieši spolu na priestore
+            ktorých firemný tím spoločne funguje, plaví sa a rozhoduje v priestore
             veľkom ako obývačka. Nikto neodbehne na call. Nikto sa nevytratí
             po druhom chode.
           </p>
@@ -244,59 +244,59 @@ export default function Home() {
       <section className="section section-fees" id="ucast">
         <div className="section-heading split-heading">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Pripravovaný model účasti</p>
-            <h2>Dve platby,<br />jasne oddelené.</h2>
+            <p className="eyebrow eyebrow-dark"><span /> Ceny lodí · vždy bez DPH</p>
+            <h2>Dve lode.<br />Kompletný balík.</h2>
           </div>
           <p>
-            Účasť na regate a plavidlo sú dve samostatné veci. Platíte ich
-            zvlášť a rozhodujete o nich zvlášť. Konkrétne ceny zverejníme až
-            po zmluvnom a právnom potvrdení modelu.
+            Cena zahŕňa kompletnú loď, poistenie kaucie, poplatky, stravu,
+            regatu aj spoločný katamarán BALI 5.2. Všetky uvedené ceny sú bez DPH.
           </p>
         </div>
 
         <div className="fee-grid">
           <article className="fee-card fee-card-dark">
-            <p className="fee-label">Účastnícky poplatok</p>
-            <h3>Platí sa organizátorovi.</h3>
-            <ul>
-              <li>kompletná organizácia a produkcia podujatia</li>
-              <li>sedem rozjázd, štartovacie procedúry, rozhodcovstvo a bodovanie</li>
-              <li>moderované bloky, tímové výzvy, rečník a riadený networking</li>
-              <li>štartovacie čísla a materiály pre posádku</li>
-              <li>plachtárske inštrukcie a predodletový brífing</li>
-              <li>spoločné večery zaradené do programu a fotodokumentácia</li>
-            </ul>
+            <p className="fee-label">Dufour 460</p>
+            <p className="fee-price">8 700 € <small>bez DPH</small></p>
+            <h3>Kompletná loď pre firemnú posádku.</h3>
+            <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
           <article className="fee-card">
-            <p className="fee-label">Plavidlo</p>
-            <h3>Zabezpečuje si posádka samostatne.</h3>
-            <p>
-              Loď nie je súčasťou účastníckeho poplatku. Zverejníme technickú
-              špecifikáciu prípustného plavidla a odporúčané možnosti prenájmu
-              v Rogoznici. Zmluvu na plavidlo uzatvára firma priamo s charterovou
-              spoločnosťou.
-            </p>
-            <ul>
-              <li>doprava do Rogoznice a späť</li>
-              <li>poistenie osôb a plavidla a vratná kaucia</li>
-              <li>kvalifikovaný kapitán alebo profesionálny skipper</li>
-              <li>palivo, prístavné poplatky a potraviny na palube</li>
-              <li>strava mimo spoločných večerov v programe</li>
-            </ul>
+            <p className="fee-label">Dufour 470</p>
+            <p className="fee-price">9 500 € <small>bez DPH</small></p>
+            <h3>Viac priestoru. Rovnaký program.</h3>
+            <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
         </div>
-        <div className="fee-note">
-          <strong>Prečo takto:</strong> firma má kontrolu nad tým, aké plavidlo
-          si vyberie a s kým na ňom pôjde. Finálne znenie tejto časti zverejníme
-          po právnom posúdení štruktúry predaja.
+        <div className="package-includes" aria-label="Čo zahŕňa cena každej lode">
+          <p className="fee-label">Cena každej lode zahŕňa</p>
+          <ul>
+            <li>kompletnú loď</li>
+            <li>poistenie kaucie a poplatky</li>
+            <li>kontrolu a pomoc s prevzatím lode organizátorom</li>
+            <li>päť spoločných večerí</li>
+            <li>štyri raňajky</li>
+            <li>regatu: štyri súťažné dni a deväť rozjázd</li>
+            <li>katamarán BALI 5.2 počas celého podujatia</li>
+          </ul>
+          <p>Uvedené ceny 8 700 € a 9 500 € sú bez DPH.</p>
         </div>
+        <article className="bali-card">
+          <div>
+            <p className="eyebrow"><span /> BALI 5.2 · celý čas s flotilou</p>
+            <h3>Daj si kávu so súpermi na katamaráne BALI 5.2.</h3>
+          </div>
+          <div>
+            <p>Spoločný katamarán je zahrnutý v cene každej lode. Počas celého podujatia vytvára priestor na stretnutia medzi posádkami, rannú kávu aj rozhovory po návrate do prístavu.</p>
+            <a href="https://www.boataround.com/sk/lod/bali-52-lumiere" target="_blank" rel="noreferrer">Pozrieť BALI 5.2 Lumiere <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
       </section>
 
       <section className="section section-faq" id="faq">
         <div className="section-heading split-heading">
           <div>
             <p className="eyebrow eyebrow-dark"><span /> Časté otázky</p>
-            <h2>Čo chcete vedieť pred vyplávaním.</h2>
+            <h2>Čo treba vedieť pred vyplávaním.</h2>
           </div>
           <p>
             Odpovede platia pre pripravovaný formát podujatia. Technické a
@@ -309,7 +309,7 @@ export default function Home() {
             <p>
               Áno. K plavidlu si môžete objednať profesionálneho skippera,
               ktorý celý týždeň velí, učí a zodpovedá za bezpečnú plavbu.
-              Počet skipperov je obmedzený, preto sa zabezpečujú s predstihom.
+              Kapacita profesionálnych skipperov je obmedzená, preto si ich treba zabezpečiť s predstihom.
             </p>
           </details>
           <details>
@@ -333,7 +333,7 @@ export default function Home() {
           <details>
             <summary>Ako sa dostaneme do Rogoznice?</summary>
             <p>
-              Najbližšie letisko je Split. Dopravu si zabezpečuje každá firma
+              Najbližšie letisko je v Splite. Dopravu si zabezpečuje každá firma
               samostatne; pri väčšom záujme pomôžeme
               koordinovať spoločnú dopravu.
             </p>
@@ -359,8 +359,8 @@ export default function Home() {
           <details>
             <summary>Ako sa vlastne súťaží?</summary>
             <p>
-              Sedem rozjázd používa nízkobodový systém. Dufour 460 a Dufour
-              470 GL štartujú na jednej čiare; celkové poradie vzniká z
+              Deväť rozjázd používa nízkobodový systém. Dufour 460 a Dufour
+              470 štartujú na jednej čiare; celkové poradie vzniká z
               prepočítaného času.
             </p>
           </details>
@@ -379,8 +379,8 @@ export default function Home() {
           <p className="eyebrow"><span /> Kontakt</p>
           <h2>Máte otázku? Ozvite sa priamo.</h2>
           <p>
-            Radi zodpovieme otázky od technickej špecifikácie plavidiel až po
-            to, ako program sedí na váš tím. Ozývame sa spravidla do jedného
+            Radi zodpovieme otázky týkajúce sa technickej špecifikácie plavidiel aj
+            toho, ako program vyhovuje vášmu tímu. Ozývame sa spravidla do jedného
             pracovného dňa.
           </p>
         </div>
@@ -395,7 +395,7 @@ export default function Home() {
 
       <section className="section section-final" id="stav">
         <p className="eyebrow"><span /> Ďalší krok</p>
-        <h2>Ešte nezaväzuje.<br />Len vás nechá pri tom.</h2>
+        <h2>Ešte vás nezaväzuje.<br />Len vás udrží v obraze.</h2>
         <p className="final-intro">
           Prihlasovanie zatiaľ nie je otvorené — flotilu a podmienky dolaďujeme
           a nechceme sľubovať miesta, kým ich nemáme potvrdené. Nechajte nám
@@ -416,10 +416,10 @@ export default function Home() {
       <footer>
         <div>
           <Brand />
-          <p>Prevetraj svoj biznis.</p>
+          <p>Svieži vietor v plachtách.</p>
         </div>
         <div className="footer-meta">
-          <p>25. - 30. 9. 2027 · Rogoznica, Chorvátsko</p>
+          <p>25. – 30. 9. 2027 · Rogoznica, Chorvátsko</p>
           <p>Organizátor: Tangreto s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
           <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>

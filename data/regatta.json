@@ -1,28 +1,28 @@
 {
   "$schema_version": "1.0",
-  "document_version": "2.0",
-  "generated": "2026-08-08",
+  "document_version": "2.1",
+  "generated": "2026-08-14",
   "language": "sk",
   "status": "planning",
 
   "event": {
     "name": "Tack & Talk Regatta 2027",
     "short_name": "TT27",
-    "claim_sk": "Prevetraj svoj biznis",
+    "claim_sk": "Svieži vietor v plachtách",
     "type": "business_regatta",
-    "description_sk": "Firemné plavebné podujatie so súťažným prvkom. Sedem dní, počas ktorých tímy spolu riešia reálne problémy. Bodovanie je rozdelené na polovicu medzi plavbu a obsahový program.",
+    "description_sk": "Firemná regata so štyrmi súťažnými dňami a deviatimi rozjazdami. Päť nocí, počas ktorých tímy spolu plachtia, súťažia a stretávajú sa pri spoločnom programe.",
     "start_date": "2027-09-25",
-    "end_date": "2027-10-02",
-    "duration_nights": 7,
+    "end_date": "2027-09-30",
+    "duration_nights": 5,
     "checkin": "2027-09-25T17:00:00+02:00",
-    "checkout": "2027-10-02T09:00:00+02:00",
+    "checkout": "2027-09-30T09:00:00+02:00",
     "country": "HR",
-    "region": "Dalmácia (Zadar / Šibenik)",
+    "region": "Dalmácia (Šibenik)",
     "base_marina": {
-      "name": "D-Marin Dalmacija",
-      "town": "Sukošan",
-      "lat": 43.9430,
-      "lon": 15.3010,
+      "name": "Marina Frapa",
+      "town": "Rogoznica",
+      "lat": 43.52985,
+      "lon": 15.96286,
       "coordinates_accuracy": "approximate"
     }
   },
@@ -51,6 +51,16 @@
     "crew_per_boat": 6,
     "participants_total": 120,
     "boat_class_target": "45–47 ft, 4 kajuty, jednotná flotila",
+    "boat_classes": ["Dufour 460", "Dufour 470"],
+    "competition_days": 4,
+    "races_total": 9,
+    "hospitality_boat": {
+      "model": "BALI 5.2 Lumiere",
+      "role": "spoločný networkingový katamarán pre účastníkov",
+      "present_entire_event": true,
+      "included_in_package_price": true,
+      "source": "https://www.boataround.com/sk/lod/bali-52-lumiere"
+    },
     "uniform_fleet_required": true,
     "uniform_fleet_reason": "Zmiešaná flotila vyžaduje handicap (ORC Club alebo koeficient podľa LOA) a spory o prepočty.",
     "squadrons": {
@@ -66,146 +76,100 @@
   },
 
   "route": {
-    "total_nm_approx": 125,
-    "daily_sailing_hours": "3–5",
-    "coordinates_disclaimer": "Súradnice sú orientačné, určené na plánovanie. NIE SÚ určené na navigáciu. Pred plavbou overiť v oficiálnych námorných mapách a lodných sprievodcoch.",
+    "total_nm_approx": null,
+    "distance_status": "bude potvrdené v plachtárskych inštrukciách",
+    "competition_days": 4,
+    "races_total": 9,
+    "race_breakdown_status": "presný denný rozpis rozjázd ešte nie je potvrdený",
+    "coordinates_disclaimer": "Súradnice sú orientačné, určené na plánovanie. NIE SÚ určené na navigáciu. Pred plavbou ich treba overiť v oficiálnych námorných mapách a lodných sprievodcoch.",
     "legs": [
       {
         "day": 1,
         "date": "2027-09-25",
         "weekday": "sobota",
         "type": "checkin",
-        "from": "Sukošan",
-        "to": "Sukošan",
-        "distance_nm": 0,
+        "from": "Rogoznica",
+        "to": "Rogoznica",
+        "to_lat": 43.52985,
+        "to_lon": 15.96286,
         "scored": false,
-        "programme": ["16:00 preberanie lodí", "18:30 kapitánsky brífing", "20:00 otvárací večer, žrebovanie eskadier"]
+        "programme": ["prevzatie a kontrola lodí s pomocou organizátora", "kapitánsky brífing", "otvárací večer"]
       },
       {
         "day": 2,
         "date": "2027-09-26",
         "weekday": "nedeľa",
-        "type": "prologue",
-        "from": "Sukošan",
-        "to": "Sali (Dugi otok)",
-        "to_lat": 43.9390,
-        "to_lon": 15.1600,
-        "distance_nm": 20,
-        "scored": false,
-        "leg_code": "PROLOG",
-        "programme": ["10:30 prológ", "17:00 blok Prvý dojem", "20:00 večera v Sali"]
+        "type": "race",
+        "from": "Rogoznica",
+        "to": "Tribunj",
+        "to_lat": 43.75825,
+        "to_lon": 15.74257,
+        "scored": true,
+        "leg_code": "D1",
+        "programme": ["súťažný deň", "spoločná večera"]
       },
       {
         "day": 3,
         "date": "2027-09-27",
         "weekday": "pondelok",
         "type": "race",
-        "from": "Sali",
-        "via": ["Telašćica — uvala Mir"],
-        "via_lat": 43.8870,
-        "via_lon": 15.1650,
-        "to": "ACI Žut",
-        "to_lat": 43.8330,
-        "to_lon": 15.2830,
-        "distance_nm": 18,
+        "from": "Tribunj",
+        "to": "Jezera",
+        "to_lat": 43.78705,
+        "to_lon": 15.64413,
         "scored": true,
-        "leg_code": "E1",
-        "points_multiplier": 1,
-        "start_time": "14:00",
-        "programme": ["dopoludnia Telašćica, slané jazero Mir", "18:00 blok Vietor v chrbte — pitche", "grilovačka"]
+        "leg_code": "D2",
+        "programme": ["súťažný deň", "spoločná večera"]
       },
       {
         "day": 4,
         "date": "2027-09-28",
         "weekday": "utorok",
         "type": "race",
-        "from": "ACI Žut",
-        "to": "ACI Piškera",
-        "to_lat": 43.7620,
-        "to_lon": 15.3450,
-        "distance_nm": 12,
+        "from": "Jezera",
+        "to": "Zlarin",
+        "to_lat": 43.69653,
+        "to_lon": 15.83536,
         "scored": true,
-        "leg_code": "E2",
-        "points_multiplier": 1,
-        "start_time": "11:00",
-        "character": "krátka, technická, veľa obratov",
-        "programme": ["15:00 Výzva eskadier — 90 min, reálny biznis problém", "20:00 hodnotenie"],
-        "buffer_day": true
+        "leg_code": "D3",
+        "programme": ["súťažný deň", "spoločná večera"]
       },
       {
         "day": 5,
         "date": "2027-09-29",
         "weekday": "streda",
         "type": "race",
-        "from": "ACI Piškera",
-        "to": "Skradin",
-        "to_lat": 43.8180,
-        "to_lon": 15.9230,
-        "distance_nm": 28,
+        "from": "Zlarin",
+        "to": "Rogoznica",
+        "to_lat": 43.52985,
+        "to_lon": 15.96286,
         "scored": true,
-        "leg_code": "E3",
-        "points_multiplier": 1,
-        "start_time": "09:30",
-        "character": "najdlhšia etapa týždňa, sladká voda v cieli",
-        "programme": ["19:00 hlavný obsahový blok — externý rečník"]
+        "leg_code": "D4",
+        "programme": ["finálový súťažný deň", "spoločná večera a vyhlásenie"]
       },
       {
         "day": 6,
         "date": "2027-09-30",
         "weekday": "štvrtok",
-        "type": "race",
-        "from": "Skradin",
-        "to": "Betina (Murter)",
-        "to_lat": 43.8300,
-        "to_lon": 15.6000,
-        "distance_nm": 22,
-        "scored": true,
-        "leg_code": "E4",
-        "points_multiplier": 1,
-        "start_time": "15:00",
-        "programme": ["ráno výlet NP Krka — vodopády", "večer Voľné palubovky — riadený networking"],
-        "buffer_day": true
-      },
-      {
-        "day": 7,
-        "date": "2027-10-01",
-        "weekday": "piatok",
-        "type": "race",
-        "from": "Betina",
-        "to": "Sukošan",
-        "to_lat": 43.9430,
-        "to_lon": 15.3010,
-        "distance_nm": 25,
-        "scored": true,
-        "leg_code": "E5",
-        "points_multiplier": 2,
-        "start_time": "10:00",
-        "character": "finálová etapa, dvojnásobné body",
-        "programme": ["17:00 návrat, umývanie lodí", "20:00 gala večer, vyhlásenie výsledkov"]
-      },
-      {
-        "day": 8,
-        "date": "2027-10-02",
-        "weekday": "sobota",
         "type": "checkout",
-        "from": "Sukošan",
-        "to": "Sukošan",
-        "distance_nm": 0,
+        "from": "Rogoznica",
+        "to": "Rogoznica",
         "scored": false,
-        "programme": ["09:00 odovzdanie lodí"]
+        "programme": ["odovzdanie lodí"]
       }
     ],
     "bad_weather_alternative": {
       "trigger": "bura alebo predpoveď nad 25 uzlov",
-      "description": "Vnútorná línia cez Pašmanský kanál — kratšie skoky, krytá voda.",
-      "waypoints": ["Biograd na Moru", "Murter", "Vodice"],
-      "programme_impact": "žiadny — obsahový program zostáva"
+      "description": "Veliteľ flotily môže etapu zrušiť, zmeniť trasu alebo nariadiť presun v konvoji.",
+      "programme_impact": "program sa prispôsobí bezpečnostnému rozhodnutiu"
     },
-    "national_parks": ["NP Kornati", "NP Krka", "Park prírody Telašćica"]
+    "national_parks": []
   },
 
   "scoring": {
     "system": "low_point",
+    "races_total": 9,
+    "race_breakdown_status": "presný rozpis R1–R9 bude potvrdený v plachtárskych inštrukciách",
     "unit": "squadron",
     "formula": "total = 0.5 * sailing_points + 0.5 * shore_points_inverted",
     "winner": "najnižší súčet",
@@ -217,8 +181,8 @@
       "discard": {
         "enabled": true,
         "count": 1,
-        "applies_to": ["E1", "E2", "E3", "E4"],
-        "excluded": ["E5"],
+        "applies_to": ["všetky rozjazdy okrem finálovej"],
+        "excluded": ["finálová rozjazda"],
         "rationale": "Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
       },
       "engine_use": {
@@ -244,7 +208,7 @@
         { "name": "Prístavná disciplína a duch podujatia", "day": "priebežne", "max": 10 }
       ]
     },
-    "tiebreak": ["výsledok E5", "vyšší počet lepších umiestnení v plavebnej vetve", "body z Výzvy eskadier"],
+    "tiebreak": ["výsledok finálovej rozjazdy", "vyšší počet lepších umiestnení v plavebnej vetve", "body z obsahového programu"],
     "publication": "každý večer do 21:00",
     "protest_deadline": "09:00 nasledujúceho dňa, ústne u hlavného rozhodcu"
   },
@@ -284,44 +248,30 @@
 
   "budget": {
     "currency": "EUR",
-    "disclaimer": "Modelové odhady na základe bežných sadzieb pre koniec septembra v Dalmácii. Pred záväzkom overiť konkrétnou ponukou. Charterové ceny sa medziročne hýbu o 10–15 %.",
-    "per_boat_7_nights": {
-      "charter_45_47ft": [2800, 3500],
-      "transit_log_cleaning_linen": [300, 400],
-      "fuel": [150, 250],
-      "marina_fees_5_nights": [500, 650],
-      "subtotal": [3750, 4800],
-      "professional_skipper": [1400, 1800]
-    },
-    "per_person": {
-      "boat_share": [625, 800],
-      "skipper_share": [235, 300],
-      "national_park_entries": [55, 75],
-      "shared_dinners": [180, 240],
-      "event_fee": [120, 160],
-      "own_food_drinks": [150, 200],
-      "total_excl_transport": [1130, 1480],
-      "transport_sk_to_sukosan": [80, 160]
-    },
-    "total_event_120_pax": [145000, 190000],
-    "deposits": {
-      "charter_deposit_pct": [30, 40],
-      "charter_deposit_eur": [25000, 34000],
-      "due": "2026-12",
-      "security_deposit_per_boat": [2000, 3000],
-      "recommendation": "poistenie spoluúčasti ~250 €/loď namiesto blokovania 20 firemných kariet"
-    }
+    "status": "nahradené potvrdenými cenami balíkov",
+    "pricing_reference": "pricing.packages"
   },
 
   "pricing": {
     "currency": "EUR",
     "locked": true,
     "packages": [
-      { "code": "BOAT_BAREBOAT", "name": "Celá loď — bareboat", "price": 10400, "pax": 6, "price_per_person": 1733 },
-      { "code": "BOAT_SKIPPER", "name": "Celá loď — so skipperom", "price": 12200, "pax": 6 },
-      { "code": "BOAT_LEAD", "name": "Vedúca loď eskadry", "price": 13500, "pax": 6 },
-      { "code": "SEAT", "name": "Jednotlivé miesto", "price": 1890, "pax": 1 },
-      { "code": "PARTNER", "name": "Partner podujatia", "price": 18000, "includes": ["loď", "logo na všetkých materiáloch", "20-min blok v stredu večer"] }
+      {
+        "code": "DUFOUR_460",
+        "name": "Dufour 460",
+        "price": 8700,
+        "vat_included": false,
+        "price_label": "8 700 € bez DPH",
+        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "4 raňajky", "regata", "BALI 5.2 počas celého podujatia"]
+      },
+      {
+        "code": "DUFOUR_470",
+        "name": "Dufour 470",
+        "price": 9500,
+        "vat_included": false,
+        "price_label": "9 500 € bez DPH",
+        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "4 raňajky", "regata", "BALI 5.2 počas celého podujatia"]
+      }
     ],
     "discounts": [
       { "code": "FOUNDING", "name": "Zakladajúca eskadra", "pct": 10, "valid_until": "2026-11-30" },
@@ -365,7 +315,7 @@
   "milestones": [
     { "date": "2026-09-30", "task": "Zoznam 150 cieľových firiem", "owner": "Tangreto", "critical": false },
     { "date": "2026-10-15", "task": "Oslovenie 6 firiem na Zakladajúcu eskadru", "owner": "Tangreto", "critical": false },
-    { "date": "2026-10-31", "task": "Dopyt na 3 charterové spoločnosti v Sukošane, model 12+8", "owner": "Tangreto", "critical": true },
+    { "date": "2026-10-31", "task": "Dopyt na charterovú flotilu v Rogoznici, model 12+8", "owner": "Tangreto", "critical": true },
     { "date": "2026-10-31", "task": "Logo, identita, web, predajná prezentácia", "owner": "Tangreto", "critical": false },
     { "date": "2026-11-30", "task": "Spustenie webu a LinkedIn — bez predajnej výzvy", "owner": "Tangreto", "critical": false },
     { "date": "2026-11-30", "task": "KONTROLA: 8 zaplatených lodí — áno alebo nie", "owner": "Tangreto", "critical": true,
@@ -374,7 +324,7 @@
     { "date": "2026-12-31", "task": "Podpis charterovej zmluvy 12+8, úhrada zálohy", "owner": "Tangreto", "critical": true },
     { "date": "2026-12-31", "task": "Otvorenie verejného prihlasovania — až po podpise", "owner": "Tangreto", "critical": true },
     { "date": "2027-01-31", "task": "Rezervácia skipperov podľa zistenej medzery", "owner": "Tangreto", "critical": true },
-    { "date": "2027-02-28", "task": "Blokácia marín Sali, Žut, Piškera, Skradin, Betina", "owner": "Tangreto", "critical": true },
+    { "date": "2027-02-28", "task": "Blokácia prístavov Tribunj, Jezera a Zlarin", "owner": "Tangreto", "critical": true },
     { "date": "2027-02-28", "task": "Event v Bratislave, koniec early birdu", "owner": "Tangreto", "critical": false },
     { "date": "2027-02-28", "task": "Uplatnenie alebo pustenie opcie na 8 lodí", "owner": "Tangreto", "critical": true,
       "decision_rule": "Pod 14 predaných lodí = opciu neuplatniť, ísť s 12 loďami a 3 eskadrami, cenu nemeniť." },
@@ -386,7 +336,9 @@
 
   "decisions_confirmed": [
     { "id": 1, "topic": "Model zmluvy", "value": "12 lodí pevne + 8 opcia do 2027-02-28", "confirmed": true },
-    { "id": 2, "topic": "Cena za loď", "value": "10400 EUR bareboat, 6 osôb", "confirmed": true },
+    { "id": 2, "topic": "Cena za loď", "value": "Dufour 460: 8700 EUR bez DPH; Dufour 470: 9500 EUR bez DPH", "confirmed": true },
+    { "id": 7, "topic": "Trasa a formát", "value": "Rogoznica – Tribunj – Jezera – Zlarin – Rogoznica; 4 súťažné dni; 9 rozjázd", "confirmed": true },
+    { "id": 8, "topic": "Networkingový katamarán", "value": "BALI 5.2 je v cene a s flotilou počas celého podujatia", "confirmed": true },
     { "id": 3, "topic": "Komunikácia", "value": "Web a LinkedIn od 11/2026, predajná výzva až po podpise zmluvy", "confirmed": true },
     { "id": 4, "topic": "Kto predáva", "value": "Tangreto s.r.o.", "confirmed": true },
     { "id": 5, "topic": "Cenová politika", "value": "Po 2027-02-28 žiadne zľavy", "confirmed": true },

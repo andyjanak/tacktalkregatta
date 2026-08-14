@@ -236,6 +236,10 @@ main { overflow: hidden; }
 .plan-no-race > strong { color: var(--brass); font-size: 56px; font-weight: 300; }
 .plan-no-race h4 { margin: 0 0 8px; font-size: 24px; font-weight: 500; }
 .plan-no-race p { max-width: 720px; margin: 0; color: #b6c4d3; font-size: 12px; line-height: 1.7; }
+.plan-race-status { margin-top: 48px; padding: 38px 40px; display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 30px; color: white; background: var(--navy); }
+.plan-race-status > strong { color: var(--brass); font-size: 64px; line-height: 1; font-weight: 300; }
+.plan-race-status span { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; }
+.plan-race-status p { max-width: 760px; margin: 0; color: #b6c4d3; font-size: 11px; line-height: 1.7; }
 .plan-content-card { margin-top: 1px; padding: 32px 40px; display: grid; grid-template-columns: 180px 1fr; gap: 30px; background: var(--sand); border-left: 4px solid var(--brass); }
 .plan-content-card > span { color: var(--brass); font-size: 9px; text-transform: uppercase; letter-spacing: .11em; }
 .plan-content-card h4 { margin: 0 0 9px; color: var(--navy); font-size: 23px; font-weight: 500; letter-spacing: -.03em; }
@@ -280,12 +284,28 @@ main { overflow: hidden; }
 .fee-card h3 { max-width: 520px; margin: 0 0 28px; color: var(--navy); font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; letter-spacing: -.045em; font-weight: 500; }
 .fee-card-dark h3 { color: white; }
 .fee-card > p:not(.fee-label) { color: var(--grey); font-size: 13px; line-height: 1.8; }
+.fee-card > p.fee-price { margin: 0; color: var(--navy); font-size: clamp(54px, 6vw, 84px); line-height: 1; letter-spacing: -.06em; font-weight: 500; }
+.fee-card-dark .fee-price { color: white; }
+.fee-card .fee-price small { margin: 12px 0 52px; display: block; color: var(--brass); font-size: 11px; line-height: 1; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; }
 .fee-card ul { margin: 35px 0 0; padding: 0; list-style: none; }
 .fee-card li { position: relative; padding: 14px 0 14px 24px; color: var(--grey); border-top: 1px solid var(--line); font-size: 12px; line-height: 1.55; }
 .fee-card li::before { content: "+"; position: absolute; left: 0; color: var(--brass); }
 .fee-card-dark li { color: #c3cfda; border-color: rgba(255,255,255,.13); }
 .fee-note { margin-top: 26px; padding: 22px 26px; color: var(--grey); border: 1px solid #dfd2bc; background: #fbf7ef; font-size: 12px; line-height: 1.7; }
 .fee-note strong { color: var(--navy); }
+.package-includes { padding: clamp(34px, 4vw, 56px); background: white; border: 1px solid var(--line); border-top: 0; }
+.package-includes .fee-label { margin-bottom: 24px; }
+.package-includes ul { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; list-style: none; border-top: 1px solid var(--line); }
+.package-includes li { position: relative; padding: 17px 22px 17px 28px; color: var(--grey); border-bottom: 1px solid var(--line); font-size: 12px; line-height: 1.55; }
+.package-includes li:nth-child(odd) { border-right: 1px solid var(--line); }
+.package-includes li::before { content: "+"; position: absolute; left: 2px; color: var(--brass); }
+.package-includes > p:last-child { margin: 24px 0 0; color: var(--navy); font-size: 12px; font-weight: 500; }
+.bali-card { margin-top: 34px; padding: clamp(36px, 5vw, 70px); display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; color: white; background: var(--deep); }
+.bali-card .eyebrow { color: #d6dfe8; }
+.bali-card h3 { max-width: 620px; margin: 0; font-size: clamp(36px, 4vw, 60px); line-height: 1.05; letter-spacing: -.05em; font-weight: 500; }
+.bali-card > div:last-child { align-self: end; }
+.bali-card > div:last-child p { margin: 0 0 28px; color: #c3cfda; font-size: 14px; line-height: 1.8; font-weight: 300; }
+.bali-card a { padding: 12px 0 7px; display: inline-flex; gap: 14px; color: #f1d7a8; border-bottom: 1px solid var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .09em; }
 
 .section-faq { background: white; }
 .faq-list { margin-top: 72px; border-top: 1px solid var(--navy); }
@@ -529,6 +549,11 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
   .no-need-grid article { border-right: 0; border-bottom: 1px solid var(--line); }
   .no-need-grid article:last-child { border-bottom: 0; }
   .fee-card { min-height: auto; }
+  .package-includes ul, .bali-card { grid-template-columns: 1fr; }
+  .package-includes li:nth-child(odd) { border-right: 0; }
+  .bali-card { gap: 36px; }
+  .plan-race-status { padding: 28px; grid-template-columns: 55px 1fr; gap: 18px; }
+  .plan-race-status > strong { font-size: 46px; }
   .section-patronage { grid-template-columns: 1fr; gap: 42px; }
   .patronage-photo { min-height: 420px; }
   .tangreto-logo { width: 155px; margin-bottom: 36px; }

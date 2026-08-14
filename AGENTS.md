@@ -4,8 +4,8 @@ Tento súbor je kontext pre AI agenta pracujúceho na projekte. Obsahuje pravidl
 
 ## Čo je projekt
 
-Firemná plachtárska regata s biznis programom. 20 lodí, 120 účastníkov, 7 nocí v chorvátskej Dalmácii,
-25. 9. — 2. 10. 2027, východisko D-Marin Dalmacija v Sukošane.
+Firemná plachtárska regata s biznis programom. 20 lodí, približne 120 účastníkov a 5 nocí v chorvátskej Dalmácii,
+25. — 30. 9. 2027, východisko Marina Frapa v Rogoznici. Štyri súťažné dni, deväť rozjázd.
 
 Organizátor: **Tangreto s.r.o.**
 Veliteľ flotily a hlavný rozhodca: **Michal Hrivnák**
@@ -16,7 +16,7 @@ Všetky štruktúrované dáta sú v `data/regatta.json`. Trasa aj v `data/route
 
 Projekt je **slovenský**. Všetky výstupy pre účastníkov, web, materiály a komunikáciu píš po slovensky.
 Anglické sú len názov podujatia (*Tack & Talk Regatta*) a interné technické identifikátory.
-Claim je slovenský: *Prevetraj svoj biznis*.
+Claim je slovenský: *Svieži vietor v plachtách*.
 
 ## Zdroj pravdy a priorita
 
@@ -39,7 +39,8 @@ nie fráza — v bodovaní má oporu v `scoring.sailing.safety_retirement`.
 Každý výstup obsahujúci súradnice musí niesť poznámku, že pred plavbou treba overiť oficiálne námorné mapy.
 
 ### Cena je zamrznutá
-`pricing.locked = true`. Po 28. 2. 2027 sa cena neznižuje za žiadnych okolností
+`pricing.locked = true`. Dufour 460 stojí 8 700 € bez DPH a Dufour 470 stojí 9 500 € bez DPH.
+Pri každom verejnom uvedení ceny musí byť výslovne napísané **bez DPH**. Po 28. 2. 2027 sa cena neznižuje za žiadnych okolností
 (`pricing.no_discount_rule`). Ak generuješ predajné texty, nikdy nenavrhuj ad-hoc zľavu
 ani formuláciu typu „ozvite sa, dohodneme sa na cene". Dopredáva sa obsahom balíčka, nie cenou.
 
@@ -72,6 +73,9 @@ a zároveň súperí. Toto robí z výletu podujatie.
 
 **Predaj celých lodí, nie miest.** 20 obchodov namiesto 120. Firemný rozpočet, jeden rozhodovateľ,
 posádka príde hotová a zohratá.
+
+**BALI 5.2 je spoločný networkingový priestor.** Katamarán je zahrnutý v cene, pláva s flotilou počas celého podujatia
+a slúži na stretnutia účastníkov naprieč posádkami.
 
 **Model 12+8.** Znižuje záväzok pri decembrovej zálohe. Opcia sa uplatňuje až keď je predaj potvrdený.
 

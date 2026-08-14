@@ -8,7 +8,7 @@ export const indexingEnabled =
   process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
 export const siteTitle =
-  "Firemná regata v Chorvátsku 2027 | Tack & Talk";
+  "Tack & Talk Regatta 2027 | Svieži vietor v plachtách";
 
 export const siteDescription =
-  "Päť nocí a štyri dni na vode pre 20 firemných posádok. Tack & Talk Regatta, Rogoznica, 25. – 30. 9. 2027.";
+  "Štyri súťažné dni, deväť rozjázd a päť nocí pre 20 firemných posádok. Tack & Talk Regatta, Rogoznica, 25. – 30. 9. 2027.";

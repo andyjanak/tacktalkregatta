@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/og.jpg",
+        url: "/og-v2.png",
         width: 1200,
         height: 630,
-        alt: "Tack & Talk Regatta 2027 — Prevetraj svoj biznis",
+        alt: "Tack & Talk Regatta 2027 — Svieži vietor v plachtách",
       },
     ],
   },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/og.jpg"],
+    images: ["/og-v2.png"],
   },
 };
 
