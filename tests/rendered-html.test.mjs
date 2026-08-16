@@ -44,6 +44,7 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /player\.vimeo\.com\/video\/229143837/i);
   assert.match(html, /aria-label="Mobilná navigácia"/i);
   assert.match(html, /href="#trasa"/i);
+  assert.match(html, /href="\/admin"[^>]*>Admin/i);
   assert.match(html, /Päť bodov.*Štyri dni/is);
   assert.match(html, /Štyri dni.*Deväť rozjázd/is);
   assert.match(html, /Schematická interaktívna mapa trasy/i);

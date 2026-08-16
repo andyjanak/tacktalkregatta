@@ -447,6 +447,7 @@ export default function Home() {
           <p>Organizátor: Tangreto s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
           <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>
+          <a className="footer-admin-link" href="/admin">Admin <span aria-hidden="true">→</span></a>
         </div>
       </footer>
     </main>
