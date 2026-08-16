@@ -15,6 +15,8 @@ export const inquiries = sqliteTable(
     company: text("company").notNull(),
     email: text("email").notNull(),
     phone: text("phone"),
+    businessFocus: text("business_focus").notNull().default(""),
+    annualTurnover: text("annual_turnover").notNull().default(""),
     peopleCount: integer("people_count"),
     captainLicense: text("captain_license", {
       enum: ["yes", "no", "unknown"],

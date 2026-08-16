@@ -22,6 +22,8 @@ export async function GET() {
     "Firma",
     "E-mail",
     "Telefón",
+    "Zameranie",
+    "Ročný obrat",
     "Počet ľudí",
     "Kapitánsky preukaz",
     "Preferovaná loď",
@@ -40,6 +42,8 @@ export async function GET() {
     row.company,
     row.email,
     row.phone,
+    row.businessFocus,
+    row.annualTurnover,
     row.peopleCount,
     row.captainLicense,
     row.boatInterest,
@@ -56,7 +60,7 @@ export async function GET() {
   return new Response(`\uFEFF${csv}`, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": "attachment; filename=tt27-dopyty.csv",
+      "Content-Disposition": "attachment; filename=tt27-potencialni-zakaznici.csv",
       "Cache-Control": "no-store",
     },
   });

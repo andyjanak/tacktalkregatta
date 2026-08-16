@@ -169,9 +169,11 @@ test("allowed admin renders the inquiry workspace", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Regatta CRM/i);
-  assert.match(html, /Kontakty a komunikácia/i);
+  assert.match(html, /Potenciálni zákazníci a komunikácia/i);
   assert.match(html, /E-mailové kampane/i);
-  assert.match(html, /Potenciálni účastníci/i);
+  assert.match(html, /Potenciálni zákazníci/i);
+  assert.match(html, /Pridať potenciálneho zákazníka/i);
+  assert.match(html, /Firma.*Meno.*E-mail.*Telefón.*Zameranie.*Obrat/is);
   assert.match(html, /Export CSV/i);
   assert.match(html, /Právna forma predaja/i);
 });
@@ -189,6 +191,15 @@ test("campaign API rejects anonymous access", async () => {
   assert.equal(response.status, 403);
   const payload = await response.json();
   assert.match(payload.error, /Prístup zamietnutý/i);
+});
+
+test("manual customer API rejects anonymous access", async () => {
+  const response = await render(
+    "/api/admin/inquiries",
+    { "content-type": "application/json" },
+    { method: "POST", body: JSON.stringify({}) },
+  );
+  assert.equal(response.status, 403);
 });
 
 test("old race plan URLs redirect to the integrated route", async () => {

@@ -39,6 +39,8 @@ export async function PATCH(
     tags?: string;
     nextFollowUpAt?: string | null;
     emailPermission?: EmailPermission;
+    businessFocus?: string;
+    annualTurnover?: string;
   };
 
   if (payload.status && !INQUIRY_STATUSES.includes(payload.status)) {
@@ -58,6 +60,12 @@ export async function PATCH(
   }
   if (payload.tags && payload.tags.length > 500) {
     return Response.json({ error: "Tagy sú príliš dlhé." }, { status: 400 });
+  }
+  if (payload.businessFocus && payload.businessFocus.length > 240) {
+    return Response.json({ error: "Zameranie je príliš dlhé." }, { status: 400 });
+  }
+  if (payload.annualTurnover && payload.annualTurnover.length > 120) {
+    return Response.json({ error: "Obrat je príliš dlhý." }, { status: 400 });
   }
   if (
     payload.nextFollowUpAt

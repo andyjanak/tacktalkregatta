@@ -83,6 +83,7 @@ export default function AdminDashboard({
   const [query, setQuery] = useState("");
   const [campaignAudience, setCampaignAudience] = useState<CampaignAudience>("all_active");
   const [notice, setNotice] = useState("");
+  const [manualNotice, setManualNotice] = useState("");
   const [campaignNotice, setCampaignNotice] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -104,7 +105,15 @@ export default function AdminDashboard({
     const needle = query.trim().toLowerCase();
     return inquiries.filter((item) => {
       const matchesStatus = filter === "all" || item.status === filter;
-      const matchesQuery = !needle || [item.fullName, item.company, item.email, item.phone, item.tags]
+      const matchesQuery = !needle || [
+        item.fullName,
+        item.company,
+        item.email,
+        item.phone,
+        item.businessFocus,
+        item.annualTurnover,
+        item.tags,
+      ]
         .some((value) => value?.toLowerCase().includes(needle));
       return matchesStatus && matchesQuery;
     });
@@ -131,6 +140,8 @@ export default function AdminDashboard({
     tags?: string;
     nextFollowUpAt?: string | null;
     emailPermission?: EmailPermission;
+    businessFocus?: string;
+    annualTurnover?: string;
   }) {
     if (!selected) return;
     setSaving(true);
@@ -149,6 +160,52 @@ export default function AdminDashboard({
       setNotice("Zmena uložená.");
     } catch (error) {
       setNotice(error instanceof Error ? error.message : "Zmenu sa nepodarilo uložiť.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function createManualCustomer(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setSaving(true);
+    setManualNotice("");
+    try {
+      const response = await fetch("/api/admin/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          company: data.get("company"),
+          fullName: data.get("fullName"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          businessFocus: data.get("businessFocus"),
+          annualTurnover: data.get("annualTurnover"),
+        }),
+      });
+      const result = (await response.json()) as {
+        inquiry?: InquiryWithActivities;
+        error?: string;
+      };
+      if (!response.ok || !result.inquiry) {
+        throw new Error(result.error ?? "Zákazníka sa nepodarilo uložiť.");
+      }
+
+      setInquiries((current) => {
+        const exists = current.some((item) => item.id === result.inquiry!.id);
+        return exists
+          ? current.map((item) => item.id === result.inquiry!.id ? result.inquiry! : item)
+          : [result.inquiry!, ...current];
+      });
+      setSelectedId(result.inquiry.id);
+      setFilter("all");
+      setQuery("");
+      form.reset();
+      form.closest("details")?.removeAttribute("open");
+      setManualNotice("Zákazník bol uložený.");
+    } catch (error) {
+      setManualNotice(error instanceof Error ? error.message : "Zákazníka sa nepodarilo uložiť.");
     } finally {
       setSaving(false);
     }
@@ -253,7 +310,7 @@ export default function AdminDashboard({
   return (
     <>
       <nav className="crm-tabs" aria-label="Sekcie CRM">
-        <button className={view === "contacts" ? "active" : ""} onClick={() => setView("contacts")}>Kontakty <span>{inquiries.length}</span></button>
+        <button className={view === "contacts" ? "active" : ""} onClick={() => setView("contacts")}>Potenciálni zákazníci <span>{inquiries.length}</span></button>
         <button className={view === "campaigns" ? "active" : ""} onClick={() => setView("campaigns")}>E-mailové kampane <span>{campaigns.length}</span></button>
       </nav>
 
@@ -266,11 +323,25 @@ export default function AdminDashboard({
       {view === "contacts" ? (
         <>
           <section className="admin-stats" aria-label="Kontakty v číslach">
-            <article><p>Potenciálni účastníci</p><strong>{counts.all}</strong><span>unikátne dopyty v CRM</span></article>
+            <article><p>Potenciálni zákazníci</p><strong>{counts.all}</strong><span>firmy a kontakty v CRM</span></article>
             <article><p>Nové</p><strong>{counts.new}</strong><span>čakajú na prvý kontakt</span></article>
             <article><p>Rozpracované</p><strong>{counts.active}</strong><span>v aktívnej komunikácii</span></article>
             <article><p>Vysoká priorita</p><strong>{counts.high}</strong><span>neuzavreté dopyty</span></article>
           </section>
+
+          <details className="manual-customer-panel">
+            <summary>Pridať potenciálneho zákazníka</summary>
+            <form onSubmit={createManualCustomer}>
+              <label><span>Firma *</span><input name="company" required maxLength={160} /></label>
+              <label><span>Meno *</span><input name="fullName" required maxLength={120} /></label>
+              <label><span>E-mail *</span><input name="email" type="email" required maxLength={200} /></label>
+              <label><span>Telefón</span><input name="phone" type="tel" maxLength={60} /></label>
+              <label><span>Zameranie</span><input name="businessFocus" maxLength={240} placeholder="IT, výroba, financie…" /></label>
+              <label><span>Ročný obrat</span><input name="annualTurnover" maxLength={120} placeholder="napr. 5–10 mil. €" /></label>
+              <button type="submit" disabled={saving || !storageReady}>Uložiť zákazníka</button>
+            </form>
+          </details>
+          {manualNotice && <p className="manual-customer-notice" role="status">{manualNotice}</p>}
 
           <section className="lead-toolbar" aria-label="Filtrovanie kontaktov">
             <div className="lead-filters">
@@ -285,32 +356,42 @@ export default function AdminDashboard({
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Hľadať meno, firmu, e-mail alebo tag"
+              placeholder="Hľadať firmu, meno, zameranie alebo obrat"
               aria-label="Hľadať v kontaktoch"
             />
             <Link className="export-link" href="/api/admin/inquiries/export" prefetch={false}>Export CSV</Link>
           </section>
 
           <div className="leads-workspace">
-            <section className="lead-list" aria-label="Zoznam potenciálnych účastníkov">
-              {filtered.length === 0 ? (
-                <div className="lead-empty">
-                  <strong>Zatiaľ tu nič nie je.</strong>
-                  <p>Nové nezáväzné dopyty z webu sa objavia automaticky.</p>
-                </div>
-              ) : filtered.map((item) => (
-                <button
-                  key={item.id}
-                  className={`lead-row ${selectedId === item.id ? "selected" : ""}`}
-                  onClick={() => { setSelectedId(item.id); setNotice(""); }}
-                >
-                  <span className={`lead-status status-${item.status}`}>{STATUS_LABELS[item.status as InquiryStatus]}</span>
-                  <strong>{item.company}</strong>
-                  <span>{item.fullName} · {item.email}</span>
-                  <time>{item.nextFollowUpAt ? `Ďalší krok ${formatDate(item.nextFollowUpAt)}` : formatDate(item.createdAt)}</time>
-                  {item.priority === "high" && <i>Priorita</i>}
-                </button>
-              ))}
+            <section className="customer-table-panel" aria-label="Potenciálni zákazníci">
+              <table className="customer-table">
+                <thead>
+                  <tr>
+                    <th>Firma</th>
+                    <th>Meno</th>
+                    <th>E-mail</th>
+                    <th>Telefón</th>
+                    <th>Zameranie</th>
+                    <th>Obrat</th>
+                    <th>Stav</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.length === 0 ? (
+                    <tr><td colSpan={7}><div className="lead-empty"><strong>Zatiaľ tu nič nie je.</strong><p>Pridajte prvého zákazníka ručne alebo počkajte na dopyt z webu.</p></div></td></tr>
+                  ) : filtered.map((item) => (
+                    <tr key={item.id} className={selectedId === item.id ? "selected" : ""}>
+                      <td><button type="button" onClick={() => { setSelectedId(item.id); setNotice(""); }}>{item.company}</button></td>
+                      <td>{item.fullName}</td>
+                      <td><a href={`mailto:${item.email}`}>{item.email}</a></td>
+                      <td>{item.phone || "—"}</td>
+                      <td>{item.businessFocus || "—"}</td>
+                      <td>{item.annualTurnover || "—"}</td>
+                      <td><span className={`lead-status status-${item.status}`}>{STATUS_LABELS[item.status as InquiryStatus]}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </section>
 
             <aside className="lead-detail" aria-label="Detail kontaktu">
@@ -326,10 +407,17 @@ export default function AdminDashboard({
                   <div className="lead-contact-grid">
                     <a href={`mailto:${selected.email}`}><small>E-mail</small>{selected.email}</a>
                     <a href={selected.phone ? `tel:${selected.phone}` : undefined}><small>Telefón</small>{selected.phone || "—"}</a>
+                    <div><small>Zameranie</small>{selected.businessFocus || "—"}</div>
+                    <div><small>Ročný obrat</small>{selected.annualTurnover || "—"}</div>
                     <div><small>Počet ľudí</small>{selected.peopleCount ?? "—"}</div>
                     <div><small>Kapitánsky preukaz</small>{LICENSE_LABELS[selected.captainLicense]}</div>
                     <div><small>Preferovaná loď</small>{BOAT_LABELS[selected.boatInterest]}</div>
                     <div><small>Posledný kontakt</small>{formatDate(selected.lastContactedAt)}</div>
+                  </div>
+
+                  <div className="business-profile-edit">
+                    <label><span>Zameranie firmy</span><input key={`${selected.id}-${selected.businessFocus}`} defaultValue={selected.businessFocus} disabled={saving} maxLength={240} onBlur={(event) => updateSelected({ businessFocus: event.target.value })} /></label>
+                    <label><span>Ročný obrat</span><input key={`${selected.id}-${selected.annualTurnover}`} defaultValue={selected.annualTurnover} disabled={saving} maxLength={120} placeholder="napr. 5–10 mil. €" onBlur={(event) => updateSelected({ annualTurnover: event.target.value })} /></label>
                   </div>
 
                   {selected.message && <div className="lead-message"><small>Správa</small><p>{selected.message}</p></div>}

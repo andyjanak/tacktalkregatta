@@ -72,7 +72,7 @@ export default async function AdminPage() {
       <div className="admin-content">
         <div className="admin-title-row">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Kontakty a komunikácia</p>
+            <p className="eyebrow eyebrow-dark"><span /> Potenciálni zákazníci a komunikácia</p>
             <h1>Regatta CRM</h1>
           </div>
           <div className="admin-state"><span /> Interný panel</div>

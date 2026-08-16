@@ -25,6 +25,24 @@ export type InquiryWithActivities = Inquiry & {
   activities: InquiryActivity[];
 };
 
+export async function getInquiryWithActivities(id: number) {
+  const db = getDb();
+  const [row] = await db
+    .select()
+    .from(inquiries)
+    .where(eq(inquiries.id, id))
+    .limit(1);
+  if (!row) return null;
+
+  const activities = await db
+    .select()
+    .from(inquiryActivities)
+    .where(eq(inquiryActivities.inquiryId, id))
+    .orderBy(desc(inquiryActivities.createdAt), desc(inquiryActivities.id));
+
+  return { ...row, activities };
+}
+
 export async function listInquiries(): Promise<InquiryWithActivities[]> {
   const db = getDb();
   const rows = await db
@@ -59,11 +77,14 @@ export async function createInquiry(input: {
   company: string;
   email: string;
   phone?: string | null;
+  businessFocus?: string;
+  annualTurnover?: string;
   peopleCount?: number | null;
   captainLicense: CaptainLicense;
   boatInterest?: BoatInterest;
   message?: string;
   source?: string;
+  actorEmail?: string;
 }) {
   const db = getDb();
 
@@ -83,6 +104,8 @@ export async function createInquiry(input: {
         fullName: input.fullName,
         company: input.company,
         phone: input.phone || existing.phone,
+        businessFocus: input.businessFocus ?? existing.businessFocus,
+        annualTurnover: input.annualTurnover ?? existing.annualTurnover,
         peopleCount: input.peopleCount ?? existing.peopleCount,
         captainLicense: input.captainLicense,
         boatInterest: input.boatInterest ?? existing.boatInterest,
@@ -96,10 +119,14 @@ export async function createInquiry(input: {
     await db.insert(inquiryActivities).values({
       inquiryId: existing.id,
       type: "contact",
-      content: input.message
-        ? `Opakovaný dopyt z webu: ${input.message}`
-        : "Opakovaný dopyt z webu.",
-      createdByEmail: normalizedEmail,
+      content: input.source === "manual"
+        ? "Kontakt bol ručne aktualizovaný v zozname potenciálnych zákazníkov."
+        : input.message
+          ? `Opakovaný dopyt z webu: ${input.message}`
+          : "Opakovaný dopyt z webu.",
+      createdByEmail: input.source === "manual"
+        ? (input.actorEmail ?? normalizedEmail)
+        : normalizedEmail,
     });
 
     return updated;
@@ -112,6 +139,8 @@ export async function createInquiry(input: {
       company: input.company,
       email: normalizedEmail,
       phone: input.phone || null,
+      businessFocus: input.businessFocus ?? "",
+      annualTurnover: input.annualTurnover ?? "",
       peopleCount: input.peopleCount ?? null,
       captainLicense: input.captainLicense,
       boatInterest: input.boatInterest ?? "undecided",
@@ -119,6 +148,15 @@ export async function createInquiry(input: {
       source: input.source ?? "website",
     })
     .returning();
+
+  if (input.source === "manual") {
+    await db.insert(inquiryActivities).values({
+      inquiryId: row.id,
+      type: "profile",
+      content: "Kontakt bol ručne pridaný do zoznamu potenciálnych zákazníkov.",
+      createdByEmail: input.actorEmail ?? normalizedEmail,
+    });
+  }
 
   return row;
 }
@@ -133,6 +171,8 @@ export async function updateInquiry(
     tags?: string;
     nextFollowUpAt?: string | null;
     emailPermission?: EmailPermission;
+    businessFocus?: string;
+    annualTurnover?: string;
   },
   actorEmail: string,
 ) {
@@ -244,6 +284,36 @@ export async function updateInquiry(
         : "Hromadná e-mailová komunikácia bola opätovne povolená.",
       createdByEmail: actorEmail,
     });
+  }
+
+  if (input.businessFocus !== undefined) {
+    const businessFocus = input.businessFocus.trim().slice(0, 240);
+    if (businessFocus !== current.businessFocus) {
+      changes.businessFocus = businessFocus;
+      activityValues.push({
+        inquiryId: id,
+        type: "profile",
+        content: businessFocus
+          ? `Zameranie firmy: ${businessFocus}.`
+          : "Zameranie firmy bolo odstránené.",
+        createdByEmail: actorEmail,
+      });
+    }
+  }
+
+  if (input.annualTurnover !== undefined) {
+    const annualTurnover = input.annualTurnover.trim().slice(0, 120);
+    if (annualTurnover !== current.annualTurnover) {
+      changes.annualTurnover = annualTurnover;
+      activityValues.push({
+        inquiryId: id,
+        type: "profile",
+        content: annualTurnover
+          ? `Ročný obrat: ${annualTurnover}.`
+          : "Údaj o ročnom obrate bol odstránený.",
+        createdByEmail: actorEmail,
+      });
+    }
   }
 
   const [updated] = await db
