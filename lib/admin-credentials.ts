@@ -1,5 +1,6 @@
 export const ADMIN_COOKIE_NAME = "tt27_admin_session";
 export const ADMIN_SESSION_SECONDS = 8 * 60 * 60;
+export const ADMIN_PASSWORD_ITERATIONS = 100_000;
 
 type CredentialRecord = {
   email: string;
@@ -80,7 +81,8 @@ export async function verifyAdminCredentials(
   const record = records.find((item) => item.email.toLowerCase() === email);
   const fallbackSalt = new Uint8Array(16);
   const salt = record ? decodeBase64Url(record.salt) : fallbackSalt;
-  const iterations = record?.iterations || 210_000;
+  const iterations = record?.iterations || ADMIN_PASSWORD_ITERATIONS;
+  if (iterations < 10_000 || iterations > ADMIN_PASSWORD_ITERATIONS) return null;
   const actual = await passwordHash(password.slice(0, 512), salt, iterations);
   const expected = record ? decodeBase64Url(record.hash) : new Uint8Array(32);
 

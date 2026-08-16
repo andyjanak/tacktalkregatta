@@ -12,8 +12,8 @@ process.env.ADMIN_CREDENTIALS_JSON = JSON.stringify([{
   email: TEST_ADMIN_EMAIL,
   displayName: TEST_ADMIN_NAME,
   salt: TEST_ADMIN_SALT.toString("base64url"),
-  hash: pbkdf2Sync(TEST_ADMIN_PASSWORD, TEST_ADMIN_SALT, 210_000, 32, "sha256").toString("base64url"),
-  iterations: 210_000,
+  hash: pbkdf2Sync(TEST_ADMIN_PASSWORD, TEST_ADMIN_SALT, 100_000, 32, "sha256").toString("base64url"),
+  iterations: 100_000,
 }]);
 process.env.ADMIN_SESSION_SECRET = TEST_ADMIN_SECRET;
 
