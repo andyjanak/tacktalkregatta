@@ -15,6 +15,13 @@
       "when": 1786899088523,
       "tag": "0001_special_microbe",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1786900738993,
+      "tag": "0002_deep_spot",
+      "breakpoints": true
     }
   ]
 }

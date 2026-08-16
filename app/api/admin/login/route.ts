@@ -13,7 +13,16 @@ export async function POST(request: Request) {
   const email = String(form.get("email") ?? "").slice(0, 200);
   const password = String(form.get("password") ?? "").slice(0, 512);
   const returnTo = safeReturnTo(form.get("returnTo"));
-  const user = await verifyAdminCredentials(email, password);
+  let user;
+  try {
+    user = await verifyAdminCredentials(email, password);
+  } catch (error) {
+    console.error("Admin login storage failed", error);
+    const failure = new URL("/admin/login", request.url);
+    failure.searchParams.set("error", "system");
+    failure.searchParams.set("return_to", returnTo);
+    return Response.redirect(failure, 303);
+  }
 
   if (!user) {
     const failure = new URL("/admin/login", request.url);

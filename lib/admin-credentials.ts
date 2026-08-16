@@ -13,10 +13,16 @@ type CredentialRecord = {
 export type PasswordAdminUser = {
   email: string;
   displayName: string;
+  credentialVersion: string;
 };
 
 type SessionPayload = PasswordAdminUser & {
   exp: number;
+};
+
+type RecoveryIdentity = {
+  identityEmail: string;
+  adminEmails: string[];
 };
 
 function runtimeValue(key: string) {
@@ -28,6 +34,17 @@ function credentials() {
   if (!raw || raw.length > 20_000) return [];
   try {
     const parsed = JSON.parse(raw) as CredentialRecord[];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function recoveryIdentities() {
+  const raw = runtimeValue("ADMIN_RECOVERY_IDENTITIES_JSON");
+  if (!raw || raw.length > 20_000) return [];
+  try {
+    const parsed = JSON.parse(raw) as RecoveryIdentity[];
     return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
@@ -72,6 +89,30 @@ async function passwordHash(password: string, salt: Uint8Array, iterations: numb
   return new Uint8Array(bits);
 }
 
+async function passwordOverride(email: string) {
+  try {
+    const { getAdminPasswordOverride } = await import("@/db/admin-users");
+    return await getAdminPasswordOverride(email);
+  } catch (error) {
+    const code = error instanceof Error
+      ? (error as Error & { code?: string }).code
+      : undefined;
+    const message = error instanceof Error ? error.message : "";
+    if (
+      code === "ERR_UNSUPPORTED_ESM_URL_SCHEME"
+      || message.includes("D1 binding `DB` is unavailable")
+    ) {
+      return null;
+    }
+    throw error;
+  }
+}
+
+async function credentialVersion(email: string) {
+  const override = await passwordOverride(email);
+  return override ? `db:${override.updatedAt}` : "env";
+}
+
 export async function verifyAdminCredentials(
   rawEmail: string,
   password: string,
@@ -79,15 +120,60 @@ export async function verifyAdminCredentials(
   const email = rawEmail.trim().toLowerCase();
   const records = credentials();
   const record = records.find((item) => item.email.toLowerCase() === email);
+  const override = record ? await passwordOverride(email) : null;
   const fallbackSalt = new Uint8Array(16);
-  const salt = record ? decodeBase64Url(record.salt) : fallbackSalt;
-  const iterations = record?.iterations || ADMIN_PASSWORD_ITERATIONS;
+  const salt = record ? decodeBase64Url(override?.salt ?? record.salt) : fallbackSalt;
+  const iterations = override?.iterations ?? record?.iterations ?? ADMIN_PASSWORD_ITERATIONS;
   if (iterations < 10_000 || iterations > ADMIN_PASSWORD_ITERATIONS) return null;
   const actual = await passwordHash(password.slice(0, 512), salt, iterations);
-  const expected = record ? decodeBase64Url(record.hash) : new Uint8Array(32);
+  const expected = record
+    ? decodeBase64Url(override?.hash ?? record.hash)
+    : new Uint8Array(32);
 
   if (!record || !safeEqual(actual, expected)) return null;
-  return { email: record.email.toLowerCase(), displayName: record.displayName };
+  return {
+    email: record.email.toLowerCase(),
+    displayName: record.displayName,
+    credentialVersion: override ? `db:${override.updatedAt}` : "env",
+  };
+}
+
+export function getRecoveryAdminUsers(identityEmail: string) {
+  const identity = recoveryIdentities().find(
+    (item) => item.identityEmail.toLowerCase() === identityEmail.toLowerCase(),
+  );
+  if (!identity) return [];
+
+  const allowed = new Set(identity.adminEmails.map((email) => email.toLowerCase()));
+  return credentials()
+    .filter((record) => allowed.has(record.email.toLowerCase()))
+    .map((record) => ({
+      email: record.email.toLowerCase(),
+      displayName: record.displayName,
+    }));
+}
+
+export async function resetAdminPassword(email: string, password: string) {
+  const record = credentials().find(
+    (item) => item.email.toLowerCase() === email.toLowerCase(),
+  );
+  if (!record) return null;
+
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const hash = await passwordHash(password.slice(0, 512), salt, ADMIN_PASSWORD_ITERATIONS);
+  const { saveAdminPasswordOverride } = await import("@/db/admin-users");
+  const updatedAt = await saveAdminPasswordOverride({
+    email: record.email.toLowerCase(),
+    salt: encodeBase64Url(salt),
+    hash: encodeBase64Url(hash),
+    iterations: ADMIN_PASSWORD_ITERATIONS,
+  });
+
+  return {
+    email: record.email.toLowerCase(),
+    displayName: record.displayName,
+    credentialVersion: `db:${updatedAt}`,
+  };
 }
 
 async function sign(value: string) {
@@ -141,8 +227,14 @@ export async function verifyAdminSessionToken(
   const active = credentials().some(
     (item) => item.email.toLowerCase() === payload.email.toLowerCase(),
   );
-  return active
-    ? { email: payload.email.toLowerCase(), displayName: payload.displayName }
+  if (!active || !payload.credentialVersion) return null;
+  const currentVersion = await credentialVersion(payload.email);
+  return currentVersion === payload.credentialVersion
+    ? {
+        email: payload.email.toLowerCase(),
+        displayName: payload.displayName,
+        credentialVersion: payload.credentialVersion,
+      }
     : null;
 }
 

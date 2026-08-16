@@ -138,7 +138,16 @@ export const emailCampaignRecipients = sqliteTable(
   ],
 );
 
+export const adminPasswordOverrides = sqliteTable("admin_password_overrides", {
+  email: text("email").primaryKey(),
+  salt: text("salt").notNull(),
+  hash: text("hash").notNull(),
+  iterations: integer("iterations").notNull(),
+  updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
 export type Inquiry = typeof inquiries.$inferSelect;
 export type InquiryActivity = typeof inquiryActivities.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type EmailCampaignRecipient = typeof emailCampaignRecipients.$inferSelect;
+export type AdminPasswordOverride = typeof adminPasswordOverrides.$inferSelect;

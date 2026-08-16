@@ -16,11 +16,16 @@ process.env.ADMIN_CREDENTIALS_JSON = JSON.stringify([{
   iterations: 100_000,
 }]);
 process.env.ADMIN_SESSION_SECRET = TEST_ADMIN_SECRET;
+process.env.ADMIN_RECOVERY_IDENTITIES_JSON = JSON.stringify([{
+  identityEmail: "owner@example.test",
+  adminEmails: [TEST_ADMIN_EMAIL],
+}]);
 
 function testAdminCookie() {
   const payload = Buffer.from(JSON.stringify({
     email: TEST_ADMIN_EMAIL,
     displayName: TEST_ADMIN_NAME,
+    credentialVersion: "env",
     exp: Math.floor(Date.now() / 1000) + 3600,
   })).toString("base64url");
   const signature = createHmac("sha256", TEST_ADMIN_SECRET)
@@ -113,6 +118,32 @@ test("admin login page renders the credential form", async () => {
   assert.match(html, /action="\/api\/admin\/login"/i);
   assert.match(html, /autocomplete="username"/i);
   assert.match(html, /autocomplete="current-password"/i);
+  assert.match(html, /Zabudol som heslo/i);
+});
+
+test("verified site owner can open password recovery", async () => {
+  const response = await render("/admin/reset-password", {
+    "oai-authenticated-user-id": "owner-1",
+    "oai-authenticated-user-email": "owner@example.test",
+  });
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Nastaviť nové heslo/i);
+  assert.match(html, new RegExp(TEST_ADMIN_EMAIL, "i"));
+  assert.match(html, /action="\/api\/admin\/reset-password"/i);
+});
+
+test("password reset rejects a request without same-origin proof", async () => {
+  const response = await render(
+    "/api/admin/reset-password",
+    {
+      "content-type": "application/x-www-form-urlencoded",
+      "oai-authenticated-user-id": "owner-1",
+      "oai-authenticated-user-email": "owner@example.test",
+    },
+    { method: "POST", body: new URLSearchParams() },
+  );
+  assert.equal(response.status, 403);
 });
 
 test("valid admin credentials create a protected session", async () => {
