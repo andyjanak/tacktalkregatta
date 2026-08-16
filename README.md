@@ -17,6 +17,13 @@ na [vinext](https://github.com/cloudflare/vinext), používa D1 a Drizzle.
 Odosielanie potrebuje tajné premenné `RESEND_API_KEY`, `EMAIL_FROM` a
 `RESEND_WEBHOOK_SECRET`. Názvy a bezpečné príklady sú v `.env.example`.
 
+## Prihlásenie do administrácie
+
+Administrácia na `/admin` používa vlastné prihlásenie na `/admin/login`.
+Heslá sa v zdrojovom kóde nenachádzajú: hosting uchováva iba PBKDF2 hashe a
+samostatný tajný kľúč na podpis osemhodinovej `HttpOnly` relácie. API pod
+`/api/admin/*` overuje rovnakú reláciu na serveri.
+
 ## Prerequisites
 
 - Node.js `>=22.13.0`

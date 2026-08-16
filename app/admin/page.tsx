@@ -3,11 +3,7 @@ import Link from "next/link";
 import regatta from "@/data/regatta.json";
 import type { InquiryWithActivities } from "@/db/inquiries";
 import type { CampaignWithRecipients } from "@/db/campaigns";
-import {
-  chatGPTSignOutPath,
-  isAdminUser,
-  requireChatGPTUser,
-} from "../chatgpt-auth";
+import { requireAdminUser } from "../chatgpt-auth";
 import AdminDashboard from "./AdminDashboard";
 
 export const dynamic = "force-dynamic";
@@ -28,23 +24,7 @@ function formatDate(value: string) {
 }
 
 export default async function AdminPage() {
-  const user = await requireChatGPTUser("/admin");
-
-  if (!isAdminUser(user)) {
-    return (
-      <main className="admin-shell admin-denied">
-        <section>
-          <p className="panel-kicker">Tack &amp; Talk Admin</p>
-          <h1>Nemáte prístup.</h1>
-          <p>
-            Prihlásený účet nie je na zozname správcov. Požiadajte Andreja
-            o pridanie e-mailovej adresy {user.email}.
-          </p>
-          <a href={chatGPTSignOutPath("/admin")}>Prihlásiť sa iným účtom</a>
-        </section>
-      </main>
-    );
-  }
+  const user = await requireAdminUser("/admin");
 
   let storageReady = true;
   let inquiryRows: InquiryWithActivities[] = [];
@@ -85,7 +65,7 @@ export default async function AdminPage() {
         <nav className="admin-user" aria-label="Používateľské menu">
           <span>{user.displayName}</span>
           <Link href="/">Web</Link>
-          <a href={chatGPTSignOutPath("/")}>Odhlásiť</a>
+          <a href="/api/admin/logout">Odhlásiť</a>
         </nav>
       </header>
 

@@ -17,10 +17,15 @@ const PERCENT_ENCODED_UTF8 = "percent-encoded-utf-8";
 const SIGN_IN_PATH = "/signin-with-chatgpt";
 const SIGN_OUT_PATH = "/signout-with-chatgpt";
 const CALLBACK_PATH = "/callback";
+const ADMIN_COOKIE_NAME = "tt27_admin_session";
 const DEFAULT_ADMIN_USER_IDS = new Set([
   "3a1e2c0b-8f17-448f-b064-95ce2bd86294",
 ]);
-const DEFAULT_ADMIN_EMAILS = new Set(["hrivnak.michal@gmail.com"]);
+const DEFAULT_ADMIN_EMAILS = new Set([
+  "janak@ajservices.sk",
+  "hrivnak@tangreto.com",
+  "hrivnak.michal@gmail.com",
+]);
 
 export async function getChatGPTUser(): Promise<ChatGPTUser | null> {
   const requestHeaders = await headers();
@@ -54,9 +59,33 @@ export async function requireChatGPTUser(
 
 export async function getAdminUser(): Promise<ChatGPTUser | null> {
   const user = await getChatGPTUser();
-  if (!user) return null;
+  if (user && isAdminUser(user)) return user;
 
-  return isAdminUser(user) ? user : null;
+  const requestHeaders = await headers();
+  const token = readCookie(
+    requestHeaders.get("cookie") ?? "",
+    ADMIN_COOKIE_NAME,
+  );
+  if (!token) return null;
+
+  const { verifyAdminSessionToken } = await import("@/lib/admin-credentials");
+  const sessionUser = await verifyAdminSessionToken(token);
+  if (!sessionUser) return null;
+
+  return {
+    userId: `password:${sessionUser.email}`,
+    displayName: sessionUser.displayName,
+    email: sessionUser.email,
+    fullName: sessionUser.displayName,
+  };
+}
+
+export async function requireAdminUser(returnTo: string): Promise<ChatGPTUser> {
+  const user = await getAdminUser();
+  if (user) return user;
+
+  const safeReturnTo = safeRelativeReturnPath(returnTo);
+  redirect(`/admin/login?return_to=${encodeURIComponent(safeReturnTo)}`);
 }
 
 export function isAdminUser(user: ChatGPTUser): boolean {
@@ -104,4 +133,12 @@ function safeDecodeURIComponent(value: string): string | null {
   } catch {
     return null;
   }
+}
+
+function readCookie(cookieHeader: string, name: string) {
+  for (const part of cookieHeader.split(";")) {
+    const [key, ...value] = part.trim().split("=");
+    if (key === name) return value.join("=");
+  }
+  return null;
 }

@@ -72,8 +72,18 @@ test("admin requires authenticated identity", async () => {
   assert.ok([302, 303, 307, 308].includes(response.status));
   assert.match(
     response.headers.get("location") ?? "",
-    /^\/signin-with-chatgpt\?return_to=%2Fadmin$/,
+    /^\/admin\/login\?return_to=%2Fadmin$/,
   );
+});
+
+test("admin login page renders the credential form", async () => {
+  const response = await render("/admin/login");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Prihlásenie do administrácie/i);
+  assert.match(html, /action="\/api\/admin\/login"/i);
+  assert.match(html, /autocomplete="username"/i);
+  assert.match(html, /autocomplete="current-password"/i);
 });
 
 test("allowed admin renders the inquiry workspace", async () => {
@@ -96,10 +106,8 @@ test("authenticated non-admin is denied", async () => {
     "oai-authenticated-user-id": "other-user",
     "oai-authenticated-user-email": "other@example.com",
   });
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /Nemáte prístup/i);
-  assert.doesNotMatch(html, /Export CSV/i);
+  assert.ok([302, 303, 307, 308].includes(response.status));
+  assert.match(response.headers.get("location") ?? "", /^\/admin\/login/);
 });
 
 test("campaign API rejects anonymous access", async () => {

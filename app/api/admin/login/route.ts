@@ -1,0 +1,30 @@
+import {
+  adminSessionCookie,
+  createAdminSessionToken,
+  verifyAdminCredentials,
+} from "@/lib/admin-credentials";
+
+function safeReturnTo(value: FormDataEntryValue | null) {
+  return value === "/admin" ? "/admin" : "/admin";
+}
+
+export async function POST(request: Request) {
+  const form = await request.formData();
+  const email = String(form.get("email") ?? "").slice(0, 200);
+  const password = String(form.get("password") ?? "").slice(0, 512);
+  const returnTo = safeReturnTo(form.get("returnTo"));
+  const user = await verifyAdminCredentials(email, password);
+
+  if (!user) {
+    const failure = new URL("/admin/login", request.url);
+    failure.searchParams.set("error", "1");
+    failure.searchParams.set("return_to", returnTo);
+    return Response.redirect(failure, 303);
+  }
+
+  const token = await createAdminSessionToken(user);
+  const response = Response.redirect(new URL(returnTo, request.url), 303);
+  response.headers.set("Set-Cookie", adminSessionCookie(token));
+  response.headers.set("Cache-Control", "no-store");
+  return response;
+}
