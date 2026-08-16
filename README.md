@@ -1,8 +1,21 @@
-# vinext-starter
+# Tack & Talk Regatta 2027
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Web podujatia a interné CRM pre správu potenciálnych účastníkov. Aplikácia beží
+na [vinext](https://github.com/cloudflare/vinext), používa D1 a Drizzle.
+
+## CRM a komunikácia
+
+- `/admin` je chránený panel pre povolených správcov,
+- dopyty z verejného formulára sa ukladajú do D1 a podľa e-mailu sa neduplikujú,
+- kontakt eviduje stav, prioritu, zodpovednú osobu, preferovanú loď, tagy,
+  ďalší krok, poznámky a históriu komunikácie,
+- e-mailové kampane sa najskôr ukladajú ako koncepty; odhlásené a uzavreté
+  kontakty sa pri odoslaní automaticky vynechajú,
+- výsledok každého e-mailu sa uloží ku kampani aj ku kontaktu,
+- webhook Resend eviduje doručenie, bounce a spam complaint.
+
+Odosielanie potrebuje tajné premenné `RESEND_API_KEY`, `EMAIL_FROM` a
+`RESEND_WEBHOOK_SECRET`. Názvy a bezpečné príklady sú v `.env.example`.
 
 ## Prerequisites
 

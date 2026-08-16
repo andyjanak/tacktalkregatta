@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import regatta from "@/data/regatta.json";
 import type { InquiryWithActivities } from "@/db/inquiries";
+import type { CampaignWithRecipients } from "@/db/campaigns";
 import {
   chatGPTSignOutPath,
   isAdminUser,
@@ -47,9 +48,15 @@ export default async function AdminPage() {
 
   let storageReady = true;
   let inquiryRows: InquiryWithActivities[] = [];
+  let campaignRows: CampaignWithRecipients[] = [];
+  let emailConfigured = false;
   try {
     const { listInquiries } = await import("@/db/inquiries");
-    inquiryRows = await listInquiries();
+    const { listEmailCampaigns } = await import("@/db/campaigns");
+    [inquiryRows, campaignRows] = await Promise.all([
+      listInquiries(),
+      listEmailCampaigns(),
+    ]);
   } catch (error) {
     storageReady = false;
     if (
@@ -58,6 +65,13 @@ export default async function AdminPage() {
     ) {
       console.error("Inquiry storage is unavailable", error);
     }
+  }
+
+  try {
+    const { getEmailConfigurationStatus } = await import("@/lib/email");
+    emailConfigured = getEmailConfigurationStatus().configured;
+  } catch {
+    emailConfigured = false;
   }
 
   const nextMilestones = regatta.milestones.slice(0, 6);
@@ -78,13 +92,18 @@ export default async function AdminPage() {
       <div className="admin-content">
         <div className="admin-title-row">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Dopyty a požiadavky</p>
-            <h1>Obchodný prehľad</h1>
+            <p className="eyebrow eyebrow-dark"><span /> Kontakty a komunikácia</p>
+            <h1>Regatta CRM</h1>
           </div>
           <div className="admin-state"><span /> Interný panel</div>
         </div>
 
-        <AdminDashboard initialInquiries={inquiryRows} storageReady={storageReady} />
+        <AdminDashboard
+          initialInquiries={inquiryRows}
+          initialCampaigns={campaignRows}
+          storageReady={storageReady}
+          emailConfigured={emailConfigured}
+        />
 
         <div className="admin-secondary-grid">
           <section className="admin-panel">

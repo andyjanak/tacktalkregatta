@@ -1,7 +1,16 @@
-import { createInquiry, type CaptainLicense } from "@/db/inquiries";
+import {
+  createInquiry,
+  type BoatInterest,
+  type CaptainLicense,
+} from "@/db/inquiries";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LICENSE_VALUES = new Set<CaptainLicense>(["yes", "no", "unknown"]);
+const BOAT_VALUES = new Set<BoatInterest>([
+  "dufour_460",
+  "dufour_470",
+  "undecided",
+]);
 
 function cleanText(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -22,6 +31,7 @@ export async function POST(request: Request) {
     const phone = cleanText(payload.phone, 60);
     const message = cleanText(payload.message, 1500);
     const captainLicense = cleanText(payload.captainLicense, 20) as CaptainLicense;
+    const boatInterest = cleanText(payload.boatInterest, 30) as BoatInterest;
     const consent = payload.consent === true;
     const rawPeopleCount = Number(payload.peopleCount);
     const peopleCount = Number.isInteger(rawPeopleCount)
@@ -44,6 +54,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!BOAT_VALUES.has(boatInterest)) {
+      return Response.json(
+        { error: "Vyberte preferovaný typ lode." },
+        { status: 400 },
+      );
+    }
+
     if (!consent) {
       return Response.json(
         { error: "Na odoslanie potrebujeme súhlas s kontaktovaním." },
@@ -58,6 +75,7 @@ export async function POST(request: Request) {
       phone: phone || null,
       peopleCount,
       captainLicense,
+      boatInterest,
       message,
       source: "website",
     });

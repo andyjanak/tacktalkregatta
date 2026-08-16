@@ -82,8 +82,10 @@ test("allowed admin renders the inquiry workspace", async () => {
   });
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Obchodný prehľad/i);
-  assert.match(html, /Dopyty a požiadavky/i);
+  assert.match(html, /Regatta CRM/i);
+  assert.match(html, /Kontakty a komunikácia/i);
+  assert.match(html, /E-mailové kampane/i);
+  assert.match(html, /Potenciálni účastníci/i);
   assert.match(html, /Export CSV/i);
   assert.match(html, /Právna forma predaja/i);
 });
@@ -97,6 +99,13 @@ test("authenticated non-admin is denied", async () => {
   const html = await response.text();
   assert.match(html, /Nemáte prístup/i);
   assert.doesNotMatch(html, /Export CSV/i);
+});
+
+test("campaign API rejects anonymous access", async () => {
+  const response = await render("/api/admin/campaigns");
+  assert.equal(response.status, 403);
+  const payload = await response.json();
+  assert.match(payload.error, /Prístup zamietnutý/i);
 });
 
 test("old race plan URLs redirect to the integrated route", async () => {

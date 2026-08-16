@@ -24,7 +24,11 @@ export async function GET() {
     "Telefón",
     "Počet ľudí",
     "Kapitánsky preukaz",
+    "Preferovaná loď",
     "Priradené",
+    "Tagy",
+    "Ďalší kontakt",
+    "Hromadné e-maily",
     "Správa",
   ];
   const body = rows.map((row) => [
@@ -38,7 +42,11 @@ export async function GET() {
     row.phone,
     row.peopleCount,
     row.captainLicense,
+    row.boatInterest,
     row.assignedTo,
+    row.tags,
+    row.nextFollowUpAt,
+    row.emailPermission,
     row.message,
   ]);
   const csv = [header, ...body]

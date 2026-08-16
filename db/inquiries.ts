@@ -18,6 +18,8 @@ export const INQUIRY_STATUSES = [
 export type InquiryStatus = (typeof INQUIRY_STATUSES)[number];
 export type InquiryPriority = "normal" | "high";
 export type CaptainLicense = "yes" | "no" | "unknown";
+export type BoatInterest = "dufour_460" | "dufour_470" | "undecided";
+export type EmailPermission = "allowed" | "opted_out";
 
 export type InquiryWithActivities = Inquiry & {
   activities: InquiryActivity[];
@@ -59,19 +61,60 @@ export async function createInquiry(input: {
   phone?: string | null;
   peopleCount?: number | null;
   captainLicense: CaptainLicense;
+  boatInterest?: BoatInterest;
   message?: string;
   source?: string;
 }) {
   const db = getDb();
+
+  const normalizedEmail = input.email.trim().toLowerCase();
+  const [existing] = await db
+    .select()
+    .from(inquiries)
+    .where(eq(inquiries.email, normalizedEmail))
+    .orderBy(desc(inquiries.id))
+    .limit(1);
+
+  if (existing) {
+    const now = new Date().toISOString();
+    const [updated] = await db
+      .update(inquiries)
+      .set({
+        fullName: input.fullName,
+        company: input.company,
+        phone: input.phone || existing.phone,
+        peopleCount: input.peopleCount ?? existing.peopleCount,
+        captainLicense: input.captainLicense,
+        boatInterest: input.boatInterest ?? existing.boatInterest,
+        message: input.message || existing.message,
+        source: input.source ?? existing.source,
+        updatedAt: now,
+      })
+      .where(eq(inquiries.id, existing.id))
+      .returning();
+
+    await db.insert(inquiryActivities).values({
+      inquiryId: existing.id,
+      type: "contact",
+      content: input.message
+        ? `Opakovaný dopyt z webu: ${input.message}`
+        : "Opakovaný dopyt z webu.",
+      createdByEmail: normalizedEmail,
+    });
+
+    return updated;
+  }
+
   const [row] = await db
     .insert(inquiries)
     .values({
       fullName: input.fullName,
       company: input.company,
-      email: input.email,
+      email: normalizedEmail,
       phone: input.phone || null,
       peopleCount: input.peopleCount ?? null,
       captainLicense: input.captainLicense,
+      boatInterest: input.boatInterest ?? "undecided",
       message: input.message ?? "",
       source: input.source ?? "website",
     })
@@ -86,6 +129,10 @@ export async function updateInquiry(
     status?: InquiryStatus;
     priority?: InquiryPriority;
     assignedTo?: string | null;
+    boatInterest?: BoatInterest;
+    tags?: string;
+    nextFollowUpAt?: string | null;
+    emailPermission?: EmailPermission;
   },
   actorEmail: string,
 ) {
@@ -141,6 +188,62 @@ export async function updateInquiry(
         createdByEmail: actorEmail,
       });
     }
+  }
+
+  if (input.boatInterest && input.boatInterest !== current.boatInterest) {
+    changes.boatInterest = input.boatInterest;
+    activityValues.push({
+      inquiryId: id,
+      type: "profile",
+      content: `Preferencia lode zmenená na ${input.boatInterest}.`,
+      createdByEmail: actorEmail,
+    });
+  }
+
+  if (input.tags !== undefined) {
+    const tags = input.tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean)
+      .slice(0, 20)
+      .join(", ");
+    if (tags !== current.tags) {
+      changes.tags = tags;
+      activityValues.push({
+        inquiryId: id,
+        type: "profile",
+        content: tags ? `Tagy: ${tags}.` : "Tagy boli odstránené.",
+        createdByEmail: actorEmail,
+      });
+    }
+  }
+
+  if (input.nextFollowUpAt !== undefined) {
+    const nextFollowUpAt = input.nextFollowUpAt?.trim() || null;
+    if (nextFollowUpAt !== current.nextFollowUpAt) {
+      changes.nextFollowUpAt = nextFollowUpAt;
+      activityValues.push({
+        inquiryId: id,
+        type: "profile",
+        content: nextFollowUpAt
+          ? `Ďalší kontakt naplánovaný na ${nextFollowUpAt}.`
+          : "Termín ďalšieho kontaktu bol zrušený.",
+        createdByEmail: actorEmail,
+      });
+    }
+  }
+
+  if (input.emailPermission && input.emailPermission !== current.emailPermission) {
+    changes.emailPermission = input.emailPermission;
+    changes.emailOptOutAt = input.emailPermission === "opted_out" ? now : null;
+    activityValues.push({
+      inquiryId: id,
+      type: "profile",
+      content: input.emailPermission === "opted_out"
+        ? "Kontakt bol odhlásený z hromadnej e-mailovej komunikácie."
+        : "Hromadná e-mailová komunikácia bola opätovne povolená.",
+      createdByEmail: actorEmail,
+    });
   }
 
   const [updated] = await db

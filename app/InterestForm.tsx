@@ -22,6 +22,7 @@ export default function InterestForm() {
       phone: formData.get("phone"),
       peopleCount: formData.get("peopleCount"),
       captainLicense: formData.get("captainLicense"),
+      boatInterest: formData.get("boatInterest"),
       message: formData.get("message"),
       website: formData.get("website"),
       consent: formData.get("consent") === "yes",
@@ -81,6 +82,14 @@ export default function InterestForm() {
             <option value="yes">Áno</option>
             <option value="no">Nie</option>
             <option value="unknown">Neviem</option>
+          </select>
+        </label>
+        <label>
+          <span>Preferovaná loď</span>
+          <select name="boatInterest" defaultValue="undecided">
+            <option value="undecided">Zatiaľ nerozhodnuté</option>
+            <option value="dufour_460">Dufour 460 · 8 700 € bez DPH</option>
+            <option value="dufour_470">Dufour 470 · 9 500 € bez DPH</option>
           </select>
         </label>
       </div>
