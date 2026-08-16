@@ -23,8 +23,12 @@ export async function POST(request: Request) {
   }
 
   const token = await createAdminSessionToken(user);
-  const response = Response.redirect(new URL(returnTo, request.url), 303);
-  response.headers.set("Set-Cookie", adminSessionCookie(token));
-  response.headers.set("Cache-Control", "no-store");
-  return response;
+  return new Response(null, {
+    status: 303,
+    headers: {
+      Location: new URL(returnTo, request.url).toString(),
+      "Set-Cookie": adminSessionCookie(token),
+      "Cache-Control": "no-store",
+    },
+  });
 }

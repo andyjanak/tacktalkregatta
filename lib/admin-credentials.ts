@@ -1,5 +1,3 @@
-import { env } from "cloudflare:workers";
-
 export const ADMIN_COOKIE_NAME = "tt27_admin_session";
 export const ADMIN_SESSION_SECONDS = 8 * 60 * 60;
 
@@ -21,8 +19,7 @@ type SessionPayload = PasswordAdminUser & {
 };
 
 function runtimeValue(key: string) {
-  const runtime = env as unknown as Record<string, string | undefined>;
-  return runtime[key] || process.env[key] || "";
+  return process.env[key] || "";
 }
 
 function credentials() {

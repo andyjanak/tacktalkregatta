@@ -18,14 +18,6 @@ const SIGN_IN_PATH = "/signin-with-chatgpt";
 const SIGN_OUT_PATH = "/signout-with-chatgpt";
 const CALLBACK_PATH = "/callback";
 const ADMIN_COOKIE_NAME = "tt27_admin_session";
-const DEFAULT_ADMIN_USER_IDS = new Set([
-  "3a1e2c0b-8f17-448f-b064-95ce2bd86294",
-]);
-const DEFAULT_ADMIN_EMAILS = new Set([
-  "janak@ajservices.sk",
-  "hrivnak@tangreto.com",
-  "hrivnak.michal@gmail.com",
-]);
 
 export async function getChatGPTUser(): Promise<ChatGPTUser | null> {
   const requestHeaders = await headers();
@@ -58,9 +50,6 @@ export async function requireChatGPTUser(
 }
 
 export async function getAdminUser(): Promise<ChatGPTUser | null> {
-  const user = await getChatGPTUser();
-  if (user && isAdminUser(user)) return user;
-
   const requestHeaders = await headers();
   const token = readCookie(
     requestHeaders.get("cookie") ?? "",
@@ -86,12 +75,6 @@ export async function requireAdminUser(returnTo: string): Promise<ChatGPTUser> {
 
   const safeReturnTo = safeRelativeReturnPath(returnTo);
   redirect(`/admin/login?return_to=${encodeURIComponent(safeReturnTo)}`);
-}
-
-export function isAdminUser(user: ChatGPTUser): boolean {
-  const normalizedEmail = user.email.trim().toLowerCase();
-  return DEFAULT_ADMIN_USER_IDS.has(user.userId)
-    || DEFAULT_ADMIN_EMAILS.has(normalizedEmail);
 }
 
 export function chatGPTSignInPath(returnTo: string): string {

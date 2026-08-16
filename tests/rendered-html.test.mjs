@@ -1,7 +1,35 @@
 import assert from "node:assert/strict";
+import { createHmac, pbkdf2Sync } from "node:crypto";
 import test from "node:test";
 
-async function render(path = "/", headers = {}) {
+const TEST_ADMIN_EMAIL = "admin@example.test";
+const TEST_ADMIN_NAME = "Test Admin";
+const TEST_ADMIN_PASSWORD = "test-password-not-used-in-production";
+const TEST_ADMIN_SECRET = "test-session-secret-that-is-longer-than-thirty-two-characters";
+const TEST_ADMIN_SALT = Buffer.alloc(16, 7);
+
+process.env.ADMIN_CREDENTIALS_JSON = JSON.stringify([{
+  email: TEST_ADMIN_EMAIL,
+  displayName: TEST_ADMIN_NAME,
+  salt: TEST_ADMIN_SALT.toString("base64url"),
+  hash: pbkdf2Sync(TEST_ADMIN_PASSWORD, TEST_ADMIN_SALT, 210_000, 32, "sha256").toString("base64url"),
+  iterations: 210_000,
+}]);
+process.env.ADMIN_SESSION_SECRET = TEST_ADMIN_SECRET;
+
+function testAdminCookie() {
+  const payload = Buffer.from(JSON.stringify({
+    email: TEST_ADMIN_EMAIL,
+    displayName: TEST_ADMIN_NAME,
+    exp: Math.floor(Date.now() / 1000) + 3600,
+  })).toString("base64url");
+  const signature = createHmac("sha256", TEST_ADMIN_SECRET)
+    .update(payload)
+    .digest("base64url");
+  return `tt27_admin_session=${payload}.${signature}`;
+}
+
+async function render(path = "/", headers = {}, options = {}) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${path}`);
   const { default: worker } = await import(workerUrl.href);
@@ -9,6 +37,7 @@ async function render(path = "/", headers = {}) {
   return worker.fetch(
     new Request(`http://localhost${path}`, {
       headers: { accept: "text/html", host: "localhost", ...headers },
+      ...options,
     }),
     {
       ASSETS: {
@@ -86,10 +115,25 @@ test("admin login page renders the credential form", async () => {
   assert.match(html, /autocomplete="current-password"/i);
 });
 
+test("valid admin credentials create a protected session", async () => {
+  const body = new URLSearchParams({
+    email: TEST_ADMIN_EMAIL,
+    password: TEST_ADMIN_PASSWORD,
+    returnTo: "/admin",
+  });
+  const response = await render(
+    "/api/admin/login",
+    { "content-type": "application/x-www-form-urlencoded" },
+    { method: "POST", body },
+  );
+  assert.equal(response.status, 303);
+  assert.equal(response.headers.get("location"), "http://localhost/admin");
+  assert.match(response.headers.get("set-cookie") ?? "", /tt27_admin_session=.*HttpOnly.*Secure.*SameSite=Lax/i);
+});
+
 test("allowed admin renders the inquiry workspace", async () => {
   const response = await render("/admin", {
-    "oai-authenticated-user-id": "test-user",
-    "oai-authenticated-user-email": "hrivnak.michal@gmail.com",
+    cookie: testAdminCookie(),
   });
   assert.equal(response.status, 200);
   const html = await response.text();
@@ -101,10 +145,9 @@ test("allowed admin renders the inquiry workspace", async () => {
   assert.match(html, /Právna forma predaja/i);
 });
 
-test("authenticated non-admin is denied", async () => {
+test("invalid admin session is denied", async () => {
   const response = await render("/admin", {
-    "oai-authenticated-user-id": "other-user",
-    "oai-authenticated-user-email": "other@example.com",
+    cookie: "tt27_admin_session=invalid.invalid",
   });
   assert.ok([302, 303, 307, 308].includes(response.status));
   assert.match(response.headers.get("location") ?? "", /^\/admin\/login/);
