@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 84" role="img" aria-label="AJservices, s.r.o.">
+  <title>AJservices, s.r.o.</title>
+  <!-- Dočasná SVG rekonštrukcia loga. Nahradiť oficiálnym súborom, keď bude k dispozícii. -->
+  <text x="4" y="60" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif">
+    <tspan font-weight="700" font-size="60" letter-spacing="-3" fill="#C0835F">AJ</tspan><tspan font-weight="400" font-size="50" letter-spacing="-1.5" fill="#8C8C8C">services</tspan><tspan font-weight="500" font-size="16" letter-spacing="0" fill="#8C8C8C" dy="-21">.s.r.o.</tspan>
+  </text>
+</svg>

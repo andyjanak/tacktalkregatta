@@ -445,8 +445,8 @@ export default function Home() {
         </div>
         <div className="contact-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
-          <p><strong>Tangreto, s.r.o.</strong><span>spoluorganizátor</span></p>
+          <img src="/ajservices-logo.svg" alt="AJservices, s.r.o." width="340" height="84" />
+          <p><strong>AJservices, s.r.o.</strong><span>hlavný organizátor</span></p>
           <a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a>
           <a href="tel:+421910909516">+421 910 909 516</a>
         </div>
