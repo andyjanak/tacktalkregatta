@@ -31,7 +31,6 @@ const eventJsonLd = {
   organizer: {
     "@type": "Organization",
     name: regatta.organization.organizer.name,
-    url: "https://www.tangreto.com/",
   },
 };
 
@@ -282,34 +281,32 @@ export default function Home() {
       <section className="section section-fees" id="ucast">
         <div className="section-heading split-heading">
           <div>
-            <p className="eyebrow eyebrow-dark"><span /> Ceny lodí · vždy bez DPH</p>
+            <p className="eyebrow eyebrow-dark"><span /> Lode a balík</p>
             <h2>Dve lode.<br />Kompletný balík.</h2>
           </div>
           <p>
-            Cena zahŕňa kompletnú loď, poistenie kaucie, poplatky, stravu,
-            regatu aj spoločný katamarán BALI 5.2. Všetky uvedené ceny sú bez DPH.
+            Balík zahŕňa kompletnú loď, poistenie kaucie, poplatky, stravu,
+            regatu aj spoločný katamarán BALI 5.2. Ceny lodí zverejníme 15. 10. 2026.
           </p>
         </div>
 
         <div className="fee-grid">
           <article className="fee-card fee-card-dark">
             <p className="fee-label">Dufour 460</p>
-            <div className="fee-price" aria-label="Cena Dufour 460: 8 700 eur bez DPH">
-              <strong>8 700 €</strong>
-              <span>bez DPH</span>
-            </div>
             <h3>Kompletná loď pre firemnú posádku.</h3>
             <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
           <article className="fee-card">
             <p className="fee-label">Dufour 470</p>
-            <div className="fee-price" aria-label="Cena Dufour 470: 9 500 eur bez DPH">
-              <strong>9 500 €</strong>
-              <span>bez DPH</span>
-            </div>
             <h3>Viac priestoru. Rovnaký program.</h3>
             <p>Jedna cena za loď a potvrdený rozsah služieb podujatia.</p>
           </article>
+        </div>
+
+        <div className="price-reveal" role="note">
+          <p className="fee-label">Ceny</p>
+          <strong>Ceny lodí zverejníme 15. 10. 2026.</strong>
+          <p>Dovtedy komunikujeme koncept, trasu a obsah balíčka. Nechajte nám nižšie kontakt a ozveme sa.</p>
         </div>
         <div className="package-includes" aria-label="Čo zahŕňa cena každej lode">
           <p className="fee-label">Cena každej lode zahŕňa</p>
@@ -322,7 +319,7 @@ export default function Home() {
             <li>regatu: štyri súťažné dni a deväť rozjázd</li>
             <li>katamarán BALI 5.2 počas celého podujatia</li>
           </ul>
-          <p>Uvedené ceny 8 700 € a 9 500 € sú bez DPH.</p>
+          <p>Presné ceny lodí zverejníme 15. 10. 2026.</p>
         </div>
         <article className="bali-card">
           <figure className="bali-photo">
@@ -449,7 +446,7 @@ export default function Home() {
         <div className="contact-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
-          <p><strong>Tangreto s.r.o.</strong><span>organizátor podujatia</span></p>
+          <p><strong>Tangreto, s.r.o.</strong><span>spoluorganizátor</span></p>
           <a href="mailto:info@tangreto.com">info@tangreto.com</a>
           <a href="tel:+421910909516">+421 910 909 516</a>
         </div>
@@ -468,11 +465,6 @@ export default function Home() {
           Nezáväzné. Nejde o registráciu ani rezerváciu miesta. Neposielame
           hromadné newslettery — iba informácie o tomto podujatí.
         </p>
-        <div className="readiness">
-          <div><span className="done" /> Koncept a trasa <strong>pripravené</strong></div>
-          <div><span /> Charterová zmluva <strong>v príprave</strong></div>
-          <div><span /> Právne posúdenie <strong>otvorené</strong></div>
-        </div>
       </section>
 
       <footer>
@@ -482,7 +474,8 @@ export default function Home() {
         </div>
         <div className="footer-meta">
           <p>25. – 30. 9. 2027 · Rogoznica, Chorvátsko</p>
-          <p>Organizátor: Tangreto s.r.o.</p>
+          <p>Hlavný organizátor: AJservices, s.r.o.</p>
+          <p>Spoluorganizátor: Tangreto, s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
           <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>
           <a className="footer-admin-link" href="/admin">Admin <span aria-hidden="true">→</span></a>

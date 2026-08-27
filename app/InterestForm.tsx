@@ -94,8 +94,8 @@ export default function InterestForm({
           <span>Preferovaná loď</span>
           <select name="boatInterest" defaultValue="undecided">
             <option value="undecided">Zatiaľ nerozhodnuté</option>
-            <option value="dufour_460">Dufour 460 · 8 700 € bez DPH</option>
-            <option value="dufour_470">Dufour 470 · 9 500 € bez DPH</option>
+            <option value="dufour_460">Dufour 460</option>
+            <option value="dufour_470">Dufour 470</option>
           </select>
         </label>
       </div>

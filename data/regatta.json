@@ -29,8 +29,13 @@
 
   "organization": {
     "organizer": {
-      "name": "Tangreto s.r.o.",
-      "role": "organizátor a predaj",
+      "name": "AJservices, s.r.o.",
+      "role": "hlavný organizátor a predaj",
+      "country": "SK"
+    },
+    "co_organizer": {
+      "name": "Tangreto, s.r.o.",
+      "role": "spoluorganizátor",
       "country": "SK"
     },
     "fleet_commander": {
@@ -264,6 +269,9 @@
   "pricing": {
     "currency": "EUR",
     "locked": true,
+    "public_display": false,
+    "public_release_date": "2026-10-15",
+    "public_release_note": "Ceny sú zamrznuté a uložené, ale na webe sa zverejnia až 15. 10. 2026.",
     "packages": [
       {
         "code": "DUFOUR_460",
