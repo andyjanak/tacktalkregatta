@@ -67,7 +67,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="sk">
-      <body className={poppins.variable}>{children}</body>
+      <body className={poppins.variable}>
+        {children}
+        {/* Cloudflare Web Analytics – bez cookies, verejný token. */}
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "53e503eb13654ac7b1287582a5a4d027"}'
+        />
+      </body>
     </html>
   );
 }
