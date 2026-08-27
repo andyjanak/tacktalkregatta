@@ -16,5 +16,19 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  // D1 databáza pre CRM. `binding` musí zostať "DB". Migrácie sú v ./drizzle
+  // (Drizzle), nie v predvolenom ./migrations.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tacktalkregatta",
+      "database_id": "146a2d4a-f1b0-41b5-91ce-7fbc221746cf",
+      "migrations_dir": "drizzle"
+    }
+  ]
+  // Tajné premenné (RESEND_API_KEY, EMAIL_FROM, RESEND_WEBHOOK_SECRET,
+  // ADMIN_CREDENTIALS_JSON, ADMIN_SESSION_SECRET, ADMIN_RESET_SECRET,
+  // UNSUBSCRIBE_SECRET, TURNSTILE_SECRET_KEY) sa nastavujú cez
+  // `wrangler secret put NAZOV`, nikdy nie tu.
 }

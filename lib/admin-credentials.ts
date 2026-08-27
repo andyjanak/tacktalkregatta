@@ -113,6 +113,22 @@ async function credentialVersion(email: string) {
   return override ? `db:${override.updatedAt}` : "env";
 }
 
+/** Aktuálna verzia prihlasovacích údajov admina (pre podpis reset odkazu). */
+export async function getCredentialVersion(email: string) {
+  return credentialVersion(email.trim().toLowerCase());
+}
+
+/** Nájde známy admin účet podľa e-mailu (bez odhalenia hesla). */
+export function findAdminAccount(rawEmail: string) {
+  const email = rawEmail.trim().toLowerCase();
+  const record = credentials().find(
+    (item) => item.email.toLowerCase() === email,
+  );
+  return record
+    ? { email: record.email.toLowerCase(), displayName: record.displayName }
+    : null;
+}
+
 export async function verifyAdminCredentials(
   rawEmail: string,
   password: string,

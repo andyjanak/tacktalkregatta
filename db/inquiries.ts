@@ -361,3 +361,44 @@ export async function addInquiryNote(
 
   return activity;
 }
+
+/**
+ * Odhlási kontakt z hromadných e-mailov na základe overeného odkazu.
+ * Overuje aj zhodu e-mailu, aby token nešiel zneužiť na iný záznam.
+ * Idempotentné: opakované volanie nič nezmení a vráti true.
+ */
+export async function optOutInquiryByEmail(
+  inquiryId: number,
+  email: string,
+): Promise<boolean> {
+  const db = getDb();
+  const normalizedEmail = email.trim().toLowerCase();
+
+  const [row] = await db
+    .select()
+    .from(inquiries)
+    .where(eq(inquiries.id, inquiryId))
+    .limit(1);
+
+  if (!row || row.email.trim().toLowerCase() !== normalizedEmail) {
+    return false;
+  }
+  if (row.emailPermission === "opted_out") {
+    return true;
+  }
+
+  const now = new Date().toISOString();
+  await db
+    .update(inquiries)
+    .set({ emailPermission: "opted_out", emailOptOutAt: now, updatedAt: now })
+    .where(eq(inquiries.id, inquiryId));
+
+  await db.insert(inquiryActivities).values({
+    inquiryId,
+    type: "email",
+    content: "Kontakt sa odhlásil z hromadných e-mailov (cez odkaz).",
+    createdByEmail: "system@unsubscribe",
+  });
+
+  return true;
+}

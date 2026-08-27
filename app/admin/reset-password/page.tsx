@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getChatGPTUser } from "@/app/chatgpt-auth";
-import { getRecoveryAdminUsers } from "@/lib/admin-credentials";
-import PasswordInput from "../login/PasswordInput";
 
 export const dynamic = "force-dynamic";
 
@@ -12,21 +9,18 @@ export const metadata: Metadata = {
 };
 
 const ERROR_MESSAGES: Record<string, string> = {
-  mismatch: "Nové heslá sa nezhodujú.",
-  weak: "Použite aspoň 12 znakov, malé a veľké písmeno, číslo a špeciálny znak.",
-  denied: "Tento účet nemá oprávnenie obnovovať heslá.",
-  storage: "Heslo sa nepodarilo uložiť. Skúste to znova.",
+  throttled: "Priveľa žiadostí. Skúste to prosím o pár minút.",
+  system: "Odkaz sa nepodarilo odoslať. Skúste to neskôr.",
 };
 
 export default async function AdminResetPasswordPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; sent?: string }>;
 }) {
-  const identity = await getChatGPTUser();
-  const targets = identity ? getRecoveryAdminUsers(identity.email) : [];
   const params = await searchParams;
   const error = params.error ? ERROR_MESSAGES[params.error] : null;
+  const sent = params.sent === "1";
 
   return (
     <main className="admin-login-shell">
@@ -35,34 +29,27 @@ export default async function AdminResetPasswordPage({
           TACK <span>&amp;</span> TALK <b>2027</b>
         </Link>
         <p className="panel-kicker">Bezpečná obnova</p>
-        <h1>Nastaviť nové heslo</h1>
+        <h1>Obnova hesla</h1>
 
-        {targets.length === 0 ? (
-          <>
-            <p>Obnova je dostupná iba overenému vlastníkovi webu.</p>
-            <div className="admin-login-error" role="alert">
-              Otvorte stránku cez účet, ktorý vlastní tento web.
-            </div>
-          </>
+        {sent ? (
+          <p role="status">
+            Ak k tomuto e-mailu existuje admin účet, poslali sme naň odkaz na
+            nastavenie nového hesla. Odkaz platí 30 minút. Skontrolujte aj
+            priečinok Spam.
+          </p>
         ) : (
           <>
-            <p>Po uložení sa staré heslo zneplatní a prihlásite sa automaticky.</p>
+            <p>
+              Zadajte e-mail svojho admin účtu. Pošleme naň jednorazový odkaz na
+              nastavenie nového hesla.
+            </p>
             {error && <div className="admin-login-error" role="alert">{error}</div>}
             <form action="/api/admin/reset-password" method="post">
               <label>
-                <span>Admin účet</span>
-                <select name="email" required defaultValue={targets[0]?.email}>
-                  {targets.map((target) => (
-                    <option key={target.email} value={target.email}>
-                      {target.displayName} · {target.email}
-                    </option>
-                  ))}
-                </select>
+                <span>E-mail admin účtu</span>
+                <input name="email" type="email" autoComplete="username" required maxLength={200} />
               </label>
-              <PasswordInput name="password" label="Nové heslo" autoComplete="new-password" />
-              <PasswordInput name="confirmation" label="Zopakovať nové heslo" autoComplete="new-password" />
-              <p className="password-rules">Minimálne 12 znakov, veľké a malé písmeno, číslo a špeciálny znak.</p>
-              <button type="submit">Uložiť nové heslo</button>
+              <button type="submit">Poslať odkaz na obnovu</button>
             </form>
           </>
         )}

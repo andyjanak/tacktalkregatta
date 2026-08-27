@@ -25,9 +25,51 @@ interface ExecutionContext {
 // dangerouslyAllowSVG: true in next.config.js and uncomment below:
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
+// Obsahová bezpečnostná politika. Povolené výnimky:
+// - player.vimeo.com: pozadové video v hero sekcii,
+// - challenges.cloudflare.com: widget Cloudflare Turnstile (login + formulár).
+// Inline skripty/štýly generuje vinext (RSC bootstrap), preto 'unsafe-inline'.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
+  "connect-src 'self'",
+  "frame-src https://player.vimeo.com https://challenges.cloudflare.com",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+].join("; ");
+
+function withSecurityHeaders(response: Response, isHttps: boolean): Response {
+  const headers = new Headers(response.headers);
+  headers.set("Content-Security-Policy", CONTENT_SECURITY_POLICY);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  );
+  if (isHttps) {
+    headers.set(
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains",
+    );
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    const isHttps = url.protocol === "https:";
 
     if (url.pathname === "/plan-pretekov" || url.pathname === "/plan-pretekov.html") {
       return Response.redirect(new URL("/#trasa", request.url), 308);
@@ -44,7 +86,8 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    const response = await handler.fetch(request, env, ctx);
+    return withSecurityHeaders(response, isHttps);
   },
 };
 

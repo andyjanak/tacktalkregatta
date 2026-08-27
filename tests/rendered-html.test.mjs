@@ -121,16 +121,13 @@ test("admin login page renders the credential form", async () => {
   assert.match(html, /Zabudol som heslo/i);
 });
 
-test("verified site owner can open password recovery", async () => {
-  const response = await render("/admin/reset-password", {
-    "oai-authenticated-user-id": "owner-1",
-    "oai-authenticated-user-email": "owner@example.test",
-  });
+test("password recovery page requests the account e-mail", async () => {
+  const response = await render("/admin/reset-password");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Nastaviť nové heslo/i);
-  assert.match(html, new RegExp(TEST_ADMIN_EMAIL, "i"));
+  assert.match(html, /Obnova hesla/i);
   assert.match(html, /action="\/api\/admin\/reset-password"/i);
+  assert.match(html, /Poslať odkaz na obnovu/i);
 });
 
 test("password reset rejects a request without same-origin proof", async () => {
@@ -154,12 +151,39 @@ test("valid admin credentials create a protected session", async () => {
   });
   const response = await render(
     "/api/admin/login",
-    { "content-type": "application/x-www-form-urlencoded" },
+    {
+      "content-type": "application/x-www-form-urlencoded",
+      origin: "http://localhost",
+    },
     { method: "POST", body },
   );
   assert.equal(response.status, 303);
   assert.equal(response.headers.get("location"), "http://localhost/admin");
   assert.match(response.headers.get("set-cookie") ?? "", /tt27_admin_session=.*HttpOnly.*Secure.*SameSite=Lax/i);
+});
+
+test("admin login rejects a cross-origin request (CSRF)", async () => {
+  const body = new URLSearchParams({
+    email: TEST_ADMIN_EMAIL,
+    password: TEST_ADMIN_PASSWORD,
+    returnTo: "/admin",
+  });
+  const response = await render(
+    "/api/admin/login",
+    {
+      "content-type": "application/x-www-form-urlencoded",
+      origin: "https://evil.example",
+    },
+    { method: "POST", body },
+  );
+  assert.equal(response.status, 403);
+});
+
+test("responses carry hardening security headers", async () => {
+  const response = await render("/admin/login");
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/i);
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
 });
 
 test("allowed admin renders the inquiry workspace", async () => {

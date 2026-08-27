@@ -1,6 +1,5 @@
 export const siteUrl = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://tacktalkregatta.janak-db1.workers.dev",
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://tacktalkregatta.com",
 );
 
 // Preview deployments stay out of search results until the final domain is live.

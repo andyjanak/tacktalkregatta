@@ -3,6 +3,11 @@ import {
   type BoatInterest,
   type CaptainLicense,
 } from "@/db/inquiries";
+import { clientIp, verifyTurnstile } from "@/lib/request-security";
+import { consumeRateLimit } from "@/db/rate-limit";
+
+const MAX_SUBMISSIONS_PER_IP = 5;
+const WINDOW_SECONDS = 10 * 60;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LICENSE_VALUES = new Set<CaptainLicense>(["yes", "no", "unknown"]);
@@ -23,6 +28,25 @@ export async function POST(request: Request) {
     // Honeypot. Bots receive a neutral response without creating a record.
     if (cleanText(payload.website, 200)) {
       return Response.json({ ok: true }, { status: 202 });
+    }
+
+    // Rate-limit podľa IP (obrana proti zaplaveniu formulára).
+    const ip = clientIp(request);
+    const limit = await consumeRateLimit(`inquiry:ip:${ip}`, MAX_SUBMISSIONS_PER_IP, WINDOW_SECONDS);
+    if (!limit.allowed) {
+      return Response.json(
+        { error: "Priveľa pokusov. Skúste to prosím o chvíľu znova." },
+        { status: 429 },
+      );
+    }
+
+    // Turnstile (ak je nakonfigurované). Bez konfigurácie sa preskočí.
+    const turnstileToken = cleanText(payload.turnstileToken, 4000) || null;
+    if (!(await verifyTurnstile(turnstileToken, ip))) {
+      return Response.json(
+        { error: "Overenie, že nie ste robot, zlyhalo. Skúste to prosím znova." },
+        { status: 400 },
+      );
     }
 
     const fullName = cleanText(payload.fullName, 120);

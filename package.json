@@ -12,7 +12,12 @@
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "pnpm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply tacktalkregatta --local --config wrangler.cloudflare.jsonc",
+    "db:migrate": "wrangler d1 migrations apply tacktalkregatta --remote --config wrangler.cloudflare.jsonc",
+    "db:backup": "wrangler d1 export tacktalkregatta --remote --config wrangler.cloudflare.jsonc --output backups/tacktalkregatta-$(date +%Y%m%d-%H%M%S).sql",
+    "admin:hash": "node scripts/hash-admin-password.mjs",
+    "admin:secrets": "node scripts/hash-admin-password.mjs --secrets"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
