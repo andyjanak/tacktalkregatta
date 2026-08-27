@@ -447,7 +447,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
           <p><strong>Tangreto, s.r.o.</strong><span>spoluorganizátor</span></p>
-          <a href="mailto:info@tangreto.com">info@tangreto.com</a>
+          <a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a>
           <a href="tel:+421910909516">+421 910 909 516</a>
         </div>
       </section>
@@ -477,7 +477,7 @@ export default function Home() {
           <p>Hlavný organizátor: AJservices, s.r.o.</p>
           <p>Spoluorganizátor: Tangreto, s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
-          <p><a href="mailto:info@tangreto.com">info@tangreto.com</a></p>
+          <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
           <a className="footer-admin-link" href="/admin">Admin <span aria-hidden="true">→</span></a>
         </div>
       </footer>

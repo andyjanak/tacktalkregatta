@@ -134,7 +134,7 @@ export async function sendCampaignEmail(input: {
 }) {
   const apiKey = runtimeValue("RESEND_API_KEY");
   const from = runtimeValue("EMAIL_FROM");
-  const replyTo = runtimeValue("EMAIL_REPLY_TO") || "info@tangreto.com";
+  const replyTo = runtimeValue("EMAIL_REPLY_TO") || "info@tacktalkregatta.com";
 
   if (!apiKey || !from) {
     throw new Error("Odosielanie e-mailov ešte nie je nakonfigurované.");
