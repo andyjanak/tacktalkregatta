@@ -71,7 +71,7 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /Pre tímy, ktoré spolu rozhodujú/i);
   assert.match(html, /Dve lode.*Kompletný balík/is);
   assert.match(html, /Časté otázky/i);
-  assert.match(html, /info@tangreto\.com/i);
+  assert.match(html, /info@tacktalkregatta\.com/i);
   assert.match(html, /Chcem vedieť viac/i);
   assert.match(html, /Meno a priezvisko/i);
   assert.match(html, /Nejde o registráciu ani rezerváciu miesta/i);
