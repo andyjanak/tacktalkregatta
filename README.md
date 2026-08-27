@@ -22,7 +22,59 @@ Odosielanie potrebuje tajné premenné `RESEND_API_KEY`, `EMAIL_FROM` a
 Administrácia na `/admin` používa vlastné prihlásenie na `/admin/login`.
 Heslá sa v zdrojovom kóde nenachádzajú: hosting uchováva iba PBKDF2 hashe a
 samostatný tajný kľúč na podpis osemhodinovej `HttpOnly` relácie. API pod
-`/api/admin/*` overuje rovnakú reláciu na serveri.
+`/api/admin/*` overuje rovnakú reláciu na serveri. Prihlásenie je chránené
+kontrolou pôvodu (CSRF), rate-limitom podľa IP aj e-mailu a voliteľným
+Cloudflare Turnstile.
+
+Prvý admin účet vygeneruješ lokálne:
+
+```bash
+npm run admin:hash -- "email@firma.sk" "Zobrazené meno"
+npm run admin:secrets   # vypíše ADMIN_SESSION_SECRET, ADMIN_RESET_SECRET, UNSUBSCRIBE_SECRET
+```
+
+Obnova hesla beží cez **jednorazový e-mailový odkaz** (platí 30 minút a po
+použití sa zneplatní), posiela sa cez Resend. Nevyžaduje prihlásenie cez
+ChatGPT — pôvodná väzba na `oai-*` hlavičky sa už nepoužíva.
+
+## Nasadenie na vlastný Cloudflare účet
+
+```bash
+# 1. Databáza (ID z výstupu vlož do wrangler.cloudflare.jsonc → d1_databases[0].database_id)
+wrangler d1 create tacktalkregatta
+
+# 2. Migrácie
+npm run db:migrate            # vzdialená D1
+# npm run db:migrate:local    # lokálna D1 pre vývoj
+
+# 3. Tajné premenné (hodnoty pozri v .env.example)
+wrangler secret put RESEND_API_KEY
+wrangler secret put EMAIL_FROM
+wrangler secret put RESEND_WEBHOOK_SECRET
+wrangler secret put ADMIN_CREDENTIALS_JSON
+wrangler secret put ADMIN_SESSION_SECRET
+wrangler secret put ADMIN_RESET_SECRET
+wrangler secret put UNSUBSCRIBE_SECRET
+# voliteľne: TURNSTILE_SECRET_KEY
+
+# 4. Nasadenie
+npm run deploy:cloudflare
+```
+
+Doména sa pripája ako **Custom Domain** k Workeru (zóna musí byť aktívna na
+Cloudflare). Build-time premenné `NEXT_PUBLIC_SITE_URL` a
+`NEXT_PUBLIC_ALLOW_INDEXING=true` (spolu s `NEXT_PUBLIC_TURNSTILE_SITE_KEY`)
+sa nastavujú pred `npm run build`.
+
+## Zálohovanie databázy
+
+D1 má zabudované **Time Travel** — automatická obnova do ľubovoľného bodu za
+posledných 30 dní (`wrangler d1 time-travel restore tacktalkregatta`).
+Manuálny export navyše:
+
+```bash
+npm run db:backup   # uloží SQL dump do backups/
+```
 
 ## Prerequisites
 

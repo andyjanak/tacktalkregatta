@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAdminUser } from "@/app/chatgpt-auth";
+import Turnstile from "@/app/Turnstile";
 import PasswordInput from "./PasswordInput";
+
+const ERROR_MESSAGES: Record<string, string> = {
+  system: "Prihlásenie je dočasne nedostupné. Skúste to o chvíľu znova.",
+  throttled: "Príliš veľa pokusov. Skúste to o pár minút znova.",
+  captcha: "Overenie, že nie ste robot, zlyhalo. Skúste to znova.",
+  "1": "E-mail alebo heslo nie je správne. Heslo rozlišuje veľké a malé písmená.",
+};
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +29,7 @@ export default async function AdminLoginPage({
 
   const params = await searchParams;
   const returnTo = params.return_to === "/admin" ? "/admin" : "/admin";
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   return (
     <main className="admin-login-shell">
@@ -34,9 +43,7 @@ export default async function AdminLoginPage({
 
         {params.error && (
           <div className="admin-login-error" role="alert">
-            {params.error === "system"
-              ? "Prihlásenie je dočasne nedostupné. Skúste to o chvíľu znova."
-              : "E-mail alebo heslo nie je správne. Heslo rozlišuje veľké a malé písmená."}
+            {ERROR_MESSAGES[params.error] ?? ERROR_MESSAGES["1"]}
           </div>
         )}
 
@@ -47,6 +54,7 @@ export default async function AdminLoginPage({
             <input name="email" type="email" autoComplete="username" required maxLength={200} />
           </label>
           <PasswordInput name="password" label="Heslo" autoComplete="current-password" />
+          <Turnstile siteKey={turnstileSiteKey} />
           <button type="submit">Prihlásiť sa</button>
         </form>
         <Link className="admin-reset-link" href="/admin/reset-password">

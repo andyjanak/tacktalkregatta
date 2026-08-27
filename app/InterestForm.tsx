@@ -1,10 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Turnstile from "./Turnstile";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
-export default function InterestForm() {
+export default function InterestForm({
+  turnstileSiteKey,
+}: {
+  turnstileSiteKey?: string;
+}) {
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
@@ -25,6 +30,7 @@ export default function InterestForm() {
       boatInterest: formData.get("boatInterest"),
       message: formData.get("message"),
       website: formData.get("website"),
+      turnstileToken: formData.get("cf-turnstile-response"),
       consent: formData.get("consent") === "yes",
     };
 
@@ -111,6 +117,8 @@ export default function InterestForm() {
           s prípravou podujatia Tack &amp; Talk Regatta 2027.
         </span>
       </label>
+
+      <Turnstile siteKey={turnstileSiteKey} />
 
       <div className="form-submit-row">
         <button className="button button-brass" type="submit" disabled={state === "sending"}>

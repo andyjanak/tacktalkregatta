@@ -1,33 +1,18 @@
-import { getChatGPTUser } from "@/app/chatgpt-auth";
-import {
-  adminSessionCookie,
-  createAdminSessionToken,
-  getRecoveryAdminUsers,
-  resetAdminPassword,
-} from "@/lib/admin-credentials";
+import { createResetToken } from "@/lib/admin-reset";
+import { sendPasswordResetEmail } from "@/lib/email";
+import { siteBaseUrl } from "@/lib/unsubscribe";
+import { clientIp, hasSameOrigin } from "@/lib/request-security";
+import { consumeRateLimit } from "@/db/rate-limit";
 
-function redirectWithError(request: Request, error: string) {
-  const target = new URL("/admin/reset-password", request.url);
-  target.searchParams.set("error", error);
-  return Response.redirect(target, 303);
-}
+const MAX_REQUESTS_PER_IP = 5;
+const MAX_REQUESTS_PER_EMAIL = 3;
+const WINDOW_SECONDS = 15 * 60;
 
-function isStrongPassword(value: string) {
-  return value.length >= 12
-    && value.length <= 128
-    && /[a-z]/.test(value)
-    && /[A-Z]/.test(value)
-    && /\d/.test(value)
-    && /[^A-Za-z0-9]/.test(value);
-}
-
-function hasSameOrigin(request: Request) {
-  try {
-    const origin = request.headers.get("origin");
-    return Boolean(origin && new URL(origin).origin === new URL(request.url).origin);
-  } catch {
-    return false;
-  }
+function redirect(request: Request, query: string) {
+  return Response.redirect(
+    new URL(`/admin/reset-password?${query}`, request.url),
+    303,
+  );
 }
 
 export async function POST(request: Request) {
@@ -35,36 +20,29 @@ export async function POST(request: Request) {
     return new Response("Prístup zamietnutý.", { status: 403 });
   }
 
-  const identity = await getChatGPTUser();
-  if (!identity) return redirectWithError(request, "denied");
-
-  const allowedTargets = getRecoveryAdminUsers(identity.email);
   const form = await request.formData();
-  const email = String(form.get("email") ?? "").trim().toLowerCase();
-  const password = String(form.get("password") ?? "");
-  const confirmation = String(form.get("confirmation") ?? "");
+  const email = String(form.get("email") ?? "").slice(0, 200).trim().toLowerCase();
+  const ip = clientIp(request);
 
-  if (!allowedTargets.some((target) => target.email === email)) {
-    return redirectWithError(request, "denied");
+  const ipLimit = await consumeRateLimit(`reset:ip:${ip}`, MAX_REQUESTS_PER_IP, WINDOW_SECONDS);
+  const emailLimit = email
+    ? await consumeRateLimit(`reset:email:${email}`, MAX_REQUESTS_PER_EMAIL, WINDOW_SECONDS)
+    : { allowed: true };
+  if (!ipLimit.allowed || !emailLimit.allowed) {
+    return redirect(request, "error=throttled");
   }
-  if (password !== confirmation) return redirectWithError(request, "mismatch");
-  if (!isStrongPassword(password)) return redirectWithError(request, "weak");
 
+  // Neodhaľujeme, či účet existuje: vždy rovnaká odpoveď.
   try {
-    const user = await resetAdminPassword(email, password);
-    if (!user) return redirectWithError(request, "denied");
-
-    const token = await createAdminSessionToken(user);
-    return new Response(null, {
-      status: 303,
-      headers: {
-        Location: new URL("/admin", request.url).toString(),
-        "Set-Cookie": adminSessionCookie(token),
-        "Cache-Control": "no-store",
-      },
-    });
+    const token = await createResetToken(email);
+    if (token) {
+      const url = `${siteBaseUrl()}/admin/reset-password/confirm?token=${encodeURIComponent(token)}`;
+      await sendPasswordResetEmail(email, url);
+    }
   } catch (error) {
-    console.error("Admin password reset failed", error);
-    return redirectWithError(request, "storage");
+    console.error("Password reset request failed", error);
+    return redirect(request, "error=system");
   }
+
+  return redirect(request, "sent=1");
 }

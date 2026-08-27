@@ -148,8 +148,17 @@ export const adminPasswordOverrides = sqliteTable("admin_password_overrides", {
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
+export const rateLimits = sqliteTable("rate_limits", {
+  // Kľúč = akcia + identifikátor (napr. "login:1.2.3.4" alebo "login:email").
+  key: text("key").primaryKey(),
+  count: integer("count").notNull().default(0),
+  windowStart: integer("window_start").notNull().default(0),
+  updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
 export type Inquiry = typeof inquiries.$inferSelect;
 export type InquiryActivity = typeof inquiryActivities.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type EmailCampaignRecipient = typeof emailCampaignRecipients.$inferSelect;
 export type AdminPasswordOverride = typeof adminPasswordOverrides.$inferSelect;
+export type RateLimit = typeof rateLimits.$inferSelect;

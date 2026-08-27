@@ -2,8 +2,38 @@ import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
 import InterestForm from "./InterestForm";
 import RacePlan from "./RacePlan";
+import { siteUrl } from "./site-config";
 
 export const dynamic = "force-static";
+
+// Štruktúrované dáta pre podujatie. Zámerne bez cien/dostupnosti — predaj
+// ešte nie je otvorený (AGENTS.md: komunikuje sa „pripravujeme").
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: regatta.event.name,
+  description: regatta.event.description_sk,
+  startDate: regatta.event.start_date,
+  endDate: regatta.event.end_date,
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  image: new URL("/og-v2.jpg", siteUrl).toString(),
+  url: siteUrl.toString(),
+  location: {
+    "@type": "Place",
+    name: regatta.event.base_marina.name,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: regatta.event.base_marina.town,
+      addressCountry: regatta.event.country,
+    },
+  },
+  organizer: {
+    "@type": "Organization",
+    name: regatta.organization.organizer.name,
+    url: "https://www.tangreto.com/",
+  },
+};
 
 function Brand() {
   return (
@@ -19,6 +49,10 @@ function Brand() {
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       <header className="site-header">
         <a className="brand-link" href="#hore" aria-label="Tack & Talk - hore">
           <Brand />
@@ -37,6 +71,10 @@ export default function Home() {
 
       <section className="hero" id="hore">
         <div className="hero-media" aria-hidden="true">
+          {/* Poster za videom: keď sa Vimeo nenačíta (blokované, pomalé), */}
+          {/* zostane obrázok namiesto chybovej hlášky prehrávača. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hero-poster" src="/hero-yachting-poster.jpg" alt="" width="1672" height="941" />
           <iframe
             title="Jachting na mori"
             src="https://player.vimeo.com/video/229143837?h=63d733599c&background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
@@ -293,8 +331,8 @@ export default function Home() {
             <img
               src="/bali-52-promo.jpg"
               alt="Katamarán BALI 5.2 počas plavby na mori"
-              width="2000"
-              height="1123"
+              width="1600"
+              height="899"
               loading="lazy"
             />
             <figcaption>Promo foto · BALI Catamarans</figcaption>
@@ -425,7 +463,7 @@ export default function Home() {
           a nechceme sľubovať miesta, kým ich nemáme potvrdené. Nechajte nám
           kontakt a ozveme sa, keď bude pripravený ďalší krok.
         </p>
-        <InterestForm />
+        <InterestForm turnstileSiteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
         <p className="final-note">
           Nezáväzné. Nejde o registráciu ani rezerváciu miesta. Neposielame
           hromadné newslettery — iba informácie o tomto podujatí.
