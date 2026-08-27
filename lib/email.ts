@@ -71,7 +71,7 @@ function renderEmailHtml(content: CampaignContent, recipient: Recipient, unsubUr
         ${paragraphs}
       </section>
       <footer style="padding:22px 30px;color:#5A6472;font-size:11px;line-height:1.6">
-        Tangreto s.r.o. · Tack &amp; Talk Regatta 2027<br>
+        AJservices, s.r.o. · Tack &amp; Talk Regatta 2027<br>
         Tento e-mail súvisí s vaším záujmom o pripravované podujatie.
         Ak ďalšie e-maily nechcete, <a href="${unsubUrl}" style="color:#5A6472">kliknutím sa odhláste</a>.
       </footer>
@@ -134,7 +134,7 @@ export async function sendCampaignEmail(input: {
 }) {
   const apiKey = runtimeValue("RESEND_API_KEY");
   const from = runtimeValue("EMAIL_FROM");
-  const replyTo = runtimeValue("EMAIL_REPLY_TO") || "info@tangreto.com";
+  const replyTo = runtimeValue("EMAIL_REPLY_TO") || "info@tacktalkregatta.com";
 
   if (!apiKey || !from) {
     throw new Error("Odosielanie e-mailov ešte nie je nakonfigurované.");

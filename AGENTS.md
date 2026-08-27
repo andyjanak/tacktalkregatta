@@ -7,7 +7,7 @@ Tento súbor je kontext pre AI agenta pracujúceho na projekte. Obsahuje pravidl
 Firemná plachtárska regata s biznis programom. 20 lodí, približne 120 účastníkov a 5 nocí v chorvátskej Dalmácii,
 25. — 30. 9. 2027, východisko Marina Frapa v Rogoznici. Štyri súťažné dni, deväť rozjázd.
 
-Organizátor: **Tangreto s.r.o.**
+Hlavný organizátor: **AJservices, s.r.o.** · Spoluorganizátor: **Tangreto, s.r.o.**
 Veliteľ flotily a hlavný rozhodca: **Michal Hrivnák**
 
 Všetky štruktúrované dáta sú v `data/regatta.json`. Trasa aj v `data/route.gpx`.
