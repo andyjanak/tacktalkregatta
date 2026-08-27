@@ -4,6 +4,7 @@ import "./globals.css";
 import {
   indexingEnabled,
   siteDescription,
+  siteKeywords,
   siteTitle,
   siteUrl,
 } from "./site-config";
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Tack & Talk Regatta 2027",
   },
   description: siteDescription,
+  keywords: siteKeywords,
   alternates: { canonical: "/" },
   robots: {
     index: indexingEnabled,

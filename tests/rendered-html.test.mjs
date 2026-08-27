@@ -96,6 +96,9 @@ test("server renders the finished Slovak landing page", async () => {
   assert.match(html, /href="https:\/\/www\.ajservices\.sk\/"/i);
   assert.match(html, /Kto to organizuje/i);
   assert.match(html, /"@id":"https:\/\/www\.ajservices\.sk\/#organization"/);
+  // FAQ štruktúrované dáta pre slovenský trh (rich snippets).
+  assert.match(html, /"@type":"FAQPage"/);
+  assert.match(html, /firemná regata v Chorvátsku/i);
   assert.match(html, /BALI 5\.2.*celý čas s flotilou/is);
   assert.match(html, /src="\/bali-52-promo\.jpg"/i);
   assert.match(html, /15,9\s*m.*8,15\s*m.*12\s*osôb.*2\s*×\s*80\s*HP/is);

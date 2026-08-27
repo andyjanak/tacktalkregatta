@@ -17,6 +17,7 @@ const eventJsonLd = {
   endDate: regatta.event.end_date,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  inLanguage: "sk",
   image: new URL("/og-v2.jpg", siteUrl).toString(),
   url: siteUrl.toString(),
   location: {
@@ -25,7 +26,13 @@ const eventJsonLd = {
     address: {
       "@type": "PostalAddress",
       addressLocality: regatta.event.base_marina.town,
+      addressRegion: regatta.event.region,
       addressCountry: regatta.event.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: regatta.event.base_marina.lat,
+      longitude: regatta.event.base_marina.lon,
     },
   },
   organizer: {
@@ -34,6 +41,53 @@ const eventJsonLd = {
     name: regatta.organization.organizer.name,
     url: "https://www.ajservices.sk/",
   },
+};
+
+// Časté otázky – jeden zdroj pre viditeľnú sekciu aj pre FAQ štruktúrované dáta.
+const faqs = [
+  {
+    q: "V posádke nikto nikdy neplachtil. Môžeme ísť?",
+    a: "Áno. K plavidlu si môžete objednať profesionálneho skippera, ktorý celý týždeň velí, učí a zodpovedá za bezpečnú plavbu. Kapacita profesionálnych skipperov je obmedzená, preto si ich treba zabezpečiť s predstihom.",
+  },
+  {
+    q: "Kto môže viesť loď?",
+    a: "Každá loď musí mať osobu s platným preukazom na vedenie plavidla uznávaným v Chorvátsku a oprávnením na obsluhu lodnej rádiostanice VHF. Konkrétne doklady overí charterová spoločnosť pred odovzdaním plavidla.",
+  },
+  {
+    q: "Ako to funguje so skipperom?",
+    a: "Skipper je profesionálny kapitán, ktorý sa stará o plavbu, manévre a bezpečnosť. Spí na palube a je súčasťou posádky. Zmluvu uzatvára firma priamo so skipperom; organizátor nie je zmluvnou stranou.",
+  },
+  {
+    q: "Ako sa dostaneme do Rogoznice?",
+    a: "Najbližšie letisko je v Splite. Dopravu si zabezpečuje každá firma samostatne; pri väčšom záujme pomôžeme koordinovať spoločnú dopravu.",
+  },
+  {
+    q: "Je to bezpečné?",
+    a: "Bezpečnosť má prednosť pred súťažou. Neplaví sa v noci, pri predpovedi nad 25 uzlov veliteľ flotily ruší etapu a flotila sa presúva v konvoji. Každá loď sa hlási na spoločnom VHF kanáli. Kapitán, ktorý z bezpečnostných dôvodov nevypláva, nestráca body; dostane priemer dovtedajších výsledkov.",
+  },
+  {
+    q: "Aké je počasie koncom septembra?",
+    a: "Typicky možno čakať teplotu mora okolo 22 °C a dennú teplotu vzduchu približne 22 až 26 °C, s chladnejšími večermi. Skutočné podmienky sa môžu meniť a plán plavby sa im vždy prispôsobuje.",
+  },
+  {
+    q: "Ako sa vlastne súťaží?",
+    a: "Deväť rozjázd používa nízkobodový systém. Dufour 460 a Dufour 470 štartujú na jednej čiare; celkové poradie vzniká z prepočítaného času.",
+  },
+  {
+    q: "Môžeme prísť ako dve firmy na jednej lodi?",
+    a: "Formát je postavený ako jedna firma, jedna loď a jedna posádka. Individuálne výnimky budú možné iba po potvrdení organizátorom.",
+  },
+] as const;
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "sk",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 };
 
 function Brand() {
@@ -53,6 +107,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <header className="site-header">
         <a className="brand-link" href="#hore" aria-label="Tack & Talk - hore">
@@ -375,73 +433,12 @@ export default function Home() {
           </p>
         </div>
         <div className="faq-list">
-          <details>
-            <summary>V posádke nikto nikdy neplachtil. Môžeme ísť?</summary>
-            <p>
-              Áno. K plavidlu si môžete objednať profesionálneho skippera,
-              ktorý celý týždeň velí, učí a zodpovedá za bezpečnú plavbu.
-              Kapacita profesionálnych skipperov je obmedzená, preto si ich treba zabezpečiť s predstihom.
-            </p>
-          </details>
-          <details>
-            <summary>Kto môže viesť loď?</summary>
-            <p>
-              Každá loď musí mať osobu s platným preukazom na vedenie plavidla
-              uznávaným v Chorvátsku a oprávnením na obsluhu lodnej rádiostanice
-              VHF. Konkrétne doklady overí charterová spoločnosť pred odovzdaním
-              plavidla.
-            </p>
-          </details>
-          <details>
-            <summary>Ako to funguje so skipperom?</summary>
-            <p>
-              Skipper je profesionálny kapitán, ktorý sa stará o plavbu,
-              manévre a bezpečnosť. Spí na palube a je súčasťou posádky.
-              Zmluvu uzatvára firma priamo so skipperom; organizátor nie je
-              zmluvnou stranou.
-            </p>
-          </details>
-          <details>
-            <summary>Ako sa dostaneme do Rogoznice?</summary>
-            <p>
-              Najbližšie letisko je v Splite. Dopravu si zabezpečuje každá firma
-              samostatne; pri väčšom záujme pomôžeme
-              koordinovať spoločnú dopravu.
-            </p>
-          </details>
-          <details>
-            <summary>Je to bezpečné?</summary>
-            <p>
-              Bezpečnosť má prednosť pred súťažou. Neplaví sa v noci, pri
-              predpovedi nad 25 uzlov veliteľ flotily ruší etapu a flotila sa
-              presúva v konvoji. Každá loď sa hlási na spoločnom VHF kanáli.
-              Kapitán, ktorý z bezpečnostných dôvodov nevypláva, nestráca body;
-              dostane priemer dovtedajších výsledkov.
-            </p>
-          </details>
-          <details>
-            <summary>Aké je počasie koncom septembra?</summary>
-            <p>
-              Typicky možno čakať teplotu mora okolo 22 °C a dennú teplotu
-              vzduchu približne 22 až 26 °C, s chladnejšími večermi. Skutočné
-              podmienky sa môžu meniť a plán plavby sa im vždy prispôsobuje.
-            </p>
-          </details>
-          <details>
-            <summary>Ako sa vlastne súťaží?</summary>
-            <p>
-              Deväť rozjázd používa nízkobodový systém. Dufour 460 a Dufour
-              470 štartujú na jednej čiare; celkové poradie vzniká z
-              prepočítaného času.
-            </p>
-          </details>
-          <details>
-            <summary>Môžeme prísť ako dve firmy na jednej lodi?</summary>
-            <p>
-              Formát je postavený ako jedna firma, jedna loď a jedna posádka.
-              Individuálne výnimky budú možné iba po potvrdení organizátorom.
-            </p>
-          </details>
+          {faqs.map((item) => (
+            <details key={item.q}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
