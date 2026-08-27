@@ -17,15 +17,14 @@
   "observability": {
     "enabled": true
   },
-  // Drizzle ukladá migrácie do ./drizzle (nie do predvoleného ./migrations).
-  "migrations_dir": "drizzle",
-  // D1 databáza pre CRM. `database_id` doplň po `wrangler d1 create tacktalkregatta`
-  // (príkaz vypíše skutočné ID, ktoré sem vložíš). `binding` musí zostať "DB".
+  // D1 databáza pre CRM. `binding` musí zostať "DB". Migrácie sú v ./drizzle
+  // (Drizzle), nie v predvolenom ./migrations.
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "tacktalkregatta",
-      "database_id": "REPLACE_WITH_ID_FROM_wrangler_d1_create"
+      "database_id": "146a2d4a-f1b0-41b5-91ce-7fbc221746cf",
+      "migrations_dir": "drizzle"
     }
   ]
   // Tajné premenné (RESEND_API_KEY, EMAIL_FROM, RESEND_WEBHOOK_SECRET,
