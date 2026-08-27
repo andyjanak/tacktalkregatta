@@ -379,6 +379,15 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
 .footer-meta p { margin: 5px 0; }
 .footer-admin-link { margin-top: 16px; padding-bottom: 4px; display: inline-flex; align-items: center; gap: 9px; color: #c5d0db; border-bottom: 1px solid var(--brass); font-size: 9px; text-transform: uppercase; letter-spacing: .1em; }
 .footer-admin-link:hover { color: white; }
+.footer-organizer { margin-top: 26px; display: flex; flex-direction: column; gap: 9px; }
+.footer-organizer > span { color: #8194a8; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+.footer-organizer img { width: 150px; height: auto; display: block; }
+.footer-org-link { color: inherit; border-bottom: 1px solid var(--brass); }
+.footer-org-link:hover { color: white; }
+.who-organizes { margin-top: clamp(28px, 4vw, 48px); max-width: 640px; }
+.who-organizes .who-kicker { color: var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 8px; }
+.who-organizes p:not(.who-kicker) { color: var(--grey); font-size: 15px; line-height: 1.75; margin: 0; }
+.who-organizes a { color: var(--navy); border-bottom: 1px solid var(--brass); }
 
 /* Admin */
 .admin-shell { min-height: 100vh; overflow: visible; color: var(--ink); background: #f3f1ec; }

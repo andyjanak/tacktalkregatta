@@ -30,7 +30,9 @@ const eventJsonLd = {
   },
   organizer: {
     "@type": "Organization",
+    "@id": "https://www.ajservices.sk/#organization",
     name: regatta.organization.organizer.name,
+    url: "https://www.ajservices.sk/",
   },
 };
 
@@ -160,6 +162,16 @@ export default function Home() {
             <div className="ratio"><span style={{ width: "40%" }} /></div>
             <p className="ratio-label"><strong>4</strong> obsahové bloky</p>
           </article>
+        </div>
+
+        <div className="who-organizes">
+          <p className="who-kicker">Kto to organizuje</p>
+          <p>
+            Podujatie pripravuje{" "}
+            <a href="https://www.ajservices.sk/">AJservices, s.r.o.</a>{" "}
+            ako hlavný organizátor, v spolupráci so spoluorganizátorom Tangreto, s.r.o.
+            a pod záštitou veliteľa flotily Michala Hrivnáka.
+          </p>
         </div>
       </section>
 
@@ -445,7 +457,7 @@ export default function Home() {
         </div>
         <div className="contact-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/ajservices-logo.svg" alt="AJservices, s.r.o." width="340" height="84" />
+          <img src="/ajservices-logo.png" alt="AJservices, s.r.o." width="720" height="180" />
           <p><strong>AJservices, s.r.o.</strong><span>hlavný organizátor</span></p>
           <a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a>
           <a href="tel:+421910909516">+421 910 909 516</a>
@@ -471,10 +483,17 @@ export default function Home() {
         <div>
           <Brand />
           <p>Svieži vietor v plachtách.</p>
+          <div className="footer-organizer">
+            <span>Organizátor</span>
+            <a href="https://www.ajservices.sk/">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/ajservices-logo-white.png" alt="AJservices, s.r.o." width="720" height="180" />
+            </a>
+          </div>
         </div>
         <div className="footer-meta">
           <p>25. – 30. 9. 2027 · Rogoznica, Chorvátsko</p>
-          <p>Hlavný organizátor: AJservices, s.r.o.</p>
+          <p>Hlavný organizátor: <a className="footer-org-link" href="https://www.ajservices.sk/">AJservices, s.r.o.</a></p>
           <p>Spoluorganizátor: Tangreto, s.r.o.</p>
           <p>Pod záštitou Michala Hrivnáka</p>
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
