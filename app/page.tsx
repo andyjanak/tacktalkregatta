@@ -487,7 +487,7 @@ export default function Home() {
             <span>Organizátor</span>
             <a href="https://www.ajservices.sk/">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/ajservices-logo-white.png" alt="AJservices, s.r.o." width="720" height="180" />
+              <img src="/ajservices-logo-footer.png" alt="AJservices, s.r.o." width="720" height="180" />
             </a>
           </div>
         </div>
