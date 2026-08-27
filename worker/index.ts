@@ -27,7 +27,9 @@ interface ExecutionContext {
 
 // Obsahová bezpečnostná politika. Povolené výnimky:
 // - player.vimeo.com: pozadové video v hero sekcii,
-// - challenges.cloudflare.com: widget Cloudflare Turnstile (login + formulár).
+// - challenges.cloudflare.com: widget Cloudflare Turnstile (login + formulár),
+// - *.cloudflareinsights.com: Cloudflare Web Analytics (bez cookies) – beacon
+//   sa vkladá automaticky na edge, preto musí prejsť cez CSP.
 // Inline skripty/štýly generuje vinext (RSC bootstrap), preto 'unsafe-inline'.
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
@@ -35,8 +37,8 @@ const CONTENT_SECURITY_POLICY = [
   "img-src 'self' data:",
   "font-src 'self'",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
-  "connect-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
+  "connect-src 'self' https://cloudflareinsights.com",
   "frame-src https://player.vimeo.com https://challenges.cloudflare.com",
   "form-action 'self'",
   "frame-ancestors 'none'",
