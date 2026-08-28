@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import {
-  indexingEnabled,
-  siteDescription,
-  siteKeywords,
-  siteTitle,
-  siteUrl,
-} from "./site-config";
+import { indexingEnabled, siteTitle, siteUrl } from "./site-config";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -16,15 +10,14 @@ const poppins = Poppins({
   display: "swap",
 });
 
+// Základné metadáta pre celý web. Jazykovo špecifické polia (title, description,
+// keywords, canonical, hreflang, OpenGraph) si nastavuje každá stránka sama.
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
     default: siteTitle,
     template: "%s | Tack & Talk Regatta 2027",
   },
-  description: siteDescription,
-  keywords: siteKeywords,
-  alternates: { canonical: "/" },
   robots: {
     index: indexingEnabled,
     follow: indexingEnabled,
@@ -39,28 +32,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
-  },
-  openGraph: {
-    type: "website",
-    locale: "sk_SK",
-    url: "/",
-    siteName: "Tack & Talk Regatta 2027",
-    title: siteTitle,
-    description: siteDescription,
-    images: [
-      {
-        url: "/og-v2.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Tack & Talk Regatta 2027 — Svieži vietor v plachtách",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: ["/og-v2.jpg"],
   },
 };
 

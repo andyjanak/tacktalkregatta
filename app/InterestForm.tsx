@@ -2,12 +2,15 @@
 
 import { FormEvent, useState } from "react";
 import Turnstile from "./Turnstile";
+import type { Dict } from "./i18n";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
 export default function InterestForm({
+  t,
   turnstileSiteKey,
 }: {
+  t: Dict["form"];
   turnstileSiteKey?: string;
 }) {
   const [state, setState] = useState<FormState>("idle");
@@ -43,19 +46,15 @@ export default function InterestForm({
       const result = (await response.json()) as { error?: string; message?: string };
 
       if (!response.ok) {
-        throw new Error(result.error ?? "Dopyt sa nepodarilo odoslať.");
+        throw new Error(result.error ?? t.errorFailed);
       }
 
       form.reset();
       setState("success");
-      setMessage(result.message ?? "Ďakujeme. Dopyt sme prijali.");
+      setMessage(t.success);
     } catch (error) {
       setState("error");
-      setMessage(
-        error instanceof Error
-          ? error.message
-          : "Dopyt sa nepodarilo odoslať.",
-      );
+      setMessage(error instanceof Error ? error.message : t.errorFailed);
     }
   }
 
@@ -63,37 +62,37 @@ export default function InterestForm({
     <form className="interest-form" onSubmit={handleSubmit}>
       <div className="form-grid">
         <label>
-          <span>Meno a priezvisko *</span>
+          <span>{t.fullName}</span>
           <input name="fullName" autoComplete="name" required maxLength={120} />
         </label>
         <label>
-          <span>Firma *</span>
+          <span>{t.company}</span>
           <input name="company" autoComplete="organization" required maxLength={160} />
         </label>
         <label>
-          <span>E-mail *</span>
+          <span>{t.email}</span>
           <input name="email" type="email" autoComplete="email" required maxLength={200} />
         </label>
         <label>
-          <span>Telefón</span>
+          <span>{t.phone}</span>
           <input name="phone" type="tel" autoComplete="tel" maxLength={60} />
         </label>
         <label>
-          <span>Predpokladaný počet ľudí</span>
+          <span>{t.people}</span>
           <input name="peopleCount" type="number" min={1} max={50} inputMode="numeric" />
         </label>
         <label>
-          <span>Máte kapitánsky preukaz? *</span>
+          <span>{t.licenseLabel}</span>
           <select name="captainLicense" defaultValue="unknown" required>
-            <option value="yes">Áno</option>
-            <option value="no">Nie</option>
-            <option value="unknown">Neviem</option>
+            <option value="yes">{t.licenseYes}</option>
+            <option value="no">{t.licenseNo}</option>
+            <option value="unknown">{t.licenseUnknown}</option>
           </select>
         </label>
         <label>
-          <span>Preferovaná loď</span>
+          <span>{t.boatLabel}</span>
           <select name="boatInterest" defaultValue="undecided">
-            <option value="undecided">Zatiaľ nerozhodnuté</option>
+            <option value="undecided">{t.boatUndecided}</option>
             <option value="dufour_460">Dufour 460</option>
             <option value="dufour_470">Dufour 470</option>
           </select>
@@ -101,7 +100,7 @@ export default function InterestForm({
       </div>
 
       <label className="form-message">
-        <span>Otázka alebo poznámka</span>
+        <span>{t.message}</span>
         <textarea name="message" rows={4} maxLength={1500} />
       </label>
 
@@ -112,17 +111,14 @@ export default function InterestForm({
 
       <label className="form-consent">
         <input name="consent" type="checkbox" value="yes" required />
-        <span>
-          Súhlasím, aby ma spoločnosť Tangreto s.r.o. kontaktovala v súvislosti
-          s prípravou podujatia Tack &amp; Talk Regatta 2027.
-        </span>
+        <span>{t.consent}</span>
       </label>
 
       <Turnstile siteKey={turnstileSiteKey} />
 
       <div className="form-submit-row">
         <button className="button button-brass" type="submit" disabled={state === "sending"}>
-          {state === "sending" ? "Odosielam…" : "Chcem vedieť viac"}
+          {state === "sending" ? t.submitSending : t.submitIdle}
           <span aria-hidden="true">→</span>
         </button>
         <p className={`form-response ${state}`} role="status" aria-live="polite">
