@@ -12,7 +12,7 @@ export default function LangSwitch({
       {locales.map((l) => (
         <a
           key={l}
-          href={localeHome(l)}
+          href={`${localeHome(l)}?lang=${l}`}
           hrefLang={l}
           className={l === locale ? "is-active" : ""}
           aria-current={l === locale ? "true" : undefined}
