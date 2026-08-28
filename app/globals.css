@@ -70,6 +70,9 @@ main { overflow: hidden; }
 .mobile-nav nav[hidden] { display: none; }
 .mobile-nav nav a { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
 .mobile-nav nav a:last-child { color: #e2b666; border-bottom: 0; }
+.mobile-lang { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); }
+.mobile-nav nav .mobile-lang a { padding: 8px 12px; border-bottom: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.55); border-radius: 6px; }
+.mobile-nav nav .mobile-lang a.is-active { color: #e2b666; }
 
 .hero {
   position: relative;
@@ -630,9 +633,8 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
 }
 
 @media (max-width: 980px) {
-  .site-header { min-height: 74px; grid-template-columns: 1fr auto auto; }
-  .desktop-nav, .nav-cta { display: none; }
-  .header-actions { gap: 10px; }
+  .site-header { min-height: 74px; grid-template-columns: 1fr auto; }
+  .desktop-nav, .nav-cta, .header-actions { display: none; }
   .mobile-nav { display: block; }
   .plan-day-tabs { top: 73px; }
   .section-patronage { grid-template-columns: 1fr 1fr; gap: 45px; }
