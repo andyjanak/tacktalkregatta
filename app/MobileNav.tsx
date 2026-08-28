@@ -1,26 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Dict } from "./i18n";
 
-const links = [
-  ["Koncept", "#koncept"],
-  ["Pre koho", "#pre-koho"],
-  ["Trasa a program", "#trasa"],
-  ["Časté otázky", "#faq"],
-  ["Kontakt", "#kontakt"],
-] as const;
-
-export default function MobileNav() {
+export default function MobileNav({ nav }: { nav: Dict["nav"] }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
-
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
+
+  const links: Array<[string, string]> = [
+    [nav.koncept, "#koncept"],
+    [nav.preKoho, "#pre-koho"],
+    [nav.trasa, "#trasa"],
+    [nav.faq, "#faq"],
+    [nav.kontakt, "#kontakt"],
+  ];
 
   return (
     <div className={`mobile-nav ${open ? "is-open" : ""}`}>
@@ -31,10 +31,10 @@ export default function MobileNav() {
         aria-controls="mobilne-menu"
         onClick={() => setOpen((current) => !current)}
       >
-        <span>Menu</span>
+        <span>{nav.menu}</span>
         <i aria-hidden="true" />
       </button>
-      <nav id="mobilne-menu" aria-label="Mobilná navigácia" hidden={!open}>
+      <nav id="mobilne-menu" aria-label={nav.mobileAria} hidden={!open}>
         {links.map(([label, href]) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>
             {label}
