@@ -68,10 +68,71 @@ function withSecurityHeaders(response: Response, isHttps: boolean): Response {
   });
 }
 
+// Jazyk podľa krajiny návštevníka (Cloudflare hlavička CF-IPCountry).
+// Rozšíriť pri pridaní ďalších jazykov, napr. DE->de, HU->hu, HR->hr, CZ->cs.
+const LOCALE_BY_COUNTRY: Record<string, "sk" | "en"> = { SK: "sk", CZ: "sk" };
+
+function localeForCountry(country: string | null): "sk" | "en" {
+  if (!country) return "sk";
+  return LOCALE_BY_COUNTRY[country.toUpperCase()] ?? "en";
+}
+
+function readCookie(header: string | null, name: string): string | null {
+  if (!header) return null;
+  for (const part of header.split(";")) {
+    const [key, ...value] = part.trim().split("=");
+    if (key === name) return value.join("=");
+  }
+  return null;
+}
+
+// Vyhľadávacie a náhľadové roboty nepresmerúvame — nech vidia všetky jazykové
+// verzie (indexovanie prebieha cez hreflang, nie cez presmerovanie podľa IP).
+const BOT_UA =
+  /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|slackbot|discordbot|embedly|preview|pinterest|google-inspectiontool|lighthouse/i;
+
+function isBot(ua: string | null): boolean {
+  return ua ? BOT_UA.test(ua) : false;
+}
+
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const isHttps = url.protocol === "https:";
+
+    // Prepínač jazykov: ?lang=xx uloží voľbu do cookie a presmeruje na čistú URL.
+    const setLang = url.searchParams.get("lang");
+    if (setLang === "sk" || setLang === "en") {
+      const dest = setLang === "en" ? "/en" : "/";
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: new URL(dest, url).toString(),
+          "Set-Cookie": `tt_lang=${setLang}; Path=/; Max-Age=31536000; SameSite=Lax`,
+          "Cache-Control": "no-store",
+        },
+      });
+    }
+
+    // Automatický jazyk na koreňovom "/": uložená voľba má prednosť, inak podľa
+    // krajiny IP. Roboty ani explicitne zvolený jazyk nepresmerúvame.
+    if (url.pathname === "/" && !isBot(request.headers.get("user-agent"))) {
+      const pref = readCookie(request.headers.get("cookie"), "tt_lang");
+      const chosen =
+        pref === "sk" || pref === "en"
+          ? pref
+          : localeForCountry(request.headers.get("CF-IPCountry"));
+      if (chosen === "en") {
+        return new Response(null, {
+          status: 302,
+          headers: {
+            Location: new URL("/en", url).toString(),
+            "Cache-Control": "no-store",
+            Vary: "Cookie",
+          },
+        });
+      }
+    }
 
     if (url.pathname === "/plan-pretekov" || url.pathname === "/plan-pretekov.html") {
       return Response.redirect(new URL("/#trasa", request.url), 308);
