@@ -1,17 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { locales, localeHome, type Dict, type Locale } from "./i18n";
+import type { Dict } from "./i18n";
 
-export default function MobileNav({
-  nav,
-  locale,
-  langAria,
-}: {
-  nav: Dict["nav"];
-  locale: Locale;
-  langAria: string;
-}) {
+export default function MobileNav({ nav }: { nav: Dict["nav"] }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -48,20 +40,6 @@ export default function MobileNav({
             {label}
           </a>
         ))}
-        <div className="mobile-lang" role="group" aria-label={langAria}>
-          {locales.map((l) => (
-            <a
-              key={l}
-              href={`${localeHome(l)}?lang=${l}`}
-              hrefLang={l}
-              className={l === locale ? "is-active" : ""}
-              aria-current={l === locale ? "true" : undefined}
-              onClick={() => setOpen(false)}
-            >
-              {l.toUpperCase()}
-            </a>
-          ))}
-        </div>
       </nav>
     </div>
   );
