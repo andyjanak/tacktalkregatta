@@ -11,6 +11,16 @@ export const defaultLocale: Locale = "sk";
 
 const dicts: Record<Locale, Dict> = { sk, en, cs, de, hu, hr };
 
+// Vlastné (native) názvy jazykov pre rozbaľovací prepínač.
+export const languageNames: Record<Locale, string> = {
+  sk: "Slovenčina",
+  en: "English",
+  cs: "Čeština",
+  de: "Deutsch",
+  hu: "Magyar",
+  hr: "Hrvatski",
+};
+
 export function getDict(locale: Locale): Dict {
   return dicts[locale];
 }
