@@ -90,7 +90,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <a className="nav-cta" href="#kontakt">{dict.nav.kontakt}</a>
           <LangSwitch locale={locale} aria={dict.langSwitch.aria} />
         </div>
-        <MobileNav nav={dict.nav} />
+        <MobileNav nav={dict.nav} locale={locale} langAria={dict.langSwitch.aria} />
       </header>
 
       <section className="hero" id="hore">

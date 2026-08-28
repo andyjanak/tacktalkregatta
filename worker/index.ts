@@ -68,11 +68,21 @@ function withSecurityHeaders(response: Response, isHttps: boolean): Response {
   });
 }
 
-// Jazyk podľa krajiny návštevníka (Cloudflare hlavička CF-IPCountry).
-// Rozšíriť pri pridaní ďalších jazykov, napr. DE->de, HU->hu, HR->hr, CZ->cs.
-const LOCALE_BY_COUNTRY: Record<string, "sk" | "en"> = { SK: "sk", CZ: "sk" };
+// Podporované jazyky webu (slovenčina je na "/", ostatné pod "/<locale>").
+const LOCALES = new Set(["sk", "en", "cs", "de", "hu", "hr"]);
 
-function localeForCountry(country: string | null): "sk" | "en" {
+// Jazyk podľa krajiny návštevníka (Cloudflare hlavička CF-IPCountry).
+// Ostatné krajiny dostanú angličtinu.
+const LOCALE_BY_COUNTRY: Record<string, string> = {
+  SK: "sk",
+  CZ: "cs",
+  DE: "de",
+  AT: "de",
+  HU: "hu",
+  HR: "hr",
+};
+
+function localeForCountry(country: string | null): string {
   if (!country) return "sk";
   return LOCALE_BY_COUNTRY[country.toUpperCase()] ?? "en";
 }
@@ -102,8 +112,8 @@ const worker = {
 
     // Prepínač jazykov: ?lang=xx uloží voľbu do cookie a presmeruje na čistú URL.
     const setLang = url.searchParams.get("lang");
-    if (setLang === "sk" || setLang === "en") {
-      const dest = setLang === "en" ? "/en" : "/";
+    if (setLang && LOCALES.has(setLang)) {
+      const dest = setLang === "sk" ? "/" : `/${setLang}`;
       return new Response(null, {
         status: 302,
         headers: {
@@ -119,14 +129,14 @@ const worker = {
     if (url.pathname === "/" && !isBot(request.headers.get("user-agent"))) {
       const pref = readCookie(request.headers.get("cookie"), "tt_lang");
       const chosen =
-        pref === "sk" || pref === "en"
+        pref && LOCALES.has(pref)
           ? pref
           : localeForCountry(request.headers.get("CF-IPCountry"));
-      if (chosen === "en") {
+      if (chosen !== "sk") {
         return new Response(null, {
           status: 302,
           headers: {
-            Location: new URL("/en", url).toString(),
+            Location: new URL(`/${chosen}`, url).toString(),
             "Cache-Control": "no-store",
             Vary: "Cookie",
           },
