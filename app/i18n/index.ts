@@ -4,12 +4,13 @@ import cs from "./cs";
 import de from "./de";
 import hu from "./hu";
 import hr from "./hr";
+import pl from "./pl";
 
-export type Locale = "sk" | "en" | "cs" | "de" | "hu" | "hr";
-export const locales: Locale[] = ["sk", "en", "cs", "de", "hu", "hr"];
+export type Locale = "sk" | "en" | "cs" | "de" | "hu" | "hr" | "pl";
+export const locales: Locale[] = ["sk", "en", "cs", "de", "hu", "hr", "pl"];
 export const defaultLocale: Locale = "sk";
 
-const dicts: Record<Locale, Dict> = { sk, en, cs, de, hu, hr };
+const dicts: Record<Locale, Dict> = { sk, en, cs, de, hu, hr, pl };
 
 // Vlastné (native) názvy jazykov pre rozbaľovací prepínač.
 export const languageNames: Record<Locale, string> = {
@@ -19,6 +20,7 @@ export const languageNames: Record<Locale, string> = {
   de: "Deutsch",
   hu: "Magyar",
   hr: "Hrvatski",
+  pl: "Polski",
 };
 
 export function getDict(locale: Locale): Dict {
@@ -38,6 +40,7 @@ export const languageAlternates: Record<string, string> = {
   de: "/de",
   hu: "/hu",
   hr: "/hr",
+  pl: "/pl",
   "x-default": "/",
 };
 
