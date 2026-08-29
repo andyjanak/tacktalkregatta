@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   try {
     if (job === "climatology") {
       const year = new Date().getFullYear();
-      const result = await computeAllClimatology(climatologyYears(year, 20));
+      const result = await computeAllClimatology(climatologyYears(year, 10));
       return Response.json({ job, ...result });
     }
     const result = await refreshAllForecasts();
