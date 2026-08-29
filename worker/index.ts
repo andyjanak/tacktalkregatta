@@ -175,13 +175,20 @@ const worker = {
     const cron = event.cron ?? "";
     ctx.waitUntil(
       (async () => {
-        const { refreshAllForecasts, computeAllClimatology, climatologyYears } =
-          await import("../lib/weather/service");
+        const {
+          refreshAllForecasts,
+          computeAllClimatology,
+          climatologyYears,
+          bootstrapClimatologyIfEmpty,
+        } = await import("../lib/weather/service");
+        const year = new Date().getFullYear();
         await refreshAllForecasts();
         if (cron.startsWith("0 3 1 ")) {
-          await computeAllClimatology(
-            climatologyYears(new Date().getFullYear(), 20),
-          );
+          // Mesačný beh: kompletný prepočet klimatológie.
+          await computeAllClimatology(climatologyYears(year, 10));
+        } else {
+          // Pravidelný beh: dopočíta klimatológiu, ak ešte chýba (bootstrap).
+          await bootstrapClimatologyIfEmpty(year);
         }
       })(),
     );

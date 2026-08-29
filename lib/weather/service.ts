@@ -133,6 +133,21 @@ export async function computeAllClimatology(
   return { ok, failed };
 }
 
+// Bootstrap: ak klimatológia ešte nie je vypočítaná, dopočíta ju (menší
+// počet rokov, aby sa zmestila do limitu subrequestov aj na free pláne).
+// Volá pravidelný cron, takže sa modul naplní sám bez manuálneho zásahu.
+export async function bootstrapClimatologyIfEmpty(
+  year: number,
+): Promise<{ skipped: boolean; ok?: number; failed?: number }> {
+  const { getClimatologyForWindow } = await import("@/db/weather");
+  const existing = await getClimatologyForWindow(CLIMATOLOGY_WINDOW.label).catch(
+    () => [] as unknown[],
+  );
+  if (existing.length > 0) return { skipped: true };
+  const result = await computeAllClimatology(climatologyYears(year, 10));
+  return { skipped: false, ...result };
+}
+
 export type WeatherPointPayload = {
   point: Pick<WeatherPoint, "id" | "name" | "lat" | "lon" | "order">;
   summary: ForecastSummary | null;
