@@ -69,7 +69,7 @@ function withSecurityHeaders(response: Response, isHttps: boolean): Response {
 }
 
 // Podporované jazyky webu (slovenčina je na "/", ostatné pod "/<locale>").
-const LOCALES = new Set(["sk", "en", "cs", "de", "hu", "hr"]);
+const LOCALES = new Set(["sk", "en", "cs", "de", "hu", "hr", "pl"]);
 
 // Jazyk podľa krajiny návštevníka (Cloudflare hlavička CF-IPCountry).
 // Ostatné krajiny dostanú angličtinu.
@@ -80,6 +80,7 @@ const LOCALE_BY_COUNTRY: Record<string, string> = {
   AT: "de",
   HU: "hu",
   HR: "hr",
+  PL: "pl",
 };
 
 function localeForCountry(country: string | null): string {

@@ -45,6 +45,12 @@ const flags: Record<Locale, ReactElement> = {
       <rect y="10" width="21" height="5" fill="#477050" />
     </>
   ),
+  pl: (
+    <>
+      <rect width="21" height="7.5" fill="#fff" />
+      <rect y="7.5" width="21" height="7.5" fill="#dc143c" />
+    </>
+  ),
   hr: (
     <>
       <rect width="21" height="5" fill="#ff0000" />
