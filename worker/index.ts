@@ -163,6 +163,29 @@ const worker = {
     const response = await handler.fetch(request, env, ctx);
     return withSecurityHeaders(response, isHttps);
   },
+
+  // Cron: pravidelný refresh predpovede počasia po waypointoch. Mesačný beh
+  // (1. deň o 03:00) prepočíta aj klimatológiu z historického archívu.
+  // Službu importujeme dynamicky, aby sa DB/env nezaťahovali pri načítaní.
+  async scheduled(
+    event: { cron?: string },
+    _env: Env,
+    ctx: ExecutionContext,
+  ): Promise<void> {
+    const cron = event.cron ?? "";
+    ctx.waitUntil(
+      (async () => {
+        const { refreshAllForecasts, computeAllClimatology, climatologyYears } =
+          await import("../lib/weather/service");
+        await refreshAllForecasts();
+        if (cron.startsWith("0 3 1 ")) {
+          await computeAllClimatology(
+            climatologyYears(new Date().getFullYear(), 20),
+          );
+        }
+      })(),
+    );
+  },
 };
 
 export default worker;

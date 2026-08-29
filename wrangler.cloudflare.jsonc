@@ -17,6 +17,11 @@
   "observability": {
     "enabled": true
   },
+  // Cron: refresh predpovede počasia každé 3 hodiny; 1. deň mesiaca o 03:00
+  // navyše prepočet klimatológie z historického archívu.
+  "triggers": {
+    "crons": ["0 */3 * * *", "0 3 1 * *"]
+  },
   // D1 databáza pre CRM. `binding` musí zostať "DB". Migrácie sú v ./drizzle
   // (Drizzle), nie v predvolenom ./migrations.
   "d1_databases": [
