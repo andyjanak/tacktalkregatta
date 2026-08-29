@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdminWeatherButton from "./AdminWeatherButton";
 import Link from "next/link";
 import regatta from "@/data/regatta.json";
 import type { InquiryWithActivities } from "@/db/inquiries";
@@ -64,6 +65,7 @@ export default async function AdminPage() {
         </Link>
         <nav className="admin-user" aria-label="Používateľské menu">
           <span>{user.displayName}</span>
+          <AdminWeatherButton />
           <a href="/" target="_blank" rel="noopener noreferrer">Web ↗</a>
           <a href="/api/admin/logout">Odhlásiť</a>
         </nav>
