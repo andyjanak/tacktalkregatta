@@ -127,7 +127,17 @@ const worker = {
 
     // Automatický jazyk na koreňovom "/": uložená voľba má prednosť, inak podľa
     // krajiny IP. Roboty ani explicitne zvolený jazyk nepresmerúvame.
-    if (url.pathname === "/" && !isBot(request.headers.get("user-agent"))) {
+    // RSC/prefetch requesty (klientská navigácia v rámci appky) nepresmerúvame
+    // — inak by klik na odkaz na "/" (napr. „Web" v admine) skončil 302-kou na
+    // /xx, ktorú klientský router nevie nasledovať, a „nič sa nestane".
+    const isRscRequest =
+      request.headers.get("RSC") === "1" ||
+      request.headers.has("Next-Router-Prefetch");
+    if (
+      url.pathname === "/" &&
+      !isRscRequest &&
+      !isBot(request.headers.get("user-agent"))
+    ) {
       const pref = readCookie(request.headers.get("cookie"), "tt_lang");
       const chosen =
         pref && LOCALES.has(pref)
