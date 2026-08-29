@@ -56,14 +56,16 @@ main { overflow: hidden; }
 .lang-switch summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; color: inherit; font-size: 11px; font-weight: 600; letter-spacing: .06em; border: 1px solid rgba(255,255,255,.28); border-radius: 7px; transition: border-color .2s ease; }
 .lang-switch summary::-webkit-details-marker { display: none; }
 .lang-switch summary:hover { border-color: rgba(255,255,255,.55); }
-.lang-switch summary svg { transition: transform .2s ease; }
-.lang-switch[open] summary svg { transform: rotate(180deg); }
+.lang-switch summary svg.chev { transition: transform .2s ease; }
+.lang-switch[open] summary svg.chev { transform: rotate(180deg); }
 .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 172px; padding: 6px; display: flex; flex-direction: column; gap: 1px; background: rgba(7, 28, 52, .98); border: 1px solid rgba(255,255,255,.16); border-radius: 11px; box-shadow: 0 20px 44px rgba(0,0,0,.4); z-index: 60; }
-.lang-menu a { display: flex; align-items: baseline; gap: 9px; padding: 9px 11px; border-radius: 7px; color: rgba(255,255,255,.72); }
+.lang-menu a { display: flex; align-items: center; gap: 9px; padding: 9px 11px; border-radius: 7px; color: rgba(255,255,255,.72); }
 .lang-menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
 .lang-menu a.is-active { color: var(--brass); }
 .lang-menu .lang-code { width: 22px; flex: none; font-size: 10px; font-weight: 600; letter-spacing: .06em; opacity: .55; }
 .lang-menu .lang-name { font-size: 13px; font-weight: 500; }
+.lang-flag { width: 20px; height: 14px; flex: none; border-radius: 3px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); display: block; }
+.lang-switch summary .lang-flag { width: 18px; height: 13px; }
 .mobile-nav { display: none; justify-self: end; }
 .mobile-nav-toggle { min-width: 76px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: flex-end; gap: 12px; color: white; background: transparent; border: 0; cursor: pointer; text-transform: uppercase; letter-spacing: .11em; font-size: 10px; }
 .mobile-nav-toggle i, .mobile-nav-toggle i::before, .mobile-nav-toggle i::after { width: 20px; height: 1px; display: block; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
