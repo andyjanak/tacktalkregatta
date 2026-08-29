@@ -64,7 +64,7 @@ export default async function AdminPage() {
         </Link>
         <nav className="admin-user" aria-label="Používateľské menu">
           <span>{user.displayName}</span>
-          <Link href="/">Web</Link>
+          <a href="/" target="_blank" rel="noopener noreferrer">Web ↗</a>
           <a href="/api/admin/logout">Odhlásiť</a>
         </nav>
       </header>
