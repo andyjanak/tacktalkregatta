@@ -4,7 +4,7 @@ import InterestForm from "./InterestForm";
 import RacePlan from "./RacePlan";
 import LangSwitch from "./LangSwitch";
 import { siteUrl } from "./site-config";
-import { localeHome, type Dict, type Locale } from "./i18n";
+import { localeHome, localeWeather, type Dict, type Locale } from "./i18n";
 
 function Brand() {
   return (
@@ -84,13 +84,14 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <a href="#koncept">{dict.nav.koncept}</a>
           <a href="#pre-koho">{dict.nav.preKoho}</a>
           <a href="#trasa">{dict.nav.trasa}</a>
+          <a href={localeWeather(locale)}>{dict.nav.pocasie}</a>
           <a href="#faq">{dict.nav.faq}</a>
         </nav>
         <div className="header-actions">
           <a className="nav-cta" href="#kontakt">{dict.nav.kontakt}</a>
           <LangSwitch locale={locale} aria={dict.langSwitch.aria} />
         </div>
-        <MobileNav nav={dict.nav} />
+        <MobileNav nav={dict.nav} weatherHref={localeWeather(locale)} />
       </header>
 
       <section className="hero" id="hore">

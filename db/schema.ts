@@ -156,9 +156,61 @@ export const rateLimits = sqliteTable("rate_limits", {
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
+// Snapshoty predpovede počasia po waypointoch trasy. Jeden riadok = jedno
+// stiahnutie predpovede pre jeden bod. Držíme aj históriu, aby sa dal
+// analyzovať vývoj predpovede v čase. Waypointy sú v kóde (lib/weather/points).
+export const weatherSnapshots = sqliteTable(
+  "weather_snapshots",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    pointId: text("point_id").notNull(),
+    provider: text("provider").notNull().default("open-meteo"),
+    // Hodinová predpoveď: vietor, nárazy, smer, tlak, teplota (JSON série).
+    forecastJson: text("forecast_json").notNull(),
+    // Morská predpoveď: výška/perióda/smer vĺn (JSON, môže chýbať).
+    marineJson: text("marine_json"),
+    // Predpočítaná analýza pre rýchle servírovanie (Beaufort, prahy, okno).
+    summaryJson: text("summary_json"),
+    fetchedAt: text("fetched_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("idx_weather_snapshots_point_fetched").on(
+      table.pointId,
+      table.fetchedAt,
+    ),
+  ],
+);
+
+// Klimatológia (typické počasie) po waypointoch pre časové okno v roku
+// (napr. koniec septembra). Predpočítané z historického archívu.
+export const weatherClimatology = sqliteTable(
+  "weather_climatology",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    pointId: text("point_id").notNull(),
+    // Označenie okna, napr. "sep-20-30".
+    windowLabel: text("window_label").notNull(),
+    // Rozsah rokov archívu, napr. "2005-2024".
+    years: text("years").notNull().default(""),
+    provider: text("provider").notNull().default("open-meteo"),
+    // Štatistiky: ružica vetra, priemer/percentily rýchlosti, nárazy, teplota,
+    // prevládajúci smer, frekvencia maestralu (JSON).
+    statsJson: text("stats_json").notNull(),
+    computedAt: text("computed_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("idx_weather_climatology_point_window").on(
+      table.pointId,
+      table.windowLabel,
+    ),
+  ],
+);
+
 export type Inquiry = typeof inquiries.$inferSelect;
 export type InquiryActivity = typeof inquiryActivities.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type EmailCampaignRecipient = typeof emailCampaignRecipients.$inferSelect;
 export type AdminPasswordOverride = typeof adminPasswordOverrides.$inferSelect;
 export type RateLimit = typeof rateLimits.$inferSelect;
+export type WeatherSnapshot = typeof weatherSnapshots.$inferSelect;
+export type WeatherClimatology = typeof weatherClimatology.$inferSelect;

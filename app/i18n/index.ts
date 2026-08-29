@@ -32,6 +32,11 @@ export function localeHome(locale: Locale): string {
   return locale === defaultLocale ? "/" : `/${locale}`;
 }
 
+// Stránka počasia: /pocasie (sk) alebo /<locale>/pocasie.
+export function localeWeather(locale: Locale): string {
+  return locale === defaultLocale ? "/pocasie" : `/${locale}/pocasie`;
+}
+
 // hreflang alternatívy pre metadata (next/metadata alternates.languages).
 export const languageAlternates: Record<string, string> = {
   sk: "/",
@@ -42,6 +47,18 @@ export const languageAlternates: Record<string, string> = {
   hr: "/hr",
   pl: "/pl",
   "x-default": "/",
+};
+
+// hreflang alternatívy pre stránku počasia.
+export const weatherAlternates: Record<string, string> = {
+  sk: "/pocasie",
+  en: "/en/pocasie",
+  cs: "/cs/pocasie",
+  de: "/de/pocasie",
+  hu: "/hu/pocasie",
+  hr: "/hr/pocasie",
+  pl: "/pl/pocasie",
+  "x-default": "/pocasie",
 };
 
 export type { Dict };
