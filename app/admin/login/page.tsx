@@ -35,7 +35,7 @@ export default async function AdminLoginPage({
     <main className="admin-login-shell">
       <section className="admin-login-card">
         <Link href="/" className="admin-brand">
-          TACK <span>&amp;</span> TALK <b>2027</b>
+          TACK <span>&amp;</span> TALK
         </Link>
         <p className="panel-kicker">Interný prístup</p>
         <h1>Prihlásenie do administrácie</h1>

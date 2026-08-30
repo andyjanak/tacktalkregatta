@@ -37,7 +37,7 @@ export default async function AdminResetConfirmPage({
     <main className="admin-login-shell">
       <section className="admin-login-card">
         <Link href="/" className="admin-brand">
-          TACK <span>&amp;</span> TALK <b>2027</b>
+          TACK <span>&amp;</span> TALK
         </Link>
         <p className="panel-kicker">Bezpečná obnova</p>
         <h1>Nastaviť nové heslo</h1>
