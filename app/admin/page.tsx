@@ -61,7 +61,7 @@ export default async function AdminPage() {
     <main className="admin-shell">
       <header className="admin-header">
         <Link href="/" className="admin-brand">
-          TACK <span>&amp;</span> TALK <b>2027</b>
+          TACK <span>&amp;</span> TALK
         </Link>
         <nav className="admin-user" aria-label="Používateľské menu">
           <span>{user.displayName}</span>

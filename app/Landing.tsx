@@ -12,7 +12,6 @@ function Brand() {
       <span>TACK</span>
       <span className="brand-amp">&amp;</span>
       <span>TALK</span>
-      <span className="brand-year">2027</span>
     </span>
   );
 }
