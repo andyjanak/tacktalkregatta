@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const de: Dict = {
   htmlLang: "de",
   meta: {
-    title: "Tack & Talk Regatta 2027 – Firmenregatta in Kroatien",
+    title: "Tack & Talk Regatta 2027 – mitteleuropäische Firmenregatta in Kroatien",
     description:
-      "Eine Firmenregatta in Kroatien für 20 Crews – vier Wettfahrttage auf dem Wasser und ein Business-Programm an Land. Tack & Talk Regatta 2027, Rogoznica, 25.–30. September 2027.",
+      "Eine mitteleuropäische Firmenregatta in Kroatien für 20 Crews – vier Wettfahrttage auf dem Wasser und ein Business-Programm an Land. Tack & Talk Regatta 2027, Rogoznica, 25.–30. September 2027.",
     keywords: [
       "Firmenregatta",
       "Corporate Regatta",
@@ -35,12 +35,14 @@ const de: Dict = {
     brandUpAria: "Tack & Talk - nach oben",
   },
   hero: {
-    eyebrow: "Business-Regatta · Dalmatien 2027",
+    eyebrow: "Mitteleuropäische Firmenregatta · Dalmatien 2027",
     h1Line1: "Frischer Wind",
     h1Line2Pre: "in den ",
     h1Em: "Segeln.",
     lead:
       "Fünf Nächte. Vier Tage auf dem Wasser. Zwanzig Firmencrews und Inhalte, die auch nach der Rückkehr in die Marina weitergehen.",
+    scoring:
+      "Die Hälfte der Punkte wird auf dem Wasser gewonnen, die andere Hälfte im Programm an Land.",
     patronage: "Unter der Schirmherrschaft von Michal Hrivnák",
     ctaConcept: "Konzept ansehen",
     ctaRoute: "Route & Programm",
@@ -66,12 +68,22 @@ const de: Dict = {
     card1H3: "Eine Flotte, faires Spiel.",
     card1P:
       "Neun Wettfahrten, zwei Bootsklassen und eine gemeinsame Startlinie. Eine vorsichtige Entscheidung wird nie bestraft.",
+    card1Points: "Trägt die Hälfte der Gesamtpunkte.",
     card1Ratio: "Wettfahrten",
     card2Label: "An Land",
     card2H3: "Echte Probleme, keine Visitenkarten.",
     card2P:
       "Abenddiskussionen, ein Workshop und geführtes Networking. Das Programm dreht sich um Probleme, die Unternehmen wirklich beschäftigen.",
+    card2Points: "Trägt die andere Hälfte der Punkte — genauso wichtig wie das Segeln.",
     card2Ratio: "Inhaltsblöcke",
+    splitEyebrow: "Gleiches Gewicht",
+    splitTitle: "50 / 50",
+    splitP:
+      "Die Gesamtwertung entsteht zu gleichen Teilen aus dem Wasser und von Land. Ein Team gewinnt nicht nur, weil es zufällig zwei erfahrene Segler hat — und niemand verliert mitten in der Woche die Motivation, denn er spielt auch abseits des Bootes um die Hälfte der Punkte.",
+    ruleLabel: "Teilnahmeregel",
+    ruleTitle: "Ein Unternehmen. Ein Boot. Eine Crew.",
+    ruleP:
+      "Auf einem Boot ist ein Team aus einem Unternehmen. Keine gemischten Crews, keine aus mehreren Unternehmen zusammengestellten Boote. Sie treten als Unternehmen an — und arbeiten auch abseits des Wassers zusammen.",
     whoKicker: "Wer es organisiert",
     whoPre: "Die Veranstaltung wird von ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const de: Dict = {
       },
       {
         q: "Wie läuft das Rennen eigentlich ab?",
-        a: "Die neun Wettfahrten verwenden ein Low-Point-System. Dufour 460 und Dufour 470 starten auf einer Linie; die Gesamtwertung ergibt sich aus der berechneten Zeit.",
+        a: "Die neun Wettfahrten werden nach dem Low-Point-System gewertet — eine niedrigere Gesamtsumme ist besser. Die Hälfte der Gesamtpunkte wird jedoch abseits des Wassers gewonnen, im Programm an Land. Das gleiche Gewicht von Segeln und Inhalt bedeutet, dass das ganze Team entscheidet, nicht nur der Rudergänger.",
       },
       {
         q: "Können wir als zwei Unternehmen auf einem Boot kommen?",

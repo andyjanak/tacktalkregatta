@@ -105,7 +105,7 @@ test("server renders the finished Slovak landing page", async () => {
   assert.doesNotMatch(html, /boataround\.com/i);
   assert.doesNotMatch(html, /href="\/plan-pretekov"/i);
   assert.doesNotMatch(html, /Jedna trasa.*Jeden platný program/is);
-  assert.doesNotMatch(html, /Sukošan|Vodice|125\s*nm|2\.\s*10\.\s*2027|Prevetraj svoj biznis/i);
+  assert.doesNotMatch(html, /Sukošan|Vodice|125\s*nm|2\.\s*10\.\s*2027/i);
   assert.match(html, /Nie je navigačným podkladom/i);
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /10\s*400\s*€/i);

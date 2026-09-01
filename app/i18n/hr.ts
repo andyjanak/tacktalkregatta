@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const hr: Dict = {
   htmlLang: "hr",
   meta: {
-    title: "Tack & Talk Regatta 2027 – korporativna regata u Hrvatskoj",
+    title: "Tack & Talk Regatta 2027 – srednjoeuropska korporativna regata u Hrvatskoj",
     description:
-      "Korporativna regata u Hrvatskoj za 20 posada – četiri dana natjecanja na moru i poslovni program na obali. Tack & Talk Regatta 2027, Rogoznica, 25.–30. rujna 2027.",
+      "Srednjoeuropska korporativna regata u Hrvatskoj za 20 posada – četiri dana natjecanja na moru i poslovni program na obali. Tack & Talk Regatta 2027, Rogoznica, 25.–30. rujna 2027.",
     keywords: [
       "korporativna regata",
       "poslovna regata",
@@ -35,12 +35,14 @@ const hr: Dict = {
     brandUpAria: "Tack & Talk - na vrh",
   },
   hero: {
-    eyebrow: "Poslovna regata · Dalmacija 2027",
+    eyebrow: "Srednjoeuropska korporativna regata · Dalmacija 2027",
     h1Line1: "Svjež vjetar",
     h1Line2Pre: "u ",
     h1Em: "jedrima.",
     lead:
       "Pet noći. Četiri dana na moru. Dvadeset poslovnih posada i sadržaj koji se nastavlja i nakon povratka u marinu.",
+    scoring:
+      "Polovica bodova osvaja se na moru, polovica u programu na obali.",
     patronage: "Pod pokroviteljstvom Michala Hrivnáka",
     ctaConcept: "Pogledaj koncept",
     ctaRoute: "Ruta i program",
@@ -66,12 +68,22 @@ const hr: Dict = {
     card1H3: "Jedinstvena flota, poštena igra.",
     card1P:
       "Devet plovidbi, dvije klase brodova i jedna zajednička startna linija. Oprezna odluka nikada se ne kažnjava.",
+    card1Points: "Nosi polovicu ukupnih bodova.",
     card1Ratio: "plovidbi",
     card2Label: "Na obali",
     card2H3: "Stvarni problemi, ne posjetnice.",
     card2P:
       "Večernje rasprave, radionica i vođeno umrežavanje. Program se temelji na problemima s kojima se tvrtke stvarno suočavaju.",
+    card2Points: "Nosi drugu polovicu bodova — jednako važnu kao plovidba.",
     card2Ratio: "sadržajna bloka",
+    splitEyebrow: "Jednaka težina",
+    splitTitle: "50 / 50",
+    splitP:
+      "Ukupni poredak nastaje jednakim dijelom s mora i s obale. Tim ne pobjeđuje samo zato što slučajno ima dva iskusna jedriličara — i nitko ne gubi motivaciju sredinom tjedna, jer i izvan broda igra za polovicu bodova.",
+    ruleLabel: "Pravilo sudjelovanja",
+    ruleTitle: "Jedna tvrtka. Jedan brod. Jedna posada.",
+    ruleP:
+      "Na jednom brodu je jedan tim iz jedne tvrtke. Nema mješovitih posada, nema brodova sastavljenih od više tvrtki. Natječete se kao tvrtka — i surađujete i izvan mora.",
     whoKicker: "Tko organizira",
     whoPre: "Događaj priprema ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const hr: Dict = {
       },
       {
         q: "Kako se zapravo natječe?",
-        a: "Devet plovidbi koristi niskobodovni sustav. Dufour 460 i Dufour 470 startaju na jednoj liniji; ukupni poredak proizlazi iz preračunatog vremena.",
+        a: "Devet plovidbi boduje se niskobodovnim sustavom — niži zbroj je bolji. No polovica ukupnih bodova osvaja se izvan mora, u programu na obali. Jednaka težina plovidbe i sadržaja znači da odlučuje cijeli tim, a ne samo kormilar.",
       },
       {
         q: "Možemo li doći kao dvije tvrtke na jednom brodu?",

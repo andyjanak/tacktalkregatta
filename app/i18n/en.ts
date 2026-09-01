@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const en: Dict = {
   htmlLang: "en",
   meta: {
-    title: "Tack & Talk Regatta 2027 – corporate sailing regatta in Croatia",
+    title: "Tack & Talk Regatta 2027 – Central European corporate sailing regatta in Croatia",
     description:
-      "A corporate regatta in Croatia for 20 crews – four race days on the water and a business programme ashore. Tack & Talk Regatta 2027, Rogoznica, 25–30 September 2027.",
+      "A Central European corporate regatta in Croatia for 20 crews – four race days on the water and a business programme ashore. Tack & Talk Regatta 2027, Rogoznica, 25–30 September 2027.",
     keywords: [
       "corporate regatta",
       "business regatta",
@@ -35,12 +35,14 @@ const en: Dict = {
     brandUpAria: "Tack & Talk - top",
   },
   hero: {
-    eyebrow: "Business regatta · Dalmatia 2027",
+    eyebrow: "Central European corporate regatta · Dalmatia 2027",
     h1Line1: "Fresh wind",
     h1Line2Pre: "in the ",
     h1Em: "sails.",
     lead:
       "Five nights. Four days on the water. Twenty company crews and content that keeps going after you return to the marina.",
+    scoring:
+      "Half the points are earned on the water, half in the programme ashore.",
     patronage: "Under the patronage of Michal Hrivnák",
     ctaConcept: "See the concept",
     ctaRoute: "Route & programme",
@@ -66,12 +68,22 @@ const en: Dict = {
     card1H3: "One fleet, fair play.",
     card1P:
       "Nine races, two boat classes and one shared start line. A cautious decision is never penalised.",
+    card1Points: "Carries half of the total points.",
     card1Ratio: "races",
     card2Label: "Ashore",
     card2H3: "Real problems, not business cards.",
     card2P:
       "Evening discussions, a workshop and guided networking. The programme is built around problems companies actually face.",
+    card2Points: "Carries the other half of the points — as important as the sailing.",
     card2Ratio: "content blocks",
+    splitEyebrow: "Equal weight",
+    splitTitle: "50 / 50",
+    splitP:
+      "The overall ranking comes in equal parts from the water and from shore. A team doesn’t win just because it happens to have two experienced sailors — and nobody loses motivation mid-week, because they’re playing for half the points off the boat too.",
+    ruleLabel: "Participation rule",
+    ruleTitle: "One company. One boat. One crew.",
+    ruleP:
+      "One boat holds one team from one company. No mixed crews, no boats assembled from several companies. You compete as a company — and work together off the water too.",
     whoKicker: "Who organises it",
     whoPre: "The event is prepared by ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const en: Dict = {
       },
       {
         q: "How does the racing actually work?",
-        a: "The nine races use a low-point system. The Dufour 460 and Dufour 470 start on one line; the overall standings come from corrected time.",
+        a: "The nine races are scored with the low-point system — a lower total is better. But half of the total points are earned off the water, in the programme ashore. Equal weight of sailing and content means the whole team decides, not just the helm.",
       },
       {
         q: "Can we come as two companies on one boat?",
@@ -385,7 +397,7 @@ const en: Dict = {
     errorFailed: "The enquiry could not be sent.",
   },
   footer: {
-    claim: "Fresh wind in the sails.",
+    claim: "Clear your head. Set your course.",
     organizerLabel: "Organiser",
     dateLine: "25–30 September 2027 · Rogoznica, Croatia",
     mainOrgPre: "Main organiser: ",
