@@ -9,11 +9,11 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: { absolute: de.weather.metaTitle },
   description: de.weather.metaDescription,
-  alternates: { canonical: "/de/pocasie", languages: weatherAlternates },
+  alternates: { canonical: "/de/wetter", languages: weatherAlternates },
   openGraph: {
     type: "website",
     locale: de.meta.ogLocale,
-    url: "/de/pocasie",
+    url: "/de/wetter",
     siteName: "Tack & Talk Regatta 2027",
     title: de.weather.metaTitle,
     description: de.weather.metaDescription,

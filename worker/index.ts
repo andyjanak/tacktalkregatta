@@ -71,6 +71,17 @@ function withSecurityHeaders(response: Response, isHttps: boolean): Response {
 // Podporované jazyky webu (slovenčina je na "/", ostatné pod "/<locale>").
 const LOCALES = new Set(["sk", "en", "cs", "de", "hu", "hr", "pl"]);
 
+// Staré (nelokalizované) slugy počasia → lokalizované. 301 zachová SEO.
+// SK "/pocasie" ostáva, preto v mape nie je.
+const OLD_WEATHER_REDIRECTS: Record<string, string> = {
+  "/en/pocasie": "/en/weather",
+  "/cs/pocasie": "/cs/pocasi",
+  "/de/pocasie": "/de/wetter",
+  "/hu/pocasie": "/hu/idojaras",
+  "/hr/pocasie": "/hr/vrijeme",
+  "/pl/pocasie": "/pl/pogoda",
+};
+
 // Jazyk podľa krajiny návštevníka (Cloudflare hlavička CF-IPCountry).
 // Ostatné krajiny dostanú angličtinu.
 const LOCALE_BY_COUNTRY: Record<string, string> = {
@@ -111,10 +122,12 @@ const worker = {
     const url = new URL(request.url);
     const isHttps = url.protocol === "https:";
 
-    // Prepínač jazykov: ?lang=xx uloží voľbu do cookie a presmeruje na čistú URL.
+    // Prepínač jazykov: ?lang=xx uloží voľbu do cookie a presmeruje na čistú
+    // URL. Cieľ je aktuálna cesta (odkaz už smeruje na lokalizovaný slug danej
+    // stránky), takže prepnutie jazyka zachová stránku, neskočí na titulku.
     const setLang = url.searchParams.get("lang");
     if (setLang && LOCALES.has(setLang)) {
-      const dest = setLang === "sk" ? "/" : `/${setLang}`;
+      const dest = url.pathname || "/";
       return new Response(null, {
         status: 302,
         headers: {
@@ -157,6 +170,12 @@ const worker = {
 
     if (url.pathname === "/plan-pretekov" || url.pathname === "/plan-pretekov.html") {
       return Response.redirect(new URL("/#trasa", request.url), 308);
+    }
+
+    // 301 zo starých nelokalizovaných slugov počasia na lokalizované.
+    const oldWeather = OLD_WEATHER_REDIRECTS[url.pathname];
+    if (oldWeather) {
+      return Response.redirect(new URL(oldWeather, url).toString(), 301);
     }
 
     if (url.pathname === "/_vinext/image") {

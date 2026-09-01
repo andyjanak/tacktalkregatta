@@ -56,7 +56,7 @@ export default function WeatherPage({
         </nav>
         <div className="header-actions">
           <a className="nav-cta" href={`${home}#kontakt`}>{dict.nav.kontakt}</a>
-          <LangSwitch locale={locale} aria={dict.langSwitch.aria} />
+          <LangSwitch locale={locale} aria={dict.langSwitch.aria} routeKey="weather" />
         </div>
         <MobileNav nav={dict.nav} homePrefix={home} weatherHref={here} />
       </header>
