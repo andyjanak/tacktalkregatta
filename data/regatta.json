@@ -91,7 +91,7 @@
 
   "route": {
     "total_nm_approx": null,
-    "distance_status": "bude potvrdené v plachtárskych inštrukciách",
+    "distance_status": "bude potvrdené v plachetných pokynoch",
     "competition_days": 4,
     "races_total": 9,
     "race_breakdown_status": "presný denný rozpis rozjázd ešte nie je potvrdený",
@@ -183,7 +183,7 @@
   "scoring": {
     "system": "low_point",
     "races_total": 9,
-    "race_breakdown_status": "presný rozpis R1–R9 bude potvrdený v plachtárskych inštrukciách",
+    "race_breakdown_status": "presný rozpis R1–R9 bude potvrdený v plachetných pokynoch",
     "unit": "squadron",
     "formula": "total = 0.5 * sailing_points + 0.5 * shore_points_inverted",
     "winner": "najnižší súčet",
@@ -375,7 +375,7 @@
   ],
 
   "branded_assets": {
-    "packages": ["plachtárske inštrukcie (PDF, 6 strán)", "komunikačný a predajný plán (PDF, 7 strán)"],
+    "packages": ["plachetné pokyny (PDF, 6 strán)", "komunikačný a predajný plán (PDF, 7 strán)"],
     "design_system": {
       "fonts": { "primary": "Poppins", "weights": [300, 400, 500, 700] },
       "colors": {

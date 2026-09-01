@@ -148,14 +148,14 @@ const sk = {
     eyebrow: "Denný plán",
     h2: "Štyri dni. Deväť rozjázd.",
     lead:
-      "Presný denný rozpis R1–R9 zverejnia plachtárske inštrukcie. Na tomto mieste uvádzame iba potvrdenú trasu a rámec programu.",
+      "Presný denný rozpis R1–R9 zverejnia plachetné pokyny. Na tomto mieste uvádzame iba potvrdenú trasu a rámec programu.",
     tabsAria: "Vyber deň programu",
     arrivalTag: "Príchod",
     regataTag: "Regata",
     factsAria: "Fakty dňa",
     raceStatusLabel: "rozjázd počas štyroch súťažných dní",
     raceStatusP:
-      "Počet rozjázd v jednotlivých dňoch a ich trate potvrdia plachtárske inštrukcie. Bezpečnostné rozhodnutie veliteľa flotily má vždy prednosť.",
+      "Počet rozjázd v jednotlivých dňoch a ich trate potvrdia plachetné pokyny. Bezpečnostné rozhodnutie veliteľa flotily má vždy prednosť.",
     shoreLabel: "Program na brehu",
   },
   days: {
@@ -178,7 +178,7 @@ const sk = {
       title: "Rogoznica → Tribunj",
       route: "Prvý súťažný deň",
       programme:
-        "Raňajky, ranný brífing a prvá časť regaty s cieľom v Tribunji. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+        "Raňajky, ranný brífing a prvá časť regaty s cieľom v Tribunji. Presný rozpis rozjázd zverejnia plachetné pokyny.",
       facts: ["Súťažný deň 1/4", "Raňajky 1/4", "Večera 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
@@ -191,7 +191,7 @@ const sk = {
       title: "Tribunj → Jezera",
       route: "Druhý súťažný deň",
       programme:
-        "Raňajky, ranný brífing a súťažný program na trase do Jezier. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+        "Raňajky, ranný brífing a súťažný program na trase do Jezier. Presný rozpis rozjázd zverejnia plachetné pokyny.",
       facts: ["Súťažný deň 2/4", "Raňajky 2/4", "Večera 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
@@ -204,7 +204,7 @@ const sk = {
       title: "Jezera → Zlarin",
       route: "Tretí súťažný deň",
       programme:
-        "Raňajky, ranný brífing a súťažný program s cieľom na Zlarine. Presný rozpis rozjázd zverejnia plachtárske inštrukcie.",
+        "Raňajky, ranný brífing a súťažný program s cieľom na Zlarine. Presný rozpis rozjázd zverejnia plachetné pokyny.",
       facts: ["Súťažný deň 3/4", "Raňajky 3/4", "Večera 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
