@@ -500,6 +500,33 @@ const cs: Dict = {
       "Vítr, nárazy a vlny podle bodů trasy plus typické podmínky koncem září.",
     teaserCta: "Zobrazit počasí",
   },
+  results: {
+    metaTitle: "Výsledky a bodování – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Bodovací systém, pravidla shody bodů a výsledky regaty Tack & Talk. Archiv výsledků zůstává online.",
+    navLink: "Výsledky",
+    eyebrow: "Výsledky a bodování",
+    h1Line1: "Výsledky",
+    h1Line2: "regaty.",
+    lead:
+      "Před prvním ročníkem tu najdete pravidla bodování. Po regatě se stránka naplní výsledky — a archiv zůstane online.",
+    scoringTitle: "Bodovací systém",
+    scoringLead: "Devět rozjížděk · nízkobodový systém",
+    scoringP:
+      "Každá rozjížďka přiděluje body podle umístění — vítěz získá nejméně bodů. Celkové pořadí tvoří součet z devíti rozjížděk; nižší součet je lepší. Polovina celkových bodů akce se však získává mimo vodu, v programu na břehu.",
+    tieTitle: "Při shodě bodů",
+    tieP:
+      "Pokud mají dvě posádky stejný součet, rozhoduje počet lepších umístění; při další shodě výsledek z poslední společné rozjížďky. Přesné pravidlo potvrdí plachetní pokyny.",
+    whenTitle: "Kdy a kde budou výsledky",
+    whenP:
+      "Průběžné pořadí se zveřejňuje po každém závodním dni v marině a zde na stránce. Celkové výsledky a vyhlášení jsou poslední den v Rogoznici.",
+    liveTitle: "Živé výsledky",
+    liveP: "Odkaz na živé výsledky přidáme před startem regaty.",
+    liveSoon: "Připravujeme",
+    archiveTitle: "Ročníky",
+    editionPrefix: "Ročník",
+    upcoming: "Připravujeme",
+  },
 };
 
 export default cs;

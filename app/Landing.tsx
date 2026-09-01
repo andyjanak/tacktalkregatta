@@ -4,7 +4,7 @@ import InterestForm from "./InterestForm";
 import RacePlan from "./RacePlan";
 import LangSwitch from "./LangSwitch";
 import { siteUrl } from "./site-config";
-import { localeHome, localeWeather, type Dict, type Locale } from "./i18n";
+import { localeHome, localeWeather, localeResults, type Dict, type Locale } from "./i18n";
 
 function Brand() {
   return (
@@ -379,6 +379,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <p>{dict.footer.mainOrgPre}<a className="footer-org-link" href="https://www.ajservices.sk/">AJservices, s.r.o.</a></p>
           <p>{dict.footer.coOrgLine}</p>
           <p>{dict.footer.patronageLine}</p>
+          <p><a href={localeResults(locale)}>{dict.results.navLink}</a></p>
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
           <a className="footer-admin-link" href="/admin">{dict.footer.adminLink} <span aria-hidden="true">→</span></a>
         </div>

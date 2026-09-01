@@ -500,6 +500,33 @@ const hr: Dict = {
       "Vjetar, udari i valovi po točkama rute te tipični uvjeti krajem rujna.",
     teaserCta: "Pogledaj vrijeme",
   },
+  results: {
+    metaTitle: "Rezultati i bodovanje – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Sustav bodovanja, pravila kod jednakog broja bodova i rezultati regate Tack & Talk. Arhiva rezultata ostaje online.",
+    navLink: "Rezultati",
+    eyebrow: "Rezultati i bodovanje",
+    h1Line1: "Rezultati",
+    h1Line2: "regate.",
+    lead:
+      "Prije prvog izdanja ovdje ćete pronaći pravila bodovanja. Nakon regate stranica će se ispuniti rezultatima — a arhiva ostaje online.",
+    scoringTitle: "Sustav bodovanja",
+    scoringLead: "Devet utrka · niskobodovni sustav",
+    scoringP:
+      "Svaka utrka dodjeljuje bodove prema poziciji na cilju — pobjednik dobiva najmanje bodova. Ukupni poredak zbroj je devet utrka; niži zbroj je bolji. No polovica ukupnih bodova događaja osvaja se izvan vode, u programu na obali.",
+    tieTitle: "Kod jednakog broja bodova",
+    tieP:
+      "Ako dvije posade imaju isti zbroj, odlučuje broj boljih plasmana; ako su i oni jednaki, rezultat posljednje zajedničke utrke. Točno pravilo potvrđuju jedriličarske upute.",
+    whenTitle: "Kada i gdje će biti rezultati",
+    whenP:
+      "Privremeni poredak objavljuje se nakon svakog dana natjecanja, u marini i ovdje na stranici. Ukupni rezultati i dodjela nagrada su posljednjeg dana u Rogoznici.",
+    liveTitle: "Rezultati uživo",
+    liveP: "Poveznicu na rezultate uživo dodat ćemo prije starta regate.",
+    liveSoon: "Uskoro",
+    archiveTitle: "Izdanja",
+    editionPrefix: "Izdanje",
+    upcoming: "Uskoro",
+  },
 };
 
 export default hr;
