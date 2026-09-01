@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const pl: Dict = {
   htmlLang: "pl",
   meta: {
-    title: "Tack & Talk Regatta 2027 – firmowa regata w Chorwacji",
+    title: "Tack & Talk Regatta 2027 – środkowoeuropejska firmowa regata w Chorwacji",
     description:
-      "Firmowa regata w Chorwacji dla 20 załóg – cztery dni wyścigów na wodzie i program biznesowy na lądzie. Tack & Talk Regatta 2027, Rogoznica, 25–30.09.2027.",
+      "Środkowoeuropejska firmowa regata w Chorwacji dla 20 załóg – cztery dni wyścigów na wodzie i program biznesowy na lądzie. Tack & Talk Regatta 2027, Rogoznica, 25–30.09.2027.",
     keywords: [
       "regata firmowa",
       "regata biznesowa",
@@ -35,12 +35,14 @@ const pl: Dict = {
     brandUpAria: "Tack & Talk - do góry",
   },
   hero: {
-    eyebrow: "Regata biznesowa · Dalmacja 2027",
+    eyebrow: "Środkowoeuropejska regata firmowa · Dalmacja 2027",
     h1Line1: "Świeży wiatr",
     h1Line2Pre: "w ",
     h1Em: "żaglach.",
     lead:
       "Pięć nocy. Cztery dni na wodzie. Dwadzieścia firmowych załóg i treść, która trwa także po powrocie do mariny.",
+    scoring:
+      "Połowa punktów zdobywana jest na wodzie, połowa w programie na lądzie.",
     patronage: "Pod patronatem Michala Hrivnáka",
     ctaConcept: "Zobacz koncept",
     ctaRoute: "Trasa i program",
@@ -66,12 +68,22 @@ const pl: Dict = {
     card1H3: "Jednolita flota, uczciwa gra.",
     card1P:
       "Dziewięć biegów, dwie kategorie jachtów i jedna wspólna linia startu. Ostrożna decyzja nigdy nie jest karana.",
+    card1Points: "Niesie połowę wszystkich punktów.",
     card1Ratio: "biegów",
     card2Label: "Na lądzie",
     card2H3: "Realne problemy, nie wizytówki.",
     card2P:
       "Wieczorne dyskusje, warsztat i moderowany networking. Program opiera się na problemach, które firmy realnie rozwiązują.",
+    card2Points: "Niesie drugą połowę punktów — równie ważną jak żegluga.",
     card2Ratio: "bloki tematyczne",
+    splitEyebrow: "Równa waga",
+    splitTitle: "50 / 50",
+    splitP:
+      "Klasyfikacja generalna powstaje w równej części z wody i z lądu. Zespół nie wygrywa tylko dlatego, że przypadkiem ma dwóch doświadczonych żeglarzy — i nikt nie traci motywacji w środku tygodnia, bo gra o połowę punktów także poza jachtem.",
+    ruleLabel: "Zasada udziału",
+    ruleTitle: "Jedna firma. Jeden jacht. Jedna załoga.",
+    ruleP:
+      "Na jednym jachcie jest jeden zespół z jednej firmy. Żadnych mieszanych załóg, żadnych jachtów złożonych z kilku firm. Rywalizujecie jako firma — i współpracujecie także poza wodą.",
     whoKicker: "Kto to organizuje",
     whoPre: "Wydarzenie przygotowuje ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const pl: Dict = {
       },
       {
         q: "Jak właściwie wygląda rywalizacja?",
-        a: "Dziewięć biegów rozgrywanych jest w systemie niskopunktowym. Dufour 460 i Dufour 470 startują na jednej linii; klasyfikacja generalna powstaje z przeliczonego czasu.",
+        a: "Dziewięć biegów punktowanych jest w systemie niskopunktowym — niższa suma jest lepsza. Jednak połowa wszystkich punktów zdobywana jest poza wodą, w programie na lądzie. Równa waga żeglugi i treści oznacza, że decyduje cały zespół, nie tylko sternik.",
       },
       {
         q: "Czy możemy przyjechać jako dwie firmy na jednym jachcie?",

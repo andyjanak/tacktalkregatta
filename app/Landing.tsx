@@ -114,6 +114,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             {dict.hero.h1Line2Pre}<em>{dict.hero.h1Em}</em>
           </h1>
           <p className="hero-lead">{dict.hero.lead}</p>
+          <p className="hero-scoring">{dict.hero.scoring}</p>
           <a className="patronage-pill" href="#zastita">
             {dict.hero.patronage} <span aria-hidden="true">↓</span>
           </a>
@@ -160,6 +161,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             <p className="concept-label">{dict.koncept.card1Label}</p>
             <h3>{dict.koncept.card1H3}</h3>
             <p>{dict.koncept.card1P}</p>
+            <p className="concept-points">{dict.koncept.card1Points}</p>
             <div className="ratio"><span style={{ width: "90%" }} /></div>
             <p className="ratio-label"><strong>9</strong> {dict.koncept.card1Ratio}</p>
           </article>
@@ -168,9 +170,22 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             <p className="concept-label">{dict.koncept.card2Label}</p>
             <h3>{dict.koncept.card2H3}</h3>
             <p>{dict.koncept.card2P}</p>
+            <p className="concept-points">{dict.koncept.card2Points}</p>
             <div className="ratio"><span style={{ width: "40%" }} /></div>
             <p className="ratio-label"><strong>4</strong> {dict.koncept.card2Ratio}</p>
           </article>
+        </div>
+
+        <div className="concept-split">
+          <p className="concept-split-eyebrow">{dict.koncept.splitEyebrow}</p>
+          <p className="concept-split-title">{dict.koncept.splitTitle}</p>
+          <p className="concept-split-p">{dict.koncept.splitP}</p>
+        </div>
+
+        <div className="concept-rule">
+          <p className="concept-rule-label">{dict.koncept.ruleLabel}</p>
+          <h3 className="concept-rule-title">{dict.koncept.ruleTitle}</h3>
+          <p>{dict.koncept.ruleP}</p>
         </div>
 
         <div className="who-organizes">

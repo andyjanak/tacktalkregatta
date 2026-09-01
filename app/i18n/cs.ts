@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const cs: Dict = {
   htmlLang: "cs",
   meta: {
-    title: "Tack & Talk Regatta 2027 – firemní regata v Chorvatsku",
+    title: "Tack & Talk Regatta 2027 – středoevropská firemní regata v Chorvatsku",
     description:
-      "Firemní regata v Chorvatsku pro 20 posádek – čtyři závodní dny na vodě a byznys program na břehu. Tack & Talk Regatta 2027, Rogoznica, 25.–30. 9. 2027.",
+      "Středoevropská firemní regata v Chorvatsku pro 20 posádek – čtyři závodní dny na vodě a byznys program na břehu. Tack & Talk Regatta 2027, Rogoznica, 25.–30. 9. 2027.",
     keywords: [
       "firemní regata",
       "byznys regata",
@@ -35,12 +35,14 @@ const cs: Dict = {
     brandUpAria: "Tack & Talk - nahoru",
   },
   hero: {
-    eyebrow: "Byznys regata · Dalmácie 2027",
+    eyebrow: "Středoevropská firemní regata · Dalmácie 2027",
     h1Line1: "Svěží vítr",
     h1Line2Pre: "v ",
     h1Em: "plachtách.",
     lead:
       "Pět nocí. Čtyři dny na vodě. Dvacet firemních posádek a obsah, který pokračuje i po návratu do maríny.",
+    scoring:
+      "Polovina bodů se získává na vodě, polovina v programu na břehu.",
     patronage: "Pod záštitou Michala Hrivnáka",
     ctaConcept: "Prohlédnout koncept",
     ctaRoute: "Trasa a program",
@@ -66,12 +68,22 @@ const cs: Dict = {
     card1H3: "Jednotná flotila, férová hra.",
     card1P:
       "Devět rozjížděk, dvě kategorie lodí a jedna společná startovní čára. Opatrné rozhodnutí není nikdy penalizováno.",
+    card1Points: "Nese polovinu celkových bodů.",
     card1Ratio: "rozjížděk",
     card2Label: "Na břehu",
     card2H3: "Reálné problémy, ne vizitky.",
     card2P:
       "Večerní diskuse, workshop a řízený networking. Program stojí na problémech, které firmy reálně řeší.",
+    card2Points: "Nese druhou polovinu bodů — stejně důležitou jako plavba.",
     card2Ratio: "obsahové bloky",
+    splitEyebrow: "Stejná váha",
+    splitTitle: "50 / 50",
+    splitP:
+      "Celkové pořadí vzniká stejným dílem z vody a z břehu. Nevyhraje tým jen proto, že má náhodou dva zkušené jachtaře — a nikdo neztratí motivaci uprostřed týdne, protože hraje o polovinu bodů i mimo loď.",
+    ruleLabel: "Pravidlo účasti",
+    ruleTitle: "Jedna firma. Jedna loď. Jedna posádka.",
+    ruleP:
+      "Na jedné lodi je jeden tým z jedné firmy. Žádné smíšené posádky, žádné lodě poskládané z více firem. Soutěžíte jako firma — a spolupracujete i mimo vodu.",
     whoKicker: "Kdo to organizuje",
     whoPre: "Akci připravuje ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const cs: Dict = {
       },
       {
         q: "Jak se vlastně závodí?",
-        a: "Devět rozjížděk používá nízkobodový systém. Dufour 460 a Dufour 470 startují na jedné čáře; celkové pořadí vzniká z přepočteného času.",
+        a: "Devět rozjížděk se boduje nízkobodovým systémem — nižší součet je lepší. Polovina celkových bodů se však získává mimo vodu, v programu na břehu. Stejná váha plavby a obsahu znamená, že rozhoduje celý tým, ne jen kormidelník.",
       },
       {
         q: "Můžeme přijet jako dvě firmy na jedné lodi?",

@@ -4,9 +4,9 @@ import type { Dict } from "./sk";
 const hu: Dict = {
   htmlLang: "hu",
   meta: {
-    title: "Tack & Talk Regatta 2027 – céges vitorlásregatta Horvátországban",
+    title: "Tack & Talk Regatta 2027 – közép-európai céges vitorlásregatta Horvátországban",
     description:
-      "Céges regatta Horvátországban 20 legénységnek – négy versenynap a vízen és üzleti program a parton. Tack & Talk Regatta 2027, Rogoznica, 2027. szeptember 25–30.",
+      "Közép-európai céges regatta Horvátországban 20 legénységnek – négy versenynap a vízen és üzleti program a parton. Tack & Talk Regatta 2027, Rogoznica, 2027. szeptember 25–30.",
     keywords: [
       "céges regatta",
       "üzleti regatta",
@@ -35,12 +35,14 @@ const hu: Dict = {
     brandUpAria: "Tack & Talk - fel",
   },
   hero: {
-    eyebrow: "Üzleti regatta · Dalmácia 2027",
+    eyebrow: "Közép-európai céges regatta · Dalmácia 2027",
     h1Line1: "Friss szél",
     h1Line2Pre: "a ",
     h1Em: "vitorlákban.",
     lead:
       "Öt éjszaka. Négy nap a vízen. Húsz céges legénység és tartalom, amely a kikötőbe való visszatérés után is folytatódik.",
+    scoring:
+      "A pontok fele a vízen, fele a parti programban szerezhető meg.",
     patronage: "Michal Hrivnák védnökségével",
     ctaConcept: "Koncepció megtekintése",
     ctaRoute: "Útvonal és program",
@@ -66,12 +68,22 @@ const hu: Dict = {
     card1H3: "Egységes flotta, tisztességes játék.",
     card1P:
       "Kilenc futam, két hajóosztály és egy közös rajtvonal. Az óvatos döntést soha nem büntetjük.",
+    card1Points: "A teljes pontszám felét viszi.",
     card1Ratio: "futam",
     card2Label: "A parton",
     card2H3: "Valódi problémák, nem névjegykártyák.",
     card2P:
       "Esti beszélgetések, workshop és irányított networking. A program azokra a problémákra épül, amelyekkel a cégek valóban szembesülnek.",
+    card2Points: "A pontok másik felét viszi — ugyanolyan fontos, mint a vitorlázás.",
     card2Ratio: "tartalmi blokk",
+    splitEyebrow: "Egyenlő súly",
+    splitTitle: "50 / 50",
+    splitP:
+      "Az összetett sorrend egyenlő arányban a vízből és a partból áll össze. Egy csapat nem azért nyer, mert véletlenül van két tapasztalt vitorlázója — és senki sem veszíti el a motivációját a hét közepén, mert a hajón kívül is a pontok feléért játszik.",
+    ruleLabel: "Részvételi szabály",
+    ruleTitle: "Egy cég. Egy hajó. Egy legénység.",
+    ruleP:
+      "Egy hajón egy csapat van egy cégtől. Nincsenek vegyes legénységek, nincsenek több cégből összeállított hajók. Cégként versenyeztek — és a vízen kívül is együtt dolgoztok.",
     whoKicker: "Ki szervezi",
     whoPre: "A rendezvényt az ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +352,7 @@ const hu: Dict = {
       },
       {
         q: "Hogyan zajlik valójában a verseny?",
-        a: "A kilenc futam alacsonypontos rendszert használ. A Dufour 460 és a Dufour 470 egy vonalon rajtol; az összetett sorrend a számított időből adódik.",
+        a: "A kilenc futamot alacsonypontos rendszerrel pontozzuk — az alacsonyabb összeg a jobb. A teljes pontszám fele azonban a vízen kívül, a parti programban szerezhető meg. A vitorlázás és a tartalom egyenlő súlya azt jelenti, hogy az egész csapat dönt, nem csak a kormányos.",
       },
       {
         q: "Jöhetünk két cégként egy hajón?",

@@ -4,9 +4,10 @@
 const sk = {
   htmlLang: "sk",
   meta: {
-    title: "Tack & Talk Regatta 2027 – firemná regata v Chorvátsku",
+    title:
+      "Tack & Talk Regatta 2027 – stredoeurópska firemná regata v Chorvátsku",
     description:
-      "Firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 25. – 30. 9. 2027.",
+      "Stredoeurópska firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 25. – 30. 9. 2027.",
     keywords: [
       "firemná regata",
       "biznis regata",
@@ -35,12 +36,14 @@ const sk = {
     brandUpAria: "Tack & Talk - hore",
   },
   hero: {
-    eyebrow: "Biznis regata · Dalmácia 2027",
+    eyebrow: "Stredoeurópska firemná regata · Dalmácia 2027",
     h1Line1: "Svieži vietor",
     h1Line2Pre: "v ",
     h1Em: "plachtách.",
     lead:
       "Päť nocí. Štyri dni na vode. Dvadsať firemných posádok a obsah, ktorý pokračuje aj po návrate do maríny.",
+    scoring:
+      "Polovica bodov sa získava na vode, polovica v programe na brehu.",
     patronage: "Pod záštitou Michala Hrivnáka",
     ctaConcept: "Pozrieť koncept",
     ctaRoute: "Trasa a program",
@@ -66,12 +69,22 @@ const sk = {
     card1H3: "Jednotná flotila, férová hra.",
     card1P:
       "Deväť rozjázd, dve kategórie lodí a jedna spoločná štartová čiara. Opatrné rozhodnutie nikdy nie je penalizované.",
+    card1Points: "Nesie polovicu celkových bodov.",
     card1Ratio: "rozjázd",
     card2Label: "Na brehu",
     card2H3: "Reálne problémy, nie vizitky.",
     card2P:
       "Večerné diskusie, workshop a riadený networking. Program stojí na problémoch, ktoré firmy reálne riešia.",
+    card2Points: "Nesie druhú polovicu bodov — rovnako dôležitú ako plavba.",
     card2Ratio: "obsahové bloky",
+    splitEyebrow: "Rovná váha",
+    splitTitle: "50 / 50",
+    splitP:
+      "Celkové poradie vzniká rovnakým dielom z vody a z brehu. Nevyhrá tím len preto, že má náhodou dvoch skúsených jachtárov — a nikto nestratí motiváciu v strede týždňa, lebo hrá o polovicu bodov aj mimo lode.",
+    ruleLabel: "Pravidlo účasti",
+    ruleTitle: "Jedna firma. Jedna loď. Jedna posádka.",
+    ruleP:
+      "Na jednej lodi je jeden tím z jednej firmy. Žiadne zmiešané posádky, žiadne lode poskladané z viacerých firiem. Súťažíte ako firma — a spolu pracujete aj mimo vody.",
     whoKicker: "Kto to organizuje",
     whoPre: "Podujatie pripravuje ",
     whoLink: "AJservices, s.r.o.",
@@ -340,7 +353,7 @@ const sk = {
       },
       {
         q: "Ako sa vlastne súťaží?",
-        a: "Deväť rozjázd používa nízkobodový systém. Dufour 460 a Dufour 470 štartujú na jednej čiare; celkové poradie vzniká z prepočítaného času.",
+        a: "Deväť rozjázd sa boduje nízkobodovým systémom — nižší súčet je lepší. Polovica celkových bodov sa však získava mimo vody, v programe na brehu. Rovnaká váha plavby a obsahu znamená, že rozhoduje celý tím, nie iba kormidelník.",
       },
       {
         q: "Môžeme prísť ako dve firmy na jednej lodi?",
@@ -385,7 +398,7 @@ const sk = {
     errorFailed: "Dopyt sa nepodarilo odoslať.",
   },
   footer: {
-    claim: "Svieži vietor v plachtách.",
+    claim: "Prevetraj svoj biznis.",
     organizerLabel: "Organizátor",
     dateLine: "25. – 30. 9. 2027 · Rogoznica, Chorvátsko",
     mainOrgPre: "Hlavný organizátor: ",
