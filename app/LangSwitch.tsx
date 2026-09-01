@@ -1,14 +1,23 @@
-import { locales, localeHome, languageNames, type Locale } from "./i18n";
+import {
+  locales,
+  routePath,
+  languageNames,
+  type Locale,
+  type RouteKey,
+} from "./i18n";
 import Flag from "./Flag";
 
 // Rozbaľovací prepínač jazykov (natívny <details>, bez JS). Sumár ukazuje
-// aktuálny jazyk, po rozbalení sa zobrazí zoznam všetkých jazykov.
+// aktuálny jazyk, po rozbalení zoznam jazykov. `routeKey` zabezpečí, že
+// prepnutie jazyka zachová aktuálnu stránku (napr. /de/wetter → /pl/pogoda).
 export default function LangSwitch({
   locale,
   aria,
+  routeKey = "home",
 }: {
   locale: Locale;
   aria: string;
+  routeKey?: RouteKey;
 }) {
   return (
     <details className="lang-switch">
@@ -23,7 +32,7 @@ export default function LangSwitch({
         {locales.map((l) => (
           <a
             key={l}
-            href={`${localeHome(l)}?lang=${l}`}
+            href={`${routePath(routeKey, l)}?lang=${l}`}
             hrefLang={l}
             className={l === locale ? "is-active" : ""}
             aria-current={l === locale ? "true" : undefined}

@@ -32,33 +32,54 @@ export function localeHome(locale: Locale): string {
   return locale === defaultLocale ? "/" : `/${locale}`;
 }
 
-// Stránka počasia: /pocasie (sk) alebo /<locale>/pocasie.
-export function localeWeather(locale: Locale): string {
-  return locale === defaultLocale ? "/pocasie" : `/${locale}/pocasie`;
+// ---------------------------------------------------------------------------
+// Mapa routov: kanonický kľúč stránky → lokalizovaný slug pre každý jazyk.
+// Slugy sú ASCII (bez diakritiky) kvôli čistým URL. Z tejto mapy sa generujú
+// cesty, sitemap aj hreflang — nikdy sa nepíšu ručne.
+// ---------------------------------------------------------------------------
+export type RouteKey = "home" | "weather";
+
+const routeSlugs: Record<RouteKey, Record<Locale, string>> = {
+  home: { sk: "", en: "", cs: "", de: "", hu: "", hr: "", pl: "" },
+  weather: {
+    sk: "pocasie",
+    en: "weather",
+    cs: "pocasi",
+    de: "wetter",
+    hu: "idojaras",
+    hr: "vrijeme",
+    pl: "pogoda",
+  },
+};
+
+// Cesta pre danú stránku a jazyk. SK je v koreni, ostatné pod "/<locale>".
+export function routePath(key: RouteKey, locale: Locale): string {
+  const base = locale === defaultLocale ? "" : `/${locale}`;
+  const slug = routeSlugs[key][locale];
+  if (!slug) return base || "/";
+  return `${base}/${slug}`;
 }
 
-// hreflang alternatívy pre metadata (next/metadata alternates.languages).
-export const languageAlternates: Record<string, string> = {
-  sk: "/",
-  en: "/en",
-  cs: "/cs",
-  de: "/de",
-  hu: "/hu",
-  hr: "/hr",
-  pl: "/pl",
-  "x-default": "/",
-};
+// hreflang alternatívy pre danú stránku (7 jazykov + x-default → SK).
+export function routeAlternates(key: RouteKey): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const l of locales) out[l] = routePath(key, l);
+  out["x-default"] = routePath(key, defaultLocale);
+  return out;
+}
 
-// hreflang alternatívy pre stránku počasia.
-export const weatherAlternates: Record<string, string> = {
-  sk: "/pocasie",
-  en: "/en/pocasie",
-  cs: "/cs/pocasie",
-  de: "/de/pocasie",
-  hu: "/hu/pocasie",
-  hr: "/hr/pocasie",
-  pl: "/pl/pocasie",
-  "x-default": "/pocasie",
-};
+// Slovenčina je na "/", ostatné jazyky pod "/<locale>".
+export function localeHomePath(locale: Locale): string {
+  return routePath("home", locale);
+}
+
+// Stránka počasia — lokalizovaný slug (napr. /pocasie, /en/weather, /de/wetter).
+export function localeWeather(locale: Locale): string {
+  return routePath("weather", locale);
+}
+
+// hreflang alternatívy generované z mapy routov.
+export const languageAlternates = routeAlternates("home");
+export const weatherAlternates = routeAlternates("weather");
 
 export type { Dict };
