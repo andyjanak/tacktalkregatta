@@ -287,6 +287,13 @@ const hr: Dict = {
     priceStrong: "Cijene brodova objavit ćemo 15. listopada 2026.",
     priceP:
       "Do tada komuniciramo koncept, rutu i sadržaj paketa. Ostavite nam kontakt u nastavku i javit ćemo se.",
+    perPersonLabel: "Cijena po osobi",
+    sliderLabel: "Broj osoba u posadi",
+    peopleUnit: "osoba",
+    perPersonNote:
+      "Okvirni izračun po osobi za odabrani broj, uvijek bez PDV-a. Jedinica prodaje ostaje brod.",
+    fleetEyebrow: "Popunjenost flote",
+    fleetLabel: "brodova rezervirano",
     includesLabel: "Cijena svakog broda uključuje",
     includesAria: "Što uključuje cijena svakog broda",
     includes: [
@@ -526,6 +533,40 @@ const hr: Dict = {
     archiveTitle: "Izdanja",
     editionPrefix: "Izdanje",
     upcoming: "Uskoro",
+  },
+  documents: {
+    metaTitle: "Dokumenti – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Službeni dokumenti regate Tack & Talk: jedriličarske upute, tehnička specifikacija broda, uvjeti sudjelovanja i sigurnosni plan.",
+    navLink: "Dokumenti",
+    eyebrow: "Dokumenti",
+    h1Line1: "Dokumenti",
+    h1Line2: "regate.",
+    lead:
+      "Službeni dokumenti regate. Svaki s verzijom i datumom objave. Što još nije gotovo, prikazuje svoj status pripreme.",
+    statusReady: "Dostupno",
+    statusSoon: "U pripremi",
+    versionPrefix: "Verzija",
+    open: "Otvori",
+    note: "Obvezujući je uvijek tekst u službenom dokumentu.",
+    docs: [
+      {
+        title: "Jedriličarske upute",
+        desc: "Točan dnevni raspored utrka, startni postupci i pravila regate.",
+      },
+      {
+        title: "Tehnička specifikacija broda",
+        desc: "Dopušteni brodovi i njihova obvezna oprema.",
+      },
+      {
+        title: "Uvjeti sudjelovanja",
+        desc: "Tko može sudjelovati te obveze posade i organizatora.",
+      },
+      {
+        title: "Sigurnosni plan",
+        desc: "Pravila plovidbe, postupak pri lošem vremenu i sigurnosna načela.",
+      },
+    ],
   },
 };
 

@@ -287,6 +287,13 @@ const hu: Dict = {
     priceStrong: "A hajóárakat 2026. október 15-én tesszük közzé.",
     priceP:
       "Addig a koncepciót, az útvonalat és a csomag tartalmát kommunikáljuk. Hagyd meg lent az elérhetőségedet, és jelentkezünk.",
+    perPersonLabel: "Ár személyenként",
+    sliderLabel: "Személyek száma a legénységben",
+    peopleUnit: "fő",
+    perPersonNote:
+      "Tájékoztató érték személyenként a választott létszám mellett, mindig + áfa. Az értékesítés egysége továbbra is a hajó.",
+    fleetEyebrow: "Flotta telítettsége",
+    fleetLabel: "hajó lefoglalva",
     includesLabel: "Minden hajó ára tartalmazza",
     includesAria: "Mit tartalmaz minden hajó ára",
     includes: [
@@ -526,6 +533,40 @@ const hu: Dict = {
     archiveTitle: "Kiírások",
     editionPrefix: "Kiírás",
     upcoming: "Hamarosan",
+  },
+  documents: {
+    metaTitle: "Dokumentumok – Tack & Talk Regatta 2027",
+    metaDescription:
+      "A Tack & Talk regatta hivatalos dokumentumai: versenyutasítás, a hajó műszaki specifikációja, részvételi feltételek és biztonsági terv.",
+    navLink: "Dokumentumok",
+    eyebrow: "Dokumentumok",
+    h1Line1: "A regatta",
+    h1Line2: "dokumentumai.",
+    lead:
+      "A regatta hivatalos dokumentumai. Mindegyik verzióval és közzétételi dátummal. Ami még nem kész, annak az előkészítési állapota látszik.",
+    statusReady: "Elérhető",
+    statusSoon: "Előkészületben",
+    versionPrefix: "Verzió",
+    open: "Megnyitás",
+    note: "Mindig a hivatalos dokumentum szövege a kötelező érvényű.",
+    docs: [
+      {
+        title: "Versenyutasítás",
+        desc: "A futamok pontos napi menetrendje, a rajteljárások és a regatta szabályai.",
+      },
+      {
+        title: "A hajó műszaki specifikációja",
+        desc: "A megengedett hajók és kötelező felszerelésük.",
+      },
+      {
+        title: "Részvételi feltételek",
+        desc: "Ki vehet részt, valamint a legénység és a szervező kötelezettségei.",
+      },
+      {
+        title: "Biztonsági terv",
+        desc: "Hajózási szabályok, rossz idő esetén követendő eljárás és biztonsági alapelvek.",
+      },
+    ],
   },
 };
 

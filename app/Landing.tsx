@@ -3,8 +3,10 @@ import MobileNav from "./MobileNav";
 import InterestForm from "./InterestForm";
 import RacePlan from "./RacePlan";
 import LangSwitch from "./LangSwitch";
+import PriceCalculator from "./PriceCalculator";
+import FleetCounter from "./FleetCounter";
 import { siteUrl } from "./site-config";
-import { localeHome, localeWeather, localeResults, type Dict, type Locale } from "./i18n";
+import { localeHome, localeWeather, localeResults, localeDocuments, type Dict, type Locale } from "./i18n";
 
 function Brand() {
   return (
@@ -18,6 +20,13 @@ function Brand() {
 
 export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }) {
   const homeUrl = new URL(localeHome(locale), siteUrl).toString();
+
+  // Ceny sú verejné až keď to prepne public_display (viac v regatta.json).
+  const pricesPublic = regatta.pricing.public_display;
+  const priceBoats = regatta.pricing.packages.map((p) => ({
+    name: p.name,
+    price: p.price,
+  }));
 
   const eventJsonLd = {
     "@context": "https://schema.org",
@@ -288,9 +297,28 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
 
         <div className="price-reveal" role="note">
           <p className="fee-label">{dict.fees.priceLabel}</p>
-          <strong>{dict.fees.priceStrong}</strong>
-          <p>{dict.fees.priceP}</p>
+          {pricesPublic ? (
+            <PriceCalculator
+              boats={priceBoats}
+              locale={locale}
+              labels={{
+                perPersonLabel: dict.fees.perPersonLabel,
+                sliderLabel: dict.fees.sliderLabel,
+                peopleUnit: dict.fees.peopleUnit,
+                perPersonNote: dict.fees.perPersonNote,
+              }}
+            />
+          ) : (
+            <>
+              <strong>{dict.fees.priceStrong}</strong>
+              <p>{dict.fees.priceP}</p>
+            </>
+          )}
         </div>
+        <FleetCounter
+          eyebrow={dict.fees.fleetEyebrow}
+          label={dict.fees.fleetLabel}
+        />
         <div className="package-includes" aria-label={dict.fees.includesAria}>
           <p className="fee-label">{dict.fees.includesLabel}</p>
           <ul>
@@ -380,6 +408,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <p>{dict.footer.coOrgLine}</p>
           <p>{dict.footer.patronageLine}</p>
           <p><a href={localeResults(locale)}>{dict.results.navLink}</a></p>
+          <p><a href={localeDocuments(locale)}>{dict.documents.navLink}</a></p>
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
           <a className="footer-admin-link" href="/admin">{dict.footer.adminLink} <span aria-hidden="true">→</span></a>
         </div>

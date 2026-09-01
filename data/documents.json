@@ -1,0 +1,9 @@
+{
+  "_comment": "Stav dokumentov (jazykovo neutrálny). Poradie zodpovedá dict.documents.docs. status: 'soon' = pripravuje sa, 'ready' = dostupné (potom vyplň version, date, url).",
+  "documents": [
+    { "id": "sailing-instructions", "status": "soon", "version": "", "date": "", "url": "" },
+    { "id": "boat-spec", "status": "soon", "version": "", "date": "", "url": "" },
+    { "id": "participation", "status": "soon", "version": "", "date": "", "url": "" },
+    { "id": "safety-plan", "status": "soon", "version": "", "date": "", "url": "" }
+  ]
+}

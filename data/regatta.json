@@ -299,6 +299,13 @@
     "no_discount_rule": "Po tomto dátume sa cena nezníži za žiadnych okolností, ani na úkor nenaplnenej flotily. Ak treba dopredať, mení sa obsah balíčka, nie cena."
   },
 
+  "fleet_occupancy": {
+    "_comment": "Počítadlo obsadenosti flotily. enabled sa zapne až po podpise charterovej zmluvy — dovtedy by to bol sľub kapacity (viď pravidlá).",
+    "enabled": false,
+    "booked": 0,
+    "total": 20
+  },
+
   "sales": {
     "primary_unit": "loď, nie jednotlivé miesto",
     "rationale": "20 obchodov namiesto 120. Firemný rozpočet, jeden rozhodovateľ, posádka príde hotová.",

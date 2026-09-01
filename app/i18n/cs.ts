@@ -287,6 +287,13 @@ const cs: Dict = {
     priceStrong: "Ceny lodí zveřejníme 15. 10. 2026.",
     priceP:
       "Do té doby komunikujeme koncept, trasu a obsah balíčku. Nechte nám níže kontakt a ozveme se.",
+    perPersonLabel: "Cena na osobu",
+    sliderLabel: "Počet osob v posádce",
+    peopleUnit: "osob",
+    perPersonNote:
+      "Orientační přepočet na osobu při zvoleném počtu, vždy bez DPH. Jednotkou prodeje zůstává loď.",
+    fleetEyebrow: "Obsazenost flotily",
+    fleetLabel: "lodí obsazeno",
     includesLabel: "Cena každé lodi zahrnuje",
     includesAria: "Co zahrnuje cena každé lodi",
     includes: [
@@ -526,6 +533,40 @@ const cs: Dict = {
     archiveTitle: "Ročníky",
     editionPrefix: "Ročník",
     upcoming: "Připravujeme",
+  },
+  documents: {
+    metaTitle: "Dokumenty – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Oficiální dokumenty regaty Tack & Talk: plachetní pokyny, technická specifikace plavidla, podmínky účasti a bezpečnostní plán.",
+    navLink: "Dokumenty",
+    eyebrow: "Dokumenty",
+    h1Line1: "Dokumenty",
+    h1Line2: "regaty.",
+    lead:
+      "Oficiální dokumenty regaty. Každý s verzí a datem zveřejnění. Co ještě není hotové, má uvedený stav přípravy.",
+    statusReady: "Dostupné",
+    statusSoon: "Připravuje se",
+    versionPrefix: "Verze",
+    open: "Otevřít",
+    note: "Závazné je vždy znění v oficiálním dokumentu.",
+    docs: [
+      {
+        title: "Plachetní pokyny",
+        desc: "Přesný denní rozpis rozjížděk, startovní postupy a pravidla regaty.",
+      },
+      {
+        title: "Technická specifikace plavidla",
+        desc: "Přípustná plavidla a jejich povinné vybavení.",
+      },
+      {
+        title: "Podmínky účasti",
+        desc: "Kdo se může zúčastnit a povinnosti posádky i organizátora.",
+      },
+      {
+        title: "Bezpečnostní plán",
+        desc: "Pravidla plavby, postup při špatném počasí a bezpečnostní zásady.",
+      },
+    ],
   },
 };
 
