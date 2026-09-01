@@ -287,6 +287,13 @@ const de: Dict = {
     priceStrong: "Die Bootspreise werden am 15. Oktober 2026 veröffentlicht.",
     priceP:
       "Bis dahin kommunizieren wir das Konzept, die Route und den Paketinhalt. Hinterlassen Sie uns unten Ihren Kontakt und wir melden uns.",
+    perPersonLabel: "Preis pro Person",
+    sliderLabel: "Anzahl der Personen in der Crew",
+    peopleUnit: "Personen",
+    perPersonNote:
+      "Richtwert pro Person bei der gewählten Crewgröße, immer zzgl. MwSt. Verkaufseinheit bleibt das Boot.",
+    fleetEyebrow: "Auslastung der Flotte",
+    fleetLabel: "Boote belegt",
     includesLabel: "Der Preis jedes Bootes umfasst",
     includesAria: "Was der Preis jedes Bootes umfasst",
     includes: [
@@ -526,6 +533,40 @@ const de: Dict = {
     archiveTitle: "Ausgaben",
     editionPrefix: "Ausgabe",
     upcoming: "In Kürze",
+  },
+  documents: {
+    metaTitle: "Dokumente – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Offizielle Dokumente der Tack & Talk Regatta: Segelanweisungen, technische Bootsspezifikation, Teilnahmebedingungen und Sicherheitsplan.",
+    navLink: "Dokumente",
+    eyebrow: "Dokumente",
+    h1Line1: "Dokumente",
+    h1Line2: "der Regatta.",
+    lead:
+      "Offizielle Regatta-Dokumente. Jedes mit Version und Veröffentlichungsdatum. Was noch nicht fertig ist, zeigt seinen Vorbereitungsstand.",
+    statusReady: "Verfügbar",
+    statusSoon: "In Vorbereitung",
+    versionPrefix: "Version",
+    open: "Öffnen",
+    note: "Verbindlich ist stets der Wortlaut im offiziellen Dokument.",
+    docs: [
+      {
+        title: "Segelanweisungen",
+        desc: "Der genaue tägliche Wettfahrtplan, die Startverfahren und die Regattaregeln.",
+      },
+      {
+        title: "Technische Bootsspezifikation",
+        desc: "Zugelassene Boote und ihre erforderliche Ausrüstung.",
+      },
+      {
+        title: "Teilnahmebedingungen",
+        desc: "Wer teilnehmen darf und die Pflichten von Crew und Veranstalter.",
+      },
+      {
+        title: "Sicherheitsplan",
+        desc: "Segelregeln, Vorgehen bei Schlechtwetter und Sicherheitsgrundsätze.",
+      },
+    ],
   },
 };
 

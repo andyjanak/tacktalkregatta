@@ -287,6 +287,13 @@ const en: Dict = {
     priceStrong: "Boat prices will be published on 15 October 2026.",
     priceP:
       "Until then we’re communicating the concept, the route and the package contents. Leave us your contact below and we’ll be in touch.",
+    perPersonLabel: "Price per person",
+    sliderLabel: "Number of people in the crew",
+    peopleUnit: "people",
+    perPersonNote:
+      "Indicative per-person figure for the chosen crew size, always excl. VAT. The unit of sale remains the boat.",
+    fleetEyebrow: "Fleet occupancy",
+    fleetLabel: "boats booked",
     includesLabel: "The price of each boat includes",
     includesAria: "What each boat’s price includes",
     includes: [
@@ -526,6 +533,40 @@ const en: Dict = {
     archiveTitle: "Editions",
     editionPrefix: "Edition",
     upcoming: "Coming soon",
+  },
+  documents: {
+    metaTitle: "Documents – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Official documents of the Tack & Talk regatta: sailing instructions, boat technical specification, participation conditions and safety plan.",
+    navLink: "Documents",
+    eyebrow: "Documents",
+    h1Line1: "Documents",
+    h1Line2: "of the regatta.",
+    lead:
+      "Official regatta documents. Each with a version and publication date. What isn't ready yet shows its preparation status.",
+    statusReady: "Available",
+    statusSoon: "In preparation",
+    versionPrefix: "Version",
+    open: "Open",
+    note: "The binding wording is always the one in the official document.",
+    docs: [
+      {
+        title: "Sailing instructions",
+        desc: "The exact daily race schedule, start procedures and regatta rules.",
+      },
+      {
+        title: "Boat technical specification",
+        desc: "Eligible boats and their required equipment.",
+      },
+      {
+        title: "Participation conditions",
+        desc: "Who may take part and the duties of crew and organiser.",
+      },
+      {
+        title: "Safety plan",
+        desc: "Sailing rules, bad-weather procedure and safety principles.",
+      },
+    ],
   },
 };
 

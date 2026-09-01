@@ -870,3 +870,39 @@ main.rs { background: var(--sand); color: var(--ink); padding-top: 92px; overflo
 .rs-editions { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; max-width: 560px; }
 .rs-edition { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
 .rs-edition-year { font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ===================== Stránka dokumentov (/dokumenty) ===================== */
+main.dc { background: var(--sand); color: var(--ink); padding-top: 92px; overflow: visible; }
+.dc-intro { max-width: 900px; margin: 0 auto; padding: clamp(40px,6vw,72px) clamp(24px,5vw,80px) 8px; }
+.dc-h1 { font-size: clamp(2.4rem,6.5vw,4rem); line-height: 1; letter-spacing: -.02em; margin: 0 0 18px; font-weight: 600; text-wrap: balance; }
+.dc-h1 em { color: var(--brass); font-style: normal; }
+.dc-lead { max-width: 620px; color: #4a5568; font-size: 1.05rem; line-height: 1.65; margin: 0; }
+.dc-section { max-width: 900px; margin: 0 auto; padding: clamp(24px,4vw,44px) clamp(24px,5vw,80px); }
+.dc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.dc-item { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; box-shadow: 0 8px 24px rgba(11,37,69,.05); }
+.dc-item-main { flex: 1 1 300px; }
+.dc-item-main h2 { margin: 0 0 6px; font-size: 1.15rem; font-weight: 600; letter-spacing: -.01em; }
+.dc-item-main p { margin: 0; font-size: .92rem; line-height: 1.55; color: #4a5568; }
+.dc-version { margin: 8px 0 0 !important; font-size: .78rem !important; color: var(--grey) !important; font-variant-numeric: tabular-nums; }
+.dc-open { display: inline-block; padding: 10px 20px; background: var(--navy); color: #fff; border-radius: 8px; font-size: .8rem; font-weight: 600; letter-spacing: .04em; }
+.dc-open:hover { background: #163a63; }
+.dc-badge { flex: none; padding: 6px 14px; border-radius: 999px; font-size: .74rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: rgba(192,138,46,.16); color: var(--brass); border: 1px solid rgba(192,138,46,.5); }
+.dc-note { margin: 18px 0 0; font-size: .82rem; color: var(--grey); }
+
+/* ===================== Cena na osobu (kalkulačka) ===================== */
+.price-calc { margin-top: 6px; }
+.price-calc-slider label { display: block; font-size: .95rem; color: inherit; margin-bottom: 10px; }
+.price-calc-slider input[type="range"] { width: 100%; max-width: 320px; accent-color: var(--brass); cursor: pointer; }
+.price-calc-boats { display: flex; flex-wrap: wrap; gap: 16px; margin: 18px 0 0; }
+.price-calc-boat { display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; min-width: 150px; }
+.price-calc-boat-name { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--grey); }
+.price-calc-total { font-size: 1.3rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.price-calc-per { font-size: .82rem; color: var(--brass); font-weight: 600; font-variant-numeric: tabular-nums; }
+.price-calc-note { margin: 14px 0 0; font-size: .8rem; color: var(--grey); line-height: 1.5; }
+
+/* ===================== Počítadlo obsadenosti flotily ===================== */
+.fleet-counter { margin-top: 20px; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 16px 22px; border: 1px solid var(--brass); border-radius: 14px; background: rgba(192,138,46,.06); }
+.fleet-eyebrow { margin: 0; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); }
+.fleet-count { margin: 2px 0; font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+.fleet-count span { color: var(--grey); font-size: 1.2rem; font-weight: 500; }
+.fleet-label { margin: 0; font-size: .8rem; color: var(--grey); }

@@ -287,6 +287,13 @@ const pl: Dict = {
     priceStrong: "Ceny jachtów ogłosimy 15.10.2026.",
     priceP:
       "Do tego czasu komunikujemy koncept, trasę i zawartość pakietu. Zostaw nam kontakt poniżej, a odezwiemy się.",
+    perPersonLabel: "Cena za osobę",
+    sliderLabel: "Liczba osób w załodze",
+    peopleUnit: "osób",
+    perPersonNote:
+      "Orientacyjne przeliczenie na osobę przy wybranej liczbie, zawsze netto. Jednostką sprzedaży pozostaje jacht.",
+    fleetEyebrow: "Obłożenie floty",
+    fleetLabel: "jachtów zarezerwowanych",
     includesLabel: "Cena każdego jachtu obejmuje",
     includesAria: "Co obejmuje cena każdego jachtu",
     includes: [
@@ -526,6 +533,40 @@ const pl: Dict = {
     archiveTitle: "Edycje",
     editionPrefix: "Edycja",
     upcoming: "Wkrótce",
+  },
+  documents: {
+    metaTitle: "Dokumenty – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Oficjalne dokumenty regat Tack & Talk: instrukcja żeglugi, specyfikacja techniczna jachtu, warunki uczestnictwa i plan bezpieczeństwa.",
+    navLink: "Dokumenty",
+    eyebrow: "Dokumenty",
+    h1Line1: "Dokumenty",
+    h1Line2: "regat.",
+    lead:
+      "Oficjalne dokumenty regat. Każdy z wersją i datą publikacji. To, co jeszcze nie jest gotowe, ma podany status przygotowania.",
+    statusReady: "Dostępne",
+    statusSoon: "W przygotowaniu",
+    versionPrefix: "Wersja",
+    open: "Otwórz",
+    note: "Wiążące jest zawsze brzmienie w oficjalnym dokumencie.",
+    docs: [
+      {
+        title: "Instrukcja żeglugi",
+        desc: "Dokładny dzienny rozkład wyścigów, procedury startowe i zasady regat.",
+      },
+      {
+        title: "Specyfikacja techniczna jachtu",
+        desc: "Dopuszczone jachty i ich obowiązkowe wyposażenie.",
+      },
+      {
+        title: "Warunki uczestnictwa",
+        desc: "Kto może wziąć udział oraz obowiązki załogi i organizatora.",
+      },
+      {
+        title: "Plan bezpieczeństwa",
+        desc: "Zasady żeglugi, postępowanie przy złej pogodzie i zasady bezpieczeństwa.",
+      },
+    ],
   },
 };
 
