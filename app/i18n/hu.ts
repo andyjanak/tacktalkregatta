@@ -500,6 +500,33 @@ const hu: Dict = {
       "Szél, széllökések és hullámok az útvonal pontjain, valamint a szeptember végi jellemző körülmények.",
     teaserCta: "Időjárás megtekintése",
   },
+  results: {
+    metaTitle: "Eredmények és pontozás – Tack & Talk Regatta 2027",
+    metaDescription:
+      "A Tack & Talk regatta pontozási rendszere, holtverseny-szabályai és eredményei. Az eredményarchívum online marad.",
+    navLink: "Eredmények",
+    eyebrow: "Eredmények és pontozás",
+    h1Line1: "A regatta",
+    h1Line2: "eredményei.",
+    lead:
+      "Az első kiírás előtt itt találod a pontozási szabályokat. A regatta után az oldal megtelik eredményekkel — az archívum pedig online marad.",
+    scoringTitle: "Pontozási rendszer",
+    scoringLead: "Kilenc futam · alacsony pontos rendszer",
+    scoringP:
+      "Minden futam a célba érkezés helyezése szerint oszt pontot — a győztes kapja a legkevesebb pontot. Az összesített sorrend a kilenc futam összege; az alacsonyabb összpont a jobb. A rendezvény összpontszámának fele azonban a vízen kívül, a parti programban szerezhető meg.",
+    tieTitle: "Holtverseny esetén",
+    tieP:
+      "Ha két legénységnek azonos az összpontszáma, a jobb helyezések száma dönt; további egyenlőség esetén az utolsó közös futam eredménye. A pontos szabályt a versenyutasítás erősíti meg.",
+    whenTitle: "Mikor és hol lesznek az eredmények",
+    whenP:
+      "A részeredményeket minden versenynap után közzétesszük a kikötőben és itt az oldalon. Az összesített eredmények és a díjkiosztó az utolsó napon lesznek Rogoznicában.",
+    liveTitle: "Élő eredmények",
+    liveP: "Az élő eredmények linkjét a regatta rajtja előtt adjuk hozzá.",
+    liveSoon: "Hamarosan",
+    archiveTitle: "Kiírások",
+    editionPrefix: "Kiírás",
+    upcoming: "Hamarosan",
+  },
 };
 
 export default hu;

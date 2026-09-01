@@ -500,6 +500,33 @@ const en: Dict = {
       "Wind, gusts and waves by point of the route plus typical late-September conditions.",
     teaserCta: "See the weather",
   },
+  results: {
+    metaTitle: "Results and scoring – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Scoring system, tie-break rules and results of the Tack & Talk regatta. The results archive stays online.",
+    navLink: "Results",
+    eyebrow: "Results and scoring",
+    h1Line1: "Results",
+    h1Line2: "of the regatta.",
+    lead:
+      "Before the first edition you'll find the scoring rules here. After the regatta the page fills with results — and the archive stays online.",
+    scoringTitle: "Scoring system",
+    scoringLead: "Nine races · low-point system",
+    scoringP:
+      "Each race awards points by finishing position — the winner gets the fewest points. The overall ranking is the sum of nine races; a lower total is better. But half of the event's total points are earned off the water, in the programme ashore.",
+    tieTitle: "In case of a tie",
+    tieP:
+      "If two crews have the same total, the number of better placings decides; if those tie too, the result of the last shared race. The exact rule is confirmed by the sailing instructions.",
+    whenTitle: "When and where the results appear",
+    whenP:
+      "Interim standings are published after each race day, at the marina and here on the page. The overall results and prize-giving are on the final day in Rogoznica.",
+    liveTitle: "Live results",
+    liveP: "We'll add the link to live results before the regatta starts.",
+    liveSoon: "Coming soon",
+    archiveTitle: "Editions",
+    editionPrefix: "Edition",
+    upcoming: "Coming soon",
+  },
 };
 
 export default en;

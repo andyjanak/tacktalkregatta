@@ -500,6 +500,33 @@ const pl: Dict = {
       "Wiatr, porywy i fale w punktach trasy oraz typowe warunki pod koniec września.",
     teaserCta: "Zobacz pogodę",
   },
+  results: {
+    metaTitle: "Wyniki i punktacja – Tack & Talk Regatta 2027",
+    metaDescription:
+      "System punktacji, zasady przy równej liczbie punktów i wyniki regat Tack & Talk. Archiwum wyników pozostaje online.",
+    navLink: "Wyniki",
+    eyebrow: "Wyniki i punktacja",
+    h1Line1: "Wyniki",
+    h1Line2: "regat.",
+    lead:
+      "Przed pierwszą edycją znajdziesz tu zasady punktacji. Po regatach strona wypełni się wynikami — a archiwum pozostanie online.",
+    scoringTitle: "System punktacji",
+    scoringLead: "Dziewięć wyścigów · system niskopunktowy",
+    scoringP:
+      "Każdy wyścig przyznaje punkty według pozycji na mecie — zwycięzca otrzymuje najmniej punktów. Klasyfikacja ogólna to suma dziewięciu wyścigów; niższa suma jest lepsza. Połowa łącznej puli punktów wydarzenia zdobywana jest jednak poza wodą, w programie na lądzie.",
+    tieTitle: "Przy równej liczbie punktów",
+    tieP:
+      "Jeśli dwie załogi mają tę samą sumę, decyduje liczba lepszych miejsc; przy kolejnej równości wynik z ostatniego wspólnego wyścigu. Dokładną zasadę potwierdza instrukcja żeglugi.",
+    whenTitle: "Kiedy i gdzie pojawią się wyniki",
+    whenP:
+      "Wyniki tymczasowe publikujemy po każdym dniu regat, w marinie i tutaj na stronie. Wyniki końcowe i dekoracja odbędą się ostatniego dnia w Rogoznicy.",
+    liveTitle: "Wyniki na żywo",
+    liveP: "Link do wyników na żywo dodamy przed startem regat.",
+    liveSoon: "Wkrótce",
+    archiveTitle: "Edycje",
+    editionPrefix: "Edycja",
+    upcoming: "Wkrótce",
+  },
 };
 
 export default pl;

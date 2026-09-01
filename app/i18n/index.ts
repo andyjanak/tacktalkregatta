@@ -37,7 +37,7 @@ export function localeHome(locale: Locale): string {
 // Slugy sú ASCII (bez diakritiky) kvôli čistým URL. Z tejto mapy sa generujú
 // cesty, sitemap aj hreflang — nikdy sa nepíšu ručne.
 // ---------------------------------------------------------------------------
-export type RouteKey = "home" | "weather";
+export type RouteKey = "home" | "weather" | "results";
 
 const routeSlugs: Record<RouteKey, Record<Locale, string>> = {
   home: { sk: "", en: "", cs: "", de: "", hu: "", hr: "", pl: "" },
@@ -49,6 +49,15 @@ const routeSlugs: Record<RouteKey, Record<Locale, string>> = {
     hu: "idojaras",
     hr: "vrijeme",
     pl: "pogoda",
+  },
+  results: {
+    sk: "vysledky",
+    en: "results",
+    cs: "vysledky",
+    de: "ergebnisse",
+    hu: "eredmenyek",
+    hr: "rezultati",
+    pl: "wyniki",
   },
 };
 
@@ -78,8 +87,14 @@ export function localeWeather(locale: Locale): string {
   return routePath("weather", locale);
 }
 
+// Stránka výsledkov — lokalizovaný slug (napr. /vysledky, /en/results).
+export function localeResults(locale: Locale): string {
+  return routePath("results", locale);
+}
+
 // hreflang alternatívy generované z mapy routov.
 export const languageAlternates = routeAlternates("home");
 export const weatherAlternates = routeAlternates("weather");
+export const resultsAlternates = routeAlternates("results");
 
 export type { Dict };

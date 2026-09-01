@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import regatta from "@/data/regatta.json";
 import { siteUrl } from "./site-config";
-import { locales, localeHome, localeWeather } from "./i18n";
+import { locales, localeHome, localeWeather, localeResults } from "./i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(`${regatta.generated}T12:00:00+02:00`);
@@ -10,6 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
   const weatherLanguages = Object.fromEntries(
     locales.map((l) => [l, new URL(localeWeather(l), siteUrl).toString()]),
+  );
+  const resultsLanguages = Object.fromEntries(
+    locales.map((l) => [l, new URL(localeResults(l), siteUrl).toString()]),
   );
 
   const home = locales.map((l) => ({
@@ -28,5 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: weatherLanguages },
   }));
 
-  return [...home, ...weather];
+  const results = locales.map((l) => ({
+    url: new URL(localeResults(l), siteUrl).toString(),
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+    alternates: { languages: resultsLanguages },
+  }));
+
+  return [...home, ...weather, ...results];
 }

@@ -1,0 +1,6 @@
+{
+  "_comment": "Archív výsledkov po ročníkoch. status: 'upcoming' = pripravuje sa; po regate sa doplní 'races' a 'standings'. Štruktúra znesie ďalšie ročníky bez refaktoringu.",
+  "years": [
+    { "year": 2027, "status": "upcoming" }
+  ]
+}
