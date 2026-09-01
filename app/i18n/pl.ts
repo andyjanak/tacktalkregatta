@@ -82,7 +82,7 @@ const pl: Dict = {
     eyebrow: "Dla kogo to jest",
     h2: "Dla zespołów, które razem decydują.",
     lead:
-      "Tack & Talk to nie firmowa wycieczka. To pięć nocy, podczas których firmowy zespół wspólnie działa, żegluje i decyduje w przestrzeni wielkości salonu. Nikt nie odejdzie na call. Nikt nie zniknie po drugim daniu.",
+      "Tack & Talk to nie zwykły firmowy wyjazd. To pięć nocy, podczas których firmowy zespół wspólnie działa, żegluje i decyduje w przestrzeni wielkości salonu. Nikt nie odejdzie na call. Nikt nie zniknie po drugim daniu.",
     cards: [
       {
         h3: "Zarządy firm i zespoły menedżerskie",

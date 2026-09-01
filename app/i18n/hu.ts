@@ -328,7 +328,7 @@ const hu: Dict = {
       },
       {
         q: "Hogyan jutunk el Rogoznicába?",
-        a: "A legközelebbi repülőtér Splitben van. A közlekedést minden cég maga szervezi; nagyobb érdeklődés esetén segítünk közös utazást összehangolni.",
+        a: "A legközelebbi repülőtér Splitben van. A közlekedést minden cég maga szervezi; nagyobb érdeklődés esetén segítünk közös eljutást összehangolni.",
       },
       {
         q: "Biztonságos?",
