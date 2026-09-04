@@ -524,6 +524,9 @@ const de: Dict = {
     tieTitle: "Bei Punktgleichheit",
     tieP:
       "Haben zwei Crews die gleiche Summe, entscheidet die Anzahl der besseren Platzierungen; bei erneutem Gleichstand das Ergebnis der letzten gemeinsamen Wettfahrt. Die genaue Regel bestätigen die Segelanweisungen.",
+    discardTitle: "Streichung der schlechtesten Wettfahrt",
+    discardP:
+      "Nach mindestens 5 gesegelten Wettfahrten wird jeder Crew ihre schlechteste Wettfahrt (mit den meisten Punkten) gestrichen. Die Finalwettfahrt wird nie gestrichen — sie zählt immer.",
     whenTitle: "Wann und wo die Ergebnisse erscheinen",
     whenP:
       "Zwischenstände werden nach jedem Wettfahrttag veröffentlicht, im Hafen und hier auf der Seite. Die Gesamtergebnisse und die Siegerehrung sind am letzten Tag in Rogoznica.",

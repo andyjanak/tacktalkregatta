@@ -195,9 +195,10 @@
       "discard": {
         "enabled": true,
         "count": 1,
+        "min_races_to_activate": 5,
         "applies_to": ["všetky rozjazdy okrem finálovej"],
         "excluded": ["finálová rozjazda"],
-        "rationale": "Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
+        "rationale": "Po minimálne 5 odplávaných rozjazdách sa škrtá jedna najhoršia (s najviac bodmi). Finálová rozjazda sa neškrtá nikdy. Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
       },
       "engine_use": {
         "penalty": "diskvalifikácia z danej etapy, nie z regaty",

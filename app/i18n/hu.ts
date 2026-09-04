@@ -524,6 +524,9 @@ const hu: Dict = {
     tieTitle: "Holtverseny esetén",
     tieP:
       "Ha két legénységnek azonos az összpontszáma, a jobb helyezések száma dönt; további egyenlőség esetén az utolsó közös futam eredménye. A pontos szabályt a versenyutasítás erősíti meg.",
+    discardTitle: "A leggyengébb futam elhagyása",
+    discardP:
+      "Legalább 5 lefutott futam után minden legénység elhagyja a leggyengébb futamát (a legtöbb pontot érőt). A döntő futam sosem hagyható el — mindig beleszámít.",
     whenTitle: "Mikor és hol lesznek az eredmények",
     whenP:
       "A részeredményeket minden versenynap után közzétesszük a kikötőben és itt az oldalon. Az összesített eredmények és a díjkiosztó az utolsó napon lesznek Rogoznicában.",

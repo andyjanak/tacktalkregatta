@@ -63,6 +63,10 @@ export default function ResultsPage({
             <p>{r.tieP}</p>
           </article>
           <article className="rs-card">
+            <h2>{r.discardTitle}</h2>
+            <p>{r.discardP}</p>
+          </article>
+          <article className="rs-card">
             <h2>{r.whenTitle}</h2>
             <p>{r.whenP}</p>
           </article>

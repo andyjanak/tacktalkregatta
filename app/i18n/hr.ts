@@ -524,6 +524,9 @@ const hr: Dict = {
     tieTitle: "Kod jednakog broja bodova",
     tieP:
       "Ako dvije posade imaju isti zbroj, odlučuje broj boljih plasmana; ako su i oni jednaki, rezultat posljednje zajedničke utrke. Točno pravilo potvrđuju jedriličarske upute.",
+    discardTitle: "Precrtavanje najlošijeg plova",
+    discardP:
+      "Nakon najmanje 5 odjedrenih plovova svakoj se posadi precrtava jedan najlošiji plov (s najviše bodova). Finalni plov nikad se ne precrtava — uvijek se broji.",
     whenTitle: "Kada i gdje će biti rezultati",
     whenP:
       "Privremeni poredak objavljuje se nakon svakog dana natjecanja, u marini i ovdje na stranici. Ukupni rezultati i dodjela nagrada su posljednjeg dana u Rogoznici.",

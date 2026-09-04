@@ -525,6 +525,9 @@ const sk = {
     tieTitle: "Pri rovnosti bodov",
     tieP:
       "Ak majú dve posádky rovnaký súčet, rozhoduje počet lepších umiestnení; pri ďalšej zhode výsledok z poslednej spoločnej rozjazdy. Presné pravidlo potvrdia plachetné pokyny.",
+    discardTitle: "Škrtanie najhoršej rozjazdy",
+    discardP:
+      "Po minimálne 5 odplávaných rozjazdách sa každej posádke škrtá jedna najhoršia rozjazda (s najviac bodmi). Finálová rozjazda sa neškrtá nikdy — vždy sa počíta.",
     whenTitle: "Kedy a kde budú výsledky",
     whenP:
       "Priebežné poradie sa zverejňuje po každom súťažnom dni v maríne a tu na stránke. Celkové výsledky a vyhlásenie sú v posledný deň v Rogoznici.",
