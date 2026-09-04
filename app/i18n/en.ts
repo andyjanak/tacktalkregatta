@@ -524,6 +524,9 @@ const en: Dict = {
     tieTitle: "In case of a tie",
     tieP:
       "If two crews have the same total, the number of better placings decides; if those tie too, the result of the last shared race. The exact rule is confirmed by the sailing instructions.",
+    discardTitle: "Dropping the worst race",
+    discardP:
+      "After at least 5 races sailed, each crew drops its worst race (the one with the most points). The final race is never dropped — it always counts.",
     whenTitle: "When and where the results appear",
     whenP:
       "Interim standings are published after each race day, at the marina and here on the page. The overall results and prize-giving are on the final day in Rogoznica.",

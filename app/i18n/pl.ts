@@ -524,6 +524,9 @@ const pl: Dict = {
     tieTitle: "Przy równej liczbie punktów",
     tieP:
       "Jeśli dwie załogi mają tę samą sumę, decyduje liczba lepszych miejsc; przy kolejnej równości wynik z ostatniego wspólnego wyścigu. Dokładną zasadę potwierdza instrukcja żeglugi.",
+    discardTitle: "Odrzucenie najsłabszego wyścigu",
+    discardP:
+      "Po co najmniej 5 rozegranych wyścigach każda załoga odrzuca swój najsłabszy wyścig (z największą liczbą punktów). Wyścig finałowy nigdy nie jest odrzucany — zawsze się liczy.",
     whenTitle: "Kiedy i gdzie pojawią się wyniki",
     whenP:
       "Wyniki tymczasowe publikujemy po każdym dniu regat, w marinie i tutaj na stronie. Wyniki końcowe i dekoracja odbędą się ostatniego dnia w Rogoznicy.",

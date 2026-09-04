@@ -524,6 +524,9 @@ const cs: Dict = {
     tieTitle: "Při shodě bodů",
     tieP:
       "Pokud mají dvě posádky stejný součet, rozhoduje počet lepších umístění; při další shodě výsledek z poslední společné rozjížďky. Přesné pravidlo potvrdí plachetní pokyny.",
+    discardTitle: "Škrtání nejhorší rozjížďky",
+    discardP:
+      "Po nejméně 5 odjetých rozjížďkách se každé posádce škrtá jedna nejhorší rozjížďka (s nejvíce body). Finálová rozjížďka se neškrtá nikdy — vždy se počítá.",
     whenTitle: "Kdy a kde budou výsledky",
     whenP:
       "Průběžné pořadí se zveřejňuje po každém závodním dni v marině a zde na stránce. Celkové výsledky a vyhlášení jsou poslední den v Rogoznici.",
