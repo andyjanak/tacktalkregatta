@@ -571,6 +571,59 @@ const hu: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Hajófoglalás",
+    h2Line1: "Tartsa fenn a hajóját",
+    h2Line2: "a várólistán.",
+    lead:
+      "Egy hely nem kötelező érvényű lefoglalása — ez nem megrendelés és nem fizetés. Felvesszük a várólistára, és jelentkezünk a következő lépéssel.",
+    includesTitle: "Mit tartalmaz",
+    notIncludesTitle: "Mit nem tartalmaz",
+    notIncludes: [
+      "Eljutás Horvátországba",
+      "Üzemanyag",
+      "Skipper (ha a cég nem hoz sajátot)",
+      "Ebédek a vízen",
+      "A programon kívüli italok",
+    ],
+    notIncludesNote: "A pontos listát a regisztráció megnyitása előtt megerősítjük.",
+    paymentTitle: "Hogyan zajlik",
+    paymentSteps: [
+      { label: "Foglalás", desc: "Egy hely nem kötelező érvényű fenntartása a várólistán. Fizetés nélkül." },
+      { label: "Előleg", desc: "A rendelkezésre állás megerősítése és az aláírás után. Az összeget és a határidőt pótoljuk." },
+      { label: "Hátralék", desc: "Az esemény előtt. A határidőt pótoljuk." },
+    ],
+    formTitle: "Hajó foglalása",
+    companyLabel: "Cég *",
+    contactLabel: "Kapcsolattartó *",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefon",
+    boatLabel: "Preferált hajótípus",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Még nem döntöttem",
+    peopleLabel: "Becsült létszám",
+    messageLabel: "Megjegyzés",
+    consent:
+      "Hozzájárulok, hogy az AJservices, s.r.o. megkeressen a Tack & Talk Regatta 2027 helyfoglalásával kapcsolatban.",
+    submitIdle: "Hajó foglalása",
+    submitSending: "Küldés…",
+    successTitle: "A helye a várólistán van",
+    successNumberLabel: "Az Ön sorszáma",
+    successNote:
+      "Megerősítést küldtünk az e-mail címére. Ez nem megrendelés és nem fizetés — jelentkezünk a következő lépéssel.",
+    errorFailed:
+      "A foglalást nem sikerült elküldeni. Kérjük, próbálja újra, vagy írjon nekünk az info@tacktalkregatta.com címre.",
+    emailSubject: "Foglalás beérkezett — Tack & Talk Regatta 2027",
+    emailHeading: "A helye a várólistán van",
+    emailIntro:
+      "Köszönjük, hogy helyet foglalt a Tack & Talk Regatta 2027 rendezvényre. Felvettük a várólistára.",
+    emailNumberLabel: "Az Ön sorszáma",
+    emailNextTitle: "Mi következik",
+    emailNextBody:
+      "Ez nem megrendelés és nem fizetés. Jelentkezünk a rendelkezésre állás és a következő lépés megerősítésével.",
+    emailFooter: "Tack & Talk Regatta 2027 · 2027. szeptember 25–30. · Rogoznica, Horvátország",
+  },
 };
 
 export default hu;

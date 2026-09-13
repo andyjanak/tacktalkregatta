@@ -571,6 +571,59 @@ const cs: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Rezervace lodě",
+    h2Line1: "Držte si loď",
+    h2Line2: "v pořadníku.",
+    lead:
+      "Nezávazná rezervace místa — není to objednávka ani platba. Zapíšeme vás do pořadníku a ozveme se s dalším krokem.",
+    includesTitle: "Co je v ceně",
+    notIncludesTitle: "Co není v ceně",
+    notIncludes: [
+      "Doprava do Chorvatska",
+      "Palivo",
+      "Skipper (pokud si firma nebere vlastního)",
+      "Obědy na vodě",
+      "Nápoje mimo program",
+    ],
+    notIncludesNote: "Přesný seznam potvrdíme před otevřením registrace.",
+    paymentTitle: "Jak to probíhá",
+    paymentSteps: [
+      { label: "Rezervace", desc: "Nezávazné držení místa v pořadníku. Bez platby." },
+      { label: "Záloha", desc: "Po potvrzení dostupnosti a podpisu. Výši a termín doplníme." },
+      { label: "Doplatek", desc: "Před akcí. Termín doplníme." },
+    ],
+    formTitle: "Rezervovat loď",
+    companyLabel: "Firma *",
+    contactLabel: "Kontaktní osoba *",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefon",
+    boatLabel: "Preferovaný typ lodě",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Zatím nerozhodnuto",
+    peopleLabel: "Odhadovaný počet lidí",
+    messageLabel: "Poznámka",
+    consent:
+      "Souhlasím, aby mě AJservices, s.r.o. kontaktovala v souvislosti s rezervací místa na Tack & Talk Regatta 2027.",
+    submitIdle: "Rezervovat loď",
+    submitSending: "Odesílám…",
+    successTitle: "Místo máte v pořadníku",
+    successNumberLabel: "Vaše pořadové číslo",
+    successNote:
+      "Potvrzení jsme poslali na váš e-mail. Nejde o objednávku ani platbu — ozveme se s dalším krokem.",
+    errorFailed:
+      "Rezervaci se nepodařilo odeslat. Zkuste to znovu nebo nám napište na info@tacktalkregatta.com.",
+    emailSubject: "Rezervace přijata — Tack & Talk Regatta 2027",
+    emailHeading: "Vaše místo je v pořadníku",
+    emailIntro:
+      "Děkujeme za rezervaci místa na Tack & Talk Regatta 2027. Zapsali jsme vás do pořadníku.",
+    emailNumberLabel: "Vaše pořadové číslo",
+    emailNextTitle: "Co bude následovat",
+    emailNextBody:
+      "Nejde o objednávku ani platbu. Ozveme se vám s potvrzením dostupnosti a dalším krokem.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25.–30. 9. 2027 · Rogoznica, Chorvatsko",
+  },
 };
 
 export default cs;

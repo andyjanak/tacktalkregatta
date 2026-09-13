@@ -571,6 +571,59 @@ const en: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Boat reservation",
+    h2Line1: "Hold your boat",
+    h2Line2: "in the queue.",
+    lead:
+      "A non-binding reservation of a spot — it is not an order or a payment. We add you to the queue and get in touch with the next step.",
+    includesTitle: "What's included",
+    notIncludesTitle: "What's not included",
+    notIncludes: [
+      "Transport to Croatia",
+      "Fuel",
+      "Skipper (if the company doesn't bring its own)",
+      "Lunches on the water",
+      "Drinks outside the programme",
+    ],
+    notIncludesNote: "We'll confirm the exact list before registration opens.",
+    paymentTitle: "How it works",
+    paymentSteps: [
+      { label: "Reservation", desc: "Non-binding hold of a spot in the queue. No payment." },
+      { label: "Deposit", desc: "After availability is confirmed and signed. Amount and date to be added." },
+      { label: "Balance", desc: "Before the event. Date to be added." },
+    ],
+    formTitle: "Reserve a boat",
+    companyLabel: "Company *",
+    contactLabel: "Contact person *",
+    emailLabel: "E-mail *",
+    phoneLabel: "Phone",
+    boatLabel: "Preferred boat type",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Undecided yet",
+    peopleLabel: "Estimated number of people",
+    messageLabel: "Note",
+    consent:
+      "I agree to be contacted by AJservices, s.r.o. regarding reserving a spot at Tack & Talk Regatta 2027.",
+    submitIdle: "Reserve a boat",
+    submitSending: "Sending…",
+    successTitle: "Your spot is in the queue",
+    successNumberLabel: "Your queue number",
+    successNote:
+      "We've sent a confirmation to your e-mail. It's not an order or a payment — we'll get in touch with the next step.",
+    errorFailed:
+      "The reservation could not be sent. Please try again or write to us at info@tacktalkregatta.com.",
+    emailSubject: "Reservation received — Tack & Talk Regatta 2027",
+    emailHeading: "Your spot is in the queue",
+    emailIntro:
+      "Thank you for reserving a spot at Tack & Talk Regatta 2027. We've added you to the queue.",
+    emailNumberLabel: "Your queue number",
+    emailNextTitle: "What happens next",
+    emailNextBody:
+      "It's not an order or a payment. We'll get in touch to confirm availability and the next step.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25–30 Sept 2027 · Rogoznica, Croatia",
+  },
 };
 
 export default en;

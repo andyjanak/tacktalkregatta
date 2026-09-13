@@ -571,6 +571,59 @@ const hr: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Rezervacija broda",
+    h2Line1: "Zadržite svoj brod",
+    h2Line2: "na listi čekanja.",
+    lead:
+      "Neobvezujuća rezervacija mjesta — nije narudžba ni plaćanje. Upisujemo vas na listu čekanja i javljamo se sa sljedećim korakom.",
+    includesTitle: "Što je uključeno",
+    notIncludesTitle: "Što nije uključeno",
+    notIncludes: [
+      "Dolazak u Hrvatsku",
+      "Gorivo",
+      "Skiper (ako tvrtka ne dovodi vlastitog)",
+      "Ručkovi na vodi",
+      "Pića izvan programa",
+    ],
+    notIncludesNote: "Točan popis potvrdit ćemo prije otvaranja prijava.",
+    paymentTitle: "Kako to ide",
+    paymentSteps: [
+      { label: "Rezervacija", desc: "Neobvezujuće zadržavanje mjesta na listi čekanja. Bez plaćanja." },
+      { label: "Predujam", desc: "Nakon potvrde dostupnosti i potpisa. Iznos i rok naknadno dodajemo." },
+      { label: "Doplata", desc: "Prije događaja. Rok naknadno dodajemo." },
+    ],
+    formTitle: "Rezervirati brod",
+    companyLabel: "Tvrtka *",
+    contactLabel: "Kontakt osoba *",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefon",
+    boatLabel: "Željeni tip broda",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Još nije odlučeno",
+    peopleLabel: "Procijenjeni broj ljudi",
+    messageLabel: "Napomena",
+    consent:
+      "Slažem se da me AJservices, s.r.o. kontaktira u vezi s rezervacijom mjesta na Tack & Talk Regatta 2027.",
+    submitIdle: "Rezervirati brod",
+    submitSending: "Šaljem…",
+    successTitle: "Vaše mjesto je na listi čekanja",
+    successNumberLabel: "Vaš redni broj",
+    successNote:
+      "Potvrdu smo poslali na vaš e-mail. Nije narudžba ni plaćanje — javit ćemo se sa sljedećim korakom.",
+    errorFailed:
+      "Rezervaciju nije bilo moguće poslati. Pokušajte ponovno ili nam pišite na info@tacktalkregatta.com.",
+    emailSubject: "Rezervacija zaprimljena — Tack & Talk Regatta 2027",
+    emailHeading: "Vaše mjesto je na listi čekanja",
+    emailIntro:
+      "Hvala na rezervaciji mjesta na Tack & Talk Regatta 2027. Upisali smo vas na listu čekanja.",
+    emailNumberLabel: "Vaš redni broj",
+    emailNextTitle: "Što slijedi",
+    emailNextBody:
+      "Nije narudžba ni plaćanje. Javit ćemo se s potvrdom dostupnosti i sljedećim korakom.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25.–30. 9. 2027. · Rogoznica, Hrvatska",
+  },
 };
 
 export default hr;

@@ -194,7 +194,7 @@ export type InquiryNotification = {
   peopleCount: number | null;
   boatInterest: "dufour_460" | "dufour_470" | "undecided";
   message: string;
-  kind?: "participant" | "partner";
+  kind?: "participant" | "partner" | "reservation";
 };
 
 function boatLabel(value: InquiryNotification["boatInterest"]) {
@@ -209,7 +209,12 @@ export async function sendInquiryNotification(inquiry: InquiryNotification) {
   if (!apiKey || !from) return { skipped: true as const };
 
   const e = escapeHtml;
-  const label = inquiry.kind === "partner" ? "Nový partnerský dopyt" : "Nový záujemca";
+  const label =
+    inquiry.kind === "partner"
+      ? "Nový partnerský dopyt"
+      : inquiry.kind === "reservation"
+        ? "Nová rezervácia"
+        : "Nový záujemca";
   const adminUrl = "https://tacktalkregatta.com/admin";
 
   const detailRow = (name: string, value: string) =>
@@ -266,6 +271,86 @@ export async function sendInquiryNotification(inquiry: InquiryNotification) {
       to: LEAD_NOTIFY_RECIPIENTS,
       reply_to: inquiry.email,
       subject: `${label} — ${inquiry.company}`,
+      text,
+      html,
+    }),
+  });
+
+  const result = (await response.json()) as ResendResponse;
+  if (!response.ok || !result.id) {
+    throw new Error(result.error?.message || result.message || "Poskytovateľ e-mail odmietol.");
+  }
+  return { providerMessageId: result.id };
+}
+
+// ---------------------------------------------------------------------------
+// Potvrdenie rezervácie žiadateľovi. Lokalizované — texty prídu z i18n (klient
+// ich posiela), server ich escapuje a vloží do brandovanej šablóny; poradové
+// číslo generuje server. Dormant bez kľúčov.
+// ---------------------------------------------------------------------------
+export type ReservationEmailStrings = {
+  subject: string;
+  heading: string;
+  intro: string;
+  numberLabel: string;
+  nextTitle: string;
+  nextBody: string;
+  footer: string;
+};
+
+export async function sendReservationConfirmation(input: {
+  to: string;
+  queueNumber: number;
+  strings: ReservationEmailStrings;
+}) {
+  const apiKey = runtimeValue("RESEND_API_KEY");
+  const from = runtimeValue("EMAIL_FROM");
+  if (!apiKey || !from) return { skipped: true as const };
+
+  const e = escapeHtml;
+  const s = input.strings;
+  const num = `#${String(input.queueNumber).padStart(3, "0")}`;
+
+  const html = `<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;background:#F6F2E9;font-family:'Poppins',Arial,sans-serif">
+  <div style="display:none;max-height:0;overflow:hidden">${e(s.intro)}</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F2E9">
+    <tr><td align="center" style="padding:28px 16px">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#fff;border:1px solid #D8DEE6;border-radius:16px;overflow:hidden">
+        <tr><td style="background:#0B2545;padding:24px 30px;font-size:19px;font-weight:700;color:#fff">TACK <span style="color:#C08A2E">&amp;</span> TALK</td></tr>
+        <tr><td style="padding:32px 30px 8px">
+          <h1 style="margin:0 0 12px;font-size:23px;font-weight:600;color:#0F2034">${e(s.heading)}</h1>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6472">${e(s.intro)}</p>
+        </td></tr>
+        <tr><td style="padding:18px 30px 6px">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F2E9;border:1px solid #D8DEE6;border-radius:12px">
+            <tr><td style="padding:20px;text-align:center">
+              <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5A6472">${e(s.numberLabel)}</div>
+              <div style="font-size:38px;font-weight:700;color:#C08A2E;line-height:1.1;margin-top:4px">${e(num)}</div>
+            </td></tr>
+          </table>
+        </td></tr>
+        <tr><td style="padding:16px 30px 30px">
+          <p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C08A2E">${e(s.nextTitle)}</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#0F2034">${e(s.nextBody)}</p>
+        </td></tr>
+        <tr><td style="background:#0B2545;padding:18px 30px;font-size:12px;color:#8ea1b6">${e(s.footer)} · info@tacktalkregatta.com</td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+  const text = `${s.heading}\n\n${s.intro}\n\n${s.numberLabel}: ${num}\n\n${s.nextTitle}\n${s.nextBody}\n\n${s.footer}`;
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from,
+      to: [input.to],
+      reply_to: "info@tacktalkregatta.com",
+      subject: s.subject,
       text,
       html,
     }),

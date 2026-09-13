@@ -571,6 +571,59 @@ const pl: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Rezerwacja łodzi",
+    h2Line1: "Zarezerwuj swoją łódź",
+    h2Line2: "na liście oczekujących.",
+    lead:
+      "Niezobowiązująca rezerwacja miejsca — to nie zamówienie ani płatność. Wpisujemy Cię na listę oczekujących i odzywamy się z kolejnym krokiem.",
+    includesTitle: "Co jest w cenie",
+    notIncludesTitle: "Czego nie ma w cenie",
+    notIncludes: [
+      "Dojazd do Chorwacji",
+      "Paliwo",
+      "Skiper (jeśli firma nie zabiera własnego)",
+      "Obiady na wodzie",
+      "Napoje poza programem",
+    ],
+    notIncludesNote: "Dokładną listę potwierdzimy przed otwarciem rejestracji.",
+    paymentTitle: "Jak to przebiega",
+    paymentSteps: [
+      { label: "Rezerwacja", desc: "Niezobowiązujące utrzymanie miejsca na liście oczekujących. Bez płatności." },
+      { label: "Zaliczka", desc: "Po potwierdzeniu dostępności i podpisie. Kwotę i termin uzupełnimy." },
+      { label: "Dopłata", desc: "Przed wydarzeniem. Termin uzupełnimy." },
+    ],
+    formTitle: "Zarezerwować łódź",
+    companyLabel: "Firma *",
+    contactLabel: "Osoba kontaktowa *",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefon",
+    boatLabel: "Preferowany typ łodzi",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Jeszcze nie zdecydowano",
+    peopleLabel: "Szacowana liczba osób",
+    messageLabel: "Uwaga",
+    consent:
+      "Wyrażam zgodę na kontakt ze strony AJservices, s.r.o. w sprawie rezerwacji miejsca na Tack & Talk Regatta 2027.",
+    submitIdle: "Zarezerwować łódź",
+    submitSending: "Wysyłanie…",
+    successTitle: "Twoje miejsce jest na liście oczekujących",
+    successNumberLabel: "Twój numer w kolejce",
+    successNote:
+      "Potwierdzenie wysłaliśmy na Twój e-mail. To nie zamówienie ani płatność — odezwiemy się z kolejnym krokiem.",
+    errorFailed:
+      "Nie udało się wysłać rezerwacji. Spróbuj ponownie lub napisz do nas na info@tacktalkregatta.com.",
+    emailSubject: "Rezerwacja przyjęta — Tack & Talk Regatta 2027",
+    emailHeading: "Twoje miejsce jest na liście oczekujących",
+    emailIntro:
+      "Dziękujemy za rezerwację miejsca na Tack & Talk Regatta 2027. Wpisaliśmy Cię na listę oczekujących.",
+    emailNumberLabel: "Twój numer w kolejce",
+    emailNextTitle: "Co dalej",
+    emailNextBody:
+      "To nie zamówienie ani płatność. Odezwiemy się, aby potwierdzić dostępność i kolejny krok.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25–30 września 2027 · Rogoznica, Chorwacja",
+  },
 };
 
 export default pl;

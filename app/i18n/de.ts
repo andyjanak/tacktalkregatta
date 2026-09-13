@@ -571,6 +571,59 @@ const de: Dict = {
       },
     ],
   },
+  reservation: {
+    eyebrow: "Bootsreservierung",
+    h2Line1: "Sichern Sie sich Ihr Boot",
+    h2Line2: "in der Warteliste.",
+    lead:
+      "Eine unverbindliche Reservierung eines Platzes — es ist keine Bestellung und keine Zahlung. Wir setzen Sie auf die Warteliste und melden uns mit dem nächsten Schritt.",
+    includesTitle: "Im Preis enthalten",
+    notIncludesTitle: "Nicht im Preis enthalten",
+    notIncludes: [
+      "Anreise nach Kroatien",
+      "Kraftstoff",
+      "Skipper (falls die Firma keinen eigenen mitbringt)",
+      "Mittagessen auf dem Wasser",
+      "Getränke außerhalb des Programms",
+    ],
+    notIncludesNote: "Die genaue Liste bestätigen wir vor Öffnung der Anmeldung.",
+    paymentTitle: "So läuft es ab",
+    paymentSteps: [
+      { label: "Reservierung", desc: "Unverbindliches Halten eines Platzes in der Warteliste. Keine Zahlung." },
+      { label: "Anzahlung", desc: "Nach Bestätigung der Verfügbarkeit und Unterschrift. Höhe und Termin folgen." },
+      { label: "Restzahlung", desc: "Vor der Veranstaltung. Termin folgt." },
+    ],
+    formTitle: "Boot reservieren",
+    companyLabel: "Firma *",
+    contactLabel: "Ansprechpartner *",
+    emailLabel: "E-Mail *",
+    phoneLabel: "Telefon",
+    boatLabel: "Bevorzugter Bootstyp",
+    boat460: "Dufour 460",
+    boat470: "Dufour 470",
+    boatUndecided: "Noch unentschieden",
+    peopleLabel: "Geschätzte Personenzahl",
+    messageLabel: "Anmerkung",
+    consent:
+      "Ich bin damit einverstanden, dass mich AJservices, s.r.o. bezüglich der Reservierung eines Platzes bei der Tack & Talk Regatta 2027 kontaktiert.",
+    submitIdle: "Boot reservieren",
+    submitSending: "Wird gesendet…",
+    successTitle: "Ihr Platz ist in der Warteliste",
+    successNumberLabel: "Ihre Wartelistennummer",
+    successNote:
+      "Wir haben eine Bestätigung an Ihre E-Mail gesendet. Es ist keine Bestellung und keine Zahlung — wir melden uns mit dem nächsten Schritt.",
+    errorFailed:
+      "Die Reservierung konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@tacktalkregatta.com.",
+    emailSubject: "Reservierung eingegangen — Tack & Talk Regatta 2027",
+    emailHeading: "Ihr Platz ist in der Warteliste",
+    emailIntro:
+      "Vielen Dank für die Reservierung eines Platzes bei der Tack & Talk Regatta 2027. Wir haben Sie auf die Warteliste gesetzt.",
+    emailNumberLabel: "Ihre Wartelistennummer",
+    emailNextTitle: "Wie es weitergeht",
+    emailNextBody:
+      "Es ist keine Bestellung und keine Zahlung. Wir melden uns, um die Verfügbarkeit und den nächsten Schritt zu bestätigen.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25.–30. September 2027 · Rogoznica, Kroatien",
+  },
 };
 
 export default de;
