@@ -1,6 +1,7 @@
 import regatta from "@/data/regatta.json";
 import MobileNav from "./MobileNav";
 import InterestForm from "./InterestForm";
+import ReservationForm from "./ReservationForm";
 import RacePlan from "./RacePlan";
 import LangSwitch from "./LangSwitch";
 import PriceCalculator from "./PriceCalculator";
@@ -364,6 +365,51 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
               <p>{item.a}</p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="section section-reserve" id="rezervacia">
+        <div className="section-heading">
+          <p className="eyebrow eyebrow-dark"><span /> {dict.reservation.eyebrow}</p>
+          <h2>{dict.reservation.h2Line1}<br />{dict.reservation.h2Line2}</h2>
+          <p>{dict.reservation.lead}</p>
+        </div>
+
+        <div className="reserve-grid">
+          <div className="reserve-price">
+            <div className="reserve-incol reserve-incol-yes">
+              <p className="fee-label">{dict.reservation.includesTitle}</p>
+              <ul>
+                {dict.fees.includes.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div className="reserve-incol reserve-incol-no">
+              <p className="fee-label">{dict.reservation.notIncludesTitle}</p>
+              <ul>
+                {dict.reservation.notIncludes.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <p className="reserve-note">{dict.reservation.notIncludesNote}</p>
+            </div>
+          </div>
+
+          <div className="reserve-payment">
+            <p className="fee-label">{dict.reservation.paymentTitle}</p>
+            <ol className="reserve-steps">
+              {dict.reservation.paymentSteps.map((step, i) => (
+                <li key={i}>
+                  <span className="reserve-step-num">{i + 1}</span>
+                  <div>
+                    <strong>{step.label}</strong>
+                    <p>{step.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        <div className="reserve-formwrap">
+          <ReservationForm t={dict.reservation} turnstileSiteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
         </div>
       </section>
 

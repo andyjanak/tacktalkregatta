@@ -206,7 +206,36 @@ export const weatherClimatology = sqliteTable(
   ],
 );
 
+// Nezáväzné rezervácie miesta v poradovníku (hlavná konverzia webu).
+// id slúži ako poradové číslo. Oddelené od inquiries — samostatný lievik.
+export const reservations = sqliteTable(
+  "reservations",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    company: text("company").notNull(),
+    contactName: text("contact_name").notNull(),
+    email: text("email").notNull(),
+    phone: text("phone"),
+    boatPreference: text("boat_preference", {
+      enum: ["dufour_460", "dufour_470", "undecided"],
+    }).notNull().default("undecided"),
+    peopleCount: integer("people_count"),
+    message: text("message").notNull().default(""),
+    status: text("status", {
+      enum: ["new", "contacted", "confirmed", "cancelled"],
+    }).notNull().default("new"),
+    consentAt: text("consent_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("idx_reservations_status_created_at").on(table.status, table.createdAt),
+    index("idx_reservations_email").on(table.email),
+  ],
+);
+
 export type Inquiry = typeof inquiries.$inferSelect;
+export type Reservation = typeof reservations.$inferSelect;
 export type InquiryActivity = typeof inquiryActivities.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type EmailCampaignRecipient = typeof emailCampaignRecipients.$inferSelect;
