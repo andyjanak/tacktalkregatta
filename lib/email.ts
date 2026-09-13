@@ -34,6 +34,10 @@ export function getEmailConfigurationStatus() {
   };
 }
 
+// Interní príjemcovia notifikácie o novom leade. Partnerské a účastnícke
+// dopyty sa neskôr rozlíšia tagom/subjectom, príjemcovia ostávajú títo.
+const LEAD_NOTIFY_RECIPIENTS = ["janak@ajservices.sk", "hrivnak@tangreto.com"];
+
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -174,5 +178,102 @@ export async function sendCampaignEmail(input: {
     );
   }
 
+  return { providerMessageId: result.id };
+}
+
+// ---------------------------------------------------------------------------
+// Notifikácia o novom leade z formulára. Branded HTML (dizajn manuál), posiela
+// sa interným príjemcom. Dormant: bez RESEND_API_KEY/EMAIL_FROM vráti skipped
+// a formulár funguje ďalej. Volajúci ju spúšťa v try/catch, nezhodí odoslanie.
+// ---------------------------------------------------------------------------
+export type InquiryNotification = {
+  fullName: string;
+  company: string;
+  email: string;
+  phone: string | null;
+  peopleCount: number | null;
+  boatInterest: "dufour_460" | "dufour_470" | "undecided";
+  message: string;
+  kind?: "participant" | "partner";
+};
+
+function boatLabel(value: InquiryNotification["boatInterest"]) {
+  if (value === "dufour_460") return "Dufour 460";
+  if (value === "dufour_470") return "Dufour 470";
+  return "Zatiaľ nerozhodnuté";
+}
+
+export async function sendInquiryNotification(inquiry: InquiryNotification) {
+  const apiKey = runtimeValue("RESEND_API_KEY");
+  const from = runtimeValue("EMAIL_FROM");
+  if (!apiKey || !from) return { skipped: true as const };
+
+  const e = escapeHtml;
+  const label = inquiry.kind === "partner" ? "Nový partnerský dopyt" : "Nový záujemca";
+  const adminUrl = "https://tacktalkregatta.com/admin";
+
+  const detailRow = (name: string, value: string) =>
+    value
+      ? `<tr><td style="padding:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5A6472;width:150px;vertical-align:top">${e(name)}</td><td style="padding:6px 0;font-size:14px;color:#0F2034;vertical-align:top">${value}</td></tr>`
+      : "";
+
+  const rows = [
+    detailRow("Firma", e(inquiry.company)),
+    detailRow("Meno", e(inquiry.fullName)),
+    detailRow("E-mail", `<a href="mailto:${e(inquiry.email)}" style="color:#0B2545">${e(inquiry.email)}</a>`),
+    detailRow("Telefón", inquiry.phone ? e(inquiry.phone) : ""),
+    detailRow("Počet osôb", inquiry.peopleCount ? String(inquiry.peopleCount) : ""),
+    detailRow("Preferovaná loď", e(boatLabel(inquiry.boatInterest))),
+    detailRow("Správa", inquiry.message ? e(inquiry.message).replaceAll("\n", "<br>") : ""),
+  ].join("");
+
+  const html = `<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;background:#F6F2E9;font-family:'Poppins',Arial,sans-serif">
+  <div style="display:none;max-height:0;overflow:hidden">${e(label)}: ${e(inquiry.company)}</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F2E9">
+    <tr><td align="center" style="padding:28px 16px">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#fff;border:1px solid #D8DEE6;border-radius:16px;overflow:hidden">
+        <tr><td style="background:#0B2545;padding:24px 30px;font-size:19px;font-weight:700;color:#fff">TACK <span style="color:#C08A2E">&amp;</span> TALK</td></tr>
+        <tr><td style="padding:30px 30px 4px">
+          <p style="margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#C08A2E">${e(label)}</p>
+          <h1 style="margin:0;font-size:22px;font-weight:600;color:#0F2034">${e(inquiry.company)}</h1>
+        </td></tr>
+        <tr><td style="padding:18px 30px 6px">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F2E9;border:1px solid #D8DEE6;border-radius:12px">
+            <tr><td style="padding:8px 20px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table></td></tr>
+          </table>
+        </td></tr>
+        <tr><td style="padding:20px 30px 30px">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#C08A2E;border-radius:8px">
+            <a href="${adminUrl}" style="display:inline-block;padding:13px 24px;font-size:13px;font-weight:600;color:#0B2545;text-decoration:none">Otvoriť v administrácii →</a>
+          </td></tr></table>
+          <p style="margin:12px 0 0;font-size:12px;color:#5A6472">Odpovedať môžeš priamo na <a href="mailto:${e(inquiry.email)}" style="color:#0B2545">${e(inquiry.email)}</a>.</p>
+        </td></tr>
+        <tr><td style="background:#0B2545;padding:18px 30px;font-size:12px;color:#8ea1b6">Tack <span style="color:#C08A2E">&amp;</span> Talk Regatta 2027 · 25.&nbsp;–&nbsp;30.&nbsp;9.&nbsp;2027 · Rogoznica · info@tacktalkregatta.com</td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+  const text = `${label}: ${inquiry.company}\n\nMeno: ${inquiry.fullName}\nE-mail: ${inquiry.email}\nTelefón: ${inquiry.phone || "-"}\nPočet osôb: ${inquiry.peopleCount ?? "-"}\nPreferovaná loď: ${boatLabel(inquiry.boatInterest)}\nSpráva: ${inquiry.message || "-"}\n\nAdministrácia: ${adminUrl}`;
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from,
+      to: LEAD_NOTIFY_RECIPIENTS,
+      reply_to: inquiry.email,
+      subject: `${label} — ${inquiry.company}`,
+      text,
+      html,
+    }),
+  });
+
+  const result = (await response.json()) as ResendResponse;
+  if (!response.ok || !result.id) {
+    throw new Error(result.error?.message || result.message || "Poskytovateľ e-mail odmietol.");
+  }
   return { providerMessageId: result.id };
 }

@@ -5,6 +5,7 @@ import {
 } from "@/db/inquiries";
 import { clientIp, verifyTurnstile } from "@/lib/request-security";
 import { consumeRateLimit } from "@/db/rate-limit";
+import { getEmailConfigurationStatus, sendInquiryNotification } from "@/lib/email";
 
 const MAX_SUBMISSIONS_PER_IP = 5;
 const WINDOW_SECONDS = 10 * 60;
@@ -103,6 +104,25 @@ export async function POST(request: Request) {
       message,
       source: "website",
     });
+
+    // Notifikácia interným príjemcom. Dormant — kým nie je Resend nastavený,
+    // sa preskočí; chyba e-mailu nikdy nezhodí uložený lead.
+    if (getEmailConfigurationStatus().configured) {
+      try {
+        await sendInquiryNotification({
+          fullName,
+          company,
+          email,
+          phone: phone || null,
+          peopleCount,
+          boatInterest,
+          message,
+          kind: "participant",
+        });
+      } catch (notifyError) {
+        console.error("Lead notification failed", notifyError);
+      }
+    }
 
     return Response.json(
       {
