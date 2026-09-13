@@ -1,0 +1,18 @@
+{
+  "_comment": "Partnerské úrovne a matica plnení. NÁZVY, CENY a HODNOTY doplní Andrej. 'featured':true zvýrazní úroveň (najvyššia ~25 000 EUR). Vo 'features[].values' je hodnota pre každú úroveň v poradí levels; použi napr. '✓', '—' alebo krátky text/číslo. Popisy riadkov (features) sú v i18n (partners.features).",
+  "levels": [
+    { "id": "l1", "name": "TODO – názov úrovne 1", "priceBand": "TODO – cena", "featured": false },
+    { "id": "l2", "name": "TODO – názov úrovne 2", "priceBand": "TODO – cena", "featured": false },
+    { "id": "l3", "name": "TODO – názov úrovne 3", "priceBand": "TODO – cena", "featured": false },
+    { "id": "l4", "name": "TODO – názov úrovne 4", "priceBand": "TODO – ~25 000 €", "featured": true }
+  ],
+  "features": [
+    { "id": "boats_visibility", "values": ["—", "—", "—", "—"] },
+    { "id": "marina_branding", "values": ["—", "—", "—", "—"] },
+    { "id": "program_space", "values": ["—", "—", "—", "—"] },
+    { "id": "own_seats", "values": ["—", "—", "—", "—"] },
+    { "id": "logo_materials", "values": ["—", "—", "—", "—"] },
+    { "id": "participant_list", "values": ["—", "—", "—", "—"] },
+    { "id": "post_event", "values": ["—", "—", "—", "—"] }
+  ]
+}

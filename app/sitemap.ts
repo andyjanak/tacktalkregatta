@@ -7,6 +7,7 @@ import {
   localeWeather,
   localeResults,
   localeDocuments,
+  localePartners,
 } from "./i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -56,5 +57,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: documentsLanguages },
   }));
 
-  return [...home, ...weather, ...results, ...documents];
+  const partnersLanguages = Object.fromEntries(
+    locales.map((l) => [l, new URL(localePartners(l), siteUrl).toString()]),
+  );
+  const partners = locales.map((l) => ({
+    url: new URL(localePartners(l), siteUrl).toString(),
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+    alternates: { languages: partnersLanguages },
+  }));
+
+  return [...home, ...weather, ...results, ...documents, ...partners];
 }

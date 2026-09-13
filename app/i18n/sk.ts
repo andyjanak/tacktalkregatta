@@ -625,6 +625,64 @@ const sk = {
       "Nejde o objednávku ani platbu. Ozveme sa vám s potvrdením dostupnosti a ďalším krokom.",
     emailFooter: "Tack & Talk Regatta 2027 · 25. – 30. 9. 2027 · Rogoznica, Chorvátsko",
   },
+  partners: {
+    metaTitle: "Partnerstvo – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Partnerské balíky Tack & Talk Regatta 2027 — viditeľnosť pred približne 120 účastníkmi z firiem počas piatich dní na vode aj na brehu.",
+    navLink: "Partneri",
+    eyebrow: "Partnerstvo",
+    h1Line1: "Buďte pri tom",
+    h1Line2: "ako partner.",
+    lead:
+      "Tack & Talk spája dvadsať firemných posádok a približne 120 ľudí z vedenia firiem na päť dní. Ako partner ste súčasťou celého podujatia — na vode aj na brehu.",
+    whyTitle: "Prečo partnerstvo",
+    whyLead:
+      "Koncentrované B2B publikum, ktoré sa bežne stretáva ťažko: rozhodovatelia z dvadsiatich firiem, päť dní, jedno miesto.",
+    stats: [
+      { value: "20", label: "lodí" },
+      { value: "~120", label: "účastníkov" },
+      { value: "5", label: "dní na vode aj na brehu" },
+    ],
+    levelsTitle: "Úrovne partnerstva",
+    priceFrom: "od",
+    featuredBadge: "Najvyššia úroveň",
+    placeholderNote:
+      "Presné názvy úrovní, plnenia a ceny finalizujeme — ozvite sa a pošleme aktuálny prospekt.",
+    compareTitle: "Porovnanie plnení",
+    features: {
+      boats_visibility: "Viditeľnosť na lodiach",
+      marina_branding: "Branding v marine",
+      program_space: "Priestor v programe na brehu",
+      own_seats: "Vlastné miesta na lodi",
+      logo_materials: "Logo na materiáloch",
+      participant_list: "Prístup k účastníckemu zoznamu",
+      post_event: "Post-event obsah",
+    },
+    formTitle: "Mám záujem o partnerstvo",
+    companyLabel: "Firma *",
+    contactLabel: "Kontaktná osoba *",
+    roleLabel: "Funkcia",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefón",
+    interestLabel: "Úroveň záujmu",
+    interestUndecided: "Zatiaľ neviem",
+    budgetLabel: "Rozpočtové pásmo",
+    budgetUndecided: "Zatiaľ neviem",
+    budgetBands: ["do 10 000 €", "10 000 – 25 000 €", "nad 25 000 €"],
+    messageLabel: "Poznámka",
+    consent:
+      "Súhlasím, aby ma AJservices, s.r.o. kontaktovala v súvislosti s partnerstvom na Tack & Talk Regatta 2027.",
+    submitIdle: "Odoslať dopyt",
+    submitSending: "Odosielam…",
+    success: "Ďakujeme. Partnerský dopyt sme prijali a ozveme sa vám.",
+    errorFailed:
+      "Dopyt sa nepodarilo odoslať. Skúste to znova alebo nám napíšte na info@tacktalkregatta.com.",
+    teaserEyebrow: "Pre partnerov",
+    teaserTitle: "Staňte sa partnerom regaty",
+    teaserLead:
+      "Viditeľnosť pred rozhodovateľmi z dvadsiatich firiem počas piatich dní. Štyri úrovne partnerstva.",
+    teaserCta: "Partnerské balíky",
+  },
 };
 
 export default sk;

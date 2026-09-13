@@ -234,8 +234,38 @@ export const reservations = sqliteTable(
   ],
 );
 
+// Partnerské dopyty (oddelené od účastníckych — samostatný lievik/tag).
+export const partnerInquiries = sqliteTable(
+  "partner_inquiries",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    company: text("company").notNull(),
+    contactName: text("contact_name").notNull(),
+    role: text("role").notNull().default(""),
+    email: text("email").notNull(),
+    phone: text("phone"),
+    interestLevel: text("interest_level").notNull().default(""),
+    budgetBand: text("budget_band").notNull().default(""),
+    message: text("message").notNull().default(""),
+    status: text("status", {
+      enum: ["new", "contacted", "negotiating", "closed", "declined"],
+    }).notNull().default("new"),
+    consentAt: text("consent_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("idx_partner_inquiries_status_created_at").on(
+      table.status,
+      table.createdAt,
+    ),
+    index("idx_partner_inquiries_email").on(table.email),
+  ],
+);
+
 export type Inquiry = typeof inquiries.$inferSelect;
 export type Reservation = typeof reservations.$inferSelect;
+export type PartnerInquiry = typeof partnerInquiries.$inferSelect;
 export type InquiryActivity = typeof inquiryActivities.$inferSelect;
 export type EmailCampaign = typeof emailCampaigns.$inferSelect;
 export type EmailCampaignRecipient = typeof emailCampaignRecipients.$inferSelect;

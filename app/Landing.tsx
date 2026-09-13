@@ -7,7 +7,7 @@ import LangSwitch from "./LangSwitch";
 import PriceCalculator from "./PriceCalculator";
 import FleetCounter from "./FleetCounter";
 import { siteUrl } from "./site-config";
-import { localeHome, localeWeather, localeResults, localeDocuments, type Dict, type Locale } from "./i18n";
+import { localeHome, localeWeather, localeResults, localeDocuments, localePartners, type Dict, type Locale } from "./i18n";
 
 function Brand() {
   return (
@@ -94,13 +94,14 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <a href="#pre-koho">{dict.nav.preKoho}</a>
           <a href="#trasa">{dict.nav.trasa}</a>
           <a href={localeWeather(locale)}>{dict.nav.pocasie}</a>
+          <a href={localePartners(locale)}>{dict.partners.navLink}</a>
           <a href="#faq">{dict.nav.faq}</a>
         </nav>
         <div className="header-actions">
           <a className="nav-cta" href="#kontakt">{dict.nav.kontakt}</a>
           <LangSwitch locale={locale} aria={dict.langSwitch.aria} />
         </div>
-        <MobileNav nav={dict.nav} weatherHref={localeWeather(locale)} />
+        <MobileNav nav={dict.nav} weatherHref={localeWeather(locale)} partnersHref={localePartners(locale)} partnersLabel={dict.partners.navLink} />
       </header>
 
       <section className="hero" id="hore">
@@ -368,6 +369,19 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
         </div>
       </section>
 
+      <section className="section section-partner-teaser">
+        <div className="partner-teaser">
+          <div>
+            <p className="eyebrow"><span /> {dict.partners.teaserEyebrow}</p>
+            <h2>{dict.partners.teaserTitle}</h2>
+            <p>{dict.partners.teaserLead}</p>
+          </div>
+          <a className="button button-brass" href={localePartners(locale)}>
+            {dict.partners.teaserCta} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
       <section className="section section-reserve" id="rezervacia">
         <div className="section-heading">
           <p className="eyebrow eyebrow-dark"><span /> {dict.reservation.eyebrow}</p>
@@ -455,6 +469,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <p>{dict.footer.patronageLine}</p>
           <p><a href={localeResults(locale)}>{dict.results.navLink}</a></p>
           <p><a href={localeDocuments(locale)}>{dict.documents.navLink}</a></p>
+          <p><a href={localePartners(locale)}>{dict.partners.navLink}</a></p>
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
           <a className="footer-admin-link" href="/admin">{dict.footer.adminLink} <span aria-hidden="true">→</span></a>
         </div>

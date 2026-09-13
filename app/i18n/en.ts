@@ -624,6 +624,64 @@ const en: Dict = {
       "It's not an order or a payment. We'll get in touch to confirm availability and the next step.",
     emailFooter: "Tack & Talk Regatta 2027 · 25–30 Sept 2027 · Rogoznica, Croatia",
   },
+  partners: {
+    metaTitle: "Partnership – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Partnership packages for Tack & Talk Regatta 2027 — visibility in front of ~120 company participants across five days, on the water and ashore.",
+    navLink: "Partners",
+    eyebrow: "Partnership",
+    h1Line1: "Be part of it",
+    h1Line2: "as a partner.",
+    lead:
+      "Tack & Talk brings together twenty company crews and about 120 company decision-makers for five days. As a partner you are part of the whole event — on the water and ashore.",
+    whyTitle: "Why partner",
+    whyLead:
+      "A concentrated B2B audience that is normally hard to reach: decision-makers from twenty companies, five days, one place.",
+    stats: [
+      { value: "20", label: "boats" },
+      { value: "~120", label: "participants" },
+      { value: "5", label: "days on the water and ashore" },
+    ],
+    levelsTitle: "Partnership levels",
+    priceFrom: "from",
+    featuredBadge: "Top level",
+    placeholderNote:
+      "We're finalising the exact level names, deliverables and prices — get in touch and we'll send the current prospectus.",
+    compareTitle: "Comparison of deliverables",
+    features: {
+      boats_visibility: "Visibility on the boats",
+      marina_branding: "Branding in the marina",
+      program_space: "Space in the shore programme",
+      own_seats: "Own seats on a boat",
+      logo_materials: "Logo on materials",
+      participant_list: "Access to the participant list",
+      post_event: "Post-event content",
+    },
+    formTitle: "I'm interested in partnership",
+    companyLabel: "Company *",
+    contactLabel: "Contact person *",
+    roleLabel: "Role",
+    emailLabel: "E-mail *",
+    phoneLabel: "Phone",
+    interestLabel: "Level of interest",
+    interestUndecided: "Not sure yet",
+    budgetLabel: "Budget band",
+    budgetUndecided: "Not sure yet",
+    budgetBands: ["up to €10,000", "€10,000 – €25,000", "over €25,000"],
+    messageLabel: "Note",
+    consent:
+      "I agree to be contacted by AJservices, s.r.o. regarding partnership at Tack & Talk Regatta 2027.",
+    submitIdle: "Send enquiry",
+    submitSending: "Sending…",
+    success: "Thank you. We've received your partnership enquiry and will be in touch.",
+    errorFailed:
+      "The enquiry could not be sent. Please try again or write to us at info@tacktalkregatta.com.",
+    teaserEyebrow: "For partners",
+    teaserTitle: "Become a partner of the regatta",
+    teaserLead:
+      "Visibility in front of decision-makers from twenty companies over five days. Four partnership levels.",
+    teaserCta: "Partnership packages",
+  },
 };
 
 export default en;
