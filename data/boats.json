@@ -1,0 +1,56 @@
+{
+  "_comment": "Detaily lodí. BALI 5.2 špecifikácie sú potvrdené (z regatta.json). Dufour 460/470 čísla doplní Andrej (teraz '—'). photos: pole ciest k obrázkom (ideálne WebP, napr. '/lode/dufour460-1.webp'); layout: cesta k pôdorysu kajút; tourUrl: 360°/virtuálna prehliadka (prázdne = blok skrytý). Poradie špecifikácií: length, beam, draught, cabins, berths, wc, engine, crew.",
+  "boats": [
+    {
+      "id": "dufour_460",
+      "name": "Dufour 460 GL",
+      "specs": {
+        "length": "—",
+        "beam": "—",
+        "draught": "—",
+        "cabins": "—",
+        "berths": "—",
+        "wc": "—",
+        "engine": "—",
+        "crew": "—"
+      },
+      "photos": [],
+      "layout": "",
+      "tourUrl": ""
+    },
+    {
+      "id": "dufour_470",
+      "name": "Dufour 470 GL",
+      "specs": {
+        "length": "—",
+        "beam": "—",
+        "draught": "—",
+        "cabins": "—",
+        "berths": "—",
+        "wc": "—",
+        "engine": "—",
+        "crew": "—"
+      },
+      "photos": [],
+      "layout": "",
+      "tourUrl": ""
+    },
+    {
+      "id": "bali_52",
+      "name": "BALI 5.2 Lumiere",
+      "specs": {
+        "length": "15,9 m",
+        "beam": "8,15 m",
+        "draught": "1,4 m",
+        "cabins": "7",
+        "berths": "—",
+        "wc": "7",
+        "engine": "2 × 80 HP",
+        "crew": "12"
+      },
+      "photos": [],
+      "layout": "",
+      "tourUrl": ""
+    }
+  ]
+}

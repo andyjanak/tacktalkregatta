@@ -682,6 +682,35 @@ const hr: Dict = {
       "Vidljivost pred donositeljima odluka iz dvadeset tvrtki tijekom pet dana. Četiri razine partnerstva.",
     teaserCta: "Partnerski paketi",
   },
+  boats: {
+    metaTitle: "Brodovi – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Detalji brodova za Tack & Talk Regatta 2027: Dufour 460 GL, Dufour 470 GL i zajednički katamaran BALI 5.2 Lumiere — specifikacije, galerija i raspored kabina.",
+    navLink: "Brodovi",
+    eyebrow: "Flota",
+    h1Line1: "Brodovi",
+    h1Line2: "regate.",
+    lead:
+      "Ujednačena flota Dufour 460 GL i Dufour 470 GL te zajednički katamaran BALI 5.2 Lumiere tijekom cijelog događanja. Gdje će tvrtka spavati i natjecati se.",
+    specTitle: "Specifikacija",
+    spec: {
+      length: "Duljina",
+      beam: "Širina",
+      draught: "Gaz",
+      cabins: "Kabine",
+      berths: "Ležajevi",
+      wc: "WC",
+      engine: "Motor",
+      crew: "Kapacitet posade",
+    },
+    galleryLabel: "Galerija",
+    galleryEmpty: "Fotografije uskoro.",
+    galleryClose: "Zatvori",
+    layoutLabel: "Raspored kabina",
+    layoutEmpty: "Raspored uskoro.",
+    tourLabel: "Virtualni obilazak",
+    note: "Točne specifikacije Dufour 460 GL i 470 GL potvrdit ćemo prema ugovoru o charteru.",
+  },
 };
 
 export default hr;

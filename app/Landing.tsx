@@ -7,7 +7,7 @@ import LangSwitch from "./LangSwitch";
 import PriceCalculator from "./PriceCalculator";
 import FleetCounter from "./FleetCounter";
 import { siteUrl } from "./site-config";
-import { localeHome, localeWeather, localeResults, localeDocuments, localePartners, type Dict, type Locale } from "./i18n";
+import { localeHome, localeWeather, localeResults, localeDocuments, localePartners, localeBoats, type Dict, type Locale } from "./i18n";
 
 function Brand() {
   return (
@@ -327,6 +327,9 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             {dict.fees.includes.map((item) => <li key={item}>{item}</li>)}
           </ul>
           <p>{dict.fees.includesNote}</p>
+          <a className="text-link" href={localeBoats(locale)}>
+            {dict.boats.navLink} <span aria-hidden="true">→</span>
+          </a>
         </div>
         <article className="bali-card">
           <figure className="bali-photo">
@@ -470,6 +473,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <p><a href={localeResults(locale)}>{dict.results.navLink}</a></p>
           <p><a href={localeDocuments(locale)}>{dict.documents.navLink}</a></p>
           <p><a href={localePartners(locale)}>{dict.partners.navLink}</a></p>
+          <p><a href={localeBoats(locale)}>{dict.boats.navLink}</a></p>
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
           <a className="footer-admin-link" href="/admin">{dict.footer.adminLink} <span aria-hidden="true">→</span></a>
         </div>
