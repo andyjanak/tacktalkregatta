@@ -500,7 +500,9 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
 .lead-filters button.active { color: white; background: var(--navy); border-color: var(--navy); }
 .lead-toolbar input { min-height: 38px; padding: 0 14px; color: var(--navy); background: white; border: 1px solid var(--line); font: inherit; font-size: 11px; outline: none; }
 .lead-toolbar input:focus { border-color: var(--brass); }
+.export-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .export-link { padding: 10px 14px; color: var(--navy); background: white; border: 1px solid var(--line); font-size: 9px; text-transform: uppercase; letter-spacing: .07em; }
+.export-link:hover { border-color: var(--navy); }
 .leads-workspace { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(440px, .75fr); background: white; border: 1px solid var(--line); }
 .customer-table-panel { min-width: 0; max-height: 820px; overflow: auto; border-right: 1px solid var(--line); }
 .customer-table { width: 100%; min-width: 920px; border-collapse: collapse; color: var(--ink); font-size: 10px; }

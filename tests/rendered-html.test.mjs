@@ -209,7 +209,9 @@ test("allowed admin renders the inquiry workspace", async () => {
   assert.match(html, /Potenciálni zákazníci/i);
   assert.match(html, /Pridať potenciálneho zákazníka/i);
   assert.match(html, /Firma.*Meno.*E-mail.*Telefón.*Zameranie.*Obrat/is);
-  assert.match(html, /Export CSV/i);
+  assert.match(html, /Kontakty CSV/i);
+  assert.match(html, /Rezervácie CSV/i);
+  assert.match(html, /Partneri CSV/i);
   assert.match(html, /Právna forma predaja/i);
 });
 

@@ -408,6 +408,14 @@ const pl: Dict = {
     submitSending: "Wysyłam…",
     success: "Dziękujemy. Zgłoszenie przyjęliśmy i odezwiemy się do Ciebie.",
     errorFailed: "Nie udało się wysłać zgłoszenia.",
+    emailSubject: "Dziękujemy za zainteresowanie — Tack & Talk Regatta 2027",
+    emailHeading: "Otrzymaliśmy Twoje zgłoszenie",
+    emailIntro:
+      "Dziękujemy za zainteresowanie Tack & Talk Regatta 2027. Zwykle odpowiadamy w ciągu jednego dnia roboczego.",
+    emailNextTitle: "Co dalej",
+    emailNextBody:
+      "Kompletujemy flotę i warunki. Gdy tylko kolejny krok będzie gotowy, odezwiemy się na ten adres e-mail.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25–30.09.2027 · Rogoznica, Chorwacja",
   },
   footer: {
     claim: "Świeży wiatr w żaglach.",
@@ -682,6 +690,14 @@ const pl: Dict = {
     success: "Dziękujemy. Otrzymaliśmy Twoje zapytanie partnerskie i skontaktujemy się z Tobą.",
     errorFailed:
       "Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz do nas na info@tacktalkregatta.com.",
+    emailSubject: "Dziękujemy za zainteresowanie partnerstwem — Tack & Talk Regatta 2027",
+    emailHeading: "Otrzymaliśmy Twoje zapytanie partnerskie",
+    emailIntro:
+      "Dziękujemy za zainteresowanie partnerstwem przy Tack & Talk Regatta 2027. Zwykle odpowiadamy w ciągu jednego dnia roboczego.",
+    emailNextTitle: "Co dalej",
+    emailNextBody:
+      "Przygotujemy dla Ciebie konkretną ofertę partnerstwa dopasowaną do Twojego zainteresowania i budżetu.",
+    emailFooter: "Tack & Talk Regatta 2027 · 25–30.09.2027 · Rogoznica, Chorwacja",
     teaserEyebrow: "Dla partnerów",
     teaserTitle: "Zostań partnerem regat",
     teaserLead:

@@ -359,7 +359,11 @@ export default function AdminDashboard({
               placeholder="Hľadať firmu, meno, zameranie alebo obrat"
               aria-label="Hľadať v kontaktoch"
             />
-            <Link className="export-link" href="/api/admin/inquiries/export" prefetch={false}>Export CSV</Link>
+            <div className="export-links">
+              <Link className="export-link" href="/api/admin/inquiries/export" prefetch={false}>Kontakty CSV</Link>
+              <Link className="export-link" href="/api/admin/reservations/export" prefetch={false}>Rezervácie CSV</Link>
+              <Link className="export-link" href="/api/admin/partners/export" prefetch={false}>Partneri CSV</Link>
+            </div>
           </section>
 
           <div className="leads-workspace">
