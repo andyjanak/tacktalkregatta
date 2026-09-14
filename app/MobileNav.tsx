@@ -7,6 +7,8 @@ export default function MobileNav({
   nav,
   homePrefix = "",
   weatherHref,
+  partnersHref,
+  partnersLabel,
 }: {
   nav: Dict["nav"];
   // Predpona pre odkazy na sekcie domovskej stránky (prázdna na domovskej,
@@ -14,6 +16,9 @@ export default function MobileNav({
   homePrefix?: string;
   // Odkaz na stránku počasia; ak je zadaný, pridá sa do menu.
   weatherHref?: string;
+  // Odkaz na stránku partnerov; ak je zadaný, pridá sa do menu.
+  partnersHref?: string;
+  partnersLabel?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -31,6 +36,9 @@ export default function MobileNav({
     [nav.trasa, `${homePrefix}#trasa`],
     ...(weatherHref
       ? ([[nav.pocasie, weatherHref]] as Array<[string, string]>)
+      : []),
+    ...(partnersHref && partnersLabel
+      ? ([[partnersLabel, partnersHref]] as Array<[string, string]>)
       : []),
     [nav.faq, `${homePrefix}#faq`],
     [nav.kontakt, `${homePrefix}#kontakt`],

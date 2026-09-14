@@ -624,6 +624,64 @@ const hu: Dict = {
       "Ez nem megrendelés és nem fizetés. Jelentkezünk a rendelkezésre állás és a következő lépés megerősítésével.",
     emailFooter: "Tack & Talk Regatta 2027 · 2027. szeptember 25–30. · Rogoznica, Horvátország",
   },
+  partners: {
+    metaTitle: "Partnerség – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Partnercsomagok a Tack & Talk Regatta 2027 rendezvényhez — láthatóság körülbelül 120 céges résztvevő előtt öt napon át, a vízen és a parton.",
+    navLink: "Partnerek",
+    eyebrow: "Partnerség",
+    h1Line1: "Legyen ott",
+    h1Line2: "partnerként.",
+    lead:
+      "A Tack & Talk húsz céges legénységet és körülbelül 120 céges döntéshozót hoz össze öt napra. Partnerként az egész rendezvény része — a vízen és a parton.",
+    whyTitle: "Miért érdemes partnernek lenni",
+    whyLead:
+      "Koncentrált B2B közönség, amelyet egyébként nehéz elérni: húsz cég döntéshozói, öt nap, egy helyszín.",
+    stats: [
+      { value: "20", label: "hajó" },
+      { value: "~120", label: "résztvevő" },
+      { value: "5", label: "nap a vízen és a parton" },
+    ],
+    levelsTitle: "Partnerségi szintek",
+    priceFrom: "-tól",
+    featuredBadge: "Legmagasabb szint",
+    placeholderNote:
+      "A pontos szintneveket, teljesítéseket és árakat még véglegesítjük — jelentkezzen, és elküldjük az aktuális prospektust.",
+    compareTitle: "A teljesítések összehasonlítása",
+    features: {
+      boats_visibility: "Láthatóság a hajókon",
+      marina_branding: "Branding a marinában",
+      program_space: "Hely a parti programban",
+      own_seats: "Saját helyek egy hajón",
+      logo_materials: "Logó az anyagokon",
+      participant_list: "Hozzáférés a résztvevői listához",
+      post_event: "Rendezvény utáni tartalom",
+    },
+    formTitle: "Érdekel a partnerség",
+    companyLabel: "Cég *",
+    contactLabel: "Kapcsolattartó *",
+    roleLabel: "Beosztás",
+    emailLabel: "E-mail *",
+    phoneLabel: "Telefon",
+    interestLabel: "Érdeklődés szintje",
+    interestUndecided: "Még nem tudom",
+    budgetLabel: "Költségkeret-sáv",
+    budgetUndecided: "Még nem tudom",
+    budgetBands: ["10 000 €-ig", "10 000 – 25 000 €", "25 000 € felett"],
+    messageLabel: "Megjegyzés",
+    consent:
+      "Hozzájárulok, hogy az AJservices, s.r.o. megkeressen a Tack & Talk Regatta 2027 partnerségével kapcsolatban.",
+    submitIdle: "Érdeklődés küldése",
+    submitSending: "Küldés…",
+    success: "Köszönjük. Megkaptuk a partnerségi érdeklődését, és hamarosan jelentkezünk.",
+    errorFailed:
+      "Az érdeklődést nem sikerült elküldeni. Kérjük, próbálja újra, vagy írjon nekünk az info@tacktalkregatta.com címre.",
+    teaserEyebrow: "Partnereknek",
+    teaserTitle: "Legyen a regatta partnere",
+    teaserLead:
+      "Láthatóság húsz cég döntéshozói előtt öt napon át. Négy partnerségi szint.",
+    teaserCta: "Partnercsomagok",
+  },
 };
 
 export default hu;
