@@ -682,6 +682,35 @@ const pl: Dict = {
       "Widoczność przed decydentami z dwudziestu firm przez pięć dni. Cztery poziomy partnerstwa.",
     teaserCta: "Pakiety partnerskie",
   },
+  boats: {
+    metaTitle: "Jachty – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Szczegóły jachtów na Tack & Talk Regatta 2027: Dufour 460 GL, Dufour 470 GL oraz wspólny katamaran BALI 5.2 Lumiere — specyfikacje, galeria i układ kabin.",
+    navLink: "Jachty",
+    eyebrow: "Flota",
+    h1Line1: "Jachty",
+    h1Line2: "regat.",
+    lead:
+      "Jednolita flota Dufour 460 GL i Dufour 470 GL oraz wspólny katamaran BALI 5.2 Lumiere przez całe wydarzenie. Gdzie firma będzie spać i rywalizować.",
+    specTitle: "Specyfikacja",
+    spec: {
+      length: "Długość",
+      beam: "Szerokość",
+      draught: "Zanurzenie",
+      cabins: "Kabiny",
+      berths: "Koje",
+      wc: "WC/toalety",
+      engine: "Silnik",
+      crew: "Pojemność załogi",
+    },
+    galleryLabel: "Galeria",
+    galleryEmpty: "Zdjęcia wkrótce.",
+    galleryClose: "Zamknij",
+    layoutLabel: "Układ kabin",
+    layoutEmpty: "Układ wkrótce.",
+    tourLabel: "Wirtualny spacer",
+    note: "Dokładne specyfikacje Dufour 460 GL i 470 GL potwierdzimy zgodnie z umową czarteru.",
+  },
 };
 
 export default pl;

@@ -682,6 +682,35 @@ const hu: Dict = {
       "Láthatóság húsz cég döntéshozói előtt öt napon át. Négy partnerségi szint.",
     teaserCta: "Partnercsomagok",
   },
+  boats: {
+    metaTitle: "Hajók – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Hajóadatok a Tack & Talk Regatta 2027 rendezvényhez: Dufour 460 GL, Dufour 470 GL és a közös BALI 5.2 Lumiere katamarán — specifikációk, galéria és kabinelrendezés.",
+    navLink: "Hajók",
+    eyebrow: "Flotta",
+    h1Line1: "A regatta",
+    h1Line2: "hajói.",
+    lead:
+      "Egységes flotta Dufour 460 GL és Dufour 470 GL hajókból, valamint a közös BALI 5.2 Lumiere katamarán a rendezvény teljes ideje alatt. Ahol a cég alszik és versenyez.",
+    specTitle: "Specifikáció",
+    spec: {
+      length: "Hossz",
+      beam: "Szélesség",
+      draught: "Merülés",
+      cabins: "Kabinok",
+      berths: "Fekhelyek",
+      wc: "WC",
+      engine: "Motor",
+      crew: "Legénység kapacitása",
+    },
+    galleryLabel: "Galéria",
+    galleryEmpty: "A fotókat hamarosan feltöltjük.",
+    galleryClose: "Bezárás",
+    layoutLabel: "Kabinelrendezés",
+    layoutEmpty: "Az elrendezést hamarosan feltöltjük.",
+    tourLabel: "Virtuális túra",
+    note: "A Dufour 460 GL és 470 GL pontos specifikációit a bérleti szerződés szerint erősítjük meg.",
+  },
 };
 
 export default hu;

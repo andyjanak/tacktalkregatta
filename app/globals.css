@@ -986,3 +986,36 @@ main.pt { background: var(--sand); color: var(--ink); padding-top: 92px; overflo
 .partner-teaser h2 { margin: 4px 0 8px; font-size: clamp(1.6rem,3.4vw,2.2rem); font-weight: 600; letter-spacing: -.01em; }
 .partner-teaser p { margin: 0; color: #b8c6d6; max-width: 560px; font-size: 1rem; line-height: 1.55; }
 .partner-teaser .eyebrow { color: #e2b666; margin-bottom: 10px; }
+
+/* ===================== P0-3 Lode (/lode) ===================== */
+main.bt { background: var(--sand); color: var(--ink); padding-top: 92px; overflow: visible; }
+.bt-intro { max-width: 1100px; margin: 0 auto; padding: clamp(40px,6vw,72px) clamp(24px,5vw,80px) 8px; }
+.bt-h1 { font-size: clamp(2.4rem,6.5vw,4rem); line-height: 1; letter-spacing: -.02em; margin: 0 0 18px; font-weight: 600; text-wrap: balance; }
+.bt-h1 em { color: var(--brass); font-style: normal; }
+.bt-lead { max-width: 640px; color: #4a5568; font-size: 1.05rem; line-height: 1.65; margin: 0; }
+.bt-section { max-width: 1100px; margin: 0 auto; padding: clamp(16px,2.5vw,28px) clamp(24px,5vw,80px); }
+.bt-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px,3vw,32px); box-shadow: 0 10px 30px rgba(11,37,69,.06); }
+.bt-boat-name { margin: 0 0 18px; font-size: clamp(1.5rem,3.4vw,2.2rem); font-weight: 600; letter-spacing: -.01em; }
+.bt-cols { display: grid; grid-template-columns: 300px 1fr; gap: clamp(20px,3vw,40px); align-items: start; }
+.bt-spec .fee-label, .bt-visual .fee-label { margin: 0 0 12px; }
+.bt-spec-list { margin: 0; display: flex; flex-direction: column; }
+.bt-spec-list > div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.bt-spec-list dt { color: var(--grey); font-size: .9rem; }
+.bt-spec-list dd { margin: 0; font-weight: 600; font-size: .95rem; font-variant-numeric: tabular-nums; text-align: right; }
+.bt-layout-label { margin-top: 22px !important; }
+.bt-layout { width: 100%; border: 1px solid var(--line); border-radius: 12px; margin-top: 4px; }
+.bt-tour { display: inline-block; margin-top: 16px; font-size: .9rem; font-weight: 600; color: var(--navy); }
+.bt-note { max-width: 1100px; margin: 8px auto 0; padding: 8px clamp(24px,5vw,80px) 40px; font-size: .82rem; color: var(--grey); }
+
+.boat-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: 10px; }
+.boat-thumb { padding: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: pointer; background: none; aspect-ratio: 4 / 3; }
+.boat-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.boat-gallery-empty { margin: 0; font-size: .88rem; color: var(--grey); font-style: italic; }
+.boat-lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(7,20,36,.92); display: grid; place-items: center; padding: 24px; }
+.boat-lightbox-backdrop { position: absolute; inset: 0; background: none; border: none; cursor: zoom-out; }
+.boat-lightbox img { position: relative; z-index: 1; max-width: 95vw; max-height: 90vh; border-radius: 8px; pointer-events: none; }
+.boat-lightbox-close { position: absolute; z-index: 2; top: 18px; right: 22px; background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+
+@media (max-width: 760px) {
+  .bt-cols { grid-template-columns: 1fr; }
+}

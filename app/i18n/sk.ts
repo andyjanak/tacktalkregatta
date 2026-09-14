@@ -683,6 +683,35 @@ const sk = {
       "Viditeľnosť pred rozhodovateľmi z dvadsiatich firiem počas piatich dní. Štyri úrovne partnerstva.",
     teaserCta: "Partnerské balíky",
   },
+  boats: {
+    metaTitle: "Lode – Tack & Talk Regatta 2027",
+    metaDescription:
+      "Detail lodí Tack & Talk Regatta 2027: Dufour 460 GL, Dufour 470 GL a spoločný katamarán BALI 5.2 Lumiere — špecifikácie, galéria a pôdorys kajút.",
+    navLink: "Lode",
+    eyebrow: "Flotila",
+    h1Line1: "Lode",
+    h1Line2: "regaty.",
+    lead:
+      "Jednotná flotila Dufour 460 GL a Dufour 470 GL a spoločný katamarán BALI 5.2 Lumiere počas celého podujatia. Kde bude firma spať aj súťažiť.",
+    specTitle: "Špecifikácia",
+    spec: {
+      length: "Dĺžka",
+      beam: "Šírka",
+      draught: "Ponor",
+      cabins: "Kajuty",
+      berths: "Lôžka",
+      wc: "WC",
+      engine: "Motor",
+      crew: "Kapacita posádky",
+    },
+    galleryLabel: "Galéria",
+    galleryEmpty: "Fotografie doplníme.",
+    galleryClose: "Zavrieť",
+    layoutLabel: "Pôdorys kajút",
+    layoutEmpty: "Pôdorys doplníme.",
+    tourLabel: "Virtuálna prehliadka",
+    note: "Presné špecifikácie Dufour 460 GL a 470 GL potvrdíme podľa charterovej zmluvy.",
+  },
 };
 
 export default sk;
