@@ -408,6 +408,14 @@ const hu: Dict = {
     submitSending: "Küldés…",
     success: "Köszönjük. Megkaptuk a megkeresésedet, és jelentkezünk.",
     errorFailed: "A megkeresést nem sikerült elküldeni.",
+    emailSubject: "Köszönjük az érdeklődését — Tack & Talk Regatta 2027",
+    emailHeading: "Megkeresését megkaptuk",
+    emailIntro:
+      "Köszönjük az érdeklődését a Tack & Talk Regatta 2027 iránt. Általában egy munkanapon belül válaszolunk.",
+    emailNextTitle: "Mi lesz a következő lépés",
+    emailNextBody:
+      "Összeállítjuk a flottát és a feltételeket. Amint készen áll a következő lépés, jelentkezünk ezen az e-mail-címen.",
+    emailFooter: "Tack & Talk Regatta 2027 · 2027. szept. 25–30. · Rogoznica, Horvátország",
   },
   footer: {
     claim: "Friss szél a vitorlákban.",
@@ -684,6 +692,14 @@ const hu: Dict = {
     success: "Köszönjük. Megkaptuk a partnerségi érdeklődését, és hamarosan jelentkezünk.",
     errorFailed:
       "Az érdeklődést nem sikerült elküldeni. Kérjük, próbálja újra, vagy írjon nekünk az info@tacktalkregatta.com címre.",
+    emailSubject: "Köszönjük a partneri érdeklődését — Tack & Talk Regatta 2027",
+    emailHeading: "Partneri megkeresését megkaptuk",
+    emailIntro:
+      "Köszönjük a Tack & Talk Regatta 2027 iránti partneri érdeklődését. Általában egy munkanapon belül válaszolunk.",
+    emailNextTitle: "Mi lesz a következő lépés",
+    emailNextBody:
+      "Az érdeklődése és költségkerete alapján konkrét partneri ajánlatot készítünk Önnek.",
+    emailFooter: "Tack & Talk Regatta 2027 · 2027. szept. 25–30. · Rogoznica, Horvátország",
     teaserEyebrow: "Partnereknek",
     teaserTitle: "Legyen a regatta partnere",
     teaserLead:

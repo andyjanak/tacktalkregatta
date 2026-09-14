@@ -5,7 +5,12 @@ import {
 } from "@/db/inquiries";
 import { clientIp, verifyTurnstile } from "@/lib/request-security";
 import { consumeRateLimit } from "@/db/rate-limit";
-import { getEmailConfigurationStatus, sendInquiryNotification } from "@/lib/email";
+import {
+  getEmailConfigurationStatus,
+  sendApplicantConfirmation,
+  sendInquiryNotification,
+  type ApplicantEmailStrings,
+} from "@/lib/email";
 
 const MAX_SUBMISSIONS_PER_IP = 5;
 const WINDOW_SECONDS = 10 * 60;
@@ -121,6 +126,24 @@ export async function POST(request: Request) {
         });
       } catch (notifyError) {
         console.error("Lead notification failed", notifyError);
+      }
+
+      // Potvrdenie žiadateľovi (lokalizované z formulára). Dormant bez kľúčov.
+      const rawStrings = (payload.emailStrings ?? {}) as Record<string, unknown>;
+      const strings: ApplicantEmailStrings = {
+        subject: cleanText(rawStrings.subject, 200) || "Ďakujeme za váš záujem — Tack & Talk Regatta 2027",
+        heading: cleanText(rawStrings.heading, 200),
+        intro: cleanText(rawStrings.intro, 600),
+        nextTitle: cleanText(rawStrings.nextTitle, 120),
+        nextBody: cleanText(rawStrings.nextBody, 600),
+        footer: cleanText(rawStrings.footer, 200),
+      };
+      if (strings.heading && strings.intro) {
+        try {
+          await sendApplicantConfirmation({ to: email, strings });
+        } catch (confirmError) {
+          console.error("Applicant confirmation failed", confirmError);
+        }
       }
     }
 

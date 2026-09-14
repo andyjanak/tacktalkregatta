@@ -1,5 +1,5 @@
 import { getAdminUser } from "@/app/chatgpt-auth";
-import { listInquiries } from "@/db/inquiries";
+import { listReservations } from "@/db/reservations";
 import { buildCsv, csvResponse } from "@/lib/csv";
 
 export async function GET() {
@@ -8,47 +8,33 @@ export async function GET() {
     return Response.json({ error: "Prístup zamietnutý." }, { status: 403 });
   }
 
-  const rows = await listInquiries();
+  const rows = await listReservations();
   const header = [
-    "ID",
+    "Poradové číslo",
     "Vytvorené",
     "Stav",
-    "Priorita",
-    "Meno",
     "Firma",
+    "Kontaktná osoba",
     "E-mail",
     "Telefón",
-    "Zameranie",
-    "Ročný obrat",
-    "Počet ľudí",
-    "Kapitánsky preukaz",
     "Preferovaná loď",
-    "Priradené",
-    "Tagy",
-    "Ďalší kontakt",
-    "Hromadné e-maily",
+    "Počet ľudí",
+    "Súhlas (čas)",
     "Správa",
   ];
   const body = rows.map((row) => [
     row.id,
     row.createdAt,
     row.status,
-    row.priority,
-    row.fullName,
     row.company,
+    row.contactName,
     row.email,
     row.phone,
-    row.businessFocus,
-    row.annualTurnover,
+    row.boatPreference,
     row.peopleCount,
-    row.captainLicense,
-    row.boatInterest,
-    row.assignedTo,
-    row.tags,
-    row.nextFollowUpAt,
-    row.emailPermission,
+    row.consentAt,
     row.message,
   ]);
 
-  return csvResponse(buildCsv(header, body), "tt27-potencialni-zakaznici.csv");
+  return csvResponse(buildCsv(header, body), "tt27-rezervacie.csv");
 }

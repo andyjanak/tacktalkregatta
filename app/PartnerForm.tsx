@@ -38,6 +38,15 @@ export default function PartnerForm({
       website: formData.get("website"),
       turnstileToken: formData.get("cf-turnstile-response"),
       consent: formData.get("consent") === "yes",
+      // Lokalizované texty potvrdzovacieho e-mailu žiadateľovi (server ich escapuje).
+      emailStrings: {
+        subject: t.emailSubject,
+        heading: t.emailHeading,
+        intro: t.emailIntro,
+        nextTitle: t.emailNextTitle,
+        nextBody: t.emailNextBody,
+        footer: t.emailFooter,
+      },
     };
 
     try {
