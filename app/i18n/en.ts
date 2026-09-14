@@ -412,6 +412,8 @@ const en: Dict = {
   footer: {
     claim: "Clear your head. Set your course.",
     organizerLabel: "Organiser",
+    regLabel: "Reg. No. (IČO)",
+    seatLabel: "Registered office",
     dateLine: "25–30 September 2027 · Rogoznica, Croatia",
     mainOrgPre: "Main organiser: ",
     coOrgLine: "Co-organiser: Tangreto, s.r.o.",

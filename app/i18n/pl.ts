@@ -412,6 +412,8 @@ const pl: Dict = {
   footer: {
     claim: "Świeży wiatr w żaglach.",
     organizerLabel: "Organizator",
+    regLabel: "Nr rej. (IČO)",
+    seatLabel: "Siedziba",
     dateLine: "25–30.09.2027 · Rogoznica, Chorwacja",
     mainOrgPre: "Organizator główny: ",
     coOrgLine: "Współorganizator: Tangreto, s.r.o.",

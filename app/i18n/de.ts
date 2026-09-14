@@ -412,6 +412,8 @@ const de: Dict = {
   footer: {
     claim: "Frischer Wind in den Segeln.",
     organizerLabel: "Organisator",
+    regLabel: "Reg.-Nr. (IČO)",
+    seatLabel: "Sitz",
     dateLine: "25.–30. September 2027 · Rogoznica, Kroatien",
     mainOrgPre: "Hauptorganisator: ",
     coOrgLine: "Mitorganisator: Tangreto, s.r.o.",
