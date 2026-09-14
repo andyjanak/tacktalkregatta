@@ -128,6 +128,12 @@ const cs: Dict = {
         desc: "Loď si firma zajišťuje ve vlastní režii podle potvrzené specifikace.",
       },
     ],
+    notForTitle: "Pro koho to není",
+    notFor: [
+      "Není to firemní teambuildingový výlet s animátorem.",
+      "Není to rodinná rekreace u moře.",
+      "Není to závod pro licencované závodníky.",
+    ],
   },
   route: {
     eyebrow: "Trasa · 5 nocí · 4 závodní dny · 9 rozjížděk",

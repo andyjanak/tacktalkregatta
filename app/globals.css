@@ -1019,3 +1019,13 @@ main.bt { background: var(--sand); color: var(--ink); padding-top: 92px; overflo
 @media (max-width: 760px) {
   .bt-cols { grid-template-columns: 1fr; }
 }
+
+/* ===================== P1-1 Katamarán ako samostatný blok ===================== */
+.section-bali { background: var(--sand); }
+
+/* ===================== P1-4 Pre koho to nie je ===================== */
+.not-for { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+.not-for-title { margin: 0 0 14px; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); }
+.not-for ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.not-for li { position: relative; padding-left: 26px; font-size: .98rem; color: var(--ink); }
+.not-for li::before { content: "\2715"; position: absolute; left: 0; top: 0; color: #b1332f; font-weight: 700; }

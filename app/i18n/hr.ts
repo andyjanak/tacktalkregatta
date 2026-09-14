@@ -128,6 +128,12 @@ const hr: Dict = {
         desc: "Brod tvrtka osigurava sama, prema potvrđenoj specifikaciji.",
       },
     ],
+    notForTitle: "Za koga nije",
+    notFor: [
+      "Nije to korporativni team-building izlet s animatorom.",
+      "Nije to obiteljski predah uz more.",
+      "Nije to regata za licencirane natjecatelje.",
+    ],
   },
   route: {
     eyebrow: "Ruta · 5 noći · 4 dana natjecanja · 9 plovidbi",

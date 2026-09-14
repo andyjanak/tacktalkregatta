@@ -209,6 +209,30 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
         </div>
       </section>
 
+      <section className="section section-bali">
+        <article className="bali-card">
+          <figure className="bali-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/bali-52-promo.jpg" alt={dict.fees.baliPhotoAlt} width="1600" height="899" loading="lazy" />
+            <figcaption>{dict.fees.baliCaption}</figcaption>
+          </figure>
+          <div className="bali-copy">
+            <p className="eyebrow eyebrow-dark"><span /> {dict.fees.baliEyebrow}</p>
+            <h2>{dict.fees.baliH3}</h2>
+            <p>{dict.fees.baliP}</p>
+            <dl className="bali-specs" aria-label={dict.fees.baliSpecsAria}>
+              <div><dt>{dict.fees.baliSpecs.year}</dt><dd>2026</dd></div>
+              <div><dt>{dict.fees.baliSpecs.length}</dt><dd>{dict.fees.baliSpecs.lengthVal}</dd></div>
+              <div><dt>{dict.fees.baliSpecs.beam}</dt><dd>{dict.fees.baliSpecs.beamVal}</dd></div>
+              <div><dt>{dict.fees.baliSpecs.capacity}</dt><dd>{dict.fees.baliSpecs.capacityVal}</dd></div>
+              <div><dt>{dict.fees.baliSpecs.cabinsWc}</dt><dd>7 / 7</dd></div>
+              <div><dt>{dict.fees.baliSpecs.engines}</dt><dd>2 × 80 HP</dd></div>
+            </dl>
+            <p className="bali-features">{dict.fees.baliFeatures}</p>
+          </div>
+        </article>
+      </section>
+
       <section className="section section-audience" id="pre-koho">
         <div className="section-heading">
           <p className="eyebrow eyebrow-dark"><span /> {dict.audience.eyebrow}</p>
@@ -235,6 +259,13 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
               <article key={item.title}><strong>{item.title}</strong><span>{item.desc}</span></article>
             ))}
           </div>
+        </div>
+
+        <div className="not-for">
+          <p className="not-for-title">{dict.audience.notForTitle}</p>
+          <ul>
+            {dict.audience.notFor.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </div>
       </section>
 
@@ -331,27 +362,6 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             {dict.boats.navLink} <span aria-hidden="true">→</span>
           </a>
         </div>
-        <article className="bali-card">
-          <figure className="bali-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bali-52-promo.jpg" alt={dict.fees.baliPhotoAlt} width="1600" height="899" loading="lazy" />
-            <figcaption>{dict.fees.baliCaption}</figcaption>
-          </figure>
-          <div className="bali-copy">
-            <p className="eyebrow"><span /> {dict.fees.baliEyebrow}</p>
-            <h3>{dict.fees.baliH3}</h3>
-            <p>{dict.fees.baliP}</p>
-            <dl className="bali-specs" aria-label={dict.fees.baliSpecsAria}>
-              <div><dt>{dict.fees.baliSpecs.year}</dt><dd>2026</dd></div>
-              <div><dt>{dict.fees.baliSpecs.length}</dt><dd>{dict.fees.baliSpecs.lengthVal}</dd></div>
-              <div><dt>{dict.fees.baliSpecs.beam}</dt><dd>{dict.fees.baliSpecs.beamVal}</dd></div>
-              <div><dt>{dict.fees.baliSpecs.capacity}</dt><dd>{dict.fees.baliSpecs.capacityVal}</dd></div>
-              <div><dt>{dict.fees.baliSpecs.cabinsWc}</dt><dd>7 / 7</dd></div>
-              <div><dt>{dict.fees.baliSpecs.engines}</dt><dd>2 × 80 HP</dd></div>
-            </dl>
-            <p className="bali-features">{dict.fees.baliFeatures}</p>
-          </div>
-        </article>
       </section>
 
       <section className="section section-faq" id="faq">

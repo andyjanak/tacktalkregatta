@@ -128,6 +128,12 @@ const hu: Dict = {
         desc: "A hajót a cég maga biztosítja a megerősített specifikáció szerint.",
       },
     ],
+    notForTitle: "Kinek nem való",
+    notFor: [
+      "Nem céges csapatépítő kirándulás animátorral.",
+      "Nem családi tengerparti kikapcsolódás.",
+      "Nem verseny licencelt versenyzőknek.",
+    ],
   },
   route: {
     eyebrow: "Útvonal · 5 éjszaka · 4 versenynap · 9 futam",
