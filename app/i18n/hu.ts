@@ -412,6 +412,8 @@ const hu: Dict = {
   footer: {
     claim: "Friss szél a vitorlákban.",
     organizerLabel: "Szervező",
+    regLabel: "Cégazonosító (IČO)",
+    seatLabel: "Székhely",
     dateLine: "2027. szeptember 25–30. · Rogoznica, Horvátország",
     mainOrgPre: "Fő szervező: ",
     coOrgLine: "Társszervező: Tangreto, s.r.o.",

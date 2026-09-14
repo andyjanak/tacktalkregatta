@@ -412,6 +412,8 @@ const hr: Dict = {
   footer: {
     claim: "Svjež vjetar u jedrima.",
     organizerLabel: "Organizator",
+    regLabel: "Matični broj (IČO)",
+    seatLabel: "Sjedište",
     dateLine: "25.–30. rujna 2027. · Rogoznica, Hrvatska",
     mainOrgPre: "Glavni organizator: ",
     coOrgLine: "Suorganizator: Tangreto, s.r.o.",

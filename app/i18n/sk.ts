@@ -413,6 +413,8 @@ const sk = {
   footer: {
     claim: "Prevetraj svoj biznis.",
     organizerLabel: "Organizátor",
+    regLabel: "IČO",
+    seatLabel: "Sídlo",
     dateLine: "25. – 30. 9. 2027 · Rogoznica, Chorvátsko",
     mainOrgPre: "Hlavný organizátor: ",
     coOrgLine: "Spoluorganizátor: Tangreto, s.r.o.",

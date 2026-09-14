@@ -1,5 +1,6 @@
 import LangSwitch from "./LangSwitch";
 import MobileNav from "./MobileNav";
+import OrganizerLegal from "./OrganizerLegal";
 import documentsData from "@/data/documents.json";
 import { localeHome, localeWeather, type Dict, type Locale } from "./i18n";
 
@@ -98,6 +99,7 @@ export default function DocumentsPage({
           <p>{dict.footer.dateLine}</p>
           <p><a className="footer-org-link" href={home}>← {dict.nav.brandUpAria}</a></p>
           <p>{dict.footer.patronageLine}</p>
+          <OrganizerLegal t={dict.footer} />
           <p><a href="mailto:info@tacktalkregatta.com">info@tacktalkregatta.com</a></p>
         </div>
       </footer>

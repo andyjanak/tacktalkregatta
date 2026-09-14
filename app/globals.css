@@ -399,6 +399,8 @@ footer p { margin: 12px 0 0; color: #8194a8; font-size: 11px; }
 .footer-organizer img { width: 150px; height: auto; display: block; }
 .footer-org-link { color: inherit; border-bottom: 1px solid var(--brass); }
 .footer-org-link:hover { color: white; }
+.footer-legal { display: flex; flex-direction: column; gap: 3px; color: #6f8299; font-size: 10px; line-height: 1.5; }
+.footer-legal span { display: block; }
 .who-organizes { margin-top: clamp(28px, 4vw, 48px); max-width: 640px; }
 .who-organizes .who-kicker { color: var(--brass); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 8px; }
 .who-organizes p:not(.who-kicker) { color: var(--grey); font-size: 15px; line-height: 1.75; margin: 0; }

@@ -412,6 +412,8 @@ const cs: Dict = {
   footer: {
     claim: "Svěží vítr v plachtách.",
     organizerLabel: "Organizátor",
+    regLabel: "IČO",
+    seatLabel: "Sídlo",
     dateLine: "25.–30. 9. 2027 · Rogoznica, Chorvatsko",
     mainOrgPre: "Hlavní organizátor: ",
     coOrgLine: "Spoluorganizátor: Tangreto, s.r.o.",

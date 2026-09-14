@@ -6,6 +6,7 @@ import RacePlan from "./RacePlan";
 import LangSwitch from "./LangSwitch";
 import PriceCalculator from "./PriceCalculator";
 import FleetCounter from "./FleetCounter";
+import OrganizerLegal from "./OrganizerLegal";
 import { siteUrl } from "./site-config";
 import { localeHome, localeWeather, localeResults, localeDocuments, localePartners, localeBoats, type Dict, type Locale } from "./i18n";
 
@@ -24,6 +25,9 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
 
   // Ceny sú verejné až keď to prepne public_display (viac v regatta.json).
   const pricesPublic = regatta.pricing.public_display;
+  // Meno, fotografia a bio veliteľa flotily sa zobrazia LEN keď je podpísaný
+  // súhlas (public_profile v regatta.json). Prepnutím na false sa sekcia skryje.
+  const showPatronage = regatta.organization.fleet_commander.public_profile;
   const priceBoats = regatta.pricing.packages.map((p) => ({
     name: p.name,
     price: p.price,
@@ -126,9 +130,11 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           </h1>
           <p className="hero-lead">{dict.hero.lead}</p>
           <p className="hero-scoring">{dict.hero.scoring}</p>
-          <a className="patronage-pill" href="#zastita">
-            {dict.hero.patronage} <span aria-hidden="true">↓</span>
-          </a>
+          {showPatronage && (
+            <a className="patronage-pill" href="#zastita">
+              {dict.hero.patronage} <span aria-hidden="true">↓</span>
+            </a>
+          )}
           <div className="hero-actions">
             <a className="button button-brass" href="#koncept">
               {dict.hero.ctaConcept} <span aria-hidden="true">↘</span>
@@ -287,24 +293,26 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
         </div>
       </section>
 
-      <section className="section section-patronage" id="zastita">
-        <div className="patronage-photo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/michal-hrivnak.jpg" alt={dict.patronage.photoAlt} width="1080" height="1080" />
-          <span>{dict.patronage.badge}</span>
-        </div>
-        <div className="patronage-copy">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="tangreto-logo" src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
-          <p className="eyebrow eyebrow-dark"><span /> {dict.patronage.eyebrow}</p>
-          <h2>{dict.patronage.name}</h2>
-          <p>{dict.patronage.p1}</p>
-          <p>{dict.patronage.p2}</p>
-          <a className="profile-link" href="https://www.tangreto.com/about-us/" target="_blank" rel="noreferrer">
-            {dict.patronage.profileLink} <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+      {showPatronage && (
+        <section className="section section-patronage" id="zastita">
+          <div className="patronage-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/michal-hrivnak.jpg" alt={dict.patronage.photoAlt} width="1080" height="1080" />
+            <span>{dict.patronage.badge}</span>
+          </div>
+          <div className="patronage-copy">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="tangreto-logo" src="/tangreto-logo.png" alt="Tangreto" width="380" height="191" />
+            <p className="eyebrow eyebrow-dark"><span /> {dict.patronage.eyebrow}</p>
+            <h2>{dict.patronage.name}</h2>
+            <p>{dict.patronage.p1}</p>
+            <p>{dict.patronage.p2}</p>
+            <a className="profile-link" href="https://www.tangreto.com/about-us/" target="_blank" rel="noreferrer">
+              {dict.patronage.profileLink} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+      )}
 
       <section className="section section-fees" id="ucast">
         <div className="section-heading split-heading">
@@ -479,6 +487,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
           <p>{dict.footer.dateLine}</p>
           <p>{dict.footer.mainOrgPre}<a className="footer-org-link" href="https://www.ajservices.sk/">AJservices, s.r.o.</a></p>
           <p>{dict.footer.coOrgLine}</p>
+          <OrganizerLegal t={dict.footer} />
           <p>{dict.footer.patronageLine}</p>
           <p><a href={localeResults(locale)}>{dict.results.navLink}</a></p>
           <p><a href={localeDocuments(locale)}>{dict.documents.navLink}</a></p>

@@ -31,18 +31,28 @@
     "organizer": {
       "name": "AJservices, s.r.o.",
       "role": "hlavný organizátor a predaj",
-      "country": "SK"
+      "country": "SK",
+      "ico": "47908581",
+      "seat": "Dvory 1932, 020 01 Púchov",
+      "register": "Obchodný register Mestského súdu Trenčín, odd. Sro, vložka č. 30945/R",
+      "register_source": "https://finstat.sk/47908581"
     },
     "co_organizer": {
       "name": "Tangreto, s.r.o.",
       "role": "spoluorganizátor",
-      "country": "SK"
+      "country": "SK",
+      "ico": "47907371",
+      "seat": "Žabotova 3206/4, 811 04 Bratislava - Staré Mesto",
+      "register": "Obchodný register Mestského súdu Bratislava III, odd. Sro, vložka č. 100506/B",
+      "register_source": "https://www.orsr.sk/vypis.asp?ID=313944&SID=2&P=0"
     },
     "fleet_commander": {
       "name": "Michal Hrivnák",
       "role": "veliteľ flotily a hlavný rozhodca",
       "authority": "Rozhodnutie o zrušení etapy, zmene trasy alebo zastavení flotily je konečné.",
       "contract_status": "Písomná zmluva a súhlas s použitím mena a fotografie podpísané — potvrdené organizátorom 2026-08-09",
+      "public_profile": true,
+      "public_profile_note": "Verejné meno, fotografia a bio veliteľa flotily. Gate pre sekciu záštity na webe — zapnuté LEN keď je podpísaný súhlas (contract_status). Prepnúť na false = sekcia aj odkaz v hero sa skryjú.",
       "bio": "Zakladateľ Tangreto sa plachteniu venuje od detstva, na otvorenom mori od roku 2003 a regatám od roku 2013. Podľa oficiálneho profilu má za sebou viac než 30 000 námorných míľ.",
       "bio_source": "https://www.tangreto.com/about-us/"
     }
