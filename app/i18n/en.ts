@@ -128,6 +128,12 @@ const en: Dict = {
         desc: "The company arranges the boat itself, according to the confirmed specification.",
       },
     ],
+    notForTitle: "Who it's not for",
+    notFor: [
+      "It's not a corporate team-building trip with an entertainer.",
+      "It's not a family seaside break.",
+      "It's not a race for licensed racers.",
+    ],
   },
   route: {
     eyebrow: "Route · 5 nights · 4 race days · 9 races",

@@ -129,6 +129,12 @@ const sk = {
         desc: "Loď si firma zabezpečuje vo vlastnej réžii podľa potvrdenej špecifikácie.",
       },
     ],
+    notForTitle: "Pre koho to nie je",
+    notFor: [
+      "Nie je to firemný teambuildingový výlet s animátorom.",
+      "Nie je to rodinná rekreácia pri mori.",
+      "Nie je to pretek pre licencovaných pretekárov.",
+    ],
   },
   route: {
     eyebrow: "Trasa · 5 nocí · 4 súťažné dni · 9 rozjázd",

@@ -128,6 +128,12 @@ const pl: Dict = {
         desc: "Jacht firma zapewnia we własnym zakresie według potwierdzonej specyfikacji.",
       },
     ],
+    notForTitle: "Dla kogo to nie jest",
+    notFor: [
+      "To nie firmowy wyjazd integracyjny z animatorem.",
+      "To nie rodzinny wypoczynek nad morzem.",
+      "To nie wyścig dla licencjonowanych zawodników.",
+    ],
   },
   route: {
     eyebrow: "Trasa · 5 nocy · 4 dni wyścigów · 9 biegów",
