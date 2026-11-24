@@ -305,12 +305,12 @@ const hu: Dict = {
       "a regattát: négy versenynap és kilenc futam",
       "a BALI 5.2 katamaránt a rendezvény teljes ideje alatt",
     ],
-    includesNote: "A pontos hajóárakat 2026. október 15-én tesszük közzé.",
+    includesNote: "A kilenc futam a tervezett keret. Akkor kerülnek megrendezésre, ha az időjárási körülmények engedik. A flottaparancsnok törölheti a szakaszt vagy módosíthatja az útvonalat; a biztonság mindig megelőzi a versenyt.",
     baliEyebrow: "Az árban · végig a flottával",
-    baliH3: "Igyál egy kávét a riválisokkal a BALI 5.2 Lumiere fedélzetén.",
+    baliH3: "Igyál egy kávét a riválisokkal a BALI 5.2 fedélzetén.",
     baliP:
       "A közös katamarán minden hajó árában benne van. A rendezvény teljes ideje alatt teret ad a legénységek közötti találkozásoknak, a reggeli kávénak és a kikötőbe való visszatérés utáni beszélgetéseknek.",
-    baliSpecsAria: "A BALI 5.2 Lumiere katamarán adatai",
+    baliSpecsAria: "A BALI 5.2 katamarán adatai",
     baliSpecs: {
       year: "Év",
       length: "Hossz",

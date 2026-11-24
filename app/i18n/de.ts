@@ -305,12 +305,12 @@ const de: Dict = {
       "die Regatta: vier Wettfahrttage und neun Wettfahrten",
       "den Katamaran BALI 5.2 während der gesamten Veranstaltung",
     ],
-    includesNote: "Die genauen Bootspreise werden am 15. Oktober 2026 veröffentlicht.",
+    includesNote: "Neun Wettfahrten sind der geplante Umfang. Sie werden gesegelt, wenn es die Wetterbedingungen zulassen. Der Flottenkommandant kann eine Etappe absagen oder die Route ändern; Sicherheit geht immer vor Wettkampf.",
     baliEyebrow: "Inklusive · die ganze Zeit mit der Flotte",
-    baliH3: "Trinken Sie einen Kaffee mit den Rivalen an Bord der BALI 5.2 Lumiere.",
+    baliH3: "Trinken Sie einen Kaffee mit den Rivalen an Bord der BALI 5.2.",
     baliP:
       "Der gemeinsame Katamaran ist im Preis jedes Bootes enthalten. Während der gesamten Veranstaltung schafft er Raum für Begegnungen zwischen den Crews, Morgenkaffee und Gespräche nach der Rückkehr in den Hafen.",
-    baliSpecsAria: "Daten zum Katamaran BALI 5.2 Lumiere",
+    baliSpecsAria: "Daten zum Katamaran BALI 5.2",
     baliSpecs: {
       year: "Baujahr",
       length: "Länge",

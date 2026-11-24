@@ -305,12 +305,12 @@ const en: Dict = {
       "the regatta: four race days and nine races",
       "the BALI 5.2 catamaran throughout the event",
     ],
-    includesNote: "Exact boat prices will be published on 15 October 2026.",
+    includesNote: "Nine races are the planned scope. They are sailed if the weather allows. The fleet commander may cancel a leg or change the route; safety always comes before competition.",
     baliEyebrow: "Included · with the fleet the whole time",
-    baliH3: "Grab a coffee with your rivals aboard BALI 5.2 Lumiere.",
+    baliH3: "Grab a coffee with your rivals aboard BALI 5.2.",
     baliP:
       "The shared catamaran is included in the price of each boat. Throughout the event it creates space for meetings between crews, morning coffee and conversations after returning to port.",
-    baliSpecsAria: "BALI 5.2 Lumiere catamaran specifications",
+    baliSpecsAria: "BALI 5.2 catamaran specifications",
     baliSpecs: {
       year: "Year",
       length: "Length",

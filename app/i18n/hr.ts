@@ -305,12 +305,12 @@ const hr: Dict = {
       "regatu: četiri dana natjecanja i devet plovidbi",
       "katamaran BALI 5.2 tijekom cijelog događaja",
     ],
-    includesNote: "Točne cijene brodova objavit ćemo 15. listopada 2026.",
+    includesNote: "Devet plovidbi planirani je opseg. Održat će se ako to dopuste vremenski uvjeti. Zapovjednik flote može otkazati etapu ili promijeniti rutu; sigurnost uvijek ima prednost pred natjecanjem.",
     baliEyebrow: "U cijeni · cijelo vrijeme s flotom",
-    baliH3: "Popij kavu s protivnicima na BALI 5.2 Lumiere.",
+    baliH3: "Popij kavu s protivnicima na BALI 5.2.",
     baliP:
       "Zajednički katamaran uključen je u cijenu svakog broda. Tijekom cijelog događaja stvara prostor za susrete među posadama, jutarnju kavu i razgovore nakon povratka u luku.",
-    baliSpecsAria: "Podaci o katamaranu BALI 5.2 Lumiere",
+    baliSpecsAria: "Podaci o katamaranu BALI 5.2",
     baliSpecs: {
       year: "Godina",
       length: "Duljina",

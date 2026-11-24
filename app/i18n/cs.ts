@@ -305,12 +305,12 @@ const cs: Dict = {
       "regatu: čtyři závodní dny a devět rozjížděk",
       "katamarán BALI 5.2 po celou dobu akce",
     ],
-    includesNote: "Přesné ceny lodí zveřejníme 15. 10. 2026.",
+    includesNote: "Devět rozjížděk je plánovaný rozsah. Odplují se, pokud to umožní povětrnostní podmínky. Velitel flotily může etapu zrušit nebo změnit trasu; bezpečnost má vždy přednost před soutěží.",
     baliEyebrow: "V ceně · celou dobu s flotilou",
-    baliH3: "Dej si kávu se soupeři na BALI 5.2 Lumiere.",
+    baliH3: "Dej si kávu se soupeři na BALI 5.2.",
     baliP:
       "Společný katamarán je zahrnut v ceně každé lodi. Po celou dobu akce vytváří prostor pro setkání mezi posádkami, ranní kávu i rozhovory po návratu do přístavu.",
-    baliSpecsAria: "Údaje o katamaránu BALI 5.2 Lumiere",
+    baliSpecsAria: "Údaje o katamaránu BALI 5.2",
     baliSpecs: {
       year: "Rok",
       length: "Délka",

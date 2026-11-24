@@ -305,12 +305,12 @@ const pl: Dict = {
       "regatę: cztery dni wyścigów i dziewięć biegów",
       "katamaran BALI 5.2 przez cały czas trwania wydarzenia",
     ],
-    includesNote: "Dokładne ceny jachtów ogłosimy 15.10.2026.",
+    includesNote: "Dziewięć biegów to planowany zakres. Odbędą się, jeśli pozwolą na to warunki pogodowe. Dowódca floty może odwołać etap lub zmienić trasę; bezpieczeństwo zawsze ma pierwszeństwo przed rywalizacją.",
     baliEyebrow: "W cenie · przez cały czas z flotą",
-    baliH3: "Napij się kawy z rywalami na BALI 5.2 Lumiere.",
+    baliH3: "Napij się kawy z rywalami na BALI 5.2.",
     baliP:
       "Wspólny katamaran jest wliczony w cenę każdego jachtu. Przez cały czas trwania wydarzenia tworzy przestrzeń na spotkania między załogami, poranną kawę i rozmowy po powrocie do portu.",
-    baliSpecsAria: "Dane katamaranu BALI 5.2 Lumiere",
+    baliSpecsAria: "Dane katamaranu BALI 5.2",
     baliSpecs: {
       year: "Rok",
       length: "Długość",

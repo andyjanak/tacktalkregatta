@@ -306,12 +306,12 @@ const sk = {
       "regatu: štyri súťažné dni a deväť rozjázd",
       "katamarán BALI 5.2 počas celého podujatia",
     ],
-    includesNote: "Presné ceny lodí zverejníme 15. 10. 2026.",
+    includesNote: "Deväť rozjázd je plánovaný rozsah. Odplávajú sa, ak to umožnia poveternostné podmienky. Veliteľ flotily môže etapu zrušiť alebo zmeniť trasu; bezpečnosť má vždy prednosť pred súťažou.",
     baliEyebrow: "V cene · celý čas s flotilou",
-    baliH3: "Daj si kávu so súpermi na BALI 5.2 Lumiere.",
+    baliH3: "Daj si kávu so súpermi na BALI 5.2.",
     baliP:
       "Spoločný katamarán je zahrnutý v cene každej lode. Počas celého podujatia vytvára priestor na stretnutia medzi posádkami, rannú kávu aj rozhovory po návrate do prístavu.",
-    baliSpecsAria: "Údaje o katamaráne BALI 5.2 Lumiere",
+    baliSpecsAria: "Údaje o katamaráne BALI 5.2",
     baliSpecs: {
       year: "Rok",
       length: "Dĺžka",

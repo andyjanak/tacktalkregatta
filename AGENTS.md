@@ -10,7 +10,7 @@ Lode je možné prevziať už v sobotu 25. 9., odovzdávajú sa v piatok 1. 10. 
 spoločnou večerou v Rogoznici a končí vo štvrtok 30. 9. spoločnou večerou a vyhlásením výsledkov tiež v Rogoznici.
 
 Hlavný organizátor: **AJservices, s.r.o.** · Spoluorganizátor: **Tangreto, s.r.o.**
-Veliteľ flotily a hlavný rozhodca: **Michal Hrivnák**
+Veliteľ flotily: **Michal Hrivnák**
 
 Všetky štruktúrované dáta sú v `data/regatta.json`. Trasa aj v `data/route.gpx`.
 
