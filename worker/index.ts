@@ -168,6 +168,11 @@ const worker = {
       }
     }
 
+    // Samostatná stránka plánu pretekov bola nahradená sekciou #trasa na
+    // landing page (commit 05ee71d) a súbor public/plan-pretekov.html je
+    // zmazaný. Toto presmerovanie drží staré externé odkazy funkčné —
+    // nefungovalo, kým súbor existoval, pretože Cloudflare servíruje statické
+    // súbory skôr, než zavolá worker (run_worker_first nie je nastavené).
     if (url.pathname === "/plan-pretekov" || url.pathname === "/plan-pretekov.html") {
       return Response.redirect(new URL("/#trasa", request.url), 308);
     }
