@@ -107,6 +107,12 @@
   .bali-specs{ display:flex; flex-wrap:wrap; gap:3mm 7mm; margin:5mm 0 0; padding-top:4mm; border-top:1px solid rgba(255,255,255,.16) }
   .bali-specs div{ font-size:8.4pt; color:rgba(255,255,255,.66) }
   .bali-specs b{ display:block; font-size:10pt; font-weight:500; color:var(--white) }
+  .addon{ margin:5mm 0 0; padding:4.5mm 5mm; background:rgba(192,138,46,.16); border-left:2px solid var(--brass) }
+  .addon-k{ margin:0; font-size:7.2pt; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--brass) }
+  .addon-m{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1.5mm 5mm; margin:2mm 0 0 }
+  .addon-m b{ font-size:10.4pt; font-weight:500; color:var(--white) }
+  .addon-m span{ font-size:11.5pt; font-weight:500; color:var(--brass); white-space:nowrap }
+  .addon-n{ margin:2.5mm 0 0; font-size:8.2pt; line-height:1.5; color:rgba(255,255,255,.72) }
 
   /* ---------- princípy ---------- */
   .why{ display:grid; grid-template-columns:1fr 1fr; gap:6mm }
@@ -286,14 +292,14 @@
           <h3>Kompletná loď pre firemnú posádku</h3>
           <p class="price">8 300 &euro;</p>
           <p class="vat">bez DPH &middot; za celú loď</p>
-          <p class="note">Štyri kajuty, osemčlenná posádka. Jedna cena a potvrdený rozsah služieb podujatia.</p>
+          <p class="note">Štyri kajuty, posádka až 10 ľudí. Jedna cena a potvrdený rozsah služieb podujatia.</p>
         </div>
         <div class="boat">
           <p class="cls">Dufour 470</p>
           <h3>Viac priestoru, rovnaký program</h3>
           <p class="price">9 300 &euro;</p>
           <p class="vat">bez DPH &middot; za celú loď</p>
-          <p class="note">Novší model rovnakej triedy. Jednotná flotila zostáva zachovaná.</p>
+          <p class="note">Štyri kajuty, posádka až 10 ľudí. Novší model rovnakej triedy, jednotná flotila zostáva zachovaná.</p>
         </div>
       </div>
 
@@ -332,6 +338,11 @@
           <div><b>7 / 7</b>kajuty / WC</div>
           <div><b>2 &times; 80 HP</b>motory</div>
         </div>
+        <div class="addon">
+          <p class="addon-k">Voliteľný príplatok</p>
+          <p class="addon-m"><b>Extra kajuta na katamaráne</b><span>2 500 &euro; bez DPH</span></p>
+          <p class="addon-n">Nad rámec ceny lode, pre tých, ktorí chcú spať na katamaráne. Počet kajút je obmedzený.</p>
+        </div>
       </div>
     </section>
 
@@ -362,7 +373,8 @@
         <div><b>Michal Hrivnák</b>veliteľ flotily</div>
       </div>
       <p class="disc">
-        Všetky ceny sú uvedené <strong>bez DPH</strong> a vzťahujú sa na celú loď, nie na osobu.
+        Ceny lodí sú uvedené <strong>bez DPH</strong> a vzťahujú sa na celú loď, nie na osobu.
+        Bez DPH je aj cena voliteľného príplatku za kajutu na katamaráne.
       </p>
       <p class="disc">
         Trasa a prístavy sú orientačné, určené na plánovanie. Presný denný rozpis rozjázd
