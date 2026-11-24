@@ -6,7 +6,7 @@ const hu: Dict = {
   meta: {
     title: "Tack & Talk Regatta 2027 – közép-európai céges vitorlásregatta Horvátországban",
     description:
-      "Közép-európai céges regatta Horvátországban 20 legénységnek – négy versenynap a vízen és üzleti program a parton. Tack & Talk Regatta 2027, Rogoznica, 2027. szeptember 25–30.",
+      "Közép-európai céges regatta Horvátországban 20 legénységnek – négy versenynap a vízen és üzleti program a parton. Tack & Talk Regatta 2027, Rogoznica, 2027. szeptember 26–30.",
     keywords: [
       "céges regatta",
       "üzleti regatta",
@@ -47,7 +47,7 @@ const hu: Dict = {
     ctaConcept: "Koncepció megtekintése",
     ctaRoute: "Útvonal és program",
     cardKicker: "Rogoznica · Horvátország",
-    cardDate: "szept. 25–30.",
+    cardDate: "szept. 26–30.",
     statBoats: "hajó",
     statPeople: "fő",
     statRaces: "futam",
@@ -177,8 +177,8 @@ const hu: Dict = {
       title: "Rogoznica",
       route: "Marina Frapa · a flotta érkezése",
       programme:
-        "Hajóátvétel és -ellenőrzés a szervező segítségével, skipper-eligazítás és a rendezvény megnyitója.",
-      facts: ["Hajóátvétel", "Szervezői ellenőrzés", "Vacsora 1/5"],
+        "A hajók már szombaton, szeptember 25-én átvehetők. A program vasárnap, szeptember 26-án a skipper-eligazítással és a rendezvény megnyitójával kezdődik.",
+      facts: ["Hajóátvétel szept. 25-től", "Szervezői ellenőrzés", "Vacsora 1/5"],
       eveningTitle: "Megnyitó est",
       eveningCopy:
         "Az első közös vacsora és a legénységek találkozója a versenyrész kezdete előtt.",
@@ -406,7 +406,7 @@ const hu: Dict = {
   footer: {
     claim: "Friss szél a vitorlákban.",
     organizerLabel: "Szervező",
-    dateLine: "2027. szeptember 25–30. · Rogoznica, Horvátország",
+    dateLine: "2027. szeptember 26–30. · Rogoznica, Horvátország",
     mainOrgPre: "Fő szervező: ",
     coOrgLine: "Társszervező: Tangreto, s.r.o.",
     patronageLine: "Michal Hrivnák védnökségével",

@@ -10,7 +10,7 @@ export const siteTitle =
   "Tack & Talk Regatta 2027 – firemná regata v Chorvátsku";
 
 export const siteDescription =
-  "Firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 25. – 30. 9. 2027.";
+  "Firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 26. – 30. 9. 2027.";
 
 // Cielené kľúčové slová pre slovenský trh (nie sú rozhodujúce pre Google,
 // ale neškodia a pomáhajú niektorým vyhľadávačom a interným nástrojom).

@@ -6,7 +6,7 @@ const de: Dict = {
   meta: {
     title: "Tack & Talk Regatta 2027 – mitteleuropäische Firmenregatta in Kroatien",
     description:
-      "Eine mitteleuropäische Firmenregatta in Kroatien für 20 Crews – vier Wettfahrttage auf dem Wasser und ein Business-Programm an Land. Tack & Talk Regatta 2027, Rogoznica, 25.–30. September 2027.",
+      "Eine mitteleuropäische Firmenregatta in Kroatien für 20 Crews – vier Wettfahrttage auf dem Wasser und ein Business-Programm an Land. Tack & Talk Regatta 2027, Rogoznica, 26.–30. September 2027.",
     keywords: [
       "Firmenregatta",
       "Corporate Regatta",
@@ -47,7 +47,7 @@ const de: Dict = {
     ctaConcept: "Konzept ansehen",
     ctaRoute: "Route & Programm",
     cardKicker: "Rogoznica · Kroatien",
-    cardDate: "25.–30. Sept.",
+    cardDate: "26.–30. Sept.",
     statBoats: "Boote",
     statPeople: "Personen",
     statRaces: "Wettfahrten",
@@ -177,8 +177,8 @@ const de: Dict = {
       title: "Rogoznica",
       route: "Marina Frapa · Ankunft der Flotte",
       programme:
-        "Bootsübergabe und -kontrolle mit Hilfe des Organisators, Skipper-Briefing und Eröffnung der Veranstaltung.",
-      facts: ["Bootsübergabe", "Kontrolle durch Organisator", "Abendessen 1/5"],
+        "Die Boote können bereits am Samstag, 25. 9., übernommen werden. Das Programm beginnt am Sonntag, 26. 9., mit dem Skipper-Briefing und der Eröffnung der Veranstaltung.",
+      facts: ["Bootsübergabe ab 25. 9.", "Kontrolle durch Organisator", "Abendessen 1/5"],
       eveningTitle: "Eröffnungsabend",
       eveningCopy:
         "Das erste gemeinsame Abendessen und ein Treffen der Crews vor dem Beginn des Wettfahrtteils.",
@@ -406,7 +406,7 @@ const de: Dict = {
   footer: {
     claim: "Frischer Wind in den Segeln.",
     organizerLabel: "Organisator",
-    dateLine: "25.–30. September 2027 · Rogoznica, Kroatien",
+    dateLine: "26.–30. September 2027 · Rogoznica, Kroatien",
     mainOrgPre: "Hauptorganisator: ",
     coOrgLine: "Mitorganisator: Tangreto, s.r.o.",
     patronageLine: "Unter der Schirmherrschaft von Michal Hrivnák",

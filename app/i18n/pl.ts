@@ -6,7 +6,7 @@ const pl: Dict = {
   meta: {
     title: "Tack & Talk Regatta 2027 – środkowoeuropejska firmowa regata w Chorwacji",
     description:
-      "Środkowoeuropejska firmowa regata w Chorwacji dla 20 załóg – cztery dni wyścigów na wodzie i program biznesowy na lądzie. Tack & Talk Regatta 2027, Rogoznica, 25–30.09.2027.",
+      "Środkowoeuropejska firmowa regata w Chorwacji dla 20 załóg – cztery dni wyścigów na wodzie i program biznesowy na lądzie. Tack & Talk Regatta 2027, Rogoznica, 26–30.09.2027.",
     keywords: [
       "regata firmowa",
       "regata biznesowa",
@@ -47,7 +47,7 @@ const pl: Dict = {
     ctaConcept: "Zobacz koncept",
     ctaRoute: "Trasa i program",
     cardKicker: "Rogoznica · Chorwacja",
-    cardDate: "25–30.09",
+    cardDate: "26–30.09",
     statBoats: "jachtów",
     statPeople: "osób",
     statRaces: "biegów",
@@ -177,8 +177,8 @@ const pl: Dict = {
       title: "Rogoznica",
       route: "Marina Frapa · przybycie floty",
       programme:
-        "Odbiór i kontrola jachtów z pomocą organizatora, odprawa kapitańska i otwarcie wydarzenia.",
-      facts: ["Odbiór jachtów", "Kontrola organizatora", "Kolacja 1/5"],
+        "Jachty można odebrać już w sobotę 25.09. Program rozpoczyna się w niedzielę 26.09 odprawą kapitańską i otwarciem wydarzenia.",
+      facts: ["Odbiór jachtów od 25.09", "Kontrola organizatora", "Kolacja 1/5"],
       eveningTitle: "Wieczór otwarcia",
       eveningCopy:
         "Pierwsza wspólna kolacja i spotkanie załóg przed startem części wyścigowej.",
@@ -406,7 +406,7 @@ const pl: Dict = {
   footer: {
     claim: "Świeży wiatr w żaglach.",
     organizerLabel: "Organizator",
-    dateLine: "25–30.09.2027 · Rogoznica, Chorwacja",
+    dateLine: "26–30.09.2027 · Rogoznica, Chorwacja",
     mainOrgPre: "Organizator główny: ",
     coOrgLine: "Współorganizator: Tangreto, s.r.o.",
     patronageLine: "Pod patronatem Michala Hrivnáka",

@@ -7,7 +7,7 @@ const sk = {
     title:
       "Tack & Talk Regatta 2027 – stredoeurópska firemná regata v Chorvátsku",
     description:
-      "Stredoeurópska firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 25. – 30. 9. 2027.",
+      "Stredoeurópska firemná regata v Chorvátsku pre 20 posádok – štyri súťažné dni na vode a biznis program na brehu. Tack & Talk Regatta 2027, Rogoznica, 26. – 30. 9. 2027.",
     keywords: [
       "firemná regata",
       "biznis regata",
@@ -48,7 +48,7 @@ const sk = {
     ctaConcept: "Pozrieť koncept",
     ctaRoute: "Trasa a program",
     cardKicker: "Rogoznica · Chorvátsko",
-    cardDate: "25. – 30. 9.",
+    cardDate: "26. – 30. 9.",
     statBoats: "lodí",
     statPeople: "ľudí",
     statRaces: "rozjázd",
@@ -178,8 +178,8 @@ const sk = {
       title: "Rogoznica",
       route: "Marina Frapa · príchod flotily",
       programme:
-        "Prevzatie a kontrola lodí s pomocou organizátora, kapitánsky brífing a otvorenie podujatia.",
-      facts: ["Prevzatie lodí", "Kontrola organizátorom", "Večera 1/5"],
+        "Lode je možné prevziať už v sobotu 25. 9. Program sa začína v nedeľu 26. 9. kapitánskym brífingom a otvorením podujatia.",
+      facts: ["Prevzatie lodí od 25. 9.", "Kontrola organizátorom", "Večera 1/5"],
       eveningTitle: "Otvárací večer",
       eveningCopy:
         "Prvá spoločná večera a stretnutie posádok pred začiatkom súťažnej časti.",
@@ -407,7 +407,7 @@ const sk = {
   footer: {
     claim: "Prevetraj svoj biznis.",
     organizerLabel: "Organizátor",
-    dateLine: "25. – 30. 9. 2027 · Rogoznica, Chorvátsko",
+    dateLine: "26. – 30. 9. 2027 · Rogoznica, Chorvátsko",
     mainOrgPre: "Hlavný organizátor: ",
     coOrgLine: "Spoluorganizátor: Tangreto, s.r.o.",
     patronageLine: "Pod záštitou Michala Hrivnáka",

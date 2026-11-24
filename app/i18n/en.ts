@@ -6,7 +6,7 @@ const en: Dict = {
   meta: {
     title: "Tack & Talk Regatta 2027 – Central European corporate sailing regatta in Croatia",
     description:
-      "A Central European corporate regatta in Croatia for 20 crews – four race days on the water and a business programme ashore. Tack & Talk Regatta 2027, Rogoznica, 25–30 September 2027.",
+      "A Central European corporate regatta in Croatia for 20 crews – four race days on the water and a business programme ashore. Tack & Talk Regatta 2027, Rogoznica, 26–30 September 2027.",
     keywords: [
       "corporate regatta",
       "business regatta",
@@ -47,7 +47,7 @@ const en: Dict = {
     ctaConcept: "See the concept",
     ctaRoute: "Route & programme",
     cardKicker: "Rogoznica · Croatia",
-    cardDate: "25–30 Sept",
+    cardDate: "26–30 Sept",
     statBoats: "boats",
     statPeople: "people",
     statRaces: "races",
@@ -177,8 +177,8 @@ const en: Dict = {
       title: "Rogoznica",
       route: "Marina Frapa · fleet arrival",
       programme:
-        "Boat handover and inspection with the organiser’s help, skippers’ briefing and the event opening.",
-      facts: ["Boat handover", "Organiser inspection", "Dinner 1/5"],
+        "Boats can be taken over as early as Saturday 25 September. The programme starts on Sunday 26 September with the skippers’ briefing and the event opening.",
+      facts: ["Boat handover from 25 Sept", "Organiser inspection", "Dinner 1/5"],
       eveningTitle: "Opening evening",
       eveningCopy:
         "The first shared dinner and a gathering of the crews before the racing part begins.",
@@ -406,7 +406,7 @@ const en: Dict = {
   footer: {
     claim: "Clear your head. Set your course.",
     organizerLabel: "Organiser",
-    dateLine: "25–30 September 2027 · Rogoznica, Croatia",
+    dateLine: "26–30 September 2027 · Rogoznica, Croatia",
     mainOrgPre: "Main organiser: ",
     coOrgLine: "Co-organiser: Tangreto, s.r.o.",
     patronageLine: "Under the patronage of Michal Hrivnák",

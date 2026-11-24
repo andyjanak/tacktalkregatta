@@ -21,7 +21,7 @@ export function getPoint(id: string): WeatherPoint | undefined {
   return WEATHER_POINTS.find((p) => p.id === id);
 }
 
-// Časové okno regaty v roku pre klimatológiu (koniec septembra, 25.–30. 9.).
+// Časové okno regaty v roku pre klimatológiu (koniec septembra, 26.–30. 9.).
 export const CLIMATOLOGY_WINDOW = {
   label: "sep-23-30",
   // Deň v roku (mesiac/deň) — inkluzívne.

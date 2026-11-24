@@ -11,11 +11,13 @@
     "claim_sk": "Svieži vietor v plachtách",
     "type": "business_regatta",
     "description_sk": "Firemná regata so štyrmi súťažnými dňami a deviatimi rozjazdami. Päť nocí, počas ktorých tímy spolu plachtia, súťažia a stretávajú sa pri spoločnom programe.",
-    "start_date": "2027-09-25",
+    "start_date": "2027-09-26",
     "end_date": "2027-09-30",
     "duration_nights": 5,
-    "checkin": "2027-09-25T17:00:00+02:00",
-    "checkout": "2027-09-30T09:00:00+02:00",
+    "checkin": "2027-09-26T17:00:00+02:00",
+    "checkout": "2027-10-01T09:00:00+02:00",
+    "boat_handover_from": "2027-09-25T17:00:00+02:00",
+    "boat_handover_note": "Lode je možné prevziať už v sobotu 25. 9. Program regaty sa začína v nedeľu 26. 9. kapitánskym brífingom a otváracím večerom v Rogoznici. Noc z 25. na 26. 9. nie je súčasťou balíčka piatich nocí.",
     "country": "HR",
     "region": "Dalmácia (Šibenik)",
     "base_marina": {
@@ -101,18 +103,30 @@
         "day": 1,
         "date": "2027-09-25",
         "weekday": "sobota",
+        "type": "handover",
+        "from": "Rogoznica",
+        "to": "Rogoznica",
+        "to_lat": 43.52985,
+        "to_lon": 15.96286,
+        "scored": false,
+        "programme": ["prevzatie a kontrola lodí s pomocou organizátora", "lode sú k dispozícii od sobotného popoludnia", "mimo balíčka piatich nocí"]
+      },
+      {
+        "day": 2,
+        "date": "2027-09-26",
+        "weekday": "nedeľa",
         "type": "checkin",
         "from": "Rogoznica",
         "to": "Rogoznica",
         "to_lat": 43.52985,
         "to_lon": 15.96286,
         "scored": false,
-        "programme": ["prevzatie a kontrola lodí s pomocou organizátora", "kapitánsky brífing", "otvárací večer"]
+        "programme": ["začiatok regaty", "kapitánsky brífing", "otvárací večer", "spoločná večera"]
       },
       {
-        "day": 2,
-        "date": "2027-09-26",
-        "weekday": "nedeľa",
+        "day": 3,
+        "date": "2027-09-27",
+        "weekday": "pondelok",
         "type": "race",
         "from": "Rogoznica",
         "to": "Tribunj",
@@ -123,9 +137,9 @@
         "programme": ["súťažný deň", "spoločná večera"]
       },
       {
-        "day": 3,
-        "date": "2027-09-27",
-        "weekday": "pondelok",
+        "day": 4,
+        "date": "2027-09-28",
+        "weekday": "utorok",
         "type": "race",
         "from": "Tribunj",
         "to": "Jezera",
@@ -136,9 +150,9 @@
         "programme": ["súťažný deň", "spoločná večera"]
       },
       {
-        "day": 4,
-        "date": "2027-09-28",
-        "weekday": "utorok",
+        "day": 5,
+        "date": "2027-09-29",
+        "weekday": "streda",
         "type": "race",
         "from": "Jezera",
         "to": "Zlarin",
@@ -149,9 +163,9 @@
         "programme": ["súťažný deň", "spoločná večera"]
       },
       {
-        "day": 5,
-        "date": "2027-09-29",
-        "weekday": "streda",
+        "day": 6,
+        "date": "2027-09-30",
+        "weekday": "štvrtok",
         "type": "race",
         "from": "Zlarin",
         "to": "Rogoznica",
@@ -162,9 +176,9 @@
         "programme": ["finálový súťažný deň", "spoločná večera a vyhlásenie"]
       },
       {
-        "day": 6,
-        "date": "2027-09-30",
-        "weekday": "štvrtok",
+        "day": 7,
+        "date": "2027-10-01",
+        "weekday": "piatok",
         "type": "checkout",
         "from": "Rogoznica",
         "to": "Rogoznica",

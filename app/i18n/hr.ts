@@ -6,7 +6,7 @@ const hr: Dict = {
   meta: {
     title: "Tack & Talk Regatta 2027 – srednjoeuropska korporativna regata u Hrvatskoj",
     description:
-      "Srednjoeuropska korporativna regata u Hrvatskoj za 20 posada – četiri dana natjecanja na moru i poslovni program na obali. Tack & Talk Regatta 2027, Rogoznica, 25.–30. rujna 2027.",
+      "Srednjoeuropska korporativna regata u Hrvatskoj za 20 posada – četiri dana natjecanja na moru i poslovni program na obali. Tack & Talk Regatta 2027, Rogoznica, 26.–30. rujna 2027.",
     keywords: [
       "korporativna regata",
       "poslovna regata",
@@ -47,7 +47,7 @@ const hr: Dict = {
     ctaConcept: "Pogledaj koncept",
     ctaRoute: "Ruta i program",
     cardKicker: "Rogoznica · Hrvatska",
-    cardDate: "25.–30. 9.",
+    cardDate: "26.–30. 9.",
     statBoats: "brodova",
     statPeople: "ljudi",
     statRaces: "plovidbi",
@@ -177,8 +177,8 @@ const hr: Dict = {
       title: "Rogoznica",
       route: "Marina Frapa · dolazak flote",
       programme:
-        "Preuzimanje i pregled brodova uz pomoć organizatora, brifing skipera i otvaranje događaja.",
-      facts: ["Preuzimanje brodova", "Pregled organizatora", "Večera 1/5"],
+        "Brodove je moguće preuzeti već u subotu 25. 9. Program počinje u nedjelju 26. 9. brifingom skipera i otvaranjem događaja.",
+      facts: ["Preuzimanje brodova od 25. 9.", "Pregled organizatora", "Večera 1/5"],
       eveningTitle: "Svečano otvaranje",
       eveningCopy:
         "Prva zajednička večera i okupljanje posada prije početka natjecateljskog dijela.",
@@ -406,7 +406,7 @@ const hr: Dict = {
   footer: {
     claim: "Svjež vjetar u jedrima.",
     organizerLabel: "Organizator",
-    dateLine: "25.–30. rujna 2027. · Rogoznica, Hrvatska",
+    dateLine: "26.–30. rujna 2027. · Rogoznica, Hrvatska",
     mainOrgPre: "Glavni organizator: ",
     coOrgLine: "Suorganizator: Tangreto, s.r.o.",
     patronageLine: "Pod pokroviteljstvom Michala Hrivnáka",
