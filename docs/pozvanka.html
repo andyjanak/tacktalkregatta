@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Dizajn manuál: branded_assets.design_system v data/regatta.json
-     Poppins 300/400/500/700 · navy #0B2545 · mosadz #C08A2E · piesok #F6F2E9
-     Ampersand v logotype je mosadzný, zvyšok biely na navy podklade. */
+  /* Dvojstranový leták A4. Dizajn manuál: branded_assets.design_system
+     v data/regatta.json — Poppins 300/400/500/700, navy #0B2545,
+     mosadz #C08A2E, piesok #F6F2E9. Ampersand v logotype je mosadzný. */
   :root{
     --navy:#0B2545; --deep:#13395E; --brass:#C08A2E; --sand:#F6F2E9;
     --red:#9E2A2B; --green:#1F6B4A; --grey:#5A6472; --line:#D8DEE6;
@@ -18,165 +18,155 @@
   }
   *,*::before,*::after{ box-sizing:border-box }
   body{
-    margin:0; padding:10mm 4mm; color:var(--ink); background:#7f868e;
+    margin:0; padding:9mm 4mm; color:var(--ink); background:#7f868e;
     font-family:"Poppins",Arial,sans-serif; font-weight:300;
-    font-size:10.2pt; line-height:1.55; -webkit-font-smoothing:antialiased;
+    font-size:9.4pt; line-height:1.5; -webkit-font-smoothing:antialiased;
   }
-  .doc{
-    width:210mm; max-width:100%; margin:0 auto; padding:0 0 0;
-    background:var(--sand); box-shadow:0 2mm 9mm rgba(0,0,0,.3);
-  }
-  .inner{ padding:14mm 16mm 0 }
+  .doc{ width:210mm; max-width:100%; margin:0 auto; background:var(--sand); box-shadow:0 2mm 9mm rgba(0,0,0,.3) }
+  .inner{ padding:9mm 14mm 0 }
 
-  /* ---------- logotyp ---------- */
   .logotype{ display:inline-flex; align-items:baseline; gap:.22em; font-weight:700; letter-spacing:-.035em; line-height:1 }
   .logotype .amp{ color:var(--brass); font-weight:500 }
-
-  .eyebrow{ margin:0; font-size:7.6pt; font-weight:500; letter-spacing:.17em; text-transform:uppercase; color:#9a6f22 }
+  .eyebrow{ margin:0; font-size:7.1pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:#9a6f22 }
   .hero .eyebrow,.bali .eyebrow{ color:var(--brass) }
 
-  /* ---------- hero ---------- */
-  .hero{ padding:14mm 16mm 12mm; color:var(--white); background:var(--navy); border-bottom:1.2mm solid var(--brass) }
-  .hero-top{ display:flex; align-items:baseline; justify-content:space-between; gap:8mm; margin-bottom:14mm }
-  .hero-top .logotype{ font-size:15pt; color:var(--white) }
-  .hero-top .yr{ font-size:8pt; letter-spacing:.1em; color:rgba(255,255,255,.55) }
-  h1{ margin:3mm 0 0; font-size:28pt; font-weight:300; line-height:1.08; letter-spacing:-.025em }
+  /* ---------- hlavička ---------- */
+  .hero{ padding:8mm 14mm 7mm; color:var(--white); background:var(--navy); border-bottom:1mm solid var(--brass) }
+  .hero-top{ display:flex; align-items:baseline; justify-content:space-between; gap:8mm; margin-bottom:6mm }
+  .hero-top .logotype{ font-size:13.5pt; color:var(--white) }
+  .hero-top .yr{ font-size:7.6pt; letter-spacing:.1em; color:rgba(255,255,255,.55) }
+  h1{ margin:2mm 0 0; font-size:20pt; font-weight:300; line-height:1.07; letter-spacing:-.025em }
   h1 em{ font-style:normal; font-weight:500; color:var(--brass) }
-  .lead{ max-width:134mm; margin:5mm 0 0; font-size:10.4pt; line-height:1.6; color:rgba(255,255,255,.82) }
-  .hero-meta{ display:flex; flex-wrap:wrap; gap:4mm 9mm; margin:9mm 0 0; padding-top:5mm; border-top:1px solid rgba(255,255,255,.16) }
-  .hero-meta dt{ margin:0 0 1mm; font-size:7.2pt; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5) }
-  .hero-meta dd{ margin:0; font-size:10.4pt; font-weight:500; color:var(--white) }
+  .lead{ max-width:150mm; margin:3.5mm 0 0; font-size:9.1pt; line-height:1.55; color:rgba(255,255,255,.84) }
+  .hero-meta{ display:flex; flex-wrap:wrap; gap:3mm 8mm; margin:5.5mm 0 0; padding-top:3.5mm; border-top:1px solid rgba(255,255,255,.16) }
+  .hero-meta dt{ margin:0 0 .8mm; font-size:6.8pt; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.5) }
+  .hero-meta dd{ margin:0; font-size:9.6pt; font-weight:500; color:var(--white) }
 
-  /* ---------- čísla ---------- */
   .stats{ display:grid; grid-template-columns:repeat(5,1fr); color:var(--white); background:var(--deep) }
-  .stats div{ padding:5.5mm 3mm; text-align:center; border-left:1px solid rgba(255,255,255,.13) }
+  .stats div{ padding:4mm 2mm; text-align:center; border-left:1px solid rgba(255,255,255,.13) }
   .stats div:first-child{ border-left:0 }
-  .stats b{ display:block; font-size:16pt; font-weight:500; line-height:1; letter-spacing:-.02em }
-  .stats span{ display:block; margin-top:1.5mm; font-size:7pt; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.62) }
+  .stats b{ display:block; font-size:14pt; font-weight:500; line-height:1; letter-spacing:-.02em }
+  .stats span{ display:block; margin-top:1.2mm; font-size:6.6pt; letter-spacing:.11em; text-transform:uppercase; color:rgba(255,255,255,.62) }
 
   /* ---------- všeobecné ---------- */
-  h2{ margin:0 0 4mm; font-size:13.5pt; font-weight:400; letter-spacing:-.02em; line-height:1.22; color:var(--navy) }
+  h2{ margin:0 0 3mm; font-size:12.5pt; font-weight:400; letter-spacing:-.02em; line-height:1.2; color:var(--navy) }
   h2 strong{ font-weight:500 }
-  h3{ margin:0; font-size:10.4pt; font-weight:500; color:var(--navy) }
-  p{ margin:0 0 3.5mm }
+  h3{ margin:0; font-size:9.8pt; font-weight:500; color:var(--navy) }
+  p{ margin:0 0 2.8mm }
   p:last-child{ margin-bottom:0 }
-  .sec{ margin-top:10mm }
+  .sec{ margin-top:7mm }
   .sec:first-child{ margin-top:0 }
-  .sec > .eyebrow + h2{ margin-top:2.5mm }
-  .sec > .eyebrow + .boats{ margin-top:4.5mm }
+  .sec > .eyebrow + h2{ margin-top:2mm }
+  .sec > .eyebrow + .boats{ margin-top:3.5mm }
+  .intro{ font-size:9.4pt; color:#3c4a58 }
+
+  /* ---------- lode a cena ---------- */
+  .boats{ display:grid; grid-template-columns:1fr 1fr; gap:4mm }
+  .boat{ padding:4.5mm 5mm; background:var(--white); border:1px solid var(--line); border-top:2px solid var(--brass); break-inside:avoid }
+  .boat .cls{ margin:0 0 .8mm; font-size:7pt; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--grey) }
+  .boat .price{ margin:2.5mm 0 0; font-size:17pt; font-weight:500; line-height:1; letter-spacing:-.025em; color:var(--navy) }
+  .boat .vat{ margin:1.2mm 0 0; font-size:7.8pt; font-weight:500; color:var(--red) }
+  .boat .note{ margin:2.5mm 0 0; font-size:8pt; line-height:1.45; color:#43505e }
+
+  .incl{ display:grid; grid-template-columns:1fr 1fr; gap:0 7mm; margin:3.5mm 0 0; padding:0; list-style:none }
+  .incl li{ position:relative; padding:1.7mm 0 1.7mm 5mm; font-size:8.4pt; border-bottom:1px solid var(--line); break-inside:avoid }
+  .incl li::before{ content:""; position:absolute; left:0; top:3.3mm; width:2.1mm; height:2.1mm; background:var(--green); border-radius:50% }
+  .note-s{ margin:3mm 0 0; font-size:7.4pt; line-height:1.45; color:var(--grey) }
+
+  .addon{ margin:4mm 0 0; padding:4mm 4.5mm; background:var(--navy); border-left:2px solid var(--brass); break-inside:avoid }
+  .addon-k{ margin:0; font-size:6.8pt; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--brass) }
+  .addon-m{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1mm 5mm; margin:1.6mm 0 0 }
+  .addon-m b{ font-size:9.8pt; font-weight:500; color:var(--white) }
+  .addon-m span{ font-size:11pt; font-weight:500; color:var(--brass); white-space:nowrap }
+  .addon-n{ margin:2mm 0 0; font-size:7.6pt; line-height:1.45; color:rgba(255,255,255,.72) }
 
   /* ---------- program ---------- */
   .prog{ margin:0; padding:0; list-style:none; border-top:1px solid var(--line) }
   .prog li{
-    display:grid; grid-template-columns:28mm 42mm 1fr; gap:5mm; align-items:baseline;
-    padding:3.2mm 0; border-bottom:1px solid var(--line); break-inside:avoid;
+    display:grid; grid-template-columns:26mm 40mm 1fr; gap:4mm; align-items:baseline;
+    padding:2.6mm 0; border-bottom:1px solid var(--line); break-inside:avoid;
   }
-  .prog .day{ font-size:8.6pt; font-weight:500; color:var(--navy) }
-  .prog .day i{ display:block; font-style:normal; font-weight:300; font-size:7.6pt; color:var(--grey) }
-  .prog .leg{ font-size:9pt; font-weight:400; color:var(--deep) }
-  .prog .what{ font-size:9pt; color:#43505e }
+  .prog .day{ font-size:8.2pt; font-weight:500; color:var(--navy) }
+  .prog .day i{ display:block; font-style:normal; font-weight:300; font-size:7.2pt; color:var(--grey) }
+  .prog .leg{ font-size:8.4pt; font-weight:400; color:var(--deep) }
+  .prog .what{ font-size:8.4pt; color:#43505e }
   .prog .what b{ font-weight:500; color:var(--navy) }
   .prog li.is-aux{ background:rgba(90,100,114,.055) }
   .prog li.is-aux .day,.prog li.is-aux .leg{ color:var(--grey) }
   .prog li.is-open .day,.prog li.is-open .leg{ color:var(--green) }
   .prog li.is-final{ background:rgba(192,138,46,.08) }
   .prog li.is-final .day,.prog li.is-final .leg{ color:#8a6118 }
-  .prog-note,.incl-note{ margin:4mm 0 0; font-size:7.8pt; line-height:1.5; color:var(--grey) }
   .tag{
-    display:inline-block; margin-left:1.8mm; padding:.4mm 1.8mm; vertical-align:.4mm;
-    font-size:6.6pt; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--white); background:var(--brass); border-radius:.8mm;
+    display:inline-block; margin-left:1.5mm; padding:.3mm 1.5mm; vertical-align:.4mm;
+    font-size:6.2pt; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--white); background:var(--brass); border-radius:.7mm;
   }
 
-  /* ---------- lode a cena ---------- */
-  .boats{ display:grid; grid-template-columns:1fr 1fr; gap:5mm }
-  .boat{ padding:6mm; background:var(--white); border:1px solid var(--line); border-top:2px solid var(--brass); break-inside:avoid }
-  .boat .cls{ margin:0 0 1mm; font-size:7.4pt; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--grey) }
-  .boat .price{ margin:3mm 0 0; font-size:18pt; font-weight:500; line-height:1; letter-spacing:-.025em; color:var(--navy) }
-  .boat .vat{ margin:1.5mm 0 0; font-size:8.2pt; font-weight:500; color:var(--red) }
-  .boat .note{ margin:3mm 0 0; font-size:8.4pt; line-height:1.5; color:#43505e }
+  .why{ display:grid; grid-template-columns:1fr 1fr; gap:5mm }
+  .why div{ padding-left:4mm; border-left:2px solid var(--brass); break-inside:avoid }
+  .why p{ margin:1.2mm 0 0; font-size:8.2pt; line-height:1.45; color:#43505e }
 
-  .incl{ display:grid; grid-template-columns:1fr 1fr; gap:0 8mm; margin:4mm 0 0; padding:0; list-style:none }
-  .incl li{ position:relative; padding:2.1mm 0 2.1mm 6mm; font-size:9pt; border-bottom:1px solid var(--line); break-inside:avoid }
-  .incl li::before{ content:""; position:absolute; left:0; top:4mm; width:2.4mm; height:2.4mm; background:var(--green); border-radius:50% }
+  .bali{ padding:5mm; color:var(--white); background:var(--deep); break-inside:avoid }
+  .bali h3{ margin:2mm 0 0; font-size:10.6pt; font-weight:400; color:var(--white) }
+  .bali p{ margin:2.2mm 0 0; max-width:128mm; font-size:8.4pt; line-height:1.5; color:rgba(255,255,255,.8) }
+  .bali-specs{ display:flex; flex-wrap:wrap; gap:2mm 6mm; margin:3.5mm 0 0; padding-top:3mm; border-top:1px solid rgba(255,255,255,.16) }
+  .bali-specs div{ font-size:7.8pt; color:rgba(255,255,255,.66) }
+  .bali-specs b{ display:block; font-size:9.4pt; font-weight:500; color:var(--white) }
 
-  /* ---------- BALI ---------- */
-  .bali{ padding:7mm; color:var(--white); background:var(--deep); break-inside:avoid }
-  .bali h3{ margin:2.5mm 0 0; font-size:11.4pt; font-weight:400; color:var(--white) }
-  .bali p{ margin:3mm 0 0; max-width:122mm; font-size:9pt; line-height:1.56; color:rgba(255,255,255,.8) }
-  .bali-specs{ display:flex; flex-wrap:wrap; gap:3mm 7mm; margin:5mm 0 0; padding-top:4mm; border-top:1px solid rgba(255,255,255,.16) }
-  .bali-specs div{ font-size:8.4pt; color:rgba(255,255,255,.66) }
-  .bali-specs b{ display:block; font-size:10pt; font-weight:500; color:var(--white) }
-  .addon{ margin:5mm 0 0; padding:4.5mm 5mm; background:rgba(192,138,46,.16); border-left:2px solid var(--brass) }
-  .addon-k{ margin:0; font-size:7.2pt; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--brass) }
-  .addon-m{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1.5mm 5mm; margin:2mm 0 0 }
-  .addon-m b{ font-size:10.4pt; font-weight:500; color:var(--white) }
-  .addon-m span{ font-size:11.5pt; font-weight:500; color:var(--brass); white-space:nowrap }
-  .addon-n{ margin:2.5mm 0 0; font-size:8.2pt; line-height:1.5; color:rgba(255,255,255,.72) }
+  .step{ padding:5mm; background:var(--white); border:1px solid var(--line); break-inside:avoid }
+  .step h2{ margin-bottom:2.2mm }
+  .step .small{ font-size:8.2pt; color:#43505e }
+  .contact{ display:flex; flex-wrap:wrap; gap:3mm 9mm; margin:3.5mm 0 0; padding-top:3.5mm; border-top:1px solid var(--line) }
+  .contact dt{ margin:0 0 .6mm; font-size:6.8pt; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--grey) }
+  .contact dd{ margin:0; font-size:8.6pt; font-weight:500; color:var(--navy) }
 
-  /* ---------- princípy ---------- */
-  .why{ display:grid; grid-template-columns:1fr 1fr; gap:6mm }
-  .why div{ padding-left:5mm; border-left:2px solid var(--brass); break-inside:avoid }
-  .why p{ margin:1.5mm 0 0; font-size:8.8pt; line-height:1.54; color:#43505e }
-
-  /* ---------- ďalší krok ---------- */
-  .step{ padding:7mm; background:var(--white); border:1px solid var(--line); break-inside:avoid }
-  .step h2{ margin-bottom:3mm }
-  .step .small{ font-size:8.6pt; color:#43505e }
-  .contact{ display:flex; flex-wrap:wrap; gap:4mm 10mm; margin:5mm 0 0; padding-top:4.5mm; border-top:1px solid var(--line) }
-  .contact dt{ margin:0 0 .8mm; font-size:7.2pt; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--grey) }
-  .contact dd{ margin:0; font-size:9pt; font-weight:500; color:var(--navy) }
-
-  /* ---------- pätička ---------- */
-  .foot{ margin-top:10mm; padding-top:5mm; border-top:1px solid var(--line) }
-  .orgs{ display:flex; flex-wrap:wrap; gap:3mm 9mm; margin:0 0 4.5mm }
-  .orgs div{ font-size:8.6pt; color:#43505e }
-  .orgs b{ display:block; font-size:9.4pt; font-weight:500; color:var(--navy) }
-  .disc{ margin:0; font-size:7.2pt; line-height:1.56; color:var(--grey) }
-  .disc + .disc{ margin-top:1.8mm }
+  .foot{ margin-top:7mm; padding-top:4mm; border-top:1px solid var(--line) }
+  .orgs{ display:flex; flex-wrap:wrap; gap:2.5mm 8mm; margin:0 0 3.5mm }
+  .orgs div{ font-size:8pt; color:#43505e }
+  .orgs b{ display:block; font-size:8.8pt; font-weight:500; color:var(--navy) }
+  .disc{ margin:0; font-size:6.9pt; line-height:1.5; color:var(--grey) }
+  .disc + .disc{ margin-top:1.4mm }
   .disc strong{ font-weight:500; color:#43505e }
 
   .docfoot{
-    margin-top:12mm; padding:4.5mm 16mm; display:flex; align-items:baseline;
-    justify-content:space-between; gap:6mm; color:rgba(255,255,255,.6);
-    background:var(--navy); font-size:7.4pt;
+    margin-top:8mm; padding:3.5mm 14mm; display:flex; align-items:baseline;
+    justify-content:space-between; gap:5mm; color:rgba(255,255,255,.6);
+    background:var(--navy); font-size:7pt;
   }
-  .docfoot .logotype{ font-size:9pt; color:var(--white) }
+  .docfoot .logotype{ font-size:8.4pt; color:var(--white) }
   .docfoot .claim{ color:var(--brass); letter-spacing:.04em }
 
-  /* ---------- tlač / PDF ---------- */
-  @page{ size:A4; margin:13mm 14mm }
+  @page{ size:A4; margin:12mm 13mm }
   @media print{
     html,body{ padding:0; background:var(--white) }
     .doc{ width:auto; box-shadow:none; background:transparent }
     .inner{ padding:0 }
-    .hero{ margin:0 0 0; padding:12mm 13mm 10mm }
-    .stats{ margin-bottom:10mm }
-    .docfoot{ padding:4.5mm 13mm }
+    .hero{ padding:7mm 11mm 6mm }
+    .stats{ margin-bottom:7mm }
+    .docfoot{ padding:3.5mm 11mm }
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
-    /* zlomy strán na miestach, kde to dáva zmysel */
     .break{ break-before:page }
     .sec,.foot{ break-inside:avoid }
     h2,h3{ break-after:avoid }
   }
 
-  /* ---------- mobil ---------- */
   @media screen and (max-width:620px){
     body{ padding:0 }
     .doc{ width:100% }
-    .hero{ padding:10mm 7mm 9mm } .inner{ padding:10mm 7mm 0 } .docfoot{ padding:4.5mm 7mm; flex-wrap:wrap }
-    h1{ font-size:22pt }
+    .hero{ padding:9mm 7mm 8mm } .inner{ padding:9mm 7mm 0 } .docfoot{ padding:3.5mm 7mm; flex-wrap:wrap }
+    h1{ font-size:19pt }
     .stats{ grid-template-columns:repeat(2,1fr) }
     .stats div:nth-child(odd){ border-left:0 }
     .stats div{ border-top:1px solid rgba(255,255,255,.13) }
     .boats,.incl,.why{ grid-template-columns:1fr }
-    .prog li{ grid-template-columns:1fr; gap:1.5mm }
+    .prog li{ grid-template-columns:1fr; gap:1.2mm }
   }
 </style>
 </head>
 <body>
 <article class="doc">
 
+  <!-- ══════════ STRANA 1 — dôležité info a cena ══════════ -->
   <header class="hero">
     <div class="hero-top">
       <span class="logotype">Tack <span class="amp">&amp;</span> Talk</span>
@@ -188,8 +178,9 @@
 
     <p class="lead">
       Pozývame vašu firmu na stredoeurópsku firemnú regatu v chorvátskej Dalmácii.
-      Päť nocí, štyri dni na vode a program, ktorý pokračuje aj po návrate do maríny.
-      Súťažíme na vode a na brehu nadväzujeme biznisové aj osobné spojenia.
+      Päť nocí, štyri dni na vode a dvadsať firemných posádok. Súťažíme na vode
+      a spájame sa na brehu &mdash; a keďže bezpečnosť je na prvom mieste,
+      týždeň je vhodný aj pre nováčikov.
     </p>
 
     <dl class="hero-meta">
@@ -211,79 +202,6 @@
   <div class="inner">
 
     <section class="sec">
-      <h2><strong>Regata a biznis program</strong> v jednom týždni.</h2>
-      <p>
-        Dvadsať firemných posádok, štyri súťažné dni a deväť rozjázd medzi Rogoznicou,
-        Tribunjom, Jezerami a Zlarinom. Súťažíme na vode a spájame sa na brehu.
-      </p>
-      <p>
-        Bezpečnosť je na prvom mieste &mdash; nepláva sa v noci ani do nevhodného počasia.
-        Práve preto je týždeň vhodný aj pre nováčikov: rozhoduje spolupráca celej posádky,
-        nie to, kto má za sebou najviac námorných míľ.
-      </p>
-    </section>
-    <section class="sec">
-      <p class="eyebrow">Prečo je to postavené takto</p>
-      <h2>Rozhodnutia, ktoré <strong>držia týždeň pohromade.</strong></h2>
-      <div class="why">
-        <div>
-          <h3>Päť nocí na jednej lodi</h3>
-          <p>Tím spolu funguje, plaví sa a rozhoduje v priestore veľkom ako obývačka. Nikto neodbehne na call, nikto sa nevytratí po druhom chode.</p>
-        </div>
-        <div>
-          <h3>Škrtaná etapa</h3>
-          <p>Jeden zlý deň nesmie zlikvidovať týždeň. Najhoršia rozjazda sa po piatej odpočítava.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec break">
-      <p class="eyebrow">Program</p>
-      <h2>Od spoločnej večere <strong>po spoločnú večeru.</strong></h2>
-      <ul class="prog">
-        <li class="is-aux">
-          <span class="day">sobota<i>25. 9.</i></span>
-          <span class="leg">Oblasť Šibenik</span>
-          <span class="what">Prevzatie a kontrola lodí s pomocou organizátora. Lode sú k dispozícii už od sobotného popoludnia.</span>
-        </li>
-        <li class="is-open">
-          <span class="day">nedeľa<i>26. 9.</i></span>
-          <span class="leg">Rogoznica</span>
-          <span class="what"><b>Začiatok regaty.</b> Kapitánsky brífing, otvárací večer a prvá spoločná večera.</span>
-        </li>
-        <li>
-          <span class="day">pondelok<i>27. 9.</i></span>
-          <span class="leg">Rogoznica &rarr; Tribunj</span>
-          <span class="what">Súťažný deň <span class="tag">D1</span><br>spoločná večera</span>
-        </li>
-        <li>
-          <span class="day">utorok<i>28. 9.</i></span>
-          <span class="leg">Tribunj &rarr; Jezera</span>
-          <span class="what">Súťažný deň <span class="tag">D2</span><br>spoločná večera</span>
-        </li>
-        <li>
-          <span class="day">streda<i>29. 9.</i></span>
-          <span class="leg">Jezera &rarr; Zlarin</span>
-          <span class="what">Súťažný deň <span class="tag">D3</span><br>spoločná večera</span>
-        </li>
-        <li class="is-final">
-          <span class="day">štvrtok<i>30. 9.</i></span>
-          <span class="leg">Zlarin &rarr; Rogoznica</span>
-          <span class="what"><b>Finálový súťažný deň</b> <span class="tag">D4</span><br>spoločná večera a vyhlásenie výsledkov</span>
-        </li>
-        <li class="is-aux">
-          <span class="day">piatok<i>1. 10.</i></span>
-          <span class="leg">Oblasť Šibenik</span>
-          <span class="what">Odovzdanie lodí</span>
-        </li>
-      </ul>
-      <p class="prog-note">
-        Balíček zahŕňa päť nocí (26. &ndash; 30. 9.), päť spoločných večerí a štyri raňajky.
-        Noc z 25. na 26. 9. je nad rámec balíčka.
-      </p>
-    </section>
-
-    <section class="sec">
       <p class="eyebrow">Lode a cena</p>
 
       <div class="boats">
@@ -303,7 +221,7 @@
         </div>
       </div>
 
-      <p class="eyebrow" style="margin-top:7mm">Cena každej lode zahŕňa</p>
+      <p class="eyebrow" style="margin-top:5mm">Cena každej lode zahŕňa</p>
       <ul class="incl">
         <li>kompletnú loď</li>
         <li>poistenie kaucie</li>
@@ -315,48 +233,92 @@
         <li>regatu: štyri súťažné dni a deväť rozjázd</li>
         <li>katamarán BALI 5.2 počas celého podujatia</li>
       </ul>
-      <p class="incl-note">
-        Deväť rozjázd je plánovaný rozsah &mdash; odplávajú sa, ak to dovolia poveternostné
-        podmienky. Veliteľ flotily môže etapu zrušiť alebo zmeniť trasu; bezpečnosť má
-        vždy prednosť pred súťažou a za opatrnosť sa v bodovaní netrestá.
+      <p class="note-s">
+        Deväť rozjázd je plánovaný rozsah, odplávajú sa podľa poveternostných podmienok. Bezpečnosť má vždy prednosť pred súťažou.
       </p>
-    </section>
 
-    <section class="sec break">
-      <div class="bali">
-        <p class="eyebrow">V cene &middot; celý čas s flotilou</p>
-        <h3>BALI 5.2 &mdash; spoločný priestor flotily.</h3>
-        <p>
-          Katamarán je zahrnutý v cene každej lode a pláva s flotilou počas celého
-          podujatia. Vytvára priestor na stretnutia medzi posádkami, rannú kávu
-          aj rozhovory po návrate do prístavu.
-        </p>
-        <div class="bali-specs">
-          <div><b>15,9 m</b>dĺžka</div>
-          <div><b>8,15 m</b>šírka</div>
-          <div><b>12</b>kapacita</div>
-          <div><b>7 / 7</b>kajuty / WC</div>
-          <div><b>2 &times; 80 HP</b>motory</div>
-        </div>
-        <div class="addon">
-          <p class="addon-k">Voliteľný príplatok</p>
-          <p class="addon-m"><b>Extra kajuta na katamaráne</b><span>2 500 &euro; bez DPH</span></p>
-          <p class="addon-n">Nad rámec ceny lode, pre tých, ktorí chcú spať na katamaráne. Počet kajút je obmedzený.</p>
-        </div>
+      <div class="addon">
+        <p class="addon-k">Voliteľný príplatok</p>
+        <p class="addon-m"><b>Extra kajuta na katamaráne</b><span>2 500 &euro; bez DPH</span></p>
+        <p class="addon-n">Nad rámec ceny lode, pre tých, ktorí chcú spať na katamaráne. Počet kajút je obmedzený.</p>
       </div>
     </section>
 
+  </div>
+
+
+  <!-- ══════════ STRANA 2 — program ══════════ -->
+  <div class="inner">
+
+    <section class="sec break">
+      <p class="eyebrow">Program</p>
+      <h2>Od spoločnej večere <strong>po spoločnú večeru.</strong></h2>
+      <p class="intro">Deväť rozjázd medzi Rogoznicou, Tribunjom, Jezerami a Zlarinom. Rozhoduje spolupráca celej posádky, nie to, kto má za sebou najviac námorných míľ.</p>
+      <ul class="prog">
+        <li class="is-aux">
+          <span class="day">sobota<i>25. 9.</i></span>
+          <span class="leg">Oblasť Šibenik</span>
+          <span class="what">Prevzatie a kontrola lodí s pomocou organizátora. Lode sú k dispozícii už od sobotného popoludnia.</span>
+        </li>
+        <li class="is-open">
+          <span class="day">nedeľa<i>26. 9.</i></span>
+          <span class="leg">Rogoznica</span>
+          <span class="what"><b>Začiatok regaty.</b> Kapitánsky brífing, otvárací večer a prvá spoločná večera.</span>
+        </li>
+        <li>
+          <span class="day">pondelok<i>27. 9.</i></span>
+          <span class="leg">Rogoznica &rarr; Tribunj</span>
+          <span class="what">Súťažný deň <span class="tag">D1</span> &middot; spoločná večera</span>
+        </li>
+        <li>
+          <span class="day">utorok<i>28. 9.</i></span>
+          <span class="leg">Tribunj &rarr; Jezera</span>
+          <span class="what">Súťažný deň <span class="tag">D2</span> &middot; spoločná večera</span>
+        </li>
+        <li>
+          <span class="day">streda<i>29. 9.</i></span>
+          <span class="leg">Jezera &rarr; Zlarin</span>
+          <span class="what">Súťažný deň <span class="tag">D3</span> &middot; spoločná večera</span>
+        </li>
+        <li class="is-final">
+          <span class="day">štvrtok<i>30. 9.</i></span>
+          <span class="leg">Zlarin &rarr; Rogoznica</span>
+          <span class="what"><b>Finálový súťažný deň</b> <span class="tag">D4</span> &middot; spoločná večera a vyhlásenie výsledkov</span>
+        </li>
+        <li class="is-aux">
+          <span class="day">piatok<i>1. 10.</i></span>
+          <span class="leg">Oblasť Šibenik</span>
+          <span class="what">Odovzdanie lodí</span>
+        </li>
+      </ul>
+      <p class="note-s">
+        Balíček zahŕňa päť nocí (26. &ndash; 30. 9.), päť spoločných večerí a štyri raňajky.
+        Noc z 25. na 26. 9. je nad rámec balíčka.
+      </p>
+    </section>
+
+
+
+    <section class="sec">
+      <div class="why">
+        <div>
+          <h3>Päť nocí na jednej lodi</h3>
+          <p>Tím spolu funguje, plaví sa a rozhoduje v priestore veľkom ako obývačka. Nikto neodbehne na call, nikto sa nevytratí po druhom chode.</p>
+        </div>
+        <div>
+          <h3>Škrtaná etapa</h3>
+          <p>Jeden zlý deň nesmie zlikvidovať týždeň. Najhoršia rozjazda sa po piatej odpočítava.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="sec">
       <div class="step">
         <p class="eyebrow">Ďalší krok</p>
         <h2>Zatiaľ vás <strong>nič nezaväzuje.</strong></h2>
         <p class="small">
-          Flotilu a podmienky dolaďujeme a nechceme sľubovať miesta, kým ich nemáme
-          potvrdené &mdash; preto zatiaľ nejde o registráciu ani rezerváciu. Ozvite sa
-          a prejdeme si koncept, trasu aj obsah balíčka osobne. Radi zodpovieme otázky
-          k technickej špecifikácii lodí aj k tomu, ako program vyhovuje vášmu tímu.
-          Ozývame sa spravidla do jedného pracovného dňa.
+          Flotilu a podmienky dolaďujeme, preto zatiaľ nejde o registráciu ani rezerváciu.
+          Ozvite sa a prejdeme si koncept aj obsah balíčka osobne.
         </p>
         <dl class="contact">
           <div><dt>E-mail</dt><dd>info@tacktalkregatta.com</dd></div>
@@ -389,7 +351,7 @@
   <div class="docfoot">
     <span class="logotype">Tack <span class="amp">&amp;</span> Talk</span>
     <span class="claim">Svieži vietor v plachtách</span>
-    <span>Rogoznica &middot; 26. &ndash; 30. 9. 2027</span>
+    <span>info@tacktalkregatta.com &middot; +421 910 909 516</span>
   </div>
 
 </article>
