@@ -228,7 +228,7 @@ const sk = {
       tab: "Deň 4",
       destination: "Rogoznica",
       title: "Zlarin → Rogoznica",
-      route: "Finálový súťažný deň",
+      route: "Finálny súťažný deň",
       programme:
         "Raňajky, ranný brífing a finálová časť regaty s návratom do Mariny Frapa v Rogoznici.",
       facts: ["Súťažný deň 4/4", "Raňajky 4/4", "Večera 5/5"],
