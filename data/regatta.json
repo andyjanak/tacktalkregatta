@@ -209,9 +209,9 @@
         "enabled": true,
         "count": 1,
         "min_races_to_activate": 5,
-        "applies_to": ["všetky rozjazdy okrem finálovej"],
-        "excluded": ["finálová rozjazda"],
-        "rationale": "Po minimálne 5 odplávaných rozjazdách sa škrtá jedna najhoršia (s najviac bodmi). Finálová rozjazda sa neškrtá nikdy. Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
+        "applies_to": ["všetky rozjazdy okrem finálnej"],
+        "excluded": ["finálna rozjazda"],
+        "rationale": "Po minimálne 5 odplávaných rozjazdách sa škrtá jedna najhoršia (s najviac bodmi). Finálna rozjazda sa neškrtá nikdy. Jeden zlý deň nesmie zlikvidovať celý týždeň — inak posádky prestanú hrať aj v obsahovej časti."
       },
       "engine_use": {
         "penalty": "diskvalifikácia z danej etapy, nie z regaty",
@@ -236,7 +236,7 @@
         { "name": "Prístavná disciplína a duch podujatia", "day": "priebežne", "max": 10 }
       ]
     },
-    "tiebreak": ["výsledok finálovej rozjazdy", "vyšší počet lepších umiestnení v plavebnej vetve", "body z obsahového programu"],
+    "tiebreak": ["výsledok finálnej rozjazdy", "vyšší počet lepších umiestnení v plavebnej vetve", "body z obsahového programu"],
     "publication": "každý večer do 21:00",
     "protest_deadline": "09:00 nasledujúceho dňa, ústne u hlavného rozhodcu"
   },

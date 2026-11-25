@@ -230,7 +230,7 @@ const sk = {
       title: "Zlarin → Rogoznica",
       route: "Finálny súťažný deň",
       programme:
-        "Raňajky, ranný brífing a finálová časť regaty s návratom do Mariny Frapa v Rogoznici.",
+        "Raňajky, ranný brífing a finálna časť regaty s návratom do Mariny Frapa v Rogoznici.",
       facts: ["Súťažný deň 4/4", "Raňajky 4/4", "Večera 5/5"],
       eveningTitle: "Finále v Rogoznici",
       eveningCopy: "Záverečná spoločná večera a vyhlásenie výsledkov regaty.",
@@ -527,7 +527,7 @@ const sk = {
       "Ak majú dve posádky rovnaký súčet, rozhoduje počet lepších umiestnení; pri ďalšej zhode výsledok z poslednej spoločnej rozjazdy. Presné pravidlo potvrdia plachetné pokyny.",
     discardTitle: "Škrtanie najhoršej rozjazdy",
     discardP:
-      "Po minimálne 5 odplávaných rozjazdách sa každej posádke škrtá jedna najhoršia rozjazda (s najviac bodmi). Finálová rozjazda sa neškrtá nikdy — vždy sa počíta.",
+      "Po minimálne 5 odplávaných rozjazdách sa každej posádke škrtá jedna najhoršia rozjazda (s najviac bodmi). Finálna rozjazda sa neškrtá nikdy — vždy sa počíta.",
     whenTitle: "Kedy a kde budú výsledky",
     whenP:
       "Priebežné poradie sa zverejňuje po každom súťažnom dni v maríne a tu na stránke. Celkové výsledky a vyhlásenie sú v posledný deň v Rogoznici.",
