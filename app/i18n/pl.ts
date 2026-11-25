@@ -190,8 +190,8 @@ const pl: Dict = {
       title: "Rogoznica → Tribunj",
       route: "Pierwszy dzień wyścigu",
       programme:
-        "Śniadanie, poranna odprawa i pierwsza część regaty z metą w Tribunju. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
-      facts: ["Dzień wyścigu 1/4", "Śniadanie 1/4", "Kolacja 2/5"],
+        "Poranna odprawa i pierwsza część regaty z metą w Tribunju. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
+      facts: ["Dzień wyścigu 1/4", "Kolacja 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Wspólna kolacja i przestrzeń na rozmowy między załogami po pierwszym dniu wyścigu.",
@@ -203,8 +203,8 @@ const pl: Dict = {
       title: "Tribunj → Jezera",
       route: "Drugi dzień wyścigu",
       programme:
-        "Śniadanie, poranna odprawa i program wyścigowy na trasie do Jezera. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
-      facts: ["Dzień wyścigu 2/4", "Śniadanie 2/4", "Kolacja 3/5"],
+        "Poranna odprawa i program wyścigowy na trasie do Jezera. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
+      facts: ["Dzień wyścigu 2/4", "Kolacja 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Wspólna kolacja i spotkanie całej floty wraz z programem na BALI 5.2.",
@@ -216,8 +216,8 @@ const pl: Dict = {
       title: "Jezera → Zlarin",
       route: "Trzeci dzień wyścigu",
       programme:
-        "Śniadanie, poranna odprawa i program wyścigowy z metą na Zlarinie. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
-      facts: ["Dzień wyścigu 3/4", "Śniadanie 3/4", "Kolacja 4/5"],
+        "Poranna odprawa i program wyścigowy z metą na Zlarinie. Dokładny harmonogram biegów ogłoszą instrukcje żeglugi.",
+      facts: ["Dzień wyścigu 3/4", "Kolacja 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Cała flota spotyka się na wspólnej kolacji i programie po trzecim dniu wyścigu.",
@@ -229,8 +229,8 @@ const pl: Dict = {
       title: "Zlarin → Rogoznica",
       route: "Finałowy dzień wyścigu",
       programme:
-        "Śniadanie, poranna odprawa i finałowa część regaty z powrotem do Mariny Frapa w Rogoznicy.",
-      facts: ["Dzień wyścigu 4/4", "Śniadanie 4/4", "Kolacja 5/5"],
+        "Poranna odprawa i finałowa część regaty z powrotem do Mariny Frapa w Rogoznicy.",
+      facts: ["Dzień wyścigu 4/4", "Kolacja 5/5"],
       eveningTitle: "Finał w Rogoznicy",
       eveningCopy: "Zamykająca wspólna kolacja i ogłoszenie wyników regaty.",
       mapSub: "Dzień 4 · finał",
@@ -301,7 +301,6 @@ const pl: Dict = {
       "ubezpieczenie kaucji i opłaty",
       "kontrolę i pomoc przy odbiorze jachtu przez organizatora",
       "pięć wspólnych kolacji",
-      "cztery śniadania",
       "regatę: cztery dni wyścigów i dziewięć biegów",
       "katamaran BALI 5.2 przez cały czas trwania wydarzenia",
     ],

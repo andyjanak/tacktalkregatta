@@ -190,8 +190,8 @@ const hr: Dict = {
       title: "Rogoznica → Tribunj",
       route: "Prvi dan natjecanja",
       programme:
-        "Doručak, jutarnji brifing i prvi dio regate s ciljem u Tribunju. Točan raspored plovidbi objavit će jedriličarske upute.",
-      facts: ["Dan natjecanja 1/4", "Doručak 1/4", "Večera 2/5"],
+        "Jutarnji brifing i prvi dio regate s ciljem u Tribunju. Točan raspored plovidbi objavit će jedriličarske upute.",
+      facts: ["Dan natjecanja 1/4", "Večera 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Zajednička večera i prostor za razgovore među posadama nakon prvog dana natjecanja.",
@@ -203,8 +203,8 @@ const hr: Dict = {
       title: "Tribunj → Jezera",
       route: "Drugi dan natjecanja",
       programme:
-        "Doručak, jutarnji brifing i natjecateljski program na ruti prema Jezerima. Točan raspored plovidbi objavit će jedriličarske upute.",
-      facts: ["Dan natjecanja 2/4", "Doručak 2/4", "Večera 3/5"],
+        "Jutarnji brifing i natjecateljski program na ruti prema Jezerima. Točan raspored plovidbi objavit će jedriličarske upute.",
+      facts: ["Dan natjecanja 2/4", "Večera 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Zajednička večera i druženja diljem flote, uključujući program na BALI 5.2.",
@@ -216,8 +216,8 @@ const hr: Dict = {
       title: "Jezera → Zlarin",
       route: "Treći dan natjecanja",
       programme:
-        "Doručak, jutarnji brifing i natjecateljski program s ciljem na Zlarinu. Točan raspored plovidbi objavit će jedriličarske upute.",
-      facts: ["Dan natjecanja 3/4", "Doručak 3/4", "Večera 4/5"],
+        "Jutarnji brifing i natjecateljski program s ciljem na Zlarinu. Točan raspored plovidbi objavit će jedriličarske upute.",
+      facts: ["Dan natjecanja 3/4", "Večera 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Cijela flota okuplja se na zajedničkoj večeri i programu nakon trećeg dana natjecanja.",
@@ -229,8 +229,8 @@ const hr: Dict = {
       title: "Zlarin → Rogoznica",
       route: "Završni dan natjecanja",
       programme:
-        "Doručak, jutarnji brifing i završni dio regate s povratkom u Marinu Frapa u Rogoznici.",
-      facts: ["Dan natjecanja 4/4", "Doručak 4/4", "Večera 5/5"],
+        "Jutarnji brifing i završni dio regate s povratkom u Marinu Frapa u Rogoznici.",
+      facts: ["Dan natjecanja 4/4", "Večera 5/5"],
       eveningTitle: "Finale u Rogoznici",
       eveningCopy: "Završna zajednička večera i proglašenje rezultata regate.",
       mapSub: "Dan 4 · finale",
@@ -301,7 +301,6 @@ const hr: Dict = {
       "osiguranje pologa i pristojbe",
       "pregled pri preuzimanju broda i pomoć organizatora",
       "pet zajedničkih večera",
-      "četiri doručka",
       "regatu: četiri dana natjecanja i devet plovidbi",
       "katamaran BALI 5.2 tijekom cijelog događaja",
     ],

@@ -190,8 +190,8 @@ const de: Dict = {
       title: "Rogoznica → Tribunj",
       route: "Erster Wettfahrttag",
       programme:
-        "Frühstück, Morgenbriefing und der erste Teil der Regatta mit Ziel in Tribunj. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
-      facts: ["Wettfahrttag 1/4", "Frühstück 1/4", "Abendessen 2/5"],
+        "Morgenbriefing und der erste Teil der Regatta mit Ziel in Tribunj. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
+      facts: ["Wettfahrttag 1/4", "Abendessen 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Ein gemeinsames Abendessen und Raum für Gespräche zwischen den Crews nach dem ersten Wettfahrttag.",
@@ -203,8 +203,8 @@ const de: Dict = {
       title: "Tribunj → Jezera",
       route: "Zweiter Wettfahrttag",
       programme:
-        "Frühstück, Morgenbriefing und das Wettfahrtprogramm auf der Route nach Jezera. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
-      facts: ["Wettfahrttag 2/4", "Frühstück 2/4", "Abendessen 3/5"],
+        "Morgenbriefing und das Wettfahrtprogramm auf der Route nach Jezera. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
+      facts: ["Wettfahrttag 2/4", "Abendessen 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Ein gemeinsames Abendessen und Begegnungen über die Flotte hinweg, einschließlich des Programms an Bord der BALI 5.2.",
@@ -216,8 +216,8 @@ const de: Dict = {
       title: "Jezera → Zlarin",
       route: "Dritter Wettfahrttag",
       programme:
-        "Frühstück, Morgenbriefing und das Wettfahrtprogramm mit Ziel in Zlarin. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
-      facts: ["Wettfahrttag 3/4", "Frühstück 3/4", "Abendessen 4/5"],
+        "Morgenbriefing und das Wettfahrtprogramm mit Ziel in Zlarin. Der genaue Wettfahrtplan wird in den Segelanweisungen veröffentlicht.",
+      facts: ["Wettfahrttag 3/4", "Abendessen 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Die gesamte Flotte trifft sich zu einem gemeinsamen Abendessen und Programm nach dem dritten Wettfahrttag.",
@@ -229,8 +229,8 @@ const de: Dict = {
       title: "Zlarin → Rogoznica",
       route: "Letzter Wettfahrttag",
       programme:
-        "Frühstück, Morgenbriefing und der letzte Teil der Regatta mit Rückkehr zur Marina Frapa in Rogoznica.",
-      facts: ["Wettfahrttag 4/4", "Frühstück 4/4", "Abendessen 5/5"],
+        "Morgenbriefing und der letzte Teil der Regatta mit Rückkehr zur Marina Frapa in Rogoznica.",
+      facts: ["Wettfahrttag 4/4", "Abendessen 5/5"],
       eveningTitle: "Finale in Rogoznica",
       eveningCopy: "Das abschließende gemeinsame Abendessen und die Bekanntgabe der Regattaergebnisse.",
       mapSub: "Tag 4 · Finale",
@@ -301,7 +301,6 @@ const de: Dict = {
       "Kautionsversicherung und Gebühren",
       "Übernahmekontrolle und Unterstützung durch den Organisator",
       "fünf gemeinsame Abendessen",
-      "vier Frühstücke",
       "die Regatta: vier Wettfahrttage und neun Wettfahrten",
       "den Katamaran BALI 5.2 während der gesamten Veranstaltung",
     ],

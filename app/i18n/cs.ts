@@ -190,8 +190,8 @@ const cs: Dict = {
       title: "Rogoznica → Tribunj",
       route: "První závodní den",
       programme:
-        "Snídaně, ranní brífink a první část regaty s cílem v Tribunji. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
-      facts: ["Závodní den 1/4", "Snídaně 1/4", "Večeře 2/5"],
+        "Ranní brífink a první část regaty s cílem v Tribunji. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
+      facts: ["Závodní den 1/4", "Večeře 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Společná večeře a prostor pro rozhovory mezi posádkami po prvním závodním dni.",
@@ -203,8 +203,8 @@ const cs: Dict = {
       title: "Tribunj → Jezera",
       route: "Druhý závodní den",
       programme:
-        "Snídaně, ranní brífink a závodní program na trase do Jezera. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
-      facts: ["Závodní den 2/4", "Snídaně 2/4", "Večeře 3/5"],
+        "Ranní brífink a závodní program na trase do Jezera. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
+      facts: ["Závodní den 2/4", "Večeře 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Společná večeře a setkání napříč flotilou včetně programu na BALI 5.2.",
@@ -216,8 +216,8 @@ const cs: Dict = {
       title: "Jezera → Zlarin",
       route: "Třetí závodní den",
       programme:
-        "Snídaně, ranní brífink a závodní program s cílem na Zlarinu. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
-      facts: ["Závodní den 3/4", "Snídaně 3/4", "Večeře 4/5"],
+        "Ranní brífink a závodní program s cílem na Zlarinu. Přesný rozpis rozjížděk zveřejní plachtařské instrukce.",
+      facts: ["Závodní den 3/4", "Večeře 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Celá flotila se sejde u společné večeře a programu po třetím závodním dni.",
@@ -229,8 +229,8 @@ const cs: Dict = {
       title: "Zlarin → Rogoznica",
       route: "Finálový závodní den",
       programme:
-        "Snídaně, ranní brífink a finálová část regaty s návratem do Mariny Frapa v Rogoznici.",
-      facts: ["Závodní den 4/4", "Snídaně 4/4", "Večeře 5/5"],
+        "Ranní brífink a finálová část regaty s návratem do Mariny Frapa v Rogoznici.",
+      facts: ["Závodní den 4/4", "Večeře 5/5"],
       eveningTitle: "Finále v Rogoznici",
       eveningCopy: "Závěrečná společná večeře a vyhlášení výsledků regaty.",
       mapSub: "Den 4 · finále",
@@ -301,7 +301,6 @@ const cs: Dict = {
       "pojištění kauce a poplatky",
       "kontrolu a pomoc s převzetím lodi organizátorem",
       "pět společných večeří",
-      "čtyři snídaně",
       "regatu: čtyři závodní dny a devět rozjížděk",
       "katamarán BALI 5.2 po celou dobu akce",
     ],

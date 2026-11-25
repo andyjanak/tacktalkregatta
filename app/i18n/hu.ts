@@ -190,8 +190,8 @@ const hu: Dict = {
       title: "Rogoznica → Tribunj",
       route: "Első versenynap",
       programme:
-        "Reggeli, reggeli eligazítás és a regatta első része Tribunj céllal. A pontos futammenetrendet a versenyutasítások teszik közzé.",
-      facts: ["Versenynap 1/4", "Reggeli 1/4", "Vacsora 2/5"],
+        "Reggeli eligazítás és a regatta első része Tribunj céllal. A pontos futammenetrendet a versenyutasítások teszik közzé.",
+      facts: ["Versenynap 1/4", "Vacsora 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Közös vacsora és tér a legénységek közötti beszélgetésekre az első versenynap után.",
@@ -203,8 +203,8 @@ const hu: Dict = {
       title: "Tribunj → Jezera",
       route: "Második versenynap",
       programme:
-        "Reggeli, reggeli eligazítás és a versenyprogram a Jezera felé vezető útvonalon. A pontos futammenetrendet a versenyutasítások teszik közzé.",
-      facts: ["Versenynap 2/4", "Reggeli 2/4", "Vacsora 3/5"],
+        "Reggeli eligazítás és a versenyprogram a Jezera felé vezető útvonalon. A pontos futammenetrendet a versenyutasítások teszik közzé.",
+      facts: ["Versenynap 2/4", "Vacsora 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Közös vacsora és találkozók a flottán belül, beleértve a BALI 5.2 fedélzetén zajló programot.",
@@ -216,8 +216,8 @@ const hu: Dict = {
       title: "Jezera → Zlarin",
       route: "Harmadik versenynap",
       programme:
-        "Reggeli, reggeli eligazítás és a versenyprogram Zlarin céllal. A pontos futammenetrendet a versenyutasítások teszik közzé.",
-      facts: ["Versenynap 3/4", "Reggeli 3/4", "Vacsora 4/5"],
+        "Reggeli eligazítás és a versenyprogram Zlarin céllal. A pontos futammenetrendet a versenyutasítások teszik közzé.",
+      facts: ["Versenynap 3/4", "Vacsora 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Az egész flotta összegyűlik a közös vacsorára és programra a harmadik versenynap után.",
@@ -229,8 +229,8 @@ const hu: Dict = {
       title: "Zlarin → Rogoznica",
       route: "Utolsó versenynap",
       programme:
-        "Reggeli, reggeli eligazítás és a regatta záró része, visszatéréssel a rogoznicai Marina Frapába.",
-      facts: ["Versenynap 4/4", "Reggeli 4/4", "Vacsora 5/5"],
+        "Reggeli eligazítás és a regatta záró része, visszatéréssel a rogoznicai Marina Frapába.",
+      facts: ["Versenynap 4/4", "Vacsora 5/5"],
       eveningTitle: "Döntő Rogoznicában",
       eveningCopy: "A záró közös vacsora és a regatta eredményeinek kihirdetése.",
       mapSub: "4. nap · döntő",
@@ -301,7 +301,6 @@ const hu: Dict = {
       "a kaució-biztosítást és a díjakat",
       "a hajóátvételi ellenőrzést és a szervező segítségét",
       "öt közös vacsorát",
-      "négy reggelit",
       "a regattát: négy versenynap és kilenc futam",
       "a BALI 5.2 katamaránt a rendezvény teljes ideje alatt",
     ],

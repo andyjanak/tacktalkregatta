@@ -293,7 +293,7 @@
         "price": 8700,
         "vat_included": false,
         "price_label": "8 700 € bez DPH",
-        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "4 raňajky", "regata", "BALI 5.2 počas celého podujatia"]
+        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "regata", "BALI 5.2 počas celého podujatia"]
       },
       {
         "code": "DUFOUR_470",
@@ -301,7 +301,7 @@
         "price": 9500,
         "vat_included": false,
         "price_label": "9 500 € bez DPH",
-        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "4 raňajky", "regata", "BALI 5.2 počas celého podujatia"]
+        "includes": ["kompletná loď", "poistenie kaucie", "poplatky", "kontrola a pomoc s prevzatím lode organizátorom", "5 večerí", "regata", "BALI 5.2 počas celého podujatia"]
       }
     ],
     "discounts": [

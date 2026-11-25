@@ -191,8 +191,8 @@ const sk = {
       title: "Rogoznica → Tribunj",
       route: "Prvý súťažný deň",
       programme:
-        "Raňajky, ranný brífing a prvá časť regaty s cieľom v Tribunji. Presný rozpis rozjázd zverejnia plachetné pokyny.",
-      facts: ["Súťažný deň 1/4", "Raňajky 1/4", "Večera 2/5"],
+        "Ranný brífing a prvá časť regaty s cieľom v Tribunji. Presný rozpis rozjázd zverejnia plachetné pokyny.",
+      facts: ["Súťažný deň 1/4", "Večera 2/5"],
       eveningTitle: "Tribunj",
       eveningCopy:
         "Spoločná večera a priestor na rozhovory medzi posádkami po prvom súťažnom dni.",
@@ -204,8 +204,8 @@ const sk = {
       title: "Tribunj → Jezera",
       route: "Druhý súťažný deň",
       programme:
-        "Raňajky, ranný brífing a súťažný program na trase do Jezier. Presný rozpis rozjázd zverejnia plachetné pokyny.",
-      facts: ["Súťažný deň 2/4", "Raňajky 2/4", "Večera 3/5"],
+        "Ranný brífing a súťažný program na trase do Jezier. Presný rozpis rozjázd zverejnia plachetné pokyny.",
+      facts: ["Súťažný deň 2/4", "Večera 3/5"],
       eveningTitle: "Jezera",
       eveningCopy:
         "Spoločná večera a stretnutia naprieč flotilou vrátane programu na BALI 5.2.",
@@ -217,8 +217,8 @@ const sk = {
       title: "Jezera → Zlarin",
       route: "Tretí súťažný deň",
       programme:
-        "Raňajky, ranný brífing a súťažný program s cieľom na Zlarine. Presný rozpis rozjázd zverejnia plachetné pokyny.",
-      facts: ["Súťažný deň 3/4", "Raňajky 3/4", "Večera 4/5"],
+        "Ranný brífing a súťažný program s cieľom na Zlarine. Presný rozpis rozjázd zverejnia plachetné pokyny.",
+      facts: ["Súťažný deň 3/4", "Večera 4/5"],
       eveningTitle: "Zlarin",
       eveningCopy:
         "Celá flotila sa stretne pri spoločnej večeri a programe po treťom súťažnom dni.",
@@ -230,8 +230,8 @@ const sk = {
       title: "Zlarin → Rogoznica",
       route: "Finálny súťažný deň",
       programme:
-        "Raňajky, ranný brífing a finálna časť regaty s návratom do Mariny Frapa v Rogoznici.",
-      facts: ["Súťažný deň 4/4", "Raňajky 4/4", "Večera 5/5"],
+        "Ranný brífing a finálna časť regaty s návratom do Mariny Frapa v Rogoznici.",
+      facts: ["Súťažný deň 4/4", "Večera 5/5"],
       eveningTitle: "Finále v Rogoznici",
       eveningCopy: "Záverečná spoločná večera a vyhlásenie výsledkov regaty.",
       mapSub: "Deň 4 · finále",
@@ -302,7 +302,6 @@ const sk = {
       "poistenie kaucie a poplatky",
       "kontrolu a pomoc s prevzatím lode organizátorom",
       "päť spoločných večerí",
-      "štyri raňajky",
       "regatu: štyri súťažné dni a deväť rozjázd",
       "katamarán BALI 5.2 počas celého podujatia",
     ],
